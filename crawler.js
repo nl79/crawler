@@ -32,22 +32,21 @@ function spawn (config) {
         
         var req = http.get(this.url, function(res) {
             
-            console.log('STATUS: ' + res.statusCode);
-            console.log('HEADERS: ' + JSON.stringify(res.headers));
+            //console.log('STATUS: ' + res.statusCode);
+            //console.log('HEADERS: ' + JSON.stringify(res.headers));
             
             res.setEncoding('utf8');
-            
-            
             
             res.on('data', function (chunk) {
                 this.buffer += chunk;    
             });
             
             res.on('end', function() {
-                
-                console.log(this.buffer);
-                 
-                self.emit('done'); 
+
+                //call the crawlers transform method to parse the data. 
+                Crawler.prototype.transform({status: res.statusCode,
+                                            headers: JSON.stringify(res.headers),
+                                            body: this.buffer}); 
             })
             
         });
@@ -57,6 +56,11 @@ function spawn (config) {
         });
     }
 
+    Crawler.prototype.transform = function(data) {
+         
+    }
+    
+    
     return new Crawler(url); 
 }
 
