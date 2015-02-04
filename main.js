@@ -4,7 +4,10 @@ var crawler = require('./crawler.js');
 var seedURL = ['http://en.wikipedia.org/wiki/Information_retrieval',
                 'http://en.wikipedia.org/wiki/Information_retrieval_applications']; 
 */
-var seedURL = ['http://www.google.com']; 
+var seedURL = ['http://en.wikipedia.org/wiki/Information_retrieval'];
+var searchTerms = [];
+var stopTerms = []; 
+
 var swarm = new Array(); 
 
 
