@@ -135,6 +135,11 @@ function spawn (config) {
          
     }
     
+    /*
+     *@function isValid
+     *@description Checks for special characters in a string.
+     *@return boolean - returns true if the string does not contain special characters.
+     */ 
     Crawler.prototype.isValid = function isValid(str){
         return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
     }   
