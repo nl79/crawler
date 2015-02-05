@@ -9,28 +9,44 @@ function spawn (config) {
     var url = typeof config.url == 'string' ?  config.url :  "";
     
     function Crawler (url) {
+        
         //busy flag. 
         this.crawling = false;
-          
-        this.url = url; 
+
+        this.queue = new Array();
+        
+        
+        Crawler.prototype.addUrl.call(this,url); 
+        
     }
  
  
     util.inherits(Crawler, emitter);
- 
+    
+    Crawler.prototype.addUrl = function(url) {
+        
+        if(typeof url != 'string' || url == '')  {
+
+            this.emit('error', Error('Invalid URL supplied'));
+            
+            return false;
+        
+        } else {
+            
+            this.queue.push(url); 
+        }
+    }
    
     Crawler.prototype.crawl = function() {
         var self = this;
         
-        if(typeof url != 'string' || url == '')  {
-            
-            self.emit('error', Error('Invalid URL supplied'));
-            return false; 
-        }
-        
         var http = require('http');
         
-        var req = http.get(this.url, function(res) {
+        if (this.queue.length > 0) {
+            var url = this.queue.shift(); 
+        }
+        
+        var req = http.get(url, function(res) {
             
             //console.log('STATUS: ' + res.statusCode);
             //console.log('HEADERS: ' + JSON.stringify(res.headers));
@@ -57,7 +73,69 @@ function spawn (config) {
     }
 
     Crawler.prototype.transform = function(data) {
+       
+        //check that the data object has valid data. 
+        if (data && data.status == 200 && data.body != '') {
+            //var matches = data.body.match(/<a[^>]*href="([^"]*)"[^>]*>.*<\/a>/g);
+            
+            var terms = Array(); 
+            
+            // match the urls
+            var urls = data.body.match(/href="([^"]*)"/g);
+            
+            /*
+             *process the urls and push them into the queue
+             */
+            
+            
+            /*
+             *scan the document for matching key words.
+             *if at least 2 found inside the document
+             *save the document localy.
+             */ 
+            
+            //var content = data.body.match(/<.+?>/g); //matches tags
+            //var content = data.body.replace(/<[^>]*>/g, ''); //remove all tags from the string
+            
+            //split the string on space.
+            //var collection = content.split(/(\S+|\n)/g);
+            
+            /*
+            collection.forEach(function(val,index,arr) {
+                
+                if(Crawler.prototype.isValid(val)) {
+                    
+                    console.log('-' + val + '-'+ val.length + '-' + typeof val);
+                }
+            })
+            */
+            
+            
+        }
         
+        //console.log(collection);
+         
+    }
+    
+    /*
+     *@function isValid
+     *@description Checks for special characters in a string.
+     *@return boolean - returns true if the string does not contain special characters.
+     */ 
+    Crawler.prototype.isValid = function isValid(str){
+        return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
+    }   
+    
+    
+    return new Crawler(url); 
+}
+
+module.exports = spawn;
+
+/** TEST CODE **/
+
+function parse(data) {
+    
         //check that the data object has valid data. 
         if (data && data.status == 200 && data.body != '') {
             
@@ -128,24 +206,7 @@ function spawn (config) {
                     //console.log(val); 
                 }
 
-            }); 
+            });
+            
         }
-        
-        console.log(links); 
-         
-    }
-    
-    /*
-     *@function isValid
-     *@description Checks for special characters in a string.
-     *@return boolean - returns true if the string does not contain special characters.
-     */ 
-    Crawler.prototype.isValid = function isValid(str){
-        return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
-    }   
-    
-    
-    return new Crawler(url); 
 }
-
-module.exports = spawn; 

@@ -13,7 +13,10 @@ var swarm = new Array();
 
 
 seedURL.forEach(function(val, index, arr) {
-    swarm.push(crawler({'url': val}).on('error', function(err) {
+    swarm.push(crawler({'url': val,
+                       'limit': 500,
+                       'terms': searchTerms,
+                       'stopTerms': stopTerms}).on('error', function(err) {
         console.log(err); }).on('done', function(arg) {
             console.log('Finished Crawling'); 
         }).crawl()); 
