@@ -5,129 +5,177 @@ var
 
 function spawn (config) {
     
-    //Url array of seed urls. 
-    var url = typeof config.url == 'string' ?  config.url :  "";
-    
-    function Crawler (url) {
+    function Crawler (config) {
         
         //busy flag. 
         this.crawling = false;
-
+        
+        //build the queue. 
         this.queue = new Array();
         
+        //raw config data.
+        this.config = config; 
         
-        Crawler.prototype.addUrl.call(this,url); 
+        //set the url
+        this.url; 
         
-    }
- 
- 
-    util.inherits(Crawler, emitter);
+        //set the search terms. 
+        this.terms; 
+        
+        //set the stop words. 
+        this.stopWords; 
+         
+        
+        this.addUrl = function(url) {
+        
+            if(typeof url != 'string' || url == '')  {
     
-    Crawler.prototype.addUrl = function(url) {
-        
-        if(typeof url != 'string' || url == '')  {
-
-            this.emit('error', Error('Invalid URL supplied'));
+                this.emit('error', Error('Invalid URL supplied'));
+                
+                return false;
             
-            return false;
+            } else {
+                
+                this.queue.push(url);
+                
+                return true; 
+            }
+        }; 
         
-        } else {
+        this.setTerms = function(args) {
             
-            this.queue.push(url); 
-        }
-    }
-   
-    Crawler.prototype.crawl = function() {
-        var self = this;
+            this.terms = args; 
+        }; 
         
-        var http = require('http');
+        this.setStopWords = function(args) {
+            
+            this.stopWords = args; 
+        }; 
         
-        if (this.queue.length > 0) {
-            var url = this.queue.shift(); 
-        }
+        this.setLimit = function(args) {
+            
+            this.limit = args; 
+        }; 
         
-        var req = http.get(url, function(res) {
+        
+        this.crawl = function() {
+            var self = this;
             
-            //console.log('STATUS: ' + res.statusCode);
-            //console.log('HEADERS: ' + JSON.stringify(res.headers));
+            var http = require('http');
+          
+            if (this.queue.length > 0) {
+                var url = this.queue.shift(); 
+            } else {
+                this.emit('error', Error('Method: Crawl() - Invalid URL'));
+                
+                return false; 
+            }
             
-            res.setEncoding('utf8');
+            console.log('Crawling: ' + url);
             
-            res.on('data', function (chunk) {
-                this.buffer += chunk;    
+            var req = http.get(url, function(res) {
+                
+                res.setEncoding('utf8');
+                
+                res.on('data', function (chunk) {
+                    this.buffer += chunk;    
+                });
+                
+                res.on('end', function() {
+    
+                    //call the crawlers transform method to parse the data. 
+                    self.transform({status: res.statusCode,
+                                                headers: JSON.stringify(res.headers),
+                                                body: this.buffer}); 
+                })
+                
             });
             
-            res.on('end', function() {
-
-                //call the crawlers transform method to parse the data. 
-                Crawler.prototype.transform({status: res.statusCode,
-                                            headers: JSON.stringify(res.headers),
-                                            body: this.buffer}); 
-            })
-            
-        });
+            req.on('error', function(e) {
+              console.log('problem with request: ' + e.message);
+            });
+        }; 
         
-        req.on('error', function(e) {
-          console.log('problem with request: ' + e.message);
-        });
-    }
-
-    Crawler.prototype.transform = function(data) {
-       
-        //check that the data object has valid data. 
-        if (data && data.status == 200 && data.body != '') {
-            //var matches = data.body.match(/<a[^>]*href="([^"]*)"[^>]*>.*<\/a>/g);
-            
-            var terms = Array(); 
-            
-            // match the urls
-            var urls = data.body.match(/href="([^"]*)"/g);
-            
-            /*
-             *process the urls and push them into the queue
-             */
+        this.transform = function(data) {
             
             
-            /*
-             *scan the document for matching key words.
-             *if at least 2 found inside the document
-             *save the document localy.
-             */ 
+            self = this;
             
-            //var content = data.body.match(/<.+?>/g); //matches tags
-            //var content = data.body.replace(/<[^>]*>/g, ''); //remove all tags from the string
-            
-            //split the string on space.
-            //var collection = content.split(/(\S+|\n)/g);
-            
-            /*
-            collection.forEach(function(val,index,arr) {
+            //check that the data object has valid data. 
+            if (data && data.status == 200 && data.body != '') {
+                //var matches = data.body.match(/<a[^>]*href="([^"]*)"[^>]*>.*<\/a>/g);
                 
-                if(Crawler.prototype.isValid(val)) {
+                var terms = Array(); 
+                
+                // match the urls
+                var urls = data.body.match(/href="([^"]*)"/g);
+                
+                /*
+                 *process the urls and push them into the queue
+                 */
+                urls.forEach(function(val, index, arr) {
                     
-                    console.log('-' + val + '-'+ val.length + '-' + typeof val);
-                }
-            })
-            */
-            
-            
-        }
-        
-        //console.log(collection);
+                     
+                    
+                    var url = val.substring(6, val.indexOf('"', 6));
+                    
+                    /*check if the protocol is defined
+                     *if so, the url is valid, so save it and return. 
+                     *ex: http or https
+                     */
+                    if (url.substring(0, 4).toLowerCase() == 'http') {
+                        self.addUrl(this,url);
+                        
+                        return; 
+                    }
+                    
+                    /*check if the url is a current page anchor
+                     *#local_anchor
+                     *return
+                     */ 
+                    if (url.charAt(0) == '#' ) { return; }
+                    
+                    /*
+                     *check if the string is a relative link or an external link
+                     *relative link would begin with /
+                     *external links would begin with //
+                     */
+                    var slashes = url.substring(0,2);
+                    
+                    switch (slashes) {
+                        case '/':
+                            console.log(url);
+                            break; 
+                        
+                        case '//':
+                            /*
+                             *add the protocol to the url string and push it into the links array. 
+                             *ex: http:
+                             */
+                            
+                            self.addUrl('http' + url);    
+                            break; 
+                    }
+               
+                });
+                
+                console.log(this.queue); 
          
+            }
+                   
+        }; 
+        
+        this.isValid = function(str){
+            return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
+        };
+        
+        this.addUrl(config.url); 
     }
-    
-    /*
-     *@function isValid
-     *@description Checks for special characters in a string.
-     *@return boolean - returns true if the string does not contain special characters.
-     */ 
-    Crawler.prototype.isValid = function isValid(str){
-        return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
-    }   
+     
+    util.inherits(Crawler, emitter);
     
     
-    return new Crawler(url); 
+    return new Crawler(config); 
 }
 
 module.exports = spawn;

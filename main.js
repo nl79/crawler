@@ -4,9 +4,22 @@ var crawler = require('./crawler.js');
 var seedURL = ['http://en.wikipedia.org/wiki/Information_retrieval',
                 'http://en.wikipedia.org/wiki/Information_retrieval_applications']; 
 */
-var seedURL = ['http://en.wikipedia.org/wiki/Information_retrieval'];
-var searchTerms = [];
-var stopTerms = []; 
+var seedURL = ['http://en.wikipedia.org/wiki/Data_structure',
+               'http://en.wikipedia.org/wiki/Algorithm']; 
+//var seedURL = ['http://en.wikipedia.org/wiki/Information_retrieval'];
+
+var searchTerms = ['computer',
+                   'programming',
+                   'language',
+                   'structure',
+                   'data',
+                   'algorithm',
+                   'schema',
+                   'processing',
+                   'design',
+                   'pattern'];
+
+var stopTerms = ['and','or','the','an']; 
 
 var swarm = new Array(); 
 
