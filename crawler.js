@@ -30,7 +30,7 @@ function spawn (config) {
         
             if(typeof url != 'string' || url == '')  {
     
-                this.emit('error', Error('Invalid URL supplied'));
+                this.emit('error', Error('Invalid URL supplied: ' + url));
                 
                 return false;
             
@@ -66,7 +66,7 @@ function spawn (config) {
             if (this.queue.length > 0) {
                 var url = this.queue.shift(); 
             } else {
-                this.emit('error', Error('Method: Crawl() - Invalid URL'));
+                this.emit('error', Error('Crawl() - Invalid URL: ' + url));
                 
                 return false; 
             }
@@ -114,9 +114,7 @@ function spawn (config) {
                  *process the urls and push them into the queue
                  */
                 urls.forEach(function(val, index, arr) {
-                    
-                     
-                    
+
                     var url = val.substring(6, val.indexOf('"', 6));
                     
                     /*check if the protocol is defined
@@ -124,7 +122,7 @@ function spawn (config) {
                      *ex: http or https
                      */
                     if (url.substring(0, 4).toLowerCase() == 'http') {
-                        self.addUrl(this,url);
+                        self.addUrl(url);
                         
                         return; 
                     }
@@ -160,7 +158,6 @@ function spawn (config) {
                 });
                 
                 console.log(this.queue); 
-         
             }
                    
         }; 
@@ -179,82 +176,3 @@ function spawn (config) {
 }
 
 module.exports = spawn;
-
-/** TEST CODE **/
-
-function parse(data) {
-    
-        //check that the data object has valid data. 
-        if (data && data.status == 200 && data.body != '') {
-            
-            var parts = data.body.split(' ');
-            
-            var valid = Array();
-            var links = Array(); 
-            
-            //loop and extract the clean terms
-            parts.forEach(function(val, index, arr){
-                //trim
-                val.trim();
-                
-                
-                 /*
-                 *check if the value is an html anchor href attribute.
-                 *a valid href would be at least 7 characters long.
-                 *EX: href="" is 7 characters long.
-                 */ 
-                if (val.length > 7 && val.substring(0, 4).toLowerCase() == 'href') {
-                    
-                    /*
-                     *extract the url path starting from the first none "
-                     *character and going untill the closing ".
-                     */ 
-                    var url = val.substring(6, val.indexOf('"', 6));
-                    
-                    
-                    /*check if the protocol is defined
-                     *if so, the url is valid, so save it and return. 
-                     *ex: http or https
-                     */
-                    if (url.substring(0, 4).toLowerCase() == 'http') {
-                        links.push(url);
-                        
-                        return; 
-                    }
-                    
-                    
-                    /*check if the url is a current page anchor
-                     *#local_anchor
-                     *return
-                     */ 
-                    if (url.charAt(0) == '#' ) { return; }
-                    
-                    /*
-                     *check if the string is a relative link or an external link
-                     *relative link would begin with /
-                     *external links would begin with //
-                     */
-                    var slashes = url.substring(0,2);
-                    
-                    switch (slashes) {
-                        case '/':
-                            console.log(url);
-                            break; 
-                        
-                        case '//':
-                            /*
-                             *add the protocol to the url string and push it into the links array. 
-                             *ex: http:
-                             */
-                            
-                            links.push('http:' + url);    
-                            break; 
-                    }
-        
-                    //console.log(val); 
-                }
-
-            });
-            
-        }
-}
