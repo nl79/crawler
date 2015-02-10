@@ -105,10 +105,18 @@ function spawn (config) {
             if (data && data.status == 200 && data.body != '') {
                 //var matches = data.body.match(/<a[^>]*href="([^"]*)"[^>]*>.*<\/a>/g);
                 
-                var terms = Array(); 
-                
-                // match the urls
+
+                // url strings contained in the document. 
                 var urls = data.body.match(/href="([^"]*)"/g);
+                
+                
+                //check if relevant. If so save the page locally.
+                if (this.isRelevant(data.body)) {
+                    //store the document.
+                    console.log('save document'); 
+                }
+                
+                
                 
                 /*
                  *process the urls and push them into the queue
@@ -157,19 +165,83 @@ function spawn (config) {
                
                 });
                 
-                console.log(this.queue); 
-            }
-                   
-        }; 
-        
-        this.isValid = function(str){
-            return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
+                //console.log(this.queue);
+            }        
         };
         
-        this.addUrl(config.url); 
+        /*
+         *parse the string into words and keep track of word occurances.
+         *compare to the supplies terms. 
+         */
+        this.isRelevant = function(str) {
+                    
+            //strip out the tags and split the data on empty space. 
+            var parts = Crawler.prototype.stripTags(str).split(' ');
+            
+            //document index. 
+            var collection = Object.create(null); 
+            
+            /*
+             *loop thought the array and build an index.
+             */
+            parts.forEach(function(val, i, arr) {
+                //clean the value
+                var word = val.trim().toLowerCase();
+                
+                //check if the value is valid
+                if (Crawler.prototype.isValid(word)) {
+                    
+                    //console.log('-' +word.replace(/\W/g, ' ').split(' '));
+                    
+                    var result = word.replace(/\W/g, ' ').split(/\s+/);
+                    
+                    if(result instanceof Array) {
+                        
+                        result.forEach(function(val){
+                            
+                            //check if val is not empty
+                            if (val !== "" && val.length > 2) {
+                                
+                                /*
+                                 *if the value exists in the collection, increment its value by one
+                                 *else add the value.
+                                 */
+                                if (collection[val]) {
+                                     
+                                    collection[val] = collection[val] + 1;
+                                    
+                                } else {
+                                    
+                                    collection[val] = 1; 
+                                } 
+                            }
+                        }); 
+                    }
+                }
+            });
+              
+            console.log(collection); 
+            //console.log(index); 
+            
+            //compare the index to the search terms. 
+        }
+ 
+        this.addUrl(config.url);
+        this.setTerms(config.terms); 
     }
+    
+    
      
     util.inherits(Crawler, emitter);
+    
+    Crawler.prototype.isValid = function(str){
+            return !/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/g.test(str);
+    };
+    
+    Crawler.prototype.stripTags = function (str){
+            var rex = /(<([^>]+)>)/ig;
+            return str.replace(rex , "");    
+    }
     
     
     return new Crawler(config); 
