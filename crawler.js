@@ -116,8 +116,6 @@ function spawn (config) {
                     console.log('save document'); 
                 }
                 
-                
-                
                 /*
                  *process the urls and push them into the queue
                  */
@@ -186,7 +184,7 @@ function spawn (config) {
              */
             parts.forEach(function(val, i, arr) {
                 //clean the value
-                var word = val.trim().toLowerCase();
+                var word = val.trim();
                 
                 //check if the value is valid
                 if (Crawler.prototype.isValid(word)) {
@@ -219,8 +217,24 @@ function spawn (config) {
                     }
                 }
             });
+            
+            /*
+             *loop through the provided terms and compare to the
+             *terms inside the collection.
+             *Store matching values
+             */
+            var matches = Object.create(null);
+            
+            this.terms.forEach(function(val, i, arr) {
+                if(val in collection) {
+                    console.log(val); 
+                }
+            }); 
+            
+            
+            
               
-            console.log(collection); 
+            //console.log(collection); 
             //console.log(index); 
             
             //compare the index to the search terms. 
