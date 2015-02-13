@@ -1,0 +1,530 @@
+undefined<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Kind (type theory) - Wikipedia, the free encyclopedia</title>
+<meta name="generator" content="MediaWiki 1.25wmf16" />
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/Kind_(type_theory)" />
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Kind_(type_theory)&amp;action=edit" />
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Kind_(type_theory)&amp;action=edit" />
+<link rel="apple-touch-icon" href="//bits.wikimedia.org/apple-touch/wikipedia.png" />
+<link rel="shortcut icon" href="//bits.wikimedia.org/favicon/wikipedia.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Kind_(type_theory)" />
+<link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="canonical" href="http://en.wikipedia.org/wiki/Kind_(type_theory)" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=ext.gadget.DRN-wizard%2CReferenceTooltips%2Ccharinsert%2Cfeatured-articles-links%2CrefToolbar%2Cswitcher%2Cteahouse%7Cext.geshi.language.haskell%7Cext.geshi.local%7Cext.math.styles%7Cext.rtlcite%2Cwikihiero%2CwikimediaBadges%7Cext.uls.nojs%7Cext.visualEditor.viewPageTarget.noscript%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:3904d24a08aa08f6a68dc338f9be277e */</style>
+<script src="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Kind_(type_theory)","wgTitle":"Kind (type theory)","wgCurRevisionId":633274261,"wgRevisionId":633274261,"wgArticleId":20627460,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["All Wikipedia articles needing clarification","Wikipedia articles needing clarification from August 2009","Type theory","Data types"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Kind_(type_theory)","wgRelevantArticleId":20627460,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","svgMaxSize":4096,"namespacesWithSubpages":{"6":0,"8":0,"1":true,"2":true,"3":true,"4":true,"5":true,"7":true,"9":true,"10":true,"11":true,"12":true,"13":true,"14":true,"15":true,"100":true,"101":true,"102":true,"103":true,"104":true,"105":true,"106":true,"107":true,"108":true,"109":true,"110":true,"111":true,"830":true,"831":true,"447":true,"2600":false,"828":true,"829":true}},"wikilove-recipient":"","wikilove-anon":0,"wgPoweredByHHVM":true,"wgULSAcceptLanguageList":[],"wgULSCurrentAutonym":"English","wgFlaggedRevsParams":{"tags":{"status":{"levels":1,"quality":2,"pristine":3}}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q6410497"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});},{},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{},{});
+/* cache key: enwiki:resourceloader:filter:minify-js:7:94007ea073e20ad4a3cdce36b2f2e369 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.centralauth.centralautologin","ext.visualEditor.viewPageTarget.init","ext.uls.init","ext.uls.interface","ext.centralNotice.bannerController","skins.vector.js"]);
+}</script>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static-1.25wmf16/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Kind_type_theory skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+							<div id="siteNotice"><!-- CentralNotice --></div>
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Kind (type theory)</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Wikipedia, the free encyclopedia</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>In the area of <a href="/wiki/Mathematical_logic" title="Mathematical logic">mathematical logic</a> and <a href="/wiki/Computer_science" title="Computer science">computer science</a> known as <a href="/wiki/Type_theory" title="Type theory">type theory</a>, a <b>kind</b> is the type of a <a href="/wiki/Type_constructor" title="Type constructor">type constructor</a> or, less commonly, the type of a <a href="/wiki/Higher-order_type_operator" title="Higher-order type operator" class="mw-redirect">higher-order type operator</a>. A kind system is essentially a <a href="/wiki/Simply_typed_lambda_calculus" title="Simply typed lambda calculus">simply typed lambda calculus</a> "one level up", endowed with a primitive type, denoted <img class="mwe-math-fallback-image-inline tex" alt="*" src="//upload.wikimedia.org/math/3/3/8/3389dae361af79b04c9c8e7057f60cc6.png" /> and called "type", which is the kind of any <a href="/wiki/Data_type" title="Data type">data type</a> which does not need any <a href="/wiki/Parametric_polymorphism" title="Parametric polymorphism">type parameters</a>.</p>
+<p>A kind is sometimes confusingly described as the "type of a <a href="/wiki/Data_type" title="Data type">(data) type</a>", but it is actually more of an <a href="/wiki/Arity" title="Arity">arity</a> specifier. Syntactically, it is natural to consider polymorphic types to be type constructors, thus non-polymorphic types to be <a href="/wiki/Nullary" title="Nullary" class="mw-redirect">nullary</a> type constructors. But all nullary constructors, thus all monomorphic types, have the same, simplest kind; namely <img class="mwe-math-fallback-image-inline tex" alt="*" src="//upload.wikimedia.org/math/3/3/8/3389dae361af79b04c9c8e7057f60cc6.png" />.</p>
+<p>Since higher-order type operators are uncommon in <a href="/wiki/Programming_language" title="Programming language">programming languages</a>, in most programming practice, kinds are used to distinguish between data types and the types of constructors which are used to implement <a href="/wiki/Parametric_polymorphism" title="Parametric polymorphism">parametric polymorphism</a>. Kinds appear, either explicitly or implicitly, in languages whose type systems account for parametric polymorphism in a programatically accessible way, such as <a href="/wiki/Haskell_(programming_language)" title="Haskell (programming language)">Haskell</a> and <a href="/wiki/Scala_(programming_language)" title="Scala (programming language)">Scala</a>.<sup id="cite_ref-higherkinds_1-0" class="reference"><a href="#cite_note-higherkinds-1"><span>[</span>1<span>]</span></a></sup></p>
+<p></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Examples"><span class="tocnumber">1</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Kinds_in_Haskell"><span class="tocnumber">2</span> <span class="toctext">Kinds in Haskell</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Kind_inference"><span class="tocnumber">2.1</span> <span class="toctext">Kind inference</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+<p></p>
+<h2><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Kind_(type_theory)&amp;action=edit&amp;section=1" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><img class="mwe-math-fallback-image-inline tex" alt="*" src="//upload.wikimedia.org/math/3/3/8/3389dae361af79b04c9c8e7057f60cc6.png" />, pronounced "type", is the kind of all <a href="/wiki/Data_type" title="Data type">data types</a> seen as <a href="/wiki/Nullary" title="Nullary" class="mw-redirect">nullary</a> type constructors, and also called proper types in this context. This normally includes function types in <a href="/wiki/Functional_programming_language" title="Functional programming language" class="mw-redirect">functional programming languages</a>.</li>
+<li><img class="mwe-math-fallback-image-inline tex" alt="* \rightarrow *" src="//upload.wikimedia.org/math/9/8/b/98bece032e2eeade4a2be8fff640c47c.png" /> is the kind of a <a href="/wiki/Unary" title="Unary" class="mw-disambig">unary</a> <a href="/wiki/Type_constructor" title="Type constructor">type constructor</a>, e.g. of a <a href="/wiki/List_type" title="List type" class="mw-redirect">list type</a> constructor.</li>
+<li><img class="mwe-math-fallback-image-inline tex" alt="* \rightarrow * \rightarrow *" src="//upload.wikimedia.org/math/1/c/0/1c0e515c39b175f124444e9574cba698.png" /> is the kind of a <a href="//en.wiktionary.org/wiki/binary" class="extiw" title="wiktionary:binary">binary</a> type constructor (via <a href="/wiki/Currying" title="Currying">currying</a>), e.g. of a <a href="/wiki/Pair_type" title="Pair type" class="mw-redirect">pair type</a> constructor, and also that of a <a href="/wiki/Function_type" title="Function type">function type</a> constructor (not to be confused with the result of its application, which itself is a function type, thus of kind *)</li>
+<li><img class="mwe-math-fallback-image-inline tex" alt="(* \rightarrow *) \rightarrow *" src="//upload.wikimedia.org/math/b/9/6/b967e9117c1c955f6a066f687d7f8831.png" /> is the kind of a higher-order type operator from unary type constructors to proper types. See Pierce (2002), chapter 32 for an application.</li>
+</ul>
+<h2><span class="mw-headline" id="Kinds_in_Haskell">Kinds in Haskell</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Kind_(type_theory)&amp;action=edit&amp;section=2" title="Edit section: Kinds in Haskell">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>(<i>Note</i>: Haskell documentation uses the same arrow for both function types and kinds.)</p>
+<p><a href="/wiki/Haskell_(programming_language)" title="Haskell (programming language)">Haskell</a>'s kind system<sup id="cite_ref-haskell98_2-0" class="reference"><a href="#cite_note-haskell98-2"><span>[</span>2<span>]</span></a></sup> has just two rules:<sup class="noprint Inline-Template" style="white-space:nowrap;">[<i><a href="/wiki/Wikipedia:Vagueness" title="Wikipedia:Vagueness"><span title="You can help — (August 2009)">vague</span></a></i>]</sup></p>
+<ul>
+<li><img class="mwe-math-fallback-image-inline tex" alt="*" src="//upload.wikimedia.org/math/3/3/8/3389dae361af79b04c9c8e7057f60cc6.png" />, pronounced "type" is the kind of all <a href="/wiki/Data_type" title="Data type">data types</a>.</li>
+<li><img class="mwe-math-fallback-image-inline tex" alt="k_1 \rightarrow k_2" src="//upload.wikimedia.org/math/4/6/7/467efd4fc50d705194feb083f28991c6.png" /> is the kind of a <a href="/wiki/Unary" title="Unary" class="mw-disambig">unary</a> <a href="/wiki/Type_constructor" title="Type constructor">type constructor</a>, which takes a type of kind <img class="mwe-math-fallback-image-inline tex" alt="k_1" src="//upload.wikimedia.org/math/d/e/8/de83b4778b8582d6b501555da17bd8e7.png" /> and produces a type of kind <img class="mwe-math-fallback-image-inline tex" alt="k_2" src="//upload.wikimedia.org/math/5/6/5/565916fdc4f0364b33ce9c7f270984a2.png" />.</li>
+</ul>
+<p>An inhabited type (as proper types are called in Haskell) is a type which has values. For instance, ignoring <a href="/wiki/Type_class" title="Type class">type classes</a> which complicate the picture, <code>4</code> is a value of type <code>Int</code>, while <code>[1, 2, 3]</code> is a value of type <code>[Int]</code> (list of Ints). Therefore, <code>Int</code> and <code>[Int]</code> have kind <img class="mwe-math-fallback-image-inline tex" alt="*" src="//upload.wikimedia.org/math/3/3/8/3389dae361af79b04c9c8e7057f60cc6.png" />, but so does any function type, for instance <code>Int -&gt; Bool</code> or even <code>Int -&gt; Int -&gt; Bool</code>.</p>
+<p>A type constructor takes one or more type arguments, and produces a data type when enough arguments are supplied, i.e. it supports <a href="/wiki/Partial_application" title="Partial application">partial application</a> thanks to currying.<sup id="cite_ref-haskell-2010_3-0" class="reference"><a href="#cite_note-haskell-2010-3"><span>[</span>3<span>]</span></a></sup><sup id="cite_ref-4" class="reference"><a href="#cite_note-4"><span>[</span>4<span>]</span></a></sup> This is how Haskell achieves parametric types. For instance, the type <code>[]</code> (list) is a type constructor - it takes a single argument to specify the type of the elements of the list. Hence, <code>[Int]</code> (list of Ints), <code>[Float]</code> (list of Floats) and even <code>[[Int]]</code> (list of lists of Ints) are valid applications of the <code>[]</code> type constructor. Therefore, <code>[]</code> is a type of kind <img class="mwe-math-fallback-image-inline tex" alt="* \rightarrow *" src="//upload.wikimedia.org/math/9/8/b/98bece032e2eeade4a2be8fff640c47c.png" />. Because <code>Int</code> has kind <img class="mwe-math-fallback-image-inline tex" alt="*" src="//upload.wikimedia.org/math/3/3/8/3389dae361af79b04c9c8e7057f60cc6.png" />, applying it to <code>[]</code> results in <code>[Int]</code>, of kind <img class="mwe-math-fallback-image-inline tex" alt="*" src="//upload.wikimedia.org/math/3/3/8/3389dae361af79b04c9c8e7057f60cc6.png" />. The 2-<a href="/wiki/Tuple" title="Tuple">tuple</a> constructor <code>(,)</code> has kind <img class="mwe-math-fallback-image-inline tex" alt="* \rightarrow * \rightarrow *" src="//upload.wikimedia.org/math/1/c/0/1c0e515c39b175f124444e9574cba698.png" />, the 3-tuple constructor <code>(,,)</code> has kind <img class="mwe-math-fallback-image-inline tex" alt="* \rightarrow * \rightarrow * \rightarrow *" src="//upload.wikimedia.org/math/2/8/6/286258c734cf3cd261609789f3898fe5.png" /> and so on.</p>
+<h3><span class="mw-headline" id="Kind_inference">Kind inference</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Kind_(type_theory)&amp;action=edit&amp;section=3" title="Edit section: Kind inference">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Standard Haskell does not allow <a href="/w/index.php?title=Polymorphic_kind&amp;action=edit&amp;redlink=1" class="new" title="Polymorphic kind (page does not exist)">polymorphic kinds</a>. This is in contrast to <a href="/wiki/Parametric_polymorphism" title="Parametric polymorphism">parametric polymorphism</a> on types, which is supported in Haskell. For instance, in the following example:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="haskell source-haskell">
+<pre class="de1">
+<span class="kw1">data</span> Tree z  <span class="sy0">=</span> Leaf <span class="sy0">|</span> Fork <span class="br0">(</span>Tree z<span class="br0">)</span> <span class="br0">(</span>Tree z<span class="br0">)</span>
+</pre></div>
+</div>
+<p>the kind of <code>z</code> could be anything, including <img class="mwe-math-fallback-image-inline tex" alt="*" src="//upload.wikimedia.org/math/3/3/8/3389dae361af79b04c9c8e7057f60cc6.png" />, but also <img class="mwe-math-fallback-image-inline tex" alt="* \rightarrow *" src="//upload.wikimedia.org/math/9/8/b/98bece032e2eeade4a2be8fff640c47c.png" /> etc. Haskell by default will always infer kinds to be <img class="mwe-math-fallback-image-inline tex" alt="*" src="//upload.wikimedia.org/math/3/3/8/3389dae361af79b04c9c8e7057f60cc6.png" />, unless the type explicitly indicates otherwise (see below). Therefore the type checker will reject the following use of <code>Tree</code>:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="haskell source-haskell">
+<pre class="de1">
+<span class="kw1">type</span> FunnyTree <span class="sy0">=</span> Tree <span class="br0">[</span><span class="br0">]</span>     <span class="co1">-- invalid</span>
+</pre></div>
+</div>
+<p>because the kind of <code>[]</code>, <img class="mwe-math-fallback-image-inline tex" alt="* \rightarrow *" src="//upload.wikimedia.org/math/9/8/b/98bece032e2eeade4a2be8fff640c47c.png" /> does not match the expected kind for <code>z</code>, which is always <img class="mwe-math-fallback-image-inline tex" alt="*" src="//upload.wikimedia.org/math/3/3/8/3389dae361af79b04c9c8e7057f60cc6.png" />.</p>
+<p>Higher-order type operators are allowed however. For instance:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="haskell source-haskell">
+<pre class="de1">
+<span class="kw1">data</span> App unt z <span class="sy0">=</span> Z <span class="br0">(</span>unt z<span class="br0">)</span>
+</pre></div>
+</div>
+<p>has kind <img class="mwe-math-fallback-image-inline tex" alt="(* \rightarrow *) \rightarrow * \rightarrow *" src="//upload.wikimedia.org/math/5/0/2/5026a66786533eb997b83d213f51b87d.png" />, i.e. <code>unt</code> is expected to be a unary data constructor, which gets applied to its argument, which must be a type, and returns another type.</p>
+<p><a href="/wiki/Glasgow_Haskell_Compiler" title="Glasgow Haskell Compiler">GHC</a> has the extension PolyKinds, which, together with KindSignatures, allows polymorphic kinds. For example:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="haskell source-haskell">
+<pre class="de1">
+<span class="kw1">data</span> Tree <span class="br0">(</span>z <span class="sy0">::</span> k<span class="br0">)</span> <span class="sy0">=</span> Leaf <span class="sy0">|</span> Fork <span class="br0">(</span>Tree z<span class="br0">)</span> <span class="br0">(</span>Tree z<span class="br0">)</span>
+<span class="kw1">type</span> FunnyTree <span class="sy0">=</span> Tree <span class="br0">[</span><span class="br0">]</span>     <span class="co1">-- OK</span>
+</pre></div>
+</div>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Kind_(type_theory)&amp;action=edit&amp;section=4" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a href="/wiki/System_F-omega" title="System F-omega" class="mw-redirect">System F-omega</a></li>
+<li><a href="/wiki/Pure_type_system" title="Pure type system">Pure type system</a></li>
+</ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Kind_(type_theory)&amp;action=edit&amp;section=5" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="refbegin" style="">
+<ul>
+<li><span class="citation book">Pierce, Benjamin (2002). <i><a href="/wiki/Types_and_Programming_Languages" title="Types and Programming Languages">Types and Programming Languages</a></i>. MIT Press. <a href="/wiki/Special:BookSources/0262162091" class="internal mw-magiclink-isbn">ISBN 0-262-16209-1</a>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKind+%28type+theory%29&amp;rft.aufirst=Benjamin&amp;rft.aulast=Pierce&amp;rft.au=Pierce%2C+Benjamin&amp;rft.btitle=Types+and+Programming+Languages&amp;rft.date=2002&amp;rft.genre=book&amp;rft.pub=MIT+Press&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;">&#160;</span></span>, chapter 29, "Type Operators and Kinding"</li>
+</ul>
+</div>
+<div class="reflist" style="list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-higherkinds-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-higherkinds_1-0">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://adriaanm.github.com/files/higher.pdf">Generics of a Higher Kind</a></span></li>
+<li id="cite_note-haskell98-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-haskell98_2-0">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external text" href="http://www.haskell.org/onlinereport/decls.html#sect4.1.1">Kinds - The Haskell 98 Report</a></span></li>
+<li id="cite_note-haskell-2010-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-haskell-2010_3-0">^</a></b></span> <span class="reference-text"><span class="citation web"><a rel="nofollow" class="external text" href="http://www.haskell.org/onlinereport/haskell2010/haskellch4.html#x10-65017x3">"Chapter 4 Declarations and Binding"</a>. <i>Haskell 2010 Language Report</i><span class="reference-accessdate">. Retrieved <span class="nowrap">23 July</span> 2012</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKind+%28type+theory%29&amp;rft.atitle=Chapter+4+Declarations+and+Binding&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fwww.haskell.org%2Fonlinereport%2Fhaskell2010%2Fhaskellch4.html%23x10-65017x3&amp;rft.jtitle=Haskell+2010+Language+Report&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="#cite_ref-4">^</a></b></span> <span class="reference-text"><span class="citation web">Miran, Lipovača. <a rel="nofollow" class="external text" href="http://learnyouahaskell.com/making-our-own-types-and-typeclasses">"Learn You a Haskell for Great Good!"</a>. <i>Making Our Own Types and Typeclasses</i><span class="reference-accessdate">. Retrieved <span class="nowrap">23 July</span> 2012</span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AKind+%28type+theory%29&amp;rft.atitle=Learn+You+a+Haskell+for+Great+Good%21&amp;rft.aufirst=Lipova%C4%8Da&amp;rft.aulast=Miran&amp;rft.au=Miran%2C+Lipova%C4%8Da&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Flearnyouahaskell.com%2Fmaking-our-own-types-and-typeclasses&amp;rft.jtitle=Making+Our+Own+Types+and+Typeclasses&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+</ol>
+</div>
+<table class="navbox" style="border-spacing:0">
+<tr>
+<td style="padding:2px">
+<table class="nowraplinks hlist collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Data_types" title="Template:Data types"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Data_types" title="Template talk:Data types"><span title="Discuss this template" style=";;background:none transparent;border:none;">t</span></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Data_types&amp;action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%"><a href="/wiki/Data_type" title="Data type">Data types</a></div>
+</th>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Uninterpreted</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Bit" title="Bit">Bit</a></li>
+<li><a href="/wiki/Byte" title="Byte">Byte</a></li>
+<li><a href="/wiki/Ternary_numeral_system" title="Ternary numeral system">Trit</a></li>
+<li><a href="/wiki/Ternary_numeral_system#Tryte" title="Ternary numeral system">Tryte</a></li>
+<li><a href="/wiki/Word_(computer_architecture)" title="Word (computer architecture)">Word</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Numeric</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Arbitrary-precision_arithmetic" title="Arbitrary-precision arithmetic">Bignum</a></li>
+<li><a href="/wiki/Complex_data_type" title="Complex data type">Complex</a></li>
+<li><a href="/wiki/Decimal_data_type" title="Decimal data type">Decimal</a></li>
+<li><a href="/wiki/Fixed-point_arithmetic" title="Fixed-point arithmetic">Fixed-point</a></li>
+<li><a href="/wiki/Floating_point" title="Floating point">Floating-point</a></li>
+<li><a href="/wiki/Integer_(computer_science)" title="Integer (computer science)">Integer</a>
+<ul>
+<li><a href="/wiki/Signedness" title="Signedness">signedness</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Interval_arithmetic" title="Interval arithmetic">Interval</a></li>
+<li><a href="/wiki/Rational_data_type" title="Rational data type">Rational</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Plain_text" title="Plain text">Text</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Character_(computing)" title="Character (computing)">Character</a></li>
+<li><a href="/wiki/String_(computer_science)" title="String (computer science)">String</a>
+<ul>
+<li><a href="/wiki/Null-terminated_string" title="Null-terminated string">null-terminated</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Pointer_(computer_programming)" title="Pointer (computer programming)">Pointer</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Memory_address" title="Memory address">Address</a>
+<ul>
+<li><a href="/wiki/Physical_address" title="Physical address">physical</a></li>
+<li><a href="/wiki/Virtual_address_space" title="Virtual address space">virtual</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Reference_(computer_science)" title="Reference (computer science)">Reference</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Composite_data_type" title="Composite data type">Composite</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Algebraic_data_type" title="Algebraic data type">Algebraic data type</a>
+<ul>
+<li><a href="/wiki/Generalized_algebraic_data_type" title="Generalized algebraic data type">generalized</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Array_data_type" title="Array data type">Array</a></li>
+<li><a href="/wiki/Associative_array" title="Associative array">Associative array</a></li>
+<li><a href="/wiki/Class_(computer_programming)" title="Class (computer programming)">Class</a></li>
+<li><a href="/wiki/Dependent_type" title="Dependent type">Dependent</a></li>
+<li><a href="/wiki/Intuitionistic_type_theory#Equality_type" title="Intuitionistic type theory">Equality</a></li>
+<li><a href="/wiki/Inductive_type" title="Inductive type">Inductive</a></li>
+<li><a href="/wiki/List_(abstract_data_type)" title="List (abstract data type)">List</a></li>
+<li><a href="/wiki/Object_(computer_science)" title="Object (computer science)">Object</a>
+<ul>
+<li><a href="/wiki/Metaobject" title="Metaobject">metaobject</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Option_type" title="Option type">Option type</a></li>
+<li><a href="/wiki/Product_type" title="Product type">Product</a></li>
+<li><a href="/wiki/Record_(computer_science)" title="Record (computer science)">Record</a></li>
+<li><a href="/wiki/Set_(abstract_data_type)" title="Set (abstract data type)">Set</a></li>
+<li><a href="/wiki/Union_type" title="Union type">Union</a>
+<ul>
+<li><a href="/wiki/Tagged_union" title="Tagged union">tagged</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Other</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Boolean_data_type" title="Boolean data type">Boolean</a></li>
+<li><a href="/wiki/Bottom_type" title="Bottom type">Bottom type</a></li>
+<li><a href="/wiki/Container_(abstract_data_type)" title="Container (abstract data type)">Collection</a></li>
+<li><a href="/wiki/Enumerated_type" title="Enumerated type">Enumerated type</a></li>
+<li><a href="/wiki/Exception_handling" title="Exception handling">Exception</a></li>
+<li><a href="/wiki/Function_type" title="Function type">Function type</a></li>
+<li><a href="/wiki/Opaque_data_type" title="Opaque data type">Opaque data type</a></li>
+<li><a href="/wiki/Recursive_data_type" title="Recursive data type">Recursive data type</a></li>
+<li><a href="/wiki/Semaphore_(programming)" title="Semaphore (programming)">Semaphore</a></li>
+<li><a href="/wiki/Stream_(computing)" title="Stream (computing)">Stream</a></li>
+<li><a href="/wiki/Top_type" title="Top type">Top type</a></li>
+<li><a href="/wiki/Type_class" title="Type class">Type class</a></li>
+<li><a href="/wiki/Unit_type" title="Unit type">Unit type</a></li>
+<li><a href="/wiki/Void_type" title="Void type">Void</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Related topics</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Abstract_data_type" title="Abstract data type">Abstract data type</a></li>
+<li><a href="/wiki/Data_structure" title="Data structure">Data structure</a></li>
+<li><a href="/wiki/Generic_programming" title="Generic programming">Generic</a></li>
+<li><strong class="selflink">Kind</strong>
+<ul>
+<li><a href="/wiki/Metaclass" title="Metaclass">metaclass</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Parametric_polymorphism" title="Parametric polymorphism">Parametric polymorphism</a></li>
+<li><a href="/wiki/Primitive_data_type" title="Primitive data type">Primitive data type</a></li>
+<li><a href="/wiki/Protocol_(object-oriented_programming)" title="Protocol (object-oriented programming)">Protocol</a>
+<ul>
+<li><a href="/wiki/Interface_(computing)#Software_interfaces_in_object-oriented_languages" title="Interface (computing)">interface</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Subtyping" title="Subtyping">Subtyping</a></li>
+<li><a href="/wiki/Type_constructor" title="Type constructor">Type constructor</a></li>
+<li><a href="/wiki/Type_conversion" title="Type conversion">Type conversion</a></li>
+<li><a href="/wiki/Type_system" title="Type system">Type system</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1258
+CPU time usage: 0.163 seconds
+Real time usage: 0.344 seconds
+Preprocessor visited node count: 612/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 20537/2097152 bytes
+Template argument size: 463/2097152 bytes
+Highest expansion depth: 11/40
+Expensive parser function count: 1/500
+Lua time usage: 0.035/10.000 seconds
+Lua memory usage: 1.59 MB/50 MB
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  251.303      1 - -total
+ 21.18%   53.225      1 - Template:Vague
+ 14.82%   37.238      1 - Template:Fix
+ 13.01%   32.691      1 - Template:Category_handler
+  8.34%   20.961      1 - Template:Cite_book
+  5.92%   14.882      1 - Template:Data_types
+  5.79%   14.562      1 - Template:Reflist
+  4.80%   12.069      1 - Template:Navbox
+  2.62%    6.586      2 - Template:Cite_web
+  1.69%    4.248      1 - Template:Fix/category
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:20627460-0!*!0!!en!*!*!math=0 and timestamp 20150201014211 and revision id 633274261
+ -->
+<noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>									<div class="printfooter">
+						Retrieved from &quot;<a dir="ltr" href="http://en.wikipedia.org/w/index.php?title=Kind_(type_theory)&amp;oldid=633274261">http://en.wikipedia.org/w/index.php?title=Kind_(type_theory)&amp;oldid=633274261</a>&quot;					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Type_theory" title="Category:Type theory">Type theory</a></li><li><a href="/wiki/Category:Data_types" title="Category:Data types">Data types</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:All_Wikipedia_articles_needing_clarification" title="Category:All Wikipedia articles needing clarification">All Wikipedia articles needing clarification</a></li><li><a href="/wiki/Category:Wikipedia_articles_needing_clarification_from_August_2009" title="Category:Wikipedia articles needing clarification from August 2009">Wikipedia articles needing clarification from August 2009</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Kind+%28type+theory%29&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Kind+%28type+theory%29" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Kind_(type_theory)"  title="View the content page [c]" accesskey="c">Article</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Talk:Kind_(type_theory)"  title="Discussion about the content page [t]" accesskey="t">Talk</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Kind_(type_theory)" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=Kind_(type_theory)&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Kind_(type_theory)&amp;action=history"  title="Past versions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Wikipedia [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if one exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-contents"><a href="/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li>
+													<li id="n-featuredcontent"><a href="/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li>
+													<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li>
+													<li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li>
+													<li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikimedia Shop">Wikimedia Shop</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-interaction' aria-labelledby='p-interaction-label'>
+			<h3 id='p-interaction-label'>Interaction</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+													<li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li>
+													<li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Kind_(type_theory)" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Kind_(type_theory)" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=Kind_(type_theory)&amp;oldid=633274261" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=Kind_(type_theory)&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-wikibase"><a href="//www.wikidata.org/wiki/Q6410497" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li>
+						<li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Kind_%28type_theory%29&amp;id=633274261" title="Information on how to cite this page">Cite this page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-coll-print_export' aria-labelledby='p-coll-print_export-label'>
+			<h3 id='p-coll-print_export-label'>Print/export</h3>
+
+			<div class="body">
+									<ul>
+													<li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Kind+%28type+theory%29">Create a book</a></li>
+													<li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=Kind+%28type+theory%29&amp;oldid=633274261&amp;writer=rdf2latex">Download as PDF</a></li>
+													<li id="t-print"><a href="/w/index.php?title=Kind_(type_theory)&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+			<h3 id='p-lang-label'>Languages</h3>
+
+			<div class="body">
+									<ul>
+													<li class="interlanguage-link interwiki-ru"><a href="//ru.wikipedia.org/wiki/%D0%A0%D0%BE%D0%B4_(%D1%82%D0%B5%D0%BE%D1%80%D0%B8%D1%8F_%D1%82%D0%B8%D0%BF%D0%BE%D0%B2)" title="Род (теория типов) – Russian" lang="ru" hreflang="ru">Русский</a></li>
+													<li class="uls-p-lang-dummy"><a href="#"></a></li>
+											</ul>
+				<div class='after-portlet after-portlet-lang'><span class="wb-langlinks-edit wb-langlinks-link"><a action="edit" href="//www.wikidata.org/wiki/Q6410497#sitelinks-wikipedia" text="Edit links" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 10 November 2014, at 20:16.</li>
+											<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="//wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+											<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+											<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Kind_(type_theory)&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="//wikimediafoundation.org/"><img src="//bits.wikimedia.org/images/wikimedia-button.png" srcset="//bits.wikimedia.org/images/wikimedia-button-1.5x.png 1.5x, //bits.wikimedia.org/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="//bits.wikimedia.org/static-1.25wmf16/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="//bits.wikimedia.org/static-1.25wmf16/resources/assets/poweredby_mediawiki_132x47.png 1.5x, //bits.wikimedia.org/static-1.25wmf16/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"ext.globalCssJs.site":"ready","ext.globalCssJs.user":"ready","site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.switcher","ext.gadget.featured-articles-links","ext.eventLogging.subscriber","ext.wikimediaEvents.statsd","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","ext.uls.interlanguage"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":109,"wgHostname":"mw1211"});
+}</script>
+	</body>
+</html>

@@ -1,0 +1,410 @@
+undefined<!doctype html> 
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+ 
+<meta name="keywords" content="c-tutorial, while, for-loops, if-else,syntax, structure, developer, data-structure,online,execution, examples, operators, logical operator, c-programs, c-variables, constant, recursion,break-control,switch,online tutorials for c with examples, c tutorial with examples, code for c examples, online coding in c,easy tutorials for c, c examples online,c tutorial" />
+<meta name="description" content="C is one of the most widely used programming language of all times" />
+<title>C-Introduction</title>
+
+<link rel="stylesheet" href="/style-min.css" type="text/css" media="screen, projection" />
+<script type="text/javascript" src="/jq.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/prettify.css" />
+<script type="text/javascript" src="/prettify.js"></script>
+
+<link rel="icon" type="image/gif" href="http://scanftree.com/favicon.gif" >
+</head>
+
+<body onLoad="prettyPrint()">
+
+ <div class="container" id="container">
+<div class="header"> <meta name="viewport" content="width=device-width, minimumscale=1.0, maximum-scale=1.0" /> 
+<div class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Scanftree.com</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav"> 
+               
+                <li><a href="http://scanftree.com/Data_Structure/" >Data Structure</a></li>
+                <li><a href="http://scanftree.com/operating-system/" >Operating System</a></li>
+                  <li><a href="http://scanftree.com/c/" >C</a></li>
+                 <li><a href="http://scanftree.com/Graph-Theory/" >Graph Theory</a></li>
+                 <li><a href="http://scanftree.com/microprocessor/Applications-of-Microprocessors" >Microprocessor</a></li>
+
+
+
+ <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">DBMS<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+			<!--	  <li class="dropdown-header">Online Money</li>  --> 
+  <li><a href="http://scanftree.com/dbms/" >Database Concept</a></li>
+   <li><a href="http://scanftree.com/sql/" >SQL</a></li>
+   <li><a href="http://scanftree.com/sqlite/" >SQLite</a></li>
+ </ul></li>
+
+ <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Examples<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+			<!--	  <li class="dropdown-header">Online Money</li>  --> 
+       <li><a href="http://scanftree.com/programs/c/">C</a></li>
+       <li><a href="http://scanftree.com/programs/java/">JAVA</a></li> 
+  <li><a href="http://scanftree.com/programs/cpp/">C++</a></li> 
+ </ul></li>
+
+<!--
+ <li class="dropdown">
+                <a href="http://scanftree.com/math/" class="dropdown-toggle" data-toggle="dropdown">Math<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+       <li><a href="http://scanftree.com/math/">Formulas & Calculators</a></li>
+
+
+ </ul></li>
+
+-->
+
+ <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extra<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+			<!--	  <li class="dropdown-header">Online Money</li>  --> 
+       <li><a href="http://scanftree.com/Cheat-Sheets/">Cheat Sheets</a></li>
+   <li><a href="http://w3seo.info">SEO</a></li>  
+    <li><a href="http://facts-india.in/ifsc-code/">IFSC Codes</a></li>  
+ </ul></li>
+
+<li><a  style="visibility:hidden" href="https://profiles.google.com/118436369275590927622" rel="publisher" >Ankit Kumar singh</a></li>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+</div>
+<div class="sidebar"  id="sideLeft"><div class="menu" id="list5">
+
+
+<h2><span class="menu_h">C</span> Getting Started</h2>
+<ul>
+<li><a  href="/c/"> Introduction</a></li>
+<li><a href="/c/Constants"> Constants</a></li>
+</ul>
+<br>
+
+
+<h2><span class="menu_h">C</span> Operators</h2>
+<ul>
+<li><a href="/c/Arithmetic">Arithmetic</a></li>
+<li><a href="/c/Bitwise">Bitwise</a></li> 
+<li><a href="/c/Assignment">Assignment</a></li> 
+<li><a href="/c/Relational">Relational</a></li>
+<li><a href="/c/Logical">Logical</a></li>
+<li><a href="/c/Conditional">Conditional</a></li> 
+
+</ul>
+<br>
+<h2><span class="menu_h">C</span> Looping & Control</h2>
+<ul>
+<li><a href="/c/For-Looping" >For Loop</a></li> 
+<li><a href="/c/While-Looping">While Loop</a></li> 
+<li><a href="/c/Do-While-Looping">Do While Loop</a></li>
+<li><a href="/c/Break-Control">Break Control</a></li> 
+<li><a href="/c/Continue-Control">Continue Control</a></li> 
+<li><a href="/c/Goto-Control">Goto Control</a></li> 
+<li><a href="/c/If">If-Else</a></li>
+<li><a href="/c/Switch" >Switch</a></li> 
+</ul>    
+<br/>
+
+<h2><span class="menu_h">C</span> file(Input/Output)</h2>
+<ul>
+<li><a href="/c/files-introduction">Files Introduction</a></li>
+<!-- <li><a href="/c/Switch" >Switch</a></li>  -->
+</ul>    
+<br/>
+<h2><span class="menu_h">C</span> Headers</h2>
+<ul>
+<li><a href="/c/math.h/">math.h</a></li>
+<li><a href="/c/time.h/">time.h</a></li>
+<li><a href="/c/string.h/">string.h</a></li>
+<!-- <li><a href="/c/ctype.h/">ctype.h</a></li>  -->
+</ul>                        
+      
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="content" id="content" > 
+
+
+
+<h1>What is C ?</h1>  
+ <p>
+ C is one of the most widely used programming language of all times.<br/>
+ It is a general purpose,block-structured,procedural, case-sensitive and high level programming language.<br/>
+ </p>
+ <br/>
+ <hr/>
+ <br/>
+ <h3>Who is the developer ?</h3>
+  <p>
+C is developed by Dennis Richie and his partner Ken Thompson at the Bell Telephone Laboratories in span of 1969 to 1973.
+</p>
+ <br/><hr/><br/>
+ <h3>Why name C ?</h3>
+ <p>
+It was named C because it evolved from earlier languages Basic Combined Programming Language(BCPL) and B.</P>
+ <br><hr><br>
+ <h3>Why to learn C ?</h3>
+<p>
+  <b>1. </b>You should learn first basic programming skills to learn object oriented concept. Which will can be got through C very easily.<br/>
+  <b>2. </b>You have to use basic elements of C always no matter in which platform you are.<br/>
+  <b>3. </b>Graphical programming like 3D appplications, Mobile games and device drivers are exclusively made in C.</p>
+  <hr/><br/>
+ 
+
+ <hr><br>
+ <h4>My First c program:</h4>
+<pre class="prettyprint linenums">
+#include&lt;stdio.h>
+int main()
+{
+  printf("Hello World");
+  return 0;
+}  
+</pre>
+<br>
+<h4>output:</h4>
+<pre class="op">
+ Hello World</pre>
+ 
+
+
+
+
+ </div>
+ <div class="footer"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- first -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:320px;height:50px"
+     data-ad-client="ca-pub-5670434359943293"
+     data-ad-slot="3505535769"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37219525-1']);
+  _gaq.push(['_setDomainName', 'scanftree.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("#back-top").hide();
+$(function () {
+		$(window).scroll(function () {if ($(this).scrollTop() > 100) {$('#back-top').fadeIn();} 
+		else {$('#back-top').fadeOut();}
+		});
+
+		$('#back-top a').click(function () {$('body,html').animate({scrollTop: 0}, 1500);return false; });  });
+		
+		 
+
+ $('.content' ).css( "min-height", $( '.sidebar1').height() );		
+		
+		  });
+
+
+$(".gen tr:even").css("background-color", "#F4F4F8");
+ 
+$('#toggle-button').toggle(function() {
+            $('#toggle').animate({width: 750});
+            $('#toggle').animate({height: 500});     
+			 }, function() {
+            $('#toggle').animate({width: 620});
+			 $('#toggle').animate({height: 250});
+      });
+	  
+	  
+$(function(){
+         var url = window.location.pathname, 
+        urlRegExp = new RegExp(url.replace(/\/$/,'') + "$"); 
+  $('.menu li  a').each(function(){
+            if(urlRegExp.test(this.href.replace(/\/$/,''))){
+                $(this).addClass('act');
+//  $('#content' ).prepend('<div><ul class="pager"><li class="previous"><a href="codd-rule.php">&larr; Prev</a></li><li class="next"><a href= '  +$(this).parent().next("li").children("a").attr("href")  +'>Next &rarr;</a></li></ul></div> ');
+// alert($(this).siblings("li").html());
+                 asdfg=$(this).next();
+
+       }
+                                              });
+
+
+
+ });
+
+
+
+
+
+</script>
+
+<span id="back-top" ><a ><span></span></a></span>
+<div id="bottommenu" >
+
+
+
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+  {parsetags: 'explicit'}
+</script>
+
+
+<script type="text/javascript">
+var infolinks_pid = 1709549;
+var infolinks_wsid = 0;
+</script>
+<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+
+<div class="row">
+  <div class="col-sm-12 col-md-8">
+
+<!-- <a href="/" target="_top">HOME</a> | <a href="/c/" target="_top">C</a> | <a href="/Data_Structure/" target="_top">Data Structure</a> | <a href="http://scanftree.com/microprocessor/Pin-Diagram-of-8085-and-Pin-description-of-8085" target="_top">Microprocessor</a> | <a href="http://scanftree.com/Cheat-Sheets/" target="_top">CHEAT SHEETS</a> | <a href="/html5/" target="_top">Html 5 </a> | <a href="http://scanftree.com/operating-system/" target="_top">OS</a> | <a href="/sql/" target="_top">SQL </a> |  -->
+<p>Scanftree is optimized for learning, testing, and training. Examples might be simplified to improve reading and basic understanding. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content. While using this site, you agree to have read and accepted our	terms of use and privacy policy.</p><p>©Copyright 2014 Scanftree.</p>
+</div>
+
+  <div class="col-sm-12 col-md-4">
+
+<div class="g-person"  data-href="//plus.google.com/118436369275590927622" data-layout="landscape" data-showcoverphoto="false" data-rel="author"></div>
+</div>
+
+</div>
+
+</div>
+
+<a  style="visibility:hidden" href="https://profiles.google.com/118436369275590927622" rel="me">My Google+ Profile</a>
+<a  style="visibility:hidden" href="https://profiles.google.com/118436369275590927622" >My Google+ Profile</a>
+
+
+
+
+
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+<script type="text/javascript" >
+        var disqus_shortname = 'scanftree'; 
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+
+$('#content' ).append('<br/><hr/><center ><span class="this"> <a class="addthis_button_google_plusone" g:plusone:size="tall"></a> <a class="addthis_button_tweet" tw:count="vertical"></a> <a class="addthis_button_facebook_like" fb:like:layout="box_count"></a> </span></center> <hr/><br/><br/> ');
+
+
+$(".content").append('<div id="disqus_thread"></div>');
+//$(".content").append('<input type="hidden" name="IL_IN_TAG" value="2"/>');
+
+
+    </script>
+	
+
+
+<script type="text/javascript">gapi.person.go();</script>
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+
+<script id="_waumo2">var _wau = _wau || []; _wau.push(["small", "uf15qyhdzbqn", "mo2"]);
+(function() {var s=document.createElement("script"); s.async=true;
+s.src="http://widgets.amung.us/small.js";
+document.getElementsByTagName("head")[0].appendChild(s);
+})();</script>
+
+
+<script>
+$('#content' ).prepend('<center title="Like Our Facebook page"><div class="fb-like" data-href="https://www.facebook.com/scanftreecom" data-layout="box_count" data-action="like" data-show-faces="false" data-share="true"></div></center> <br/><br/> ');
+</script>
+
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f758b7556b7ac22"></script>
+<script type="text/javascript">
+addthis.layers({
+    'theme' : 'transparent',
+    'domain' : 'scanftree.com',
+    'linkFilter' : function(link, layer) {
+        console.log(link.title + ' - ' + link.url + " - " + layer);
+        return link;
+    },
+    'responsive' : {
+      'maxWidth' : '979px',
+      'minWidth' : '0px'
+    },
+ 
+    'follow' : {
+        'services' : [
+            {'service' : 'facebook', 'id' : 'scanftreecom',},
+           {'service': 'google_follow', 'id': '+Ankit-Kumar-Singh'},
+         {'service': 'linkedin', 'id': 'erankitkumarsingh'},
+
+
+        ],
+        'title' : 'My Profile',
+        'postFollowTitle' : 'Thanks for following!',
+        'postFollowRecommendedMsg' : 'Recommended for you',
+        'mobile' : true,
+        'desktop' : true,
+        'theme' : 'transparent'
+    },
+});
+</script></div></body></html>

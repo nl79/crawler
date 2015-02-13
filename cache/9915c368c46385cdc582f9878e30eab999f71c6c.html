@@ -1,0 +1,550 @@
+undefined<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>XOR linked list - Wikipedia, the free encyclopedia</title>
+<meta name="generator" content="MediaWiki 1.25wmf16" />
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/XOR_linked_list" />
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=XOR_linked_list&amp;action=edit" />
+<link rel="edit" title="Edit this page" href="/w/index.php?title=XOR_linked_list&amp;action=edit" />
+<link rel="apple-touch-icon" href="//bits.wikimedia.org/apple-touch/wikipedia.png" />
+<link rel="shortcut icon" href="//bits.wikimedia.org/favicon/wikipedia.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/XOR_linked_list" />
+<link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="canonical" href="http://en.wikipedia.org/wiki/XOR_linked_list" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=ext.gadget.DRN-wizard%2CReferenceTooltips%2Ccharinsert%2Cfeatured-articles-links%2CrefToolbar%2Cswitcher%2Cteahouse%7Cext.rtlcite%2Cwikihiero%2CwikimediaBadges%7Cext.uls.nojs%7Cext.visualEditor.viewPageTarget.noscript%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:3904d24a08aa08f6a68dc338f9be277e */</style>
+<script src="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"XOR_linked_list","wgTitle":"XOR linked list","wgCurRevisionId":604964294,"wgRevisionId":604964294,"wgArticleId":291683,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles needing additional references from October 2009","All articles needing additional references","Binary arithmetic","Linked lists"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"XOR_linked_list","wgRelevantArticleId":291683,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","svgMaxSize":4096,"namespacesWithSubpages":{"6":0,"8":0,"1":true,"2":true,"3":true,"4":true,"5":true,"7":true,"9":true,"10":true,"11":true,"12":true,"13":true,"14":true,"15":true,"100":true,"101":true,"102":true,"103":true,"104":true,"105":true,"106":true,"107":true,"108":true,"109":true,"110":true,"111":true,"830":true,"831":true,"447":true,"2600":false,"828":true,"829":true}},"wikilove-recipient":"","wikilove-anon":0,"wgPoweredByHHVM":true,"wgULSAcceptLanguageList":["en-us","en"],"wgULSCurrentAutonym":"English","wgFlaggedRevsParams":{"tags":{"status":{"levels":1,"quality":2,"pristine":3}}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q607967"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});},{},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{},{});
+/* cache key: enwiki:resourceloader:filter:minify-js:7:94007ea073e20ad4a3cdce36b2f2e369 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.centralauth.centralautologin","mmv.head","ext.visualEditor.viewPageTarget.init","ext.uls.init","ext.uls.interface","ext.centralNotice.bannerController","skins.vector.js"]);
+}</script>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static-1.25wmf16/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-XOR_linked_list skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+							<div id="siteNotice"><!-- CentralNotice --></div>
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">XOR linked list</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Wikipedia, the free encyclopedia</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="metadata plainlinks ambox ambox-content ambox-Refimprove" role="presentation">
+<tr>
+<td class="mbox-image">
+<div style="width:52px"><a href="/wiki/File:Question_book-new.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/50px-Question_book-new.svg.png" width="50" height="39" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/75px-Question_book-new.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/100px-Question_book-new.svg.png 2x" data-file-width="262" data-file-height="204" /></a></div>
+</td>
+<td class="mbox-text"><span class="mbox-text-span">This article <b>needs additional citations for <a href="/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">verification</a></b>. <span class="hide-when-compact">Please help <a class="external text" href="//en.wikipedia.org/w/index.php?title=XOR_linked_list&amp;action=edit">improve this article</a> by <a href="/wiki/Help:Introduction_to_referencing/1" title="Help:Introduction to referencing/1">adding citations to reliable sources</a>. Unsourced material may be challenged and removed.</span> <small><i>(October 2009)</i></small></span></td>
+</tr>
+</table>
+<p>An <b>XOR linked list</b> is a <a href="/wiki/Data_structure" title="Data structure">data structure</a> used in <a href="/wiki/Computer_programming" title="Computer programming">computer programming</a>. It takes advantage of the <a href="/wiki/Bitwise_operation#XOR" title="Bitwise operation">bitwise XOR</a> operation to decrease storage requirements for <a href="/wiki/Doubly_linked_list" title="Doubly linked list">doubly linked lists</a>.</p>
+<p></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Theory_of_Operation"><span class="tocnumber">1.1</span> <span class="toctext">Theory of Operation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Features"><span class="tocnumber">2</span> <span class="toctext">Features</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Drawbacks"><span class="tocnumber">3</span> <span class="toctext">Drawbacks</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Variations"><span class="tocnumber">4</span> <span class="toctext">Variations</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Addition_linked_list"><span class="tocnumber">4.1</span> <span class="toctext">Addition linked list</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Subtraction_linked_list"><span class="tocnumber">4.2</span> <span class="toctext">Subtraction linked list</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+<p></p>
+<h2><span class="mw-headline" id="Description">Description</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=XOR_linked_list&amp;action=edit&amp;section=1" title="Edit section: Description">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>An ordinary doubly linked list stores addresses of the previous and next list items in each list node, requiring two address fields:</p>
+<pre>
+ ...  A       B         C         D         E  ...
+          –&gt;  next –&gt;  next  –&gt;  next  –&gt;
+          &lt;–  prev &lt;–  prev  &lt;–  prev  &lt;–
+</pre>
+<p>An XOR linked list compresses the same information into <i>one</i> address field by storing the bitwise XOR (here denoted by ⊕) of the address for <i>previous</i> and the address for <i>next</i> in one field:</p>
+<pre>
+ ...  A        B         C         D         E  ...
+         &lt;–&gt;  A⊕C  &lt;-&gt;  B⊕D  &lt;-&gt;  C⊕E  &lt;-&gt;
+</pre>
+<p>More formally:</p>
+<pre>
+  link(B) = addr(A)⊕addr(C), link(C) = addr(B)⊕addr(D), ...
+</pre>
+<p>When you traverse the list from left to right: supposing you are at C, you can take the address of the previous item, B, and XOR it with the value in the link field (B⊕D). You will then have the address for D and you can continue traversing the list. The same pattern applies in the other direction.</p>
+<pre>
+    i.e.  addr(D) = link(C) ⊕ addr(B)
+    where
+          link(C) = addr(B)⊕addr(D)
+     so  
+          addr(D) = addr(B)⊕addr(D) ⊕ addr(B)           
+      
+          addr(D) = addr(B)⊕addr(B) ⊕ addr(D) 
+    since 
+           X⊕X = 0                 
+           =&gt; addr(D) = 0 ⊕ addr(D)
+    since
+           X⊕0 = x
+           =&gt; addr(D) = addr(D)
+    The XOR operation cancels addr(B) appearing twice in the equation and all we are left with is the addr(D).
+</pre>
+<p>To start traversing the list in either direction from some point, you need the address of two consecutive items, not just one. If the addresses of the two consecutive items are reversed, you will end up traversing the list in the opposite direction.</p>
+<h3><span class="mw-headline" id="Theory_of_Operation">Theory of Operation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=XOR_linked_list&amp;action=edit&amp;section=2" title="Edit section: Theory of Operation">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>The key is the first operation, and the properties of XOR:</p>
+<ul>
+<li>X⊕X=0</li>
+<li>X⊕0=X</li>
+<li>X⊕Y=Y⊕X</li>
+<li>(X⊕Y)⊕Z=X⊕(Y⊕Z)</li>
+</ul>
+<p>The R2 register always contains the XOR of the address of current item C with the address of the predecessor item P: C⊕P. The Link fields in the records contain the XOR of the left and right successor addresses, say L⊕R. XOR of R2 (C⊕P) with the current link field (L⊕R) yields C⊕P⊕L⊕R.</p>
+<ul>
+<li>If the predecessor was L, the P(=L) and L <i>cancel out</i> leaving C⊕R.</li>
+<li>If the predecessor had been R, the P(=R) and R cancel, leaving C⊕L.</li>
+</ul>
+<p>In each case, the result is the XOR of the current address with the next address. XOR of this with the current address in R1 leaves the next address. R2 is left with the requisite XOR pair of the (now) current address and the predecessor.</p>
+<h2><span class="mw-headline" id="Features">Features</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=XOR_linked_list&amp;action=edit&amp;section=3" title="Edit section: Features">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li>Given only one list item, one cannot immediately obtain the addresses of the other elements of the list.</li>
+<li>Two XOR operations suffice to do the traversal from one item to the next, the same instructions sufficing in both cases. Consider a list with items <code>{…B C D…}</code> and with R1 and R2 being <a href="/wiki/Processor_register" title="Processor register">registers</a> containing, respectively, the address of the current (say C) list item and a work register containing the XOR of the current address with the previous address (say C⊕D). Cast as <a href="/wiki/System/360" title="System/360" class="mw-redirect">System/360</a> instructions:</li>
+</ul>
+<pre>
+X  R2,Link    R2 &lt;- C⊕D ⊕ B⊕D (i.e. B⊕C, "Link" being the link field
+                                  in the current record, containing B⊕D)
+XR R1,R2      R1 &lt;- C ⊕ B⊕C    (i.e. B, voilà: the next record)
+</pre>
+<ul>
+<li>End of list is signified by imagining a list item at address zero placed adjacent to an end point, as in <code>{0 A B C…}</code>. The link field at A would be 0⊕B. An additional instruction is needed in the above sequence after the two XOR operations to detect a zero result in developing the address of the current item,</li>
+<li>A list end point can be made reflective by making the link pointer be zero. A zero pointer is a <i>mirror</i>. (The XOR of the left and right neighbor addresses, being the same, is zero.)</li>
+</ul>
+<h2><span class="mw-headline" id="Drawbacks">Drawbacks</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=XOR_linked_list&amp;action=edit&amp;section=4" title="Edit section: Drawbacks">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li>General-purpose debugging tools cannot follow the XOR chain, making debugging more difficult; <sup id="cite_ref-1" class="reference"><a href="#cite_note-1"><span>[</span>1<span>]</span></a></sup></li>
+<li>The price for the decrease in memory usage is an increase in code complexity, making maintenance more expensive;</li>
+<li>Most <a href="/wiki/Garbage_collection_(computer_science)" title="Garbage collection (computer science)">garbage collection</a> schemes do not work with data structures that do not contain literal <a href="/wiki/Pointer_(computer_programming)" title="Pointer (computer programming)">pointers</a>;</li>
+<li>XOR of pointers is not defined in some contexts (e.g., the <a href="/wiki/C_(programming_language)" title="C (programming language)">C</a> language), although many languages provide some kind of <a href="/wiki/Type_conversion" title="Type conversion">type conversion</a> between pointers and integers;</li>
+<li>The pointers will be unreadable if one isn't traversing the list — for example, if the pointer to a list item was contained in another data structure;</li>
+<li>While traversing the list you need to remember the address of the previously accessed node in order to calculate the next node's address.</li>
+<li>XOR linked lists do not provide some of the important advantages of doubly-linked lists, such as the ability to delete a node from the list knowing only its address or the ability to insert a new node before or after an existing node when knowing only the address of the existing node.</li>
+</ul>
+<p>Computer systems have increasingly cheap and plentiful memory, and storage overhead is not generally an overriding issue outside specialized <a href="/wiki/Embedded_system" title="Embedded system">embedded systems</a>. Where it is still desirable to reduce the overhead of a linked list, <a href="/wiki/Unrolled_linked_list" title="Unrolled linked list">unrolling</a> provides a more practical approach (as well as other advantages, such as increasing cache performance and speeding <a href="/wiki/Random_access" title="Random access">random access</a>).</p>
+<h2><span class="mw-headline" id="Variations">Variations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=XOR_linked_list&amp;action=edit&amp;section=5" title="Edit section: Variations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The underlying principle of the XOR linked list can be applied to any reversible binary operation. Replacing XOR by addition or subtraction gives slightly different, but largely equivalent, formulations:</p>
+<h3><span class="mw-headline" id="Addition_linked_list">Addition linked list</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=XOR_linked_list&amp;action=edit&amp;section=6" title="Edit section: Addition linked list">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>
+ ...  A        B         C         D         E  ...
+         &lt;–&gt;  A+C  &lt;-&gt;  B+D  &lt;-&gt;  C+E  &lt;-&gt;
+</pre>
+<p>This kind of list has exactly the same properties as the XOR linked list, except that a zero link field is not a "mirror". The address of the next node in the list is given by subtracting the previous node's address from the current node's link field.</p>
+<h3><span class="mw-headline" id="Subtraction_linked_list">Subtraction linked list</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=XOR_linked_list&amp;action=edit&amp;section=7" title="Edit section: Subtraction linked list">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<pre>
+ ...  A        B         C         D         E  ...
+         &lt;–&gt;  C-A  &lt;-&gt;  D-B  &lt;-&gt;  E-C  &lt;-&gt;
+</pre>
+<p>This kind of list differs from the "traditional" XOR linked list in that the instruction sequences needed to traverse the list forwards is different from the sequence needed to traverse the list in reverse. The address of the next node, going forwards, is given by <i>adding</i> the link field to the previous node's address; the address of the preceding node is given by <i>subtracting</i> the link field from the next node's address.</p>
+<p>The subtraction linked list is also special in that the entire list can be relocated in memory without needing any patching of pointer values, since adding a constant offset to each address in the list will not require any changes to the values stored in the link fields. (See also <a href="/wiki/Serialization" title="Serialization">Serialization</a>.) This is an advantage over both XOR linked lists and traditional linked lists.</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=XOR_linked_list&amp;action=edit&amp;section=8" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a href="/wiki/XOR_swap_algorithm" title="XOR swap algorithm">XOR swap algorithm</a></li>
+</ul>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=XOR_linked_list&amp;action=edit&amp;section=9" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><b><a href="#cite_ref-1">^</a></b></span> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.iecc.com/gclist/GC-faq.html#GC,%20C,%20and%20C++">http://www.iecc.com/gclist/GC-faq.html#GC,%20C,%20and%20C++</a></span></li>
+</ol>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=XOR_linked_list&amp;action=edit&amp;section=10" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://blog.wsensors.com/?p=177">Example implementation in C++.</a></li>
+</ul>
+<table class="navbox" style="border-spacing:0">
+<tr>
+<td style="padding:2px">
+<table class="nowraplinks hlist collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Data_structures" title="Template:Data structures"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Data_structures" title="Template talk:Data structures"><span title="Discuss this template" style=";;background:none transparent;border:none;">t</span></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Data_structures&amp;action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%"><a href="/wiki/Data_structure" title="Data structure">Data structures</a></div>
+</th>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Types</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Collection_(abstract_data_type)" title="Collection (abstract data type)">Collection</a></li>
+<li><a href="/wiki/Container_(abstract_data_type)" title="Container (abstract data type)">Container</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Abstract_data_type" title="Abstract data type">Abstract</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Associative_array" title="Associative array">Associative array</a></li>
+<li><a href="/wiki/Double-ended_priority_queue" title="Double-ended priority queue">Double-ended priority queue</a></li>
+<li><a href="/wiki/Double-ended_queue" title="Double-ended queue">Double-ended queue</a></li>
+<li><a href="/wiki/List_(abstract_data_type)" title="List (abstract data type)">List</a></li>
+<li><a href="/wiki/Associative_array" title="Associative array">Map</a></li>
+<li><a href="/wiki/Multimap" title="Multimap">Multimap</a></li>
+<li><a href="/wiki/Priority_queue" title="Priority queue">Priority queue</a></li>
+<li><a href="/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">Queue</a></li>
+<li><a href="/wiki/Set_(abstract_data_type)" title="Set (abstract data type)">Set</a>
+<ul>
+<li><a href="/wiki/Set_(abstract_data_type)#Multiset" title="Set (abstract data type)">multiset</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Disjoint-set_data_structure" title="Disjoint-set data structure">Disjoint Sets</a></li>
+<li><a href="/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">Stack</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Array_data_structure" title="Array data structure">Arrays</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Bit_array" title="Bit array">Bit array</a></li>
+<li><a href="/wiki/Circular_buffer" title="Circular buffer">Circular buffer</a></li>
+<li><a href="/wiki/Dynamic_array" title="Dynamic array">Dynamic array</a></li>
+<li><a href="/wiki/Hash_table" title="Hash table">Hash table</a></li>
+<li><a href="/wiki/Hashed_array_tree" title="Hashed array tree">Hashed array tree</a></li>
+<li><a href="/wiki/Sparse_array" title="Sparse array">Sparse array</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Linked_data_structure" title="Linked data structure">Linked</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Association_list" title="Association list">Association list</a></li>
+<li><a href="/wiki/Linked_list" title="Linked list">Linked list</a></li>
+<li><a href="/wiki/Skip_list" title="Skip list">Skip list</a></li>
+<li><a href="/wiki/Unrolled_linked_list" title="Unrolled linked list">Unrolled linked list</a></li>
+<li><strong class="selflink">XOR linked list</strong></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Tree_(data_structure)" title="Tree (data structure)">Trees</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/B-tree" title="B-tree">B-tree</a></li>
+<li><a href="/wiki/Binary_search_tree" title="Binary search tree">Binary search tree</a>
+<ul>
+<li><a href="/wiki/AA_tree" title="AA tree">AA</a></li>
+<li><a href="/wiki/AVL_tree" title="AVL tree">AVL</a></li>
+<li><a href="/wiki/Red%E2%80%93black_tree" title="Red–black tree">red-black</a></li>
+<li><a href="/wiki/Self-balancing_binary_search_tree" title="Self-balancing binary search tree">self-balancing</a></li>
+<li><a href="/wiki/Splay_tree" title="Splay tree">splay</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Heap_(data_structure)" title="Heap (data structure)">Heap</a>
+<ul>
+<li><a href="/wiki/Binary_heap" title="Binary heap">binary</a></li>
+<li><a href="/wiki/Binomial_heap" title="Binomial heap">binomial</a></li>
+<li><a href="/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci</a></li>
+</ul>
+</li>
+<li><a href="/wiki/R-tree" title="R-tree">R-tree</a>
+<ul>
+<li><a href="/wiki/R*_tree" title="R* tree">R*</a></li>
+<li><a href="/wiki/R%2B_tree" title="R+ tree">R+</a></li>
+<li><a href="/wiki/Hilbert_R-tree" title="Hilbert R-tree">Hilbert</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Trie" title="Trie">Trie</a>
+<ul>
+<li><a href="/wiki/Hash_tree_(persistent_data_structure)" title="Hash tree (persistent data structure)">Hash tree</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Graph_(abstract_data_type)" title="Graph (abstract data type)">Graphs</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Binary_decision_diagram" title="Binary decision diagram">Binary decision diagram</a></li>
+<li><a href="/wiki/Directed_acyclic_graph" title="Directed acyclic graph">Directed acyclic graph</a></li>
+<li><a href="/wiki/Directed_acyclic_word_graph" title="Directed acyclic word graph" class="mw-redirect">Directed acyclic word graph</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div>
+<ul>
+<li><a href="/wiki/List_of_data_structures" title="List of data structures">List of data structures</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1114
+CPU time usage: 0.210 seconds
+Real time usage: 0.247 seconds
+Preprocessor visited node count: 248/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 15617/2097152 bytes
+Template argument size: 12/2097152 bytes
+Highest expansion depth: 6/40
+Expensive parser function count: 1/500
+Lua time usage: 0.042/10.000 seconds
+Lua memory usage: 845 KB/50 MB
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  100.307      1 - -total
+ 73.13%   73.351      1 - Template:Refimprove
+ 46.00%   46.140      1 - Template:Ambox
+ 22.41%   22.482      1 - Template:Data_structures
+ 19.05%   19.110      1 - Template:Navbox
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:291683-0!*!0!!en!4!* and timestamp 20150131224815 and revision id 604964294
+ -->
+<noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>									<div class="printfooter">
+						Retrieved from &quot;<a dir="ltr" href="http://en.wikipedia.org/w/index.php?title=XOR_linked_list&amp;oldid=604964294">http://en.wikipedia.org/w/index.php?title=XOR_linked_list&amp;oldid=604964294</a>&quot;					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Binary_arithmetic" title="Category:Binary arithmetic">Binary arithmetic</a></li><li><a href="/wiki/Category:Linked_lists" title="Category:Linked lists">Linked lists</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:Articles_needing_additional_references_from_October_2009" title="Category:Articles needing additional references from October 2009">Articles needing additional references from October 2009</a></li><li><a href="/wiki/Category:All_articles_needing_additional_references" title="Category:All articles needing additional references">All articles needing additional references</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=XOR+linked+list&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=XOR+linked+list" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/XOR_linked_list"  title="View the content page [c]" accesskey="c">Article</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Talk:XOR_linked_list"  title="Discussion about the content page [t]" accesskey="t">Talk</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/XOR_linked_list" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=XOR_linked_list&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=XOR_linked_list&amp;action=history"  title="Past versions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Wikipedia [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if one exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-contents"><a href="/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li>
+													<li id="n-featuredcontent"><a href="/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li>
+													<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li>
+													<li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li>
+													<li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikimedia Shop">Wikimedia Shop</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-interaction' aria-labelledby='p-interaction-label'>
+			<h3 id='p-interaction-label'>Interaction</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+													<li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li>
+													<li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/XOR_linked_list" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/XOR_linked_list" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=XOR_linked_list&amp;oldid=604964294" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=XOR_linked_list&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-wikibase"><a href="//www.wikidata.org/wiki/Q607967" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li>
+						<li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=XOR_linked_list&amp;id=604964294" title="Information on how to cite this page">Cite this page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-coll-print_export' aria-labelledby='p-coll-print_export-label'>
+			<h3 id='p-coll-print_export-label'>Print/export</h3>
+
+			<div class="body">
+									<ul>
+													<li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=XOR+linked+list">Create a book</a></li>
+													<li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=XOR+linked+list&amp;oldid=604964294&amp;writer=rdf2latex">Download as PDF</a></li>
+													<li id="t-print"><a href="/w/index.php?title=XOR_linked_list&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+			<h3 id='p-lang-label'>Languages</h3>
+
+			<div class="body">
+									<ul>
+													<li class="interlanguage-link interwiki-fr"><a href="//fr.wikipedia.org/wiki/Cha%C3%AEnage_XOR" title="Chaînage XOR – French" lang="fr" hreflang="fr">Français</a></li>
+													<li class="interlanguage-link interwiki-it"><a href="//it.wikipedia.org/wiki/XOR_linked_list" title="XOR linked list – Italian" lang="it" hreflang="it">Italiano</a></li>
+													<li class="interlanguage-link interwiki-he"><a href="//he.wikipedia.org/wiki/%D7%A8%D7%A9%D7%99%D7%9E%D7%94_%D7%9E%D7%A7%D7%95%D7%A9%D7%A8%D7%AA_%D7%A9%D7%9C_XOR" title="רשימה מקושרת של XOR – Hebrew" lang="he" hreflang="he">עברית</a></li>
+													<li class="interlanguage-link interwiki-ja"><a href="//ja.wikipedia.org/wiki/XOR%E9%80%A3%E7%B5%90%E3%83%AA%E3%82%B9%E3%83%88" title="XOR連結リスト – Japanese" lang="ja" hreflang="ja">日本語</a></li>
+													<li class="interlanguage-link interwiki-ru"><a href="//ru.wikipedia.org/wiki/XOR-%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9_%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA" title="XOR-связный список – Russian" lang="ru" hreflang="ru">Русский</a></li>
+													<li class="interlanguage-link interwiki-sr"><a href="//sr.wikipedia.org/wiki/XOR_povezana_lista" title="XOR povezana lista – Serbian" lang="sr" hreflang="sr">Српски / srpski</a></li>
+													<li class="interlanguage-link interwiki-th"><a href="//th.wikipedia.org/wiki/%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%82%E0%B8%A2%E0%B8%87%E0%B8%AD%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%80%E0%B8%89%E0%B8%9E%E0%B8%B2%E0%B8%B0" title="รายการโยงออร์เฉพาะ – Thai" lang="th" hreflang="th">ไทย</a></li>
+													<li class="interlanguage-link interwiki-zh"><a href="//zh.wikipedia.org/wiki/%E5%BC%82%E6%88%96%E9%93%BE%E8%A1%A8" title="异或链表 – Chinese" lang="zh" hreflang="zh">中文</a></li>
+													<li class="uls-p-lang-dummy"><a href="#"></a></li>
+											</ul>
+				<div class='after-portlet after-portlet-lang'><span class="wb-langlinks-edit wb-langlinks-link"><a action="edit" href="//www.wikidata.org/wiki/Q607967#sitelinks-wikipedia" text="Edit links" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 20 April 2014, at 02:32.</li>
+											<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="//wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+											<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+											<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=XOR_linked_list&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="//wikimediafoundation.org/"><img src="//bits.wikimedia.org/images/wikimedia-button.png" srcset="//bits.wikimedia.org/images/wikimedia-button-1.5x.png 1.5x, //bits.wikimedia.org/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="//bits.wikimedia.org/static-1.25wmf16/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="//bits.wikimedia.org/static-1.25wmf16/resources/assets/poweredby_mediawiki_132x47.png 1.5x, //bits.wikimedia.org/static-1.25wmf16/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"ext.globalCssJs.site":"ready","ext.globalCssJs.user":"ready","site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.switcher","ext.gadget.featured-articles-links","mmv.bootstrap.autostart","ext.eventLogging.subscriber","ext.wikimediaEvents.statsd","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","ext.uls.interlanguage"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":117,"wgHostname":"mw1064"});
+}</script>
+	</body>
+</html>

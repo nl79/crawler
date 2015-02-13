@@ -1,0 +1,517 @@
+undefined<!doctype html> 
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]> <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]> <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+ 
+<meta name="keywords" content="learning-sql,table-function,database, syntax, function, download, code, free,sql-query, sql-basic-function, sql,basic queries, math-functions,string-function,basic-command,online sql,sql for beginners,sql practical
+,database training,sql tutorial,what is,sql training,what is sql,sql subquery,truncate in sql,nested queries in sql,nested query,sql commands,sql between query,list of,sql query examples,create table,sql insert,sql tutorials for beginners with online examples" />
+<meta name="description" content="sql section gives you a complete reference to learn sql. Here you can execute your examples of sql on the given tables. Examples are given to clarify the concepts of sql" />
+<title>SQL | Structure Query Language | Commands | Types</title>
+
+ <link rel="stylesheet" href="/style-min.css" type="text/css" media="screen, projection" />
+<script type="text/javascript" src="/jq.js"></script>
+<link rel="stylesheet" type="text/css" href="/prettify.css" />
+<script type="text/javascript" src="/prettify.js"></script>
+<link rel="icon" type="image/gif" href="/favicon.gif" >
+</head>
+<body onLoad="prettyPrint()">
+ <div class="container" id="container">
+<div class="header"> <meta name="viewport" content="width=device-width, minimumscale=1.0, maximum-scale=1.0" /> 
+<div class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Scanftree.com</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav"> 
+               
+                <li><a href="http://scanftree.com/Data_Structure/" >Data Structure</a></li>
+                <li><a href="http://scanftree.com/operating-system/" >Operating System</a></li>
+                  <li><a href="http://scanftree.com/c/" >C</a></li>
+                 <li><a href="http://scanftree.com/Graph-Theory/" >Graph Theory</a></li>
+                 <li><a href="http://scanftree.com/microprocessor/Applications-of-Microprocessors" >Microprocessor</a></li>
+
+
+
+ <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">DBMS<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+			<!--	  <li class="dropdown-header">Online Money</li>  --> 
+  <li><a href="http://scanftree.com/dbms/" >Database Concept</a></li>
+   <li><a href="http://scanftree.com/sql/" >SQL</a></li>
+   <li><a href="http://scanftree.com/sqlite/" >SQLite</a></li>
+ </ul></li>
+
+ <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Examples<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+			<!--	  <li class="dropdown-header">Online Money</li>  --> 
+       <li><a href="http://scanftree.com/programs/c/">C</a></li>
+       <li><a href="http://scanftree.com/programs/java/">JAVA</a></li> 
+  <li><a href="http://scanftree.com/programs/cpp/">C++</a></li> 
+ </ul></li>
+
+<!--
+ <li class="dropdown">
+                <a href="http://scanftree.com/math/" class="dropdown-toggle" data-toggle="dropdown">Math<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+       <li><a href="http://scanftree.com/math/">Formulas & Calculators</a></li>
+
+
+ </ul></li>
+
+-->
+
+ <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extra<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+			<!--	  <li class="dropdown-header">Online Money</li>  --> 
+       <li><a href="http://scanftree.com/Cheat-Sheets/">Cheat Sheets</a></li>
+   <li><a href="http://w3seo.info">SEO</a></li>  
+    <li><a href="http://facts-india.in/ifsc-code/">IFSC Codes</a></li>  
+ </ul></li>
+
+<li><a  style="visibility:hidden" href="https://profiles.google.com/118436369275590927622" rel="publisher" >Ankit Kumar singh</a></li>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+</div>
+<div class="sidebar1" id="sideLeft" ><div class="menu" id="list5">
+
+<ul><li><a href="/sql/" title="Introduction to Structure Query Language">Introduction</a></li></ul>
+<br/>
+
+<h2><span class="menu_h">DQL : </span>Data Query Language</h2>
+<hr/>
+<ul>
+<li><a href="/sql/sql-select">select</a></li>
+<li><a href="/sql/sql-alias">alias</a></li>
+<li><a href="/sql/sql-where">where</a></li>
+<li><a href="/sql/sql-operators">operators</a></li>
+<li><a href="/sql/sql-like">like</a></li>
+<li><a href="/sql/sql-order-by">order by</a></li>
+<li><a href="/sql/sql-group-by">group by</a></li>
+<li><a href="/sql/sql-join">join</a></li>
+<li><a href="/sql/sql-inner-join">inner join</a></li>
+<li><a href="/sql/sql-left-join">left join</a></li>
+<li><a href="/sql/sql-right-join">right join</a></li>
+</ul>
+<br/>
+
+
+
+
+<h2><span class="menu_h">DML : </span>Data Manipulation Language</h2>
+<hr/>
+<ul>
+<li><a href="/sql/sql-insert-in-table" title="to insert a new row">insert</a></li>
+<li><a href="/sql/sql-update-table" title="to update existing row">update</a></li>
+<li><a href="/sql/sql-delete-from-table" title="to delete a row">delete</a></li>
+<!-- <li><a href="#" title="merging two rows or two tables">merge</a></li>  -->
+</ul>
+<br/>
+
+	
+	
+
+<h2><span class="menu_h">DDL : </span>Data Definition Language</h2>
+<hr/>
+<ul>
+<li><a href="/sql/" title="to create new table or database">create</a></li>
+<li><a href="/sql/sql-alter-table" title="for alteration" >alter</a></li>
+<li><a href="/sql/sql-truncate-table" title="delete data from table">truncate</a></li>
+<li><a href="/sql/sql-drop" title="to drop a table">drop</a></li>
+<!-- <li><a href="/sql/" title="to rename a table">rename</a></li> -->
+</ul>
+<br/>
+
+
+	
+<h2><span class="menu_h">TCL : </span>Transaction Control Language</h2>
+<hr/>
+<ul>
+
+<li><a href="/sql/Transaction-Control-Language" title="Transaction Control Language(TCL)">Commit, Rollback, savepoint</a></li>
+</ul>
+<br/>
+
+
+
+	     
+<h2><span class="menu_h">DCL : </span>Data Control Language</h2>
+<hr/>
+<ul>
+<li><a href="/sql/Data-Control-Language" title="grant and revoke permission">grant, revoke</a></li>
+</ul>
+<br/>
+
+
+
+<h2><span class="menu_h">sql</span> others</h2>
+<ul>
+<li><a href="/sql/sql-use">use</a></li>
+<li><a href="/sql/sql-not-null">not null</a></li>
+<li><a href="/sql/sql-default">default</a></li>
+<li><a href="/sql/sql-unique">unique</a></li>
+<li><a href="/sql/sql-check">check</a></li>
+<li><a href="/sql/sql-primary-key">primary key</a></li>
+<li><a href="/sql/sql-foreign-key">foreign key</a></li>
+<li><a href="/sql/sql-create-view">create view</a></li>
+<li><a href="/sql/sql-create-index">create index</a></li>
+</ul>
+
+
+
+<br/>
+<h2><span class="menu_h">SQL</span> Basic Function</h2>
+<hr/>
+<ul>
+<li><a href="/sql/sql-avg">avg</a></li>
+<li><a href="/sql/sql-distinct">distinct</a></li>
+<li><a href="/sql/sql-count">count</a></li>
+<li><a href="/sql/sql-max">max</a></li>
+<li><a href="/sql/sql-min">min</a></li>
+<li><a href="/sql/sql-sum">sum</a></li>
+<li><a href="/sql/sql-having">having</a></li>
+<li><a href="/sql/sql-round">round</a></li>
+<li><a href="/sql/sql-ucase">ucase</a></li>
+<li><a href="/sql/sql-lcase">lcase</a></li>
+</ul>
+<br/>
+
+
+
+<h2><span class="menu_h">SQL</span> Math Function</h2>
+<hr/>
+<ul>
+<li><a href="/sql/sql-abs">abs</a></li>
+<li><a href="/sql/sql-rand">rand</a></li>
+<li><a href="/sql/sql-degrees">degrees</a></li>
+<li><a href="/sql/sql-floor">floor</a></li>
+<li><a href="/sql/sql-ceiling">ceiling</a></li>
+<li><a href="/sql/sql-log">log</a></li>
+<li><a href="/sql/sql-log10">log10</a></li>
+<li><a href="/sql/sql-power">power</a></li>
+<li><a href="/sql/sql-square">square</a></li>
+<li><a href="/sql/sql-pi">pi</a></li>
+<li><a href="/sql/sql-sqrt">sqrt</a></li>
+<li><a href="/sql/sql-radians">radians</a></li>
+<li><a href="/sql/sql-exp">exp</a></li>
+<li><a href="/sql/sql-sign">sign</a></li>
+<li><a href="/sql/sql-sin">sin</a></li>
+<li><a href="/sql/sql-asin">asin</a></li>   
+</ul>
+<br/>
+
+
+
+<h2><span class="menu_h">SQL</span> String Function</h2>
+<hr/>
+<ul>
+<li><a href="/sql/sql-concatinate">concatinate</a></li>
+<li><a href="/sql/sql-substring">substring</a></li>
+<li><a href="/sql/sql-instr">instr</a></li>
+<li><a href="/sql/sql-trim">trim</a></li>
+<li><a href="/sql/sql-length">length</a></li>
+<li><a href="/sql/sql-replace">replace</a></li>
+</ul>
+<br/>
+
+
+</div></div>
+ <div class="content" id="content" >
+<h1>Introduction to SQL</h1>  
+Structure Query Language(SQL) is a programming language used for storing and managing data in RDBMS. SQL was the first commercial language introduced for E.F Codd's <b>Relational</b> model. Today almost all RDBMS(MySql, Oracle, Infomix, Sybase, MS Access) uses <b>SQL</b> as the standard database language. SQL is used to perform all type of data operations in RDBMS.<br/><hr/><br/>
+
+
+
+
+
+
+
+<h4>SQL Command</h4>
+<p>
+SQL defines following data languages to manipulate data of RDBMS. 
+</p>
+
+<br/><br/>
+
+<h3>DDL : Data Definition Language</h3>
+<p>
+All DDL commands are auto-committed. That means it saves all the changes permanently in the database. 
+</p>
+<table class="bordered resources">
+<tr><th>Command</th><th>Description</th></tr>
+<tr><td>create</td><td>to create new table or database</td></tr>
+<tr><td>alter</td><td>for alteration</td></tr>
+<tr><td>truncate</td><td>delete data from table</td></tr>
+<tr><td>drop</td><td>to drop a table</td></tr>
+<tr><td>rename</td><td>to rename a table</td></tr>
+</table>
+
+<br/><br/>
+
+
+<h3>DML : Data Manipulation Language</h3>
+<p>
+DML commands are not auto-committed. It means changes are not permanent to database, they can be rolled back. 
+</p>
+<table class="bordered resources">
+<tr><th>Command</th><th>Description</th></tr>
+<tr><td>insert</td><td>to insert a new row</td></tr>
+<tr><td>update</td><td>to update existing row</td></tr>
+<tr><td>delete</td><td>to delete a row</td></tr>
+<tr><td>merge</td><td>merging two rows or two tables</td></tr>
+</table>
+
+<br/><br/>
+
+<h3>TCL : Transaction Control Language</h3>
+<p>These commands are to keep a check on other commands and their affect on the database. These commands can annul changes made by other commands by rolling back to original state. It can also make changes permanent.</p>
+<table class="bordered resources">
+<tr><th>Command</th><th>Description</th></tr>
+<tr><td>commit</td><td>to permanently save</td></tr>
+<tr><td>rollback</td><td>to undo change</td></tr>
+<tr><td>savepoint</td><td>to save temporarily</td></tr>
+</table>
+
+<br/><br/>
+
+<h3>DCL : Data Control Language</h3>
+<p>Data control language provides command to grant and take back authority.</p>
+<table class="bordered resources">
+<tr><th>Command</th><th>Description</th></tr>
+<tr><td>grant</td><td>grant permission of right</td></tr>
+<tr><td>revoke</td><td>take back permission.</td></tr>
+</table>
+
+<br/><br/>
+
+<h3>DQL : Data Query Language</h3>
+<table class="bordered resources">
+<tr><th>Command</th><th>Description</th></tr>
+<tr><td>select</td><td>retrieve records from one or more table</td></tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+ </div>
+   </div>
+  <div class="footer"><script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- first -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:320px;height:50px"
+     data-ad-client="ca-pub-5670434359943293"
+     data-ad-slot="3505535769"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37219525-1']);
+  _gaq.push(['_setDomainName', 'scanftree.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("#back-top").hide();
+$(function () {
+		$(window).scroll(function () {if ($(this).scrollTop() > 100) {$('#back-top').fadeIn();} 
+		else {$('#back-top').fadeOut();}
+		});
+
+		$('#back-top a').click(function () {$('body,html').animate({scrollTop: 0}, 1500);return false; });  });
+		
+		 
+
+ $('.content' ).css( "min-height", $( '.sidebar1').height() );		
+		
+		  });
+
+
+$(".gen tr:even").css("background-color", "#F4F4F8");
+ 
+$('#toggle-button').toggle(function() {
+            $('#toggle').animate({width: 750});
+            $('#toggle').animate({height: 500});     
+			 }, function() {
+            $('#toggle').animate({width: 620});
+			 $('#toggle').animate({height: 250});
+      });
+	  
+	  
+$(function(){
+         var url = window.location.pathname, 
+        urlRegExp = new RegExp(url.replace(/\/$/,'') + "$"); 
+  $('.menu li  a').each(function(){
+            if(urlRegExp.test(this.href.replace(/\/$/,''))){
+                $(this).addClass('act');
+//  $('#content' ).prepend('<div><ul class="pager"><li class="previous"><a href="codd-rule.php">&larr; Prev</a></li><li class="next"><a href= '  +$(this).parent().next("li").children("a").attr("href")  +'>Next &rarr;</a></li></ul></div> ');
+// alert($(this).siblings("li").html());
+                 asdfg=$(this).next();
+
+       }
+                                              });
+
+
+
+ });
+
+
+
+
+
+</script>
+
+<span id="back-top" ><a ><span></span></a></span>
+<div id="bottommenu" >
+
+
+
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+  {parsetags: 'explicit'}
+</script>
+
+
+<script type="text/javascript">
+var infolinks_pid = 1709549;
+var infolinks_wsid = 0;
+</script>
+<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+
+<div class="row">
+  <div class="col-sm-12 col-md-8">
+
+<!-- <a href="/" target="_top">HOME</a> | <a href="/c/" target="_top">C</a> | <a href="/Data_Structure/" target="_top">Data Structure</a> | <a href="http://scanftree.com/microprocessor/Pin-Diagram-of-8085-and-Pin-description-of-8085" target="_top">Microprocessor</a> | <a href="http://scanftree.com/Cheat-Sheets/" target="_top">CHEAT SHEETS</a> | <a href="/html5/" target="_top">Html 5 </a> | <a href="http://scanftree.com/operating-system/" target="_top">OS</a> | <a href="/sql/" target="_top">SQL </a> |  -->
+<p>Scanftree is optimized for learning, testing, and training. Examples might be simplified to improve reading and basic understanding. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content. While using this site, you agree to have read and accepted our	terms of use and privacy policy.</p><p>©Copyright 2014 Scanftree.</p>
+</div>
+
+  <div class="col-sm-12 col-md-4">
+
+<div class="g-person"  data-href="//plus.google.com/118436369275590927622" data-layout="landscape" data-showcoverphoto="false" data-rel="author"></div>
+</div>
+
+</div>
+
+</div>
+
+<a  style="visibility:hidden" href="https://profiles.google.com/118436369275590927622" rel="me">My Google+ Profile</a>
+<a  style="visibility:hidden" href="https://profiles.google.com/118436369275590927622" >My Google+ Profile</a>
+
+
+
+
+
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+<script type="text/javascript" >
+        var disqus_shortname = 'scanftree'; 
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+
+$('#content' ).append('<br/><hr/><center ><span class="this"> <a class="addthis_button_google_plusone" g:plusone:size="tall"></a> <a class="addthis_button_tweet" tw:count="vertical"></a> <a class="addthis_button_facebook_like" fb:like:layout="box_count"></a> </span></center> <hr/><br/><br/> ');
+
+
+$(".content").append('<div id="disqus_thread"></div>');
+//$(".content").append('<input type="hidden" name="IL_IN_TAG" value="2"/>');
+
+
+    </script>
+	
+
+
+<script type="text/javascript">gapi.person.go();</script>
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+
+<script id="_waumo2">var _wau = _wau || []; _wau.push(["small", "uf15qyhdzbqn", "mo2"]);
+(function() {var s=document.createElement("script"); s.async=true;
+s.src="http://widgets.amung.us/small.js";
+document.getElementsByTagName("head")[0].appendChild(s);
+})();</script>
+
+
+<script>
+$('#content' ).prepend('<center title="Like Our Facebook page"><div class="fb-like" data-href="https://www.facebook.com/scanftreecom" data-layout="box_count" data-action="like" data-show-faces="false" data-share="true"></div></center> <br/><br/> ');
+</script>
+
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f758b7556b7ac22"></script>
+<script type="text/javascript">
+addthis.layers({
+    'theme' : 'transparent',
+    'domain' : 'scanftree.com',
+    'linkFilter' : function(link, layer) {
+        console.log(link.title + ' - ' + link.url + " - " + layer);
+        return link;
+    },
+    'responsive' : {
+      'maxWidth' : '979px',
+      'minWidth' : '0px'
+    },
+ 
+    'follow' : {
+        'services' : [
+            {'service' : 'facebook', 'id' : 'scanftreecom',},
+           {'service': 'google_follow', 'id': '+Ankit-Kumar-Singh'},
+         {'service': 'linkedin', 'id': 'erankitkumarsingh'},
+
+
+        ],
+        'title' : 'My Profile',
+        'postFollowTitle' : 'Thanks for following!',
+        'postFollowRecommendedMsg' : 'Recommended for you',
+        'mobile' : true,
+        'desktop' : true,
+        'theme' : 'transparent'
+    },
+});
+</script></div></body></html>

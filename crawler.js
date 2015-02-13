@@ -3,7 +3,8 @@ var
     util = require("util"), 
     fs = require('fs'),
     crypto = require('crypto'),
-    http = require('http');
+    http = require('http'),
+    https = require('https'); 
     
 
 function spawn (config) {
@@ -110,22 +111,18 @@ function spawn (config) {
             return false; 
              
         }
-        
-        
+
         this.crawl = function() {
+
             var self = this;
+            var client = null; 
             
             //var http = require('http');
                     
             if (this.queue.length > 0 && this.crawled <= this.limit) {
                 
                 this.url = this.queue.shift();
-                
-                console.log('Crawling: ' + this.url);
-                 
-                 //hash the url. 
-                this.urlHash = crypto.createHash('sha1').update(this.url).digest('hex');
-                
+             
                 /*
                  *check if the hash is set in the visited object.
                  *if not, set the value.
@@ -137,13 +134,27 @@ function spawn (config) {
                     return; 
                 }
                 
+                /*
+                 *check if the url is over http or https and
+                 *use the approprite method.
+                 */
+                if (this.url.substring(0, this.url.indexOf(':')).toLowerCase() == 'https') {
+                    client = https; 
+                } else {
+                    client = http;  
+                }
+                
+                
+                console.log('Crawling: ' + this.url);
+                
                 this.visited.push(this.url); 
                 
                     
                 //set the crawling flag to true
-                this.crawling = true; 
+                this.crawling = true;
                 
-                var req = http.get(this.url, function(res) {
+                
+                var req = client.get(this.url, function(res) {
                     
                     res.setEncoding('utf8');
                     
@@ -152,12 +163,21 @@ function spawn (config) {
                     });
                     
                     res.on('end', function() {
+                        
+                        //check if buffer is undefined
+                        if (!this.buffer || res.statusCode != 200) {
+                            self.emit('next');  
+                        }
         
                         //call the crawlers transform method to parse the data. 
                         self.transform({status: res.statusCode,
                                                     headers: JSON.stringify(res.headers),
                                                     body: this.buffer}); 
                     })
+                    
+                    res.on('error', function(err, data) {
+                        console.log(err); 
+                    }); 
                     
                 });
                 
@@ -345,6 +365,9 @@ function spawn (config) {
             //get the directory path
             var dir = this.cacheDir ? this.cacheDir : '/_cache-default';
             
+            //hash the url. 
+            this.urlHash = crypto.createHash('sha1').update(this.url).digest('hex');
+            
             //build the filepath
             var path = dir + '/' + this.urlHash + '.html';
         
@@ -354,7 +377,6 @@ function spawn (config) {
              *helper function: save - will write the file contents to the specified path.
              */
             var save = function() {
-                console.log(path);
                 
                 fs.writeFile(path, body, function(err) {
                     if(err) {

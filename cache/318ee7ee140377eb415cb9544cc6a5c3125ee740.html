@@ -1,0 +1,1131 @@
+undefined<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Building a Better Hash</TITLE>
+</HEAD>
+<BODY>
+
+<H1>Building a Better Hash</H1>
+
+<A HREF="http://www.dfan.org">Dan Schmidt</A><BR> Originally published in
+<A HREF="http://www.tpj.com"><I>The Perl Journal</I></A>, Summer 1999<BR>
+&copy; Copyright 1999 The Perl Journal. Reprinted with permission.<BR><BR>
+
+<H2><A NAME="Introduction">Introduction</A></H2>
+
+One of the nice things about Perl is its support for reuse. I can solve a
+problem once, and then generalize it so that everyone else with the same
+problem can use my solution. In this article, I'll examine a simple problem
+and take it through the steps required to turn it to a reusable module.
+Along the way, we'll visit the topics of data structures, ties,
+optimization, and testing.
+
+
+<H2><A NAME="The_problem">The problem</A></H2>
+<P>
+Someone on the Boston Perl Mongers mailing list asked how to
+efficiently manage a collection of items such that you can insert and
+delete values quickly, but also choose random values quickly.
+
+
+</P>
+<P>
+In a hash, it's easy to insert and delete values:
+
+
+
+</P>
+<P>
+<PRE>  $hash{$obj} = $obj;
+  delete $hash{$obj};
+</PRE>
+</P>
+<P>
+But accessing random values is inefficient:
+
+
+
+</P>
+<P>
+<PRE>  my @k = keys %hash;
+  $rand = $k[rand @k];
+</PRE>
+</P>
+
+<P>
+You can access random values quickly in an array, but you can't insert
+and delete values efficiently.
+
+
+</P>
+<P>
+I might run into this problem if I were a soft-hearted person running
+an ongoing raffle. I'd have to keep track of the tickets people buy,
+and choose one randomly whenever it's time to select a winner. In
+addition, because I'm a nice guy, I'd let people drop out of the
+raffle, getting their money back, whenever they want; if someone
+wanted to drop out of the raffle like that, I'd need a way to find her
+ticket quickly.
+
+</P>
+
+
+<H2><A NAME="Discussion_of_the_problem">Discussion of the problem</A></H2>
+<P>
+To restate the problem a little more formally, we want some sort of lookup
+table in which <EM>insertion</EM>, <EM>lookup</EM>, <EM>deletion</EM>, and
+<EM>random selection</EM> are all fast.
+
+</P>
+<P>
+Do any of Perl's built-in data types do the trick? Let's compare the
+various naive data structures one could use for this problem:
+
+</P>
+<P>
+<PRE>               array   hash
+  insertion     O(1)   O(1)
+  lookup        O(n)   O(1)
+  deletion      O(n)   O(1)
+  random key    O(1)   O(n)
+</PRE>
+</P>
+<P>
+
+<CODE>O(n)</CODE> (pronounced 'order n'), or linear, time means
+that when there are <EM>n</EM> elements in the data structure, the
+operation takes time proportional to <EM>n</EM>. If an operation is
+<CODE>O(1),</CODE> it takes time proportional to 1; that is, it
+runs in constant time.
+
+</P>
+<P>
+Arrays are great for selecting a random key, since it's easy to choose a
+random index, and then our random key is just the element at that index.
+But arrays are lousy for looking up keys, since we have to look through all
+the elements until we find the key we're looking for. When Bartholomew asks
+for his ticket back, I'll have to look through all of the tickets one at a
+time until I find the one with his name on it.
+
+</P>
+<P>
+
+Hashes were invented specifically to perform fast lookup, but there's no
+quick way of indexing all the entries of a hash. We can easily obtain a
+list of the keys with <CODE>keys %hash</CODE>, but that requires a pass
+through the whole hash to find all the keys, which takes too much time
+for this problem. When it's time to choose a raffle winner, I don't want
+to have to take time out and count through every single ticket.
+
+</P>
+<P>
+It's important to note that if I don't have to select a random key very
+often, hashes are fine. If I only have to select a raffle winner once, it's
+not a big deal to spend a long time doing it. Similarly, if I never need to
+lookup or delete elements, arrays work great.
+
+</P>
+<P>
+(Hash behavior is a little more complicated than I'm pretending here, but
+element access is effectively <CODE>O(1).)</CODE>
+
+</P>
+
+<H2><A NAME="Attempted_solutions">Attempted solutions</A></H2>
+<P>
+So how are we going to construct a new column in that table in which every
+operation is <CODE>O(1)?</CODE>
+
+</P>
+<P>
+It seems clear that we need a hash of some sort; it's just too hard to get
+fast lookup otherwise. How can we add a fast random key selection operation
+to a hash?
+
+</P>
+
+<H3><A NAME="Check_for_built_in_support">Check for built-in support</A></H3>
+<P>
+The first thing to do is to see if the solution is already built into Perl.
+Maybe the internal representation of a hash includes an array of keys, and <CODE>keys %hash</CODE> simply returns an alias to it. Perl does enough smart things under the hood
+that it's worth checking that it isn't already doing our work for us.
+
+</P>
+<P>
+Let's do a little timing test to see if selecting a random key of a hash
+gets slower as the hash gets bigger:
+
+</P>
+<P>
+<PRE>  use Benchmark;
+</PRE>
+</P>
+<P>
+<PRE>  for $i (1..10) {$little_hash{$i} = $i}
+  for $i (1..100) {$big_hash{$i} = $i}
+</PRE>
+</P>
+<P>
+<PRE>  timethese (10000, {
+              little =&gt; sub {$foo = (keys %little_hash)[rand keys %little_hash]},
+              big =&gt; sub {$foo =  (keys %big_hash)[rand keys %big_hash]},
+             });
+</PRE>
+</P>
+<P>
+<CODE>Benchmark::timethese</CODE> is the standard way to compare the speed of code fragments. The first
+argument is the number of trials to run; the second argument is a reference
+to a hash that maps names to code fragments.
+
+</P>
+<P>
+I should explain those code fragments.  <CODE>keys %hash</CODE> returns an array of the keys of the hash; the tricky thing is that inside
+the square brackets, that return value is put in a scalar context to
+provide an argument for <CODE>rand</CODE>, turning it into the length of the array, which is the number of keys.
+
+</P>
+<P>
+Anyway, here's the output I got when I ran it:
+
+</P>
+<P>
+<PRE>  Benchmark: timing 10000 iterations of big, little...
+        big:  5.43 CPU secs ( 5.43 usr +  0.00 sys)
+     little:  0.70 CPU secs ( 0.70 usr +  0.00 sys)
+</PRE>
+</P>
+<P>
+Here we can see that when we made the hash ten times as big, it took eight
+times as long to select a random key. So Perl hasn't already solved the
+problem for us.
+
+</P>
+
+<H3><A NAME="See_if_a_solution_already_exists">See if a solution already exists</A></H3>
+<P>
+Next (actually, we probably should have done this first!), we should check
+if someone else has already solved the problem. The Perl FAQ and the Perl
+Cookbook are good first places to look.
+
+</P>
+<P>
+I didn't find any solutions there, but the Perl Cookbook did point me to <CODE>Tie::IxHash</CODE>, which implements an indexed hash, a data structure that combines many of
+the features of hashes and arrays. In fact, selecting a random key from a <CODE>Tie::IxHash</CODE> is <CODE>O(1),</CODE> but because it must do work to preserve the order of
+the keys, deletion is <CODE>O(n).</CODE>
+
+</P>
+
+<H2><A NAME="A_working_data_structure">A working data structure</A></H2>
+<P>
+It looks like we'll have to implement a solution ourselves. Can we get the
+best of both worlds by using both a hash and an array? The array just holds
+a list of keys, so that we can do our random key selection quickly. We do
+have to do some extra work on operations that modify the table (like
+insertion) to keep both of our data structures in sync, but that's still
+constant time; it's just a bigger constant. If <EM>n</EM> is big enough, the extra time we spend keeping the data structures in sync
+will pale next to the time we save on random key selection.
+
+</P>
+<P>
+Let's see how complicated the operations actually are. Insertion is already
+<CODE>O(1)</CODE> for both cases. We get <CODE>O(1)</CODE> lookup by using
+the hash instead of the array, and <CODE>O(1)</CODE> random key selection
+by using the array instead of the hash.
+
+</P>
+<P>
+The only tricky case is deletion. First of all, we need to actually find
+the key in the array so we can delete it (we didn't need to do that during
+lookup). To do that, for each key we'll have to store the corresponding
+array index in the hash, as well as the value, so that we can get at the
+correct array element.
+
+</P>
+<P>
+Secondly, we need to delete that key in constant time. We could splice it
+out by moving all the elements above it down one slot (and that's basically
+what <CODE>Tie::IxHash</CODE> does, since it has to preserve key order), but that takes linear time. The
+fast way to delete an element from an array is just to move the last
+element of the array into that slot. Since we don't have to preserve order,
+that works great; we just have to make sure the hash gets updated along
+with it.
+
+</P>
+<P>
+Way up above in my original table, I claimed that deleting an element from
+an array is <CODE>O(n).</CODE> Was I lying? Well, sort of. Actually
+deleting the element, once you've found it, is an <CODE>O(1)</CODE>
+operation using the trick I just mentioned; it's finding that element in
+the first place that's the painful part. By using the hash, we're able to
+find the element quickly, and the rest is gravy.
+
+</P>
+
+<H2><A NAME="Implementation">Implementation</A></H2>
+<P>
+Okay, let's implement it.
+
+</P>
+<P>
+<PRE>  package RndHash1;
+</PRE>
+</P>
+<P>
+<PRE>  sub new {
+    bless { arr =&gt; (), hash =&gt; {} }, $_[0];
+  }
+</PRE>
+</P>
+<P>
+<PRE>  sub insert {
+    my ($self, $key, $val) = @_;
+    push @{$self-&gt;{arr}}, $key; # update array
+    $self-&gt;{hash}{$key} = [$val, $#{$self-&gt;{arr}}]; # update hash
+  }
+</PRE>
+</P>
+<P>
+<PRE>  sub get {
+    my ($self, $key) = @_;
+    $self-&gt;{hash}{$key}[0];              # look up in hash
+  }
+</PRE>
+</P>
+<P>
+<PRE>  sub delete {
+    my ($self, $key) = @_;
+    my $idx = $self-&gt;{hash}{$key}[1];    # index in array to delete
+    my $moved_key = $self-&gt;{arr}[-1];    # get last element
+    $self-&gt;{arr}[$idx] = $moved_key;     # and move it here
+    $self-&gt;{hash}{$moved_key}[1] = $idx; # update hash
+    --$#{$self-&gt;{arr}};                  # shorten array
+    delete $self-&gt;{hash}{$key};          # remove key from hash
+  }
+</PRE>
+</P>
+<P>
+<PRE>  sub rnd_key {
+    my ($self) = @_;
+    $self-&gt;{arr}[rand @{$self-&gt;{arr}}];
+  }
+</PRE>
+</P>
+<P>
+<PRE>  1;
+</PRE>
+</P>
+<P>
+If you've been scared away in the past from creating classes, cower no
+more. The only tricky part of writing a class is the <CODE>new</CODE>
+subroutine, which gets passed the class as the first argument.
+<CODE>bless</CODE> just takes the little hash reference we made and turns it into a reference
+that knows it's a <CODE>RndHash1</CODE>. Then each method of the class gets passed the object it's being called on
+as its first argument.
+
+</P>
+<P>
+The hash that we create has only two elements.  <CODE>arr</CODE> is an array containing all the keys, and <CODE>hash</CODE> is the actual hash with the key-value mapping. Actually, as we noted above,
+the hash also needs to associate an array index with each key. So the value
+it associates with each key is a tiny two-element array; element 0 is the
+real value, and element 1 is the index of that key in <CODE>arr</CODE>.
+
+</P>
+<P>
+Once you've gotten past that, <CODE>delete</CODE> is really the only interesting function here. We do have to catch a
+boundary case; what happens when the element we're deleting is the last
+element of the array? The code here happens to work in that case too,
+though it does do a little unnecessary work.
+
+</P>
+<P>
+Listing 1 shows another little benchmarking program, and Listing
+2 shows the results; yep, we speeded things up a lot! This
+benchmark tries to emulate typical use of the package; each time through
+the (implicit) loop, we add a new element and randomly delete one of the
+existing ones.
+
+</P>
+<P>
+Listing 1:
+
+</P>
+<P>
+<PRE>  use RndHash1;
+  use Benchmark;
+</PRE>
+</P>
+<P>
+<PRE>  $rndhash1 = new RndHash1;
+</PRE>
+</P>
+<P>
+<PRE>  for $i (1..500) {$hash{$i} = $i}
+  for $i (1..500) {$rndhash1-&gt;insert($i, $i)}
+</PRE>
+</P>
+<P>
+<PRE>  $i = 1000;
+</PRE>
+</P>
+<P>
+<PRE>  timethese (5000, {
+                    hash =&gt; sub {$hash{$i++}='a';
+                                 @keys = keys %hash;
+                                 delete $hash{$keys[rand @keys]};},
+                    RndHash1 =&gt; sub {$rndhash1-&gt;insert ($i++, 'a');
+                                     $rndhash1-&gt;delete ($rndhash1-&gt;rnd_key());},
+                   });
+</PRE>
+</P>
+<P>
+Listing 2:
+
+</P>
+<P>
+<PRE>  Benchmark: timing 5000 iterations of RndHash1, hash...
+    RndHash1:  1.22 CPU secs ( 1.19 usr +  0.03 sys)
+        hash: 22.04 CPU secs (22.03 usr +  0.01 sys)
+</PRE>
+</P>
+<P>
+It's important to actually perform this timing comparison. It was possible
+that our new implementation had enough overhead that it didn't actually
+perform better than built-in hashes on normal-sized data sets. By timing
+it, we see that in fact, it is definitely worthwhile to use RndHash.
+
+</P>
+
+<H2><A NAME="Implementing_a_tied_hash">Implementing a tied hash</A></H2>
+<P>
+We still have a few problems, though. For one thing, the implementation
+isn't robust at all.  <CODE>insert</CODE> doesn't check to see if the key already exists; <CODE>delete</CODE> doesn't check to make sure that the key does exist.
+
+</P>
+<P>
+Also, the syntax used to access the object isn't very idiomatic. It would
+be nice if we could use this pseudohash in the same way that we use a
+normal hash.
+
+</P>
+<P>
+In fact, we can, using perl's <CODE>tie</CODE> feature.  <CODE>tie</CODE> allows us to override perl's built-in implementation of a variable. For
+example, if we tie a variable to an object we've created, then every time
+perl would normally set the variable, it will instead call the STORE method
+on our object. A standard example is a database on disk; by using
+<CODE>tie</CODE>, we can make retrieving and updating values in the database look just like
+using a hash. Once the tie is set up, the programmer needn't even know that
+it exists.
+
+</P>
+<P>
+A complete hash tie implementation needs to support eight fundamental
+operations, most of which we've already written in some form or another.
+
+</P>
+<P>
+<PRE>  package RndHash2;
+</PRE>
+</P>
+<P>
+<PRE>  sub TIEHASH {
+    bless { hash =&gt; {}, arr =&gt; (), iter =&gt; 0 }, $_[0];
+  }
+</PRE>
+</P>
+<P>
+<CODE>TIEHASH</CODE> is exactly analgous to <CODE>new</CODE> for a regular class. We'll be using <CODE>iter</CODE> to implement the code that is called when people write code like <CODE>while (($key, $value) = each %hash)</CODE>.
+
+</P>
+<P>
+<PRE>  sub STORE {
+    my ($self, $key, $val) = @_;
+    if (exists $self-&gt;{hash}{$key}) {
+      $self-&gt;{hash}{$key}[0] = $val;
+    } else {
+      push @{$self-&gt;{arr}}, $key;
+      $self-&gt;{hash}{$key} = [$val, $#{$self-&gt;{arr}}];
+    }
+  }
+</PRE>
+</P>
+<P>
+<CODE>STORE</CODE> is called in response to code that sets elements in the hash, such as <CODE>$hash{$key} = $value</CODE>. That element may already exist in the hash, and if so, we only want to
+update the value, not push a new key onto our array.
+
+</P>
+<P>
+<PRE>  sub FETCH {
+    my ($self, $key) = @_;
+    return $self-&gt;{hash}{$key}[0];
+  }
+</PRE>
+</P>
+<P>
+<CODE>FETCH</CODE> is called in response to code that reads elements from the hash. We kind of
+have two cases, since the element may or may not exist, but it turns out
+that one piece of code handles both cases; if the key isn't in the hash, it
+returns <CODE>undef</CODE>, which is the desired behavior.
+
+</P>
+<P>
+<PRE>  sub DELETE {
+    my ($self, $key) = @_;
+    my $idx = $self-&gt;{hash}{$key}[1];
+    if (defined $idx) {
+      my $moved_key = $self-&gt;{arr}[-1];
+      $self-&gt;{arr}[$idx] = $moved_key;
+      $self-&gt;{hash}{$moved_key}[1] = $idx;
+      --$#{$self-&gt;{arr}};
+      delete $self-&gt;{hash}{$key};
+    } else {
+      return undef;
+    }
+  }
+</PRE>
+</P>
+<P>
+<CODE>DELETE</CODE> now has to check whether the key that's passed already exists in our hash.
+If not, we return <CODE>undef</CODE>, since that's how built-in hashes operate.
+
+</P>
+<P>
+<PRE>  sub EXISTS {
+    exists $_[0]-&gt;{hash}{$_[1]};
+  }
+</PRE>
+</P>
+<P>
+<PRE>  sub CLEAR {
+    %{$_[0]-&gt;{hash}} = ();
+    @{$_[0]-&gt;{arr}} = ();
+    $_[0]-&gt;{iter} = 0;
+  }
+</PRE>
+</P>
+<P>
+Here are a couple of methods needed for completeness which we hadn't
+bothered with before.  <CODE>EXISTS</CODE> implements <CODE>exists</CODE>; we just pass the arguments on to the underlying hash we're using.  <CODE>CLEAR</CODE>
+destroys the hash; we just set our underlying data structures to be empty.
+
+</P>
+<P>
+<PRE>  sub FIRSTKEY {
+    $_[0]-&gt;{iter} = 0;
+    return $_[0]-&gt;NEXTKEY();
+  }
+</PRE>
+</P>
+<P>
+<PRE>  sub NEXTKEY {
+    my ($self) = @_;
+    if ($self-&gt;{iter} &lt;= $#{$self-&gt;{arr}}) {
+      return $self-&gt;{arr}[$self-&gt;{iter}++];
+    } else {
+      return undef;
+    }
+  }
+</PRE>
+</P>
+<P>
+<CODE>FIRSTKEY</CODE> and <CODE>NEXTKEY</CODE> are used to implement <CODE>each</CODE>. They are also used to implement <CODE>keys</CODE> and <CODE>values</CODE>, since perl has no other way to find out the contents of our 'fake hash'.
+Calling <CODE>FIRSTKEY</CODE>
+once, and then <CODE>NEXTKEY</CODE> until <CODE>undef</CODE> is returned, provides the complete list of keys. We don't have to return
+them in any particular order, but we'd be fools not to use the order we're
+already using internally.
+
+</P>
+<P>
+To keep state, we use an object variable <CODE>iter</CODE>, which is the index of the next key to provide. Then all <CODE>FIRSTKEY</CODE> has to do is prime the index and hand off to <CODE>NEXTKEY</CODE>.
+
+</P>
+<P>
+It does seem rather silly that when someone calls <CODE>keys %hash</CODE>, perl calls <CODE>NEXTKEY</CODE> a gazillion times. We already have that list lying around; wouldn't it be
+easier and more efficient for us to just be able to return <CODE>@{$self-&gt;{arr}}</CODE> directly? Yeah, it would, but we have no way of telling perl that it's able
+to do that. The above eight methods constitute the only interface that is
+used to fake built-in hash functionality. However, we can make our own
+interface analogous to <CODE>keys</CODE>, so that someone who knows enough to do the fast access can do it:
+
+</P>
+<P>
+<PRE>  sub get_keys {
+    @{$_[0]-&gt;{arr}};
+  }
+</PRE>
+</P>
+<P>
+<PRE>  sub get_values {
+    my ($self) = @_;
+    map {$self-&gt;{hash}{$_}[0]} @{$self-&gt;{arr}};
+  }
+</PRE>
+</P>
+<P>
+<CODE>get_keys</CODE> returns the list of keys that we have lying around. If called in a scalar
+context, the <CODE>@</CODE>-expression will automatically evaluate to the number of elements in the
+list, rather than the list itself. You might wonder why we're passing back
+the entire array, rather than a reference to it. For one thing, we're
+trying to emulate the behavior of <CODE>keys</CODE>, which returns an array rather than a reference. Also, if we passed back a
+reference, people would then have a handle into our internal data
+structure, and could modify it at will. Maybe you trust them not to do
+that, but I don't.
+
+</P>
+<P>
+Moving on, <CODE>get_values</CODE> takes that same list of keys, and uses <CODE>map</CODE>
+to replace each key with the value corresponding to it. If you're more
+comfortable with looping by hand than with using <CODE>map</CODE>, take a minute to see what's going on here; it's a perfect example of when
+<CODE>map</CODE> is much easier to use than an explicit loop.
+
+</P>
+<P>
+Finally, here's the reason we wrote this class in the first place:
+
+</P>
+<P>
+<PRE>  sub rnd_key {
+    $_[0]-&gt;{arr}[rand @{$_[0]-&gt;{arr}}];
+  }
+</PRE>
+</P>
+<P>
+<PRE>  1;
+</PRE>
+</P>
+
+<H2><A NAME="Using_a_tied_hash">Using a tied hash</A></H2>
+<P>
+Great, we've implemented it. Now, how are we going to use it? Like this:
+
+</P>
+<P>
+<PRE>  use RndHash2;
+  $fruit_handle = tie %fruit, 'RndHash2';
+</PRE>
+</P>
+<P>
+Now we can use <CODE>%fruit</CODE> exactly like a normal hash, but under the hood, it's a RndHash2.
+
+</P>
+<P>
+<PRE>  $fruit{'a'} = 'apple';
+  $fruit{'b'} = 'banana';
+  $fruit{'c'} = 'cantaloupe';
+  delete $fruit{'b'};
+</PRE>
+</P>
+<P>
+But how do we call <CODE>rnd_key</CODE>? There's no standard hash interface for that. Conveniently, <CODE>tie</CODE> returns the actual object created by
+<CODE>TIEHASH</CODE>, so we can call methods on that just as on any other object.
+
+</P>
+<P>
+<PRE>  print &quot;My favorite fruit is a &quot;, $fruit_handle-&gt;rnd_key(), &quot;\n&quot;;
+</PRE>
+</P>
+<P>
+I actually like to use <CODE>$fruit</CODE> instead of <CODE>$fruit_handle</CODE>; because of the way perl handles names, the scalar <CODE>$fruit</CODE> exists independently of the hash <CODE>%fruit</CODE>. But that's potentially confusing, and I probably shouldn't encourage it.
+
+</P>
+<P>
+Super! Let's benchmark again, just for fun:
+
+</P>
+<P>
+Listing 3:
+
+</P>
+<P>
+<PRE>  use RndHash1;
+  use RndHash2;
+  use Benchmark;
+</PRE>
+</P>
+<P>
+<PRE>  $rndhash1 = new RndHash1;
+  $rndhash2_handle = tie %rndhash2, 'RndHash2';
+</PRE>
+</P>
+<P>
+<PRE>  for $i (1..500) {$hash{$i} = $i}
+  for $i (1..500) {$rndhash1-&gt;insert($i, $i)}
+  for $i (1..500) {$rndhash2{$i} = $i}
+</PRE>
+</P>
+<P>
+<PRE>  $i = 1000;
+</PRE>
+</P>
+<P>
+<PRE>  timethese (5000, {
+                    hash =&gt; sub {$hash{$i++}='a';
+                                 @keys = keys %hash;
+                                 delete $hash{$keys[rand @keys]};},
+                    RndHash1 =&gt; sub {$rndhash1-&gt;insert ($i++, 'a');
+                                     $rndhash1-&gt;delete ($rndhash1-&gt;rnd_key());},
+                    RndHash2 =&gt; sub {$rndhash2{$i++}='a';
+                                     delete $rndhash2{$rndhash2_handle-&gt;rnd_key()};}
+                   });
+</PRE>
+</P>
+<P>
+Listing 4:
+
+</P>
+<P>
+<PRE>  Benchmark: timing 5000 iterations of RndHash1, RndHash2, hash...
+    RndHash1:  1.07 CPU secs ( 1.02 usr +  0.05 sys)
+    RndHash2:  1.47 CPU secs ( 1.38 usr +  0.09 sys)
+        hash: 22.09 CPU secs (22.08 usr +  0.01 sys)
+</PRE>
+</P>
+<P>
+Ugh, we've slowed things down by almost 40%. Why is that? We've changed two
+things since RndHash1: we made the implementation more robust by doing
+things such as checking if a key already exists, and we hooked it up to a
+tie. Let's try to isolate the two effects by timing what happens when we
+call the methods explicitly, rather than through the <CODE>tie</CODE> functionality:
+
+</P>
+<P>
+Listing 5:
+
+</P>
+<P>
+<PRE>  use RndHash1;
+  use RndHash2;
+  use Benchmark;
+</PRE>
+</P>
+<P>
+<PRE>  $rndhash1 = new RndHash1;
+  $rndhash2_handle = tie %rndhash2, 'RndHash2';
+  $rh3 = tie %rndhash3, 'RndHash2';
+</PRE>
+</P>
+<P>
+<PRE>  for $i (1..500) {$rndhash1-&gt;insert($i, $i)}
+  for $i (1..500) {$rndhash2{$i} = $i}
+  for $i (1..500) {$rndhash3{$i} = $i}
+</PRE>
+</P>
+<P>
+<PRE>  $i = 1000;
+</PRE>
+</P>
+<P>
+<PRE>  timethese (25000, {
+                    RndHash1 =&gt; sub {$rndhash1-&gt;insert ($i++, 'a');
+                                     $rndhash1-&gt;delete ($rndhash1-&gt;rnd_key());},
+                    RndHash2 =&gt; sub {$rndhash2{$i++}='a';
+                                     delete $rndhash2{$rndhash2_handle-&gt;rnd_key()};},
+                    RndHash3 =&gt; sub {$rh3-&gt;STORE($i++, 'a');
+                                     $rh3-&gt;DELETE($rh3-&gt;rnd_key());}
+                   });
+</PRE>
+</P>
+<P>
+Listing 6:
+
+</P>
+<P>
+<PRE>  RndHash1:  5.58 CPU secs ( 5.40 usr +  0.18 sys)
+  RndHash2:  7.64 CPU secs ( 7.23 usr +  0.41 sys)
+  RndHash3:  5.61 CPU secs ( 5.34 usr +  0.27 sys)
+</PRE>
+</P>
+<P>
+Hmm - when we didn't go through the indirection of <CODE>tie</CODE>, our new code was just as fast as before. So it looks like the slowdown is
+due almost entirely due to <CODE>tie</CODE>. Every time we do a hash access, perl has to go see what it's tied to and
+then call a method on that object.
+
+</P>
+<P>
+It looks like that's the price we'll have to pay for the convenience of
+using <CODE>tie</CODE>. Even the new, slower code is a lot faster than using a regular hash, so
+it's not too worrisome.
+
+</P>
+
+<H2><A NAME="Testing">Testing</A></H2>
+<P>
+Great, we're done! Well, we're done with the first draft. Now we have to
+make sure that it works. It's easy to eyeball the code, decide it looks
+reasonable, try it on a few test cases, and ship it out, but there are
+often little (and big) bugs lurking about. In fact, I made a few stupid
+mistakes when I first coded this up. Here's how I caught them.
+
+</P>
+<P>
+The easiest way to check whether a class is working is to figure out how
+you could tell if an object of that class were broken. For example, if some
+key is in <CODE>@{$self-&gt;{arr}}</CODE> but not in
+<CODE>%{$self-&gt;{hash}}</CODE>, that's obviously a problem. We can write a little method to check for
+this kind of obvious brokenness, and see if it ever squawks. I'm going to
+call this "verification"; you may know it as "sanity checking". If you
+see a discussion of "representation invariants" in some object-oriented
+textbook, this is what they're talking about.
+
+</P>
+<P>
+<PRE>  sub verify {
+    my ($self) = @_;
+</PRE>
+</P>
+<P>
+<PRE>    my $arr_size = @{$self-&gt;{arr}};
+    my $hash_size = keys %{$self-&gt;{hash}};
+    if ($arr_size != $hash_size) {
+      die &quot;RndHash: sizes of 'arr' and 'hash' don't match!\n&quot; .
+        &quot;$arr_size vs $hash_size\n&quot;;
+    }
+</PRE>
+</P>
+<P>
+<PRE>    for (my $key_idx = 0, my $key = $self-&gt;{arr}[0];
+         $key_idx &lt;= $#{$self-&gt;{arr}};
+         ++$key_idx, $key = $self-&gt;{arr}[$key_idx]) {
+      if (!exists $self-&gt;{hash}{$key}) {
+        die &quot;RndHash: $key is in 'arr' but not in 'hash'!\n&quot;;
+      }
+      if ($self-&gt;{hash}{$key}-&gt;[1] != $key_idx) {
+        die &quot;RndHash: index for $key in 'hash' is incorrect!\n&quot; .
+          &quot;Should be $key_idx but is $self-&gt;{hash}{$key}-&gt;[1]\n&quot;;
+      }
+    }
+  }
+</PRE>
+</P>
+<P>
+<CODE>verify</CODE> confirms that our data structure is self-consistent. First we check that
+the array and the hash are the same size. Then we make sure that each
+element in the array also exists in the hash, and that the array index
+stored in the hash is correct.
+
+</P>
+<P>
+We don't have to check that the array is missing any elements, since each
+element in the array checked out, and we already confirmed that the number
+of array elements is the same as the number of hash elements.
+
+</P>
+<P>
+Here's a start at a little testing program:
+
+</P>
+<P>
+<PRE>  use RndHash2;
+  $rndhash2_handle = tie %rndhash2, 'RndHash2';
+  for $i (1..500) {$rndhash2{$i} = $i}
+  for $i (450..600) {
+    print &quot;insert $i / 'a'\n&quot;;
+    $rndhash2{$i} = 'a';
+    $rndhash2_handle-&gt;verify();
+    $rnd_key = $rndhash2_handle-&gt;rnd_key();
+    print &quot;delete $rnd_key\n&quot;;
+    delete $rndhash2{$rnd_key};
+    $rndhash2_handle-&gt;verify();
+  }
+</PRE>
+</P>
+<P>
+I made <CODE>$i</CODE> go from 450 to 600 to exercise the <CODE>STORE</CODE> code that updates already-existing keys. After each RndHash operation, we
+call
+<CODE>verify</CODE> to see if the object still makes sense.
+
+</P>
+<P>
+A complete test suite for RndHash would also need to check that each
+operation does what it's supposed to. For example, the list of keys after
+doing a <CODE>STORE</CODE> of a new element should be the same as the old list, but with that element
+added. We would also check to make sure that the package functions in
+degenerate cases, such as when there's only one element.
+
+</P>
+<P>
+Lest you think I'm just recommending testing to be politically correct, I
+actually caught a couple of embarrassing bugs this way. One was that in <CODE>DELETE</CODE>, I was forgetting to actually remove the element from the hash. Also, in
+one place I forgot that
+<CODE>%{$self-&gt;{hash}}</CODE> stores [value, index] pairs, not just values.
+
+</P>
+
+<H2><A NAME="Optimizations">Optimizations</A></H2>
+
+<H3><A NAME="Time">Time</A></H3>
+<P>
+Great, we're done! Well, there are still some improvements we could make.
+For one thing, it seems kind of slow to be constantly performing hash
+lookups on the strings "hash" and "arr" every time we want get any
+information out of our class. We could just use an array instead of a hash,
+and then index by 0, 1, and 2, instead of by "hash", "arr", and
+"iter".
+
+</P>
+<P>
+I'll just include a couple of methods here, so you get the idea:
+
+</P>
+<P>
+<PRE>  sub TIEHASH {
+    bless [
+            {},   # 0: hash
+            [],   # 1: arr
+            0     # 2: iter
+          ], $_[0];
+  }
+</PRE>
+</P>
+<P>
+<PRE>  sub STORE {
+    my ($self, $key, $val) = @_;
+    if (exists $self-&gt;[0]{$key}) {
+      $self-&gt;[0]{$key}[0] = $val;
+    } else {
+      push @{$self-&gt;[1]}, $key;
+      $self-&gt;[0]{$key} = [$val, $#{$self-&gt;[1]}];
+    }
+  }
+</PRE>
+</P>
+<P>
+Eh, not very readable. It would be handy if perl could do this kind of
+thing for us, turning hash accesses into array accesses automatically in
+the appropriate places. Well, it turns out that it can, in 5.005, using the
+"use fields" directive. I want this code to work in earlier versions, so
+I'm not going to use it, but once 5.005 becomes common, that'll be the
+preferred solution.
+
+</P>
+<P>
+Anyway, we should make sure that we're actually getting some speed increase
+out of this. I'll spare you the benchmarking program and just show the
+results:
+
+</P>
+<P>
+<PRE>  Benchmark: timing 25000 iterations of RndHash1, RndHash2, RndHash4...
+    RndHash1:  6.35 CPU secs ( 6.35 usr +  0.00 sys)
+    RndHash2: 10.50 CPU secs (10.50 usr +  0.00 sys)
+    RndHash4:  9.81 CPU secs ( 9.81 usr +  0.00 sys)
+</PRE>
+</P>
+<P>
+Not earth-shattering, but definitely an improvement. Whether or not the
+sacrifice of readibility is worth it is a judgment call; I decided to go
+for it.
+
+</P>
+
+<H3><A NAME="Space">Space</A></H3>
+<P>
+There's another kind of waste going on. Every element of the hash part
+contains a reference to a two-element array. Perl's arrays are really
+flexible; unfortunately, one of the prices we pay for the flexibility is
+space overhead. For one thing, Perl doesn't know that we have an array with
+exactly two elements that will never have to grow, so it starts out by
+allocating some extra space for it. That's not a big deal if we have a few
+arrays around, but with one for each key, it can add up.
+
+</P>
+<P>
+There's a way we could save some of that space. Instead of keeping both an
+array index and a value in the hash element, we just store the array index.
+Then we can have an array of values, parallel to the array of keys, so that
+the value of <CODE>$self-&gt;{key_arr}[$i]</CODE> is
+<CODE>$self-&gt;{val_arr}[$i]</CODE>.
+
+</P>
+<P>
+Here's a new constructor and a couple of methods with this new structure:
+
+</P>
+<P>
+<PRE>  sub TIEHASH {
+    bless [
+           {},  # 0: hash mapping keys to indices
+           [],  # 1: array of keys
+           [],  # 2: array of values
+           0,   # 3: iterator index
+          ],
+          $_[0];
+  }
+</PRE>
+</P>
+<P>
+<CODE>STORE</CODE> now puts the value in the array <CODE>@{$self-&gt;[2]}</CODE>, not the hash <CODE>%{$self-&gt;[0]}</CODE>:
+
+</P>
+<P>
+<PRE>  sub STORE {
+    my ($self, $key, $val) = @_;
+    if (exists $self-&gt;[0]{$key}) {
+      # update
+      $self-&gt;[2][$self-&gt;[0]{$key}] = $val;
+    } else {
+      # new key
+      push @{$self-&gt;[1]}, $key;
+      push @{$self-&gt;[2]}, $val;
+      $self-&gt;[0]{$key} = $#{$self-&gt;[1]};
+    }
+  }
+</PRE>
+</P>
+<P>
+And <CODE>FETCH</CODE> has to go through one more level of indirection; it finds the array index
+through the hash, and then looks up the value at that array index.
+
+</P>
+<P>
+<PRE>  sub FETCH {
+    my ($self, $key) = @_;
+    if (exists $self-&gt;[0]{$key}) {
+      return $self-&gt;[2][$self-&gt;[0]{$key}];
+    } else {
+      return undef;
+    }
+  }
+</PRE>
+</P>
+<P>
+We can see how much space this saves by writing a program that makes a hash
+with lots of keys and then hangs out. The program 'ps' (on Unix) will tell
+us how much space is being used.
+
+</P>
+<P>
+<PRE>  use RndHash4;
+  tie %rndhash4, 'RndHash4';
+  for $i (1..5000) {$rndhash4{$i} = $i};
+  print &quot;OK\n&quot;;
+  $wait = &lt;&gt;;
+</PRE>
+</P>
+<P>
+I ran the above test once with RndHash4 and once with RndHash5 (the
+double-array implementation). Here are the results:
+
+</P>
+<P>
+<PRE>  ~/Doc/TPJ $ ps aux | grep [p]erl
+  dfan      2949  6.8  5.5  3416  2628  p0 S    22:50   0:00 perl sizetest.pl
+  ~/Doc/TPJ $ ps aux | grep [p]erl
+  dfan      2953 16.6  5.1  3164  2400  p0 S    22:51   0:00 perl sizetest.pl
+</PRE>
+</P>
+<P>
+That fifth column is how much space the program is taking up, in
+kilobytes. The difference in memory, per hash element, comes out to be
+(3416 - 3164) * 1024 / 5000 = 52 bytes. That's not particularly exact,
+but it gives us some idea of how much memory is being saved. It did
+slow things down by around 14%, though:
+
+</P>
+<P>
+<PRE>  Benchmark: timing 15000 iterations of RndHash4, RndHash5...
+    RndHash4:  5.71 CPU secs ( 5.71 usr +  0.00 sys)
+    RndHash5:  6.49 CPU secs ( 6.49 usr +  0.00 sys)
+</PRE>
+</P>
+<P>
+So, as usual, it's a tradeoff: in this case, space vs. speed. I decided
+that 50 bytes per element is peanuts compared to the 3+ megabytes that perl
+is already taking up, so I kept the fast one.
+
+</P>
+
+<H2><A NAME="Making_it_a_module">Making it a module</A></H2>
+<P>
+Great, we're done! Well, now that we've solved this earth-shattering
+problem, maybe we should make it available for everyone else to use. The
+next step is to put it on CPAN, the Comprehensive Perl Archive Network.
+
+</P>
+<P>
+The entire step-by-step procedure for making a module and submitting it to
+CPAN is outside the scope of this article, but I'll outline a couple of
+steps here. There are really only two main things we have to do to make it
+a well-behaved module. One is to make a <CODE>$VERSION</CODE>
+variable, which can be accessed by the CPAN software and which we'll use to
+keep track of public releases. The other is to write some documentation so
+that anyone can use it. The documentation is written in pod format (see the
+perlpod man page). I won't include the finished documentation here, but you
+can see it by looking up the module on CPAN.
+
+</P>
+
+<H2><A NAME="Summing_up">Summing up</A></H2>
+<P>
+Well, that's been quite a journey. Hopefully you're now more comfortable
+with some of the issues involved in making a module, and will consider
+going the extra mile the next time you come up with a generalizable
+solution to a problem you encounter.
+
+</P>
+<P>
+The final (for now) version of RndHash can be found on CPAN, with the name
+Tie::RndHash. Already I'm thinking of further extensions. How about letting
+the user assign weights to each element, so he can change the selection
+probability associated with each key? Hmm...
+
+</P>
+<P>
+Thanks to Tuomas Lukka for the original problem statement, and for coming
+up with the idea for the space optimization.
+
+</P>
+
+<H2><A NAME="Bibliography">Bibliography</A></H2>
+<P>
+<STRONG>Data Structures and Algorithms</STRONG>: You can't go wrong with [Sedgewick,
+<EM>Algorithms in C</EM>, Third Edition, Addison-Wesley, 1998] (there are also C++ and Java
+versions). This book just keeps on getting better each time he revises it.
+If you want a more rigorous approach, I recommend [Cormen, Leiserson, and
+Rivest, <EM>Introduction to
+Algorithms</EM>, MIT Press / McGraw Hill, 1990]. Of course, [Knuth, <EM>The
+Art of Computer Programming</EM>, Addison-Wesley, 1998] is known as the Bible of data structures and
+algorithms, because it's old and hard to read. Actually, it's not that bad
+if you don't try to read it straight through, and Chapter 2 (found in
+Volume I) is essential reading (and quite understandable). I'd also like to
+mention [Skiena,
+<EM>The Algorithm Design Manual</EM>, Springer-Verlag, 1997], since it is excellent and not well known; it has
+many case studies and a great gazetteer of algorithmic topics. It's a good
+first place to look.
+
+</P>
+<P>
+[Orwant, Hietaniemi, and MacDonald, <EM>Mastering Algorithms with Perl</EM>, O'Reilly, 1999] will be published shortly and focuses on algorithms from
+a Perl viewpoint.
+
+</P>
+<P>
+<STRONG>Optimization</STRONG>: The best optimization book I know of is [Bentley,
+<EM>Writing Efficient Programs</EM>, Prentice-Hall, 1982], a slim, clear, information-packed book that is,
+incredibly, out of print. Snatch it up if you ever find it. Bentley's other
+books, <EM>Programming Pearls</EM>
+and <EM>More Programming Pearls</EM>, are fine collections of case studies.
+
+</P>
+<P>
+<STRONG>Ties</STRONG>: The <EM>perltie</EM> man page is obviously the definitive reference. [Srinivasan, <EM>Advanced Perl Programming</EM>, O'Reilly, 1997] has a fine chapter on <CODE>tie</CODE>.
+
+</P>
+<P>
+<STRONG>Internals</STRONG>: If you want to see why arrays are big, <EM>Advanced Perl
+Programming</EM> has a good overview chapter on the Perl implementation.
+
+</P>
+<P>
+<STRONG>Modules</STRONG>: The "Guidelines for Module Creation" section in
+<CODE>http://www.perl.com/CPAN/modules/00modlist.long.html</CODE> is the best documentation for what you need to do to submit a module.
+
+</P>
+<P>
+<EM>Dan Schmidt has been using Perl for various tasks since 1991, back
+when Perl didn't have any of those fancy-schmancy features like objects,
+references, and ties.  He can be reached at <CODE>dfan@alum.mit.edu</CODE>.</EM>
+
+</P>
+
+</BODY>
+
+</HTML>

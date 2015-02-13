@@ -1,0 +1,577 @@
+undefined<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Deterministic acyclic finite state automaton - Wikipedia, the free encyclopedia</title>
+<meta name="generator" content="MediaWiki 1.25wmf16" />
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/Deterministic_acyclic_finite_state_automaton" />
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Deterministic_acyclic_finite_state_automaton&amp;action=edit" />
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Deterministic_acyclic_finite_state_automaton&amp;action=edit" />
+<link rel="apple-touch-icon" href="//bits.wikimedia.org/apple-touch/wikipedia.png" />
+<link rel="shortcut icon" href="//bits.wikimedia.org/favicon/wikipedia.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Deterministic_acyclic_finite_state_automaton" />
+<link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="canonical" href="http://en.wikipedia.org/wiki/Deterministic_acyclic_finite_state_automaton" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=ext.gadget.DRN-wizard%2CReferenceTooltips%2Ccharinsert%2Cfeatured-articles-links%2CrefToolbar%2Cswitcher%2Cteahouse%7Cext.rtlcite%2Cwikihiero%2CwikimediaBadges%7Cext.uls.nojs%7Cext.visualEditor.viewPageTarget.noscript%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:3904d24a08aa08f6a68dc338f9be277e */</style>
+<script src="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Deterministic_acyclic_finite_state_automaton","wgTitle":"Deterministic acyclic finite state automaton","wgCurRevisionId":646031752,"wgRevisionId":646031752,"wgArticleId":6022680,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Graph data structures","String data structures"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Deterministic_acyclic_finite_state_automaton","wgRelevantArticleId":6022680,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgRedirectedFrom":"Directed_acyclic_word_graph","wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","svgMaxSize":4096,"namespacesWithSubpages":{"6":0,"8":0,"1":true,"2":true,"3":true,"4":true,"5":true,"7":true,"9":true,"10":true,"11":true,"12":true,"13":true,"14":true,"15":true,"100":true,"101":true,"102":true,"103":true,"104":true,"105":true,"106":true,"107":true,"108":true,"109":true,"110":true,"111":true,"830":true,"831":true,"447":true,"2600":false,"828":true,"829":true}},"wikilove-recipient":"","wikilove-anon":0,"wgPoweredByHHVM":true,"wgULSAcceptLanguageList":["en-us","en"],"wgULSCurrentAutonym":"English","wgFlaggedRevsParams":{"tags":{"status":{"levels":1,"quality":2,"pristine":3}}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgInternalRedirectTargetUrl":"/wiki/Deterministic_acyclic_finite_state_automaton","wgWikibaseItemId":"Q17008992"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});},{},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{},{});
+/* cache key: enwiki:resourceloader:filter:minify-js:7:94007ea073e20ad4a3cdce36b2f2e369 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.redirect","mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.centralauth.centralautologin","mmv.head","ext.visualEditor.viewPageTarget.init","ext.uls.init","ext.uls.interface","ext.centralNotice.bannerController","skins.vector.js"]);
+}</script>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static-1.25wmf16/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Deterministic_acyclic_finite_state_automaton skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+							<div id="siteNotice"><!-- CentralNotice --></div>
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Deterministic acyclic finite state automaton</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Wikipedia, the free encyclopedia</div>
+								<div id="contentSub"><span class="mw-redirectedfrom">  (Redirected from <a href="/w/index.php?title=Directed_acyclic_word_graph&amp;redirect=no" title="Directed acyclic word graph">Directed acyclic word graph</a>)</span></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="thumb tright">
+<div class="thumbinner" style="width:252px;"><a href="/wiki/File:Trie-vs-minimal-acyclic-fa.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Trie-vs-minimal-acyclic-fa.svg/250px-Trie-vs-minimal-acyclic-fa.svg.png" width="250" height="285" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Trie-vs-minimal-acyclic-fa.svg/375px-Trie-vs-minimal-acyclic-fa.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Trie-vs-minimal-acyclic-fa.svg/500px-Trie-vs-minimal-acyclic-fa.svg.png 2x" data-file-width="500" data-file-height="570" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="/wiki/File:Trie-vs-minimal-acyclic-fa.svg" class="internal" title="Enlarge"></a></div>
+The strings "tap", "taps", "top", and "tops" stored in a <a href="/wiki/Trie" title="Trie">Trie</a> (left) and a DAFSA (right), <tt>EOW</tt> stands for End-of-word.</div>
+</div>
+</div>
+<p>In <a href="/wiki/Computer_science" title="Computer science">computer science</a>, a <b>deterministic acyclic finite state automaton</b> (<b>DAFSA</b>),<sup id="cite_ref-daciuk_1-0" class="reference"><a href="#cite_note-daciuk-1"><span>[</span>1<span>]</span></a></sup> also called a <b>directed acyclic word graph</b> (<b>DAWG</b>; though that name also refers to a <a href="/wiki/Directed_acyclic_word_graph" title="Directed acyclic word graph" class="mw-redirect">related data structure</a> that functions as a suffix index<sup id="cite_ref-2" class="reference"><a href="#cite_note-2"><span>[</span>2<span>]</span></a></sup>) is a <a href="/wiki/Data_structure" title="Data structure">data structure</a> that represents a set of <a href="/wiki/String_(computer_science)" title="String (computer science)">strings</a>, and allows for a query operation that tests whether a given string belongs to the set in time proportional to its length. In these respects, a DAFSA is very similar to a <a href="/wiki/Trie" title="Trie">trie</a>, but it is much more space efficient.</p>
+<p>A DAFSA is a special case of a <a href="/wiki/Finite_state_recognizer" title="Finite state recognizer" class="mw-redirect">finite state recognizer</a> that takes the form of a <a href="/wiki/Directed_acyclic_graph" title="Directed acyclic graph">directed acyclic graph</a> with a single source vertex (a vertex with no incoming edges), in which each edge of the graph is labeled by a letter or symbol, and in which each vertex has at most one outgoing edge for each possible letter or symbol. The strings represented by the DAFSA are formed by the symbols on paths in the graph from the source vertex to any sink vertex (a vertex with no outgoing edges). In fact, a <a href="/wiki/Deterministic_finite_state_automaton" title="Deterministic finite state automaton" class="mw-redirect">deterministic finite state automaton</a> is acyclic <a href="/wiki/If_and_only_if" title="If and only if">if and only if</a> it recognizes a <a href="/wiki/Finite_language" title="Finite language" class="mw-redirect">finite set of strings</a>.<sup id="cite_ref-daciuk_1-1" class="reference"><a href="#cite_note-daciuk-1"><span>[</span>1<span>]</span></a></sup></p>
+<h2><span class="mw-headline" id="Comparison_to_tries">Comparison to tries</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Deterministic_acyclic_finite_state_automaton&amp;action=edit&amp;section=1" title="Edit section: Comparison to tries">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>By allowing the same vertices to be reached by multiple paths, a DAFSA may use significantly fewer vertices than the strongly related trie data structure. Consider, for example, the four English words "tap", "taps", "top", and "tops". A trie for those four words would have 11 vertices, one for each of the strings formed as a prefix of one of these words, or for one of the words followed by the end-of-string marker. However, a DAFSA can represent these same four words using only six vertices <i>v<sub>i</sub></i> for 0&#160;≤&#160;<i>i</i>&#160;≤&#160;5, and the following edges: an edge from <i>v</i><sub>0</sub> to <i>v</i><sub>1</sub> labeled "t", two edges from <i>v</i><sub>1</sub> to <i>v</i><sub>2</sub> labeled "a" and "o", an edge from <i>v</i><sub>2</sub> to <i>v</i><sub>3</sub> labeled "p", an edge <i>v</i><sub>3</sub> to <i>v</i><sub>4</sub> labeled "s", and edges from <i>v</i><sub>3</sub> and <i>v</i><sub>4</sub> to <i>v</i><sub>5</sub> labeled with the end-of-string marker. There is a tradeoff between memory and functionality, because a standard DAFSA can tell you if a word exists within it, but it cannot point you to auxiliary information about that word, whereas a trie can.</p>
+<p>The primary difference between DAFSA and trie is the elimination of suffix and infix redundancy in storing strings. The trie eliminates prefix redundancy since all common prefixes are shared between strings, such as between <i>doctors</i> and <i>doctorate</i> the <i>doctor</i> prefix is shared. In a DAFSA common suffixes are also shared, for words that have the same set of possible suffixes as each other. For dictionary sets of common English words, this translates into major memory usage reduction.</p>
+<p>Because the terminal nodes of a DAFSA can be reached by multiple paths, a DAFSA cannot directly store auxiliary information relating to each path, e.g. a word's frequency in the English language. However, if for each node we store the number of unique paths through that point in the structure, we can use it to retrieve the index of a word, or a word given its index.<sup id="cite_ref-kowaltowski1993_3-0" class="reference"><a href="#cite_note-kowaltowski1993-3"><span>[</span>3<span>]</span></a></sup> The auxiliary information can then be stored in an array.</p>
+<h2><span class="mw-headline" id="References">References</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Deterministic_acyclic_finite_state_automaton&amp;action=edit&amp;section=2" title="Edit section: References">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-daciuk-1"><span class="mw-cite-backlink">^ <a href="#cite_ref-daciuk_1-0"><sup><i><b>a</b></i></sup></a> <a href="#cite_ref-daciuk_1-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text">Jan Daciuk, Stoyan Mihov, Bruce Watson and Richard Watson (2000). Incremental construction of minimal acyclic finite state automata. Computational Linguistics <b>26</b>(1):3-16.</span></li>
+<li id="cite_note-2"><span class="mw-cite-backlink"><b><a href="#cite_ref-2">^</a></b></span> <span class="reference-text">Paul E. Black, <a rel="nofollow" class="external text" href="http://www.nist.gov/dads/HTML/directedAcyclicWordGraph.html">directed acyclic word graph</a> at the <a href="/wiki/National_Institute_of_Standards_and_Technology" title="National Institute of Standards and Technology">NIST</a> <a href="/wiki/Dictionary_of_Algorithms_and_Data_Structures" title="Dictionary of Algorithms and Data Structures">Dictionary of Algorithms and Data Structures</a>.</span></li>
+<li id="cite_note-kowaltowski1993-3"><span class="mw-cite-backlink"><b><a href="#cite_ref-kowaltowski1993_3-0">^</a></b></span> <span class="reference-text"><span class="citation journal">Kowaltowski, T.; CL Lucchesi (1993). "Applications of finite automata representing large vocabularies". <i>Software-Practice and Experience</i> <b>1993</b>: 15–30. <a href="/wiki/CiteSeer#CiteSeerX" title="CiteSeer">CiteSeerX</a>: <span class="url"><a rel="nofollow" class="external text" href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.56.5272">10<wbr />.1<wbr />.1<wbr />.56<wbr />.5272</a></span>.</span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ADeterministic+acyclic+finite+state+automaton&amp;rft.atitle=Applications+of+finite+automata+representing+large+vocabularies&amp;rft.au=CL+Lucchesi&amp;rft.aufirst=T.&amp;rft.au=Kowaltowski%2C+T.&amp;rft.aulast=Kowaltowski&amp;rft.date=1993&amp;rft.genre=article&amp;rft.jtitle=Software-Practice+and+Experience&amp;rft.pages=15-30&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=1993" class="Z3988"><span style="display:none;">&#160;</span></span></span></li>
+</ol>
+</div>
+<ul>
+<li><span id="CITEREFBlumerBlumerHausslerEhrenfeucht1985" class="citation">Blumer, A.; Blumer, J.; Haussler, D.; Ehrenfeucht, A.; Chen, M.T.; Seiferas, J. (1985), "The smallest automation recognizing the subwords of a text", <i>Theoretical computer science</i> <b>40</b>: 31–55, <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="//dx.doi.org/10.1016%2F0304-3975%2885%2990157-4">10.1016/0304-3975(85)90157-4</a></span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ADeterministic+acyclic+finite+state+automaton&amp;rft.atitle=The+smallest+automation+recognizing+the+subwords+of+a+text&amp;rft.au=Blumer%2C+A.&amp;rft.au=Blumer%2C+J.&amp;rft.au=Chen%2C+M.T.&amp;rft.au=Ehrenfeucht%2C+A.&amp;rft.aufirst=A.&amp;rft.au=Haussler%2C+D.&amp;rft.aulast=Blumer&amp;rft.au=Seiferas%2C+J.&amp;rft.date=1985&amp;rft.genre=article&amp;rft_id=info%3Adoi%2F10.1016%2F0304-3975%2885%2990157-4&amp;rft.jtitle=Theoretical+computer+science&amp;rft.pages=31-55&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=40" class="Z3988"><span style="display:none;">&#160;</span></span></li>
+<li><span id="CITEREFAppelJacobsen1988" class="citation">Appel, Andrew; Jacobsen, Guy (1988), <a rel="nofollow" class="external text" href="http://www.cs.cmu.edu/afs/cs/academic/class/15451-s06/www/lectures/scrabble.pdf">"The World's Fastest Scrabble Program"</a> (PDF), <i>Communications of the ACM</i></span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ADeterministic+acyclic+finite+state+automaton&amp;rft.atitle=The+World%27s+Fastest+Scrabble+Program&amp;rft.au=Appel%2C+Andrew&amp;rft.aufirst=Andrew&amp;rft.au=Jacobsen%2C+Guy&amp;rft.aulast=Appel&amp;rft.date=1988&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fwww.cs.cmu.edu%2Fafs%2Fcs%2Facademic%2Fclass%2F15451-s06%2Fwww%2Flectures%2Fscrabble.pdf&amp;rft.jtitle=Communications+of+the+ACM&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal" class="Z3988"><span style="display:none;">&#160;</span></span>. One of the early mentions of the data structure.</li>
+<li><span id="CITEREFJansenBoekee1990" class="citation">Jansen, Cees J. A.; Boekee, Dick E. (1990), "On the significance of the directed acyclic word graph in cryptology", <i>Advances in Cryptology — AUSCRYPT '90</i>, Lecture Notes in Computer Science <b>453</b>, <a href="/wiki/Springer-Verlag" title="Springer-Verlag" class="mw-redirect">Springer-Verlag</a>, pp.&#160;318–326, <a href="/wiki/Digital_object_identifier" title="Digital object identifier">doi</a>:<a rel="nofollow" class="external text" href="//dx.doi.org/10.1007%2FBFb0030372">10.1007/BFb0030372</a>, <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/3-540-53000-2" title="Special:BookSources/3-540-53000-2">3-540-53000-2</a></span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ADeterministic+acyclic+finite+state+automaton&amp;rft.atitle=On+the+significance+of+the+directed+acyclic+word+graph+in+cryptology&amp;rft.au=Boekee%2C+Dick+E.&amp;rft.aufirst=Cees+J.+A.&amp;rft.au=Jansen%2C+Cees+J.+A.&amp;rft.aulast=Jansen&amp;rft.btitle=Advances+in+Cryptology+%E2%80%94+AUSCRYPT+%2790&amp;rft.date=1990&amp;rft.genre=bookitem&amp;rft_id=info%3Adoi%2F10.1007%2FBFb0030372&amp;rft.isbn=3-540-53000-2&amp;rft.pages=318-326&amp;rft.pub=Springer-Verlag&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.volume=453" class="Z3988"><span style="display:none;">&#160;</span></span>.</li>
+<li><span id="CITEREFEpifanioMignosiShallitVenturini2004" class="citation">Epifanio, Chiara; Mignosi, Filippo; Shallit, Jeffrey; Venturini, Ilaria (2004), "Sturmian graphs and a conjecture of Moser", in Calude, Cristian S.; Calude, Elena; Dineen, Michael J., <i>Developments in language theory. Proceedings, 8th international conference (DLT 2004), Auckland, New Zealand, December 2004</i>, Lecture Notes in Computer Science <b>3340</b>, <a href="/wiki/Springer-Verlag" title="Springer-Verlag" class="mw-redirect">Springer-Verlag</a>, pp.&#160;175–187, <a href="/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a>&#160;<a href="/wiki/Special:BookSources/3-540-24014-4" title="Special:BookSources/3-540-24014-4">3-540-24014-4</a>, <a href="/wiki/Zentralblatt_MATH" title="Zentralblatt MATH">Zbl</a>&#160;<a rel="nofollow" class="external text" href="//zbmath.org/?format=complete&amp;q=an:1117.68454">1117.68454</a></span><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3ADeterministic+acyclic+finite+state+automaton&amp;rft.atitle=Sturmian+graphs+and+a+conjecture+of+Moser&amp;rft.au=Epifanio%2C+Chiara&amp;rft.aufirst=Chiara&amp;rft.aulast=Epifanio&amp;rft.au=Mignosi%2C+Filippo&amp;rft.au=Shallit%2C+Jeffrey&amp;rft.au=Venturini%2C+Ilaria&amp;rft.btitle=Developments+in+language+theory.++Proceedings%2C+8th+international+conference+%28DLT+2004%29%2C+Auckland%2C+New+Zealand%2C+December+2004&amp;rft.date=2004&amp;rft.genre=bookitem&amp;rft_id=info%3Azbl%2F1117.68454&amp;rft.isbn=3-540-24014-4&amp;rft.pages=175-187&amp;rft.pub=Springer-Verlag&amp;rft.series=Lecture+Notes+in+Computer+Science&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.volume=3340" class="Z3988"><span style="display:none;">&#160;</span></span></li>
+</ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Deterministic_acyclic_finite_state_automaton&amp;action=edit&amp;section=3" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a rel="nofollow" class="external free" href="http://pages.pathcom.com/~vadco/dawg.html">http://pages.pathcom.com/~vadco/dawg.html</a> - JohnPaul Adamovsky teaches how to construct a DAFSA using an array of integers.</li>
+<li><a rel="nofollow" class="external free" href="http://pages.pathcom.com/~vadco/cwg.html">http://pages.pathcom.com/~vadco/cwg.html</a> - JohnPaul Adamovsky teaches how to construct a DAFSA hash function using a novel encoding with multiple integer arrays. This encoding is called the Caroline Word Graph (CWG).</li>
+</ul>
+<table class="navbox" style="border-spacing:0">
+<tr>
+<td style="padding:2px">
+<table class="nowraplinks hlist collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Data_structures" title="Template:Data structures"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Data_structures" title="Template talk:Data structures"><span title="Discuss this template" style=";;background:none transparent;border:none;">t</span></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Data_structures&amp;action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%"><a href="/wiki/Data_structure" title="Data structure">Data structures</a></div>
+</th>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Types</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Collection_(abstract_data_type)" title="Collection (abstract data type)">Collection</a></li>
+<li><a href="/wiki/Container_(abstract_data_type)" title="Container (abstract data type)">Container</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Abstract_data_type" title="Abstract data type">Abstract</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Associative_array" title="Associative array">Associative array</a></li>
+<li><a href="/wiki/Double-ended_priority_queue" title="Double-ended priority queue">Double-ended priority queue</a></li>
+<li><a href="/wiki/Double-ended_queue" title="Double-ended queue">Double-ended queue</a></li>
+<li><a href="/wiki/List_(abstract_data_type)" title="List (abstract data type)">List</a></li>
+<li><a href="/wiki/Associative_array" title="Associative array">Map</a></li>
+<li><a href="/wiki/Multimap" title="Multimap">Multimap</a></li>
+<li><a href="/wiki/Priority_queue" title="Priority queue">Priority queue</a></li>
+<li><a href="/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">Queue</a></li>
+<li><a href="/wiki/Set_(abstract_data_type)" title="Set (abstract data type)">Set</a>
+<ul>
+<li><a href="/wiki/Set_(abstract_data_type)#Multiset" title="Set (abstract data type)">multiset</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Disjoint-set_data_structure" title="Disjoint-set data structure">Disjoint Sets</a></li>
+<li><a href="/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">Stack</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Array_data_structure" title="Array data structure">Arrays</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Bit_array" title="Bit array">Bit array</a></li>
+<li><a href="/wiki/Circular_buffer" title="Circular buffer">Circular buffer</a></li>
+<li><a href="/wiki/Dynamic_array" title="Dynamic array">Dynamic array</a></li>
+<li><a href="/wiki/Hash_table" title="Hash table">Hash table</a></li>
+<li><a href="/wiki/Hashed_array_tree" title="Hashed array tree">Hashed array tree</a></li>
+<li><a href="/wiki/Sparse_array" title="Sparse array">Sparse array</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Linked_data_structure" title="Linked data structure">Linked</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Association_list" title="Association list">Association list</a></li>
+<li><a href="/wiki/Linked_list" title="Linked list">Linked list</a></li>
+<li><a href="/wiki/Skip_list" title="Skip list">Skip list</a></li>
+<li><a href="/wiki/Unrolled_linked_list" title="Unrolled linked list">Unrolled linked list</a></li>
+<li><a href="/wiki/XOR_linked_list" title="XOR linked list">XOR linked list</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Tree_(data_structure)" title="Tree (data structure)">Trees</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/B-tree" title="B-tree">B-tree</a></li>
+<li><a href="/wiki/Binary_search_tree" title="Binary search tree">Binary search tree</a>
+<ul>
+<li><a href="/wiki/AA_tree" title="AA tree">AA</a></li>
+<li><a href="/wiki/AVL_tree" title="AVL tree">AVL</a></li>
+<li><a href="/wiki/Red%E2%80%93black_tree" title="Red–black tree">red-black</a></li>
+<li><a href="/wiki/Self-balancing_binary_search_tree" title="Self-balancing binary search tree">self-balancing</a></li>
+<li><a href="/wiki/Splay_tree" title="Splay tree">splay</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Heap_(data_structure)" title="Heap (data structure)">Heap</a>
+<ul>
+<li><a href="/wiki/Binary_heap" title="Binary heap">binary</a></li>
+<li><a href="/wiki/Binomial_heap" title="Binomial heap">binomial</a></li>
+<li><a href="/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci</a></li>
+</ul>
+</li>
+<li><a href="/wiki/R-tree" title="R-tree">R-tree</a>
+<ul>
+<li><a href="/wiki/R*_tree" title="R* tree">R*</a></li>
+<li><a href="/wiki/R%2B_tree" title="R+ tree">R+</a></li>
+<li><a href="/wiki/Hilbert_R-tree" title="Hilbert R-tree">Hilbert</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Trie" title="Trie">Trie</a>
+<ul>
+<li><a href="/wiki/Hash_tree_(persistent_data_structure)" title="Hash tree (persistent data structure)">Hash tree</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Graph_(abstract_data_type)" title="Graph (abstract data type)">Graphs</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Binary_decision_diagram" title="Binary decision diagram">Binary decision diagram</a></li>
+<li><a href="/wiki/Directed_acyclic_graph" title="Directed acyclic graph">Directed acyclic graph</a></li>
+<li><a href="/wiki/Directed_acyclic_word_graph" title="Directed acyclic word graph" class="mw-redirect">Directed acyclic word graph</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div>
+<ul>
+<li><a href="/wiki/List_of_data_structures" title="List of data structures">List of data structures</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table class="navbox" style="border-spacing:0">
+<tr>
+<td style="padding:2px">
+<table class="nowraplinks collapsible collapsed navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Formal_languages_and_grammars" title="Template:Formal languages and grammars"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Formal_languages_and_grammars" title="Template talk:Formal languages and grammars"><span title="Discuss this template" style=";;background:none transparent;border:none;">t</span></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Formal_languages_and_grammars&amp;action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%"><a href="/wiki/Automata_theory" title="Automata theory">Automata theory</a>: <a href="/wiki/Formal_language" title="Formal language">formal languages</a> and <a href="/wiki/Formal_grammar" title="Formal grammar">formal grammars</a></div>
+</th>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td colspan="2" class="navbox-list navbox-odd plainlist" style="width:100%;padding:0px;background:transparent;color:inherit;">
+<div style="padding:0px;">
+<table class="navbox-columns-table" style="border-spacing: 0px; text-align:left;width:100%;">
+<tr>
+<td class="navbox-abovebelow" colspan="1" style="font-weight:bold;"><a href="/wiki/Chomsky_hierarchy" title="Chomsky hierarchy">Chomsky hierarchy</a></td>
+<td class="navbox-abovebelow" colspan="1" style="border-left:2px solid #fdfdfd;font-weight:bold;"><a href="/wiki/Formal_grammar" title="Formal grammar">Grammars</a></td>
+<td class="navbox-abovebelow" colspan="1" style="border-left:2px solid #fdfdfd;font-weight:bold;"><a href="/wiki/Formal_language" title="Formal language">Languages</a></td>
+<td class="navbox-abovebelow" colspan="1" style="border-left:2px solid #fdfdfd;font-weight:bold;"><a href="/wiki/Abstract_machine" title="Abstract machine">Abstract machines</a></td>
+</tr>
+<tr style="height:2px;">
+<td></td>
+</tr>
+<tr style="vertical-align:top;">
+<td style="padding:0px;;;text-align: center;;width:10em;">
+<div>
+<ul>
+<li>Type-0</li>
+<li>—</li>
+<li>Type-1</li>
+<li>—</li>
+<li>—</li>
+<li>—</li>
+<li>—</li>
+<li>—</li>
+<li>Type-2</li>
+<li>—</li>
+<li>—</li>
+<li>Type-3</li>
+<li>—</li>
+<li>—</li>
+</ul>
+</div>
+</td>
+<td style="border-left:2px solid #fdfdfd;padding:0px;;;;width:10em;">
+<div>
+<ul>
+<li><a href="/wiki/Unrestricted_grammar" title="Unrestricted grammar">Unrestricted</a></li>
+<li>(no common name)</li>
+<li><a href="/wiki/Context-sensitive_grammar" title="Context-sensitive grammar">Context-sensitive</a></li>
+<li><span style="white-space:nowrap;">Positive <a href="/wiki/Range_concatenation_grammars" title="Range concatenation grammars">range concatenation</a><sup>*</sup></span></li>
+<li><a href="/wiki/Indexed_grammar" title="Indexed grammar">Indexed</a><sup>*</sup></li>
+<li>—</li>
+<li><a href="/wiki/Linear_context-free_rewriting_system" title="Linear context-free rewriting system" class="mw-redirect">Linear context-free rewriting systems</a></li>
+<li><a href="/wiki/Tree-adjoining_grammar" title="Tree-adjoining grammar">Tree-adjoining</a></li>
+<li><a href="/wiki/Context-free_grammar" title="Context-free grammar">Context-free</a></li>
+<li><a href="/wiki/Deterministic_context-free_grammar" title="Deterministic context-free grammar">Deterministic context-free</a></li>
+<li><a href="/wiki/Nested_word" title="Nested word">Visibly pushdown</a></li>
+<li><a href="/wiki/Regular_grammar" title="Regular grammar">Regular</a></li>
+<li>—</li>
+<li><a href="/wiki/Non-recursive_grammar" title="Non-recursive grammar" class="mw-redirect">Non-recursive</a></li>
+</ul>
+</div>
+</td>
+<td style="border-left:2px solid #fdfdfd;padding:0px;;;;width:10em;">
+<div>
+<ul>
+<li><a href="/wiki/Recursively_enumerable_language" title="Recursively enumerable language">Recursively enumerable</a></li>
+<li><a href="/wiki/Recursive_language" title="Recursive language">Decidable</a></li>
+<li><a href="/wiki/Context-sensitive_language" title="Context-sensitive language">Context-sensitive</a></li>
+<li><span style="white-space:nowrap;">Positive <a href="/wiki/Range_concatenation_language" title="Range concatenation language" class="mw-redirect">range concatenation</a></span></li>
+<li><a href="/wiki/Indexed_language" title="Indexed language">Indexed</a></li>
+<li>—</li>
+<li><a href="/wiki/Linear_context-free_rewriting_language" title="Linear context-free rewriting language" class="mw-redirect">Linear context-free rewriting language</a></li>
+<li><a href="/wiki/Tree-adjoining_grammar" title="Tree-adjoining grammar">Tree-adjoining</a></li>
+<li><a href="/wiki/Context-free_language" title="Context-free language">Context-free</a></li>
+<li><a href="/wiki/Deterministic_context-free_language" title="Deterministic context-free language">Deterministic context-free</a></li>
+<li><a href="/wiki/Nested_word" title="Nested word">Visibly pushdown</a></li>
+<li><a href="/wiki/Regular_language" title="Regular language">Regular</a></li>
+<li><a href="/wiki/Star-free_language" title="Star-free language">Star-free</a></li>
+<li><a href="/wiki/Finite_language" title="Finite language" class="mw-redirect">Finite</a></li>
+</ul>
+</div>
+</td>
+<td style="border-left:2px solid #fdfdfd;padding:0px;;;;width:10em;">
+<div>
+<ul>
+<li><a href="/wiki/Turing_machine" title="Turing machine">Turing machine</a></li>
+<li><a href="/wiki/Machine_that_always_halts" title="Machine that always halts">Decider</a></li>
+<li><a href="/wiki/Linear_bounded_automaton" title="Linear bounded automaton">Linear-bounded</a></li>
+<li><a href="/wiki/PTIME" title="PTIME" class="mw-redirect">PTIME</a> Turing Machine</li>
+<li><a href="/wiki/Nested_stack_automaton" title="Nested stack automaton">Nested stack</a></li>
+<li><a href="/wiki/Thread_automaton" title="Thread automaton">Thread automaton</a></li>
+<li>—</li>
+<li><a href="/wiki/Embedded_pushdown_automaton" title="Embedded pushdown automaton">Embedded pushdown</a></li>
+<li><a href="/wiki/Pushdown_automaton" title="Pushdown automaton">Nondeterministic pushdown</a></li>
+<li><a href="/wiki/Deterministic_pushdown_automaton" title="Deterministic pushdown automaton">Deterministic pushdown</a></li>
+<li><a href="/wiki/Nested_word" title="Nested word">Visibly pushdown</a></li>
+<li><a href="/wiki/Finite-state_machine" title="Finite-state machine">Finite</a></li>
+<li><a href="/wiki/Aperiodic_finite_state_automaton" title="Aperiodic finite state automaton">Counter-free (with aperiodic finite monoid)</a></li>
+<li><strong class="selflink">Acyclic finite</strong></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div><span style="white-space:nowrap;">Each category of languages, except those marked by a <sup>*</sup>, is a <a href="/wiki/Proper_subset" title="Proper subset" class="mw-redirect">proper subset</a> of the category directly above it.</span> <span style="white-space:nowrap;">Any language in each category is generated by a grammar and by an automaton in the category in the same line.</span></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1082
+CPU time usage: 0.230 seconds
+Real time usage: 0.266 seconds
+Preprocessor visited node count: 869/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 49254/2097152 bytes
+Template argument size: 4638/2097152 bytes
+Highest expansion depth: 7/40
+Expensive parser function count: 0/500
+Lua time usage: 0.052/10.000 seconds
+Lua memory usage: 1.71 MB/50 MB
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  142.411      1 - -total
+ 47.22%   67.246      1 - Template:Reflist
+ 37.62%   53.572      1 - Template:Cite_journal
+ 21.18%   30.157      2 - Template:Navbox
+ 18.94%   26.969      1 - Template:Formal_languages_and_grammars
+ 17.00%   24.207      4 - Template:Citation
+ 16.58%   23.608      1 - Template:Navbox_with_columns
+ 16.32%   23.238      1 - Template:Data_structures
+  6.42%    9.139      1 - Template:Citeseerx
+  4.88%    6.954      1 - Template:URL
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:6022680-0!*!0!!*!4!* and timestamp 20150207130316 and revision id 646031752
+ -->
+<noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>									<div class="printfooter">
+						Retrieved from &quot;<a dir="ltr" href="http://en.wikipedia.org/w/index.php?title=Deterministic_acyclic_finite_state_automaton&amp;oldid=646031752">http://en.wikipedia.org/w/index.php?title=Deterministic_acyclic_finite_state_automaton&amp;oldid=646031752</a>&quot;					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Graph_data_structures" title="Category:Graph data structures">Graph data structures</a></li><li><a href="/wiki/Category:String_data_structures" title="Category:String data structures">String data structures</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Deterministic+acyclic+finite+state+automaton&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Deterministic+acyclic+finite+state+automaton" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Deterministic_acyclic_finite_state_automaton"  title="View the content page [c]" accesskey="c">Article</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Talk:Deterministic_acyclic_finite_state_automaton"  title="Discussion about the content page [t]" accesskey="t">Talk</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Deterministic_acyclic_finite_state_automaton" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=Deterministic_acyclic_finite_state_automaton&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Deterministic_acyclic_finite_state_automaton&amp;action=history"  title="Past versions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Wikipedia [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if one exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-contents"><a href="/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li>
+													<li id="n-featuredcontent"><a href="/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li>
+													<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li>
+													<li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li>
+													<li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikimedia Shop">Wikimedia Shop</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-interaction' aria-labelledby='p-interaction-label'>
+			<h3 id='p-interaction-label'>Interaction</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+													<li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li>
+													<li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Deterministic_acyclic_finite_state_automaton" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Deterministic_acyclic_finite_state_automaton" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=Deterministic_acyclic_finite_state_automaton&amp;oldid=646031752" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=Deterministic_acyclic_finite_state_automaton&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-wikibase"><a href="//www.wikidata.org/wiki/Q17008992" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li>
+						<li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Deterministic_acyclic_finite_state_automaton&amp;id=646031752" title="Information on how to cite this page">Cite this page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-coll-print_export' aria-labelledby='p-coll-print_export-label'>
+			<h3 id='p-coll-print_export-label'>Print/export</h3>
+
+			<div class="body">
+									<ul>
+													<li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Deterministic+acyclic+finite+state+automaton">Create a book</a></li>
+													<li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=Deterministic+acyclic+finite+state+automaton&amp;oldid=646031752&amp;writer=rdf2latex">Download as PDF</a></li>
+													<li id="t-print"><a href="/w/index.php?title=Deterministic_acyclic_finite_state_automaton&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+			<h3 id='p-lang-label'>Languages</h3>
+
+			<div class="body">
+									<ul>
+													<li class="interlanguage-link interwiki-hr"><a href="//hr.wikipedia.org/wiki/Acikli%C4%8Dki_deterministi%C4%8Dki_kona%C4%8Dni_automat" title="Aciklički deterministički konačni automat – Croatian" lang="hr" hreflang="hr">Hrvatski</a></li>
+													<li class="interlanguage-link interwiki-pt"><a href="//pt.wikipedia.org/wiki/Aut%C3%B4mato_Finito_Determin%C3%ADstico_Ac%C3%ADclico" title="Autômato Finito Determinístico Acíclico – Portuguese" lang="pt" hreflang="pt">Português</a></li>
+													<li class="uls-p-lang-dummy"><a href="#"></a></li>
+											</ul>
+				<div class='after-portlet after-portlet-lang'><span class="wb-langlinks-edit wb-langlinks-link"><a action="edit" href="//www.wikidata.org/wiki/Q17008992#sitelinks-wikipedia" text="Edit links" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 7 February 2015, at 13:03.</li>
+											<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="//wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+											<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+											<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Deterministic_acyclic_finite_state_automaton&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="//wikimediafoundation.org/"><img src="//bits.wikimedia.org/images/wikimedia-button.png" srcset="//bits.wikimedia.org/images/wikimedia-button-1.5x.png 1.5x, //bits.wikimedia.org/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="//bits.wikimedia.org/static-1.25wmf16/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="//bits.wikimedia.org/static-1.25wmf16/resources/assets/poweredby_mediawiki_132x47.png 1.5x, //bits.wikimedia.org/static-1.25wmf16/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"ext.globalCssJs.site":"ready","ext.globalCssJs.user":"ready","site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.switcher","ext.gadget.featured-articles-links","mmv.bootstrap.autostart","ext.eventLogging.subscriber","ext.wikimediaEvents.statsd","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","ext.uls.interlanguage"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":83,"wgHostname":"mw1247"});
+}</script>
+	</body>
+</html>

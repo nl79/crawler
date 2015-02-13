@@ -1,0 +1,4167 @@
+undefined<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Algorithms and Data Structures</title>
+<link rel="stylesheet" type="text/css" href="../CSS/main.css">
+</head>
+
+<body>
+
+<basefont face="Times" size="3">
+<table border="0" width="100%" id="table1" height="135">
+<tr>
+<td rowspan="2" width="40%">
+
+<p align="center"><font face="Bernard MT Condensed" color="#FF0000" size="7">
+<a target="_blank" href="http://www.softpanorama.org/index.shtml"><font color="#FF0000">Softpanorama</font></a></font><b><br>
+</b><i><b><font size="2">May the source be with you, but remember the KISS principle ;-)</font></b></i></p>
+</td>
+<td colspan="6" align="center" valign="bottom">
+<form action="http://www.google.com/cse" id="cse-search-box">
+<input type="hidden" name="cx" value="partner-pub-4031247137266443:ye0t3e-czf5" />
+<input type="hidden" name="ie" value="ISO-8859-1" />
+<input type="text" name="q" size="60" /> <input type="submit" name="sa" value="Search" />
+<img src="http://www.google.com/images/poweredby_transparent/poweredby_999999.gif" alt="Google" />
+</form>
+</td>
+</tr>
+<tr>
+<td bgcolor="#F5F5F5" align="center" width="9%"><b><a href="/switchboard.shtml">Contents</a></b></td>
+<td bgcolor="#F5F5F5" align="center" width="7%"><b>
+<a href="/bulletin.shtml">Bulletin</a></b></td>
+<td bgcolor="#F5F5F5" align="center" width="16%"><b><font size="2">
+<a href="/scriptorama.shtml">Scripting in shell and Perl</a></font></b></td>
+<td bgcolor="#F5F5F5" align="center" width="10%"><b><font size="2">
+<a href="/netorama.shtml">Network troubleshooting</a></font></b></td>
+<td bgcolor="#F5F5F5" align="center" width="7%"><b><a href="/History/index.shtml">History</a></b></td>
+<td bgcolor="#F5F5F5" align="center" width="7%"><b><a href="/Bulletin/Humor/index.shtml">Humor</a></b></td>
+</tr>
+</table>
+
+<center>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- top_large_banner -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:970px;height:90px"
+     data-ad-client="ca-pub-4031247137266443"
+     data-ad-slot="9138796897"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+ </center>
+<hr width="100%" noshade size="5" color="#FF0000">
+
+
+<h1>Algorithms and Data Structures</h1>
+
+<table border="1" width="100%" bgcolor="#FFFFCC" >
+	<tr>
+		<td width="7%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+
+		<p align="center"><a href="#News">News</a></p>
+		</td>
+		<td width="14%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<a href="#See also">See Also</a></td>
+		<td width="3%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b>
+		<a href="../Bookshelf/algorithms.shtml">Recommended Books</a></b></td>
+		<td width="5%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<a href="#Recommended_Links">Recommended Links</a></td>
+		<td width="2%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<a href="#Tutorials">Lecture Notes and E-books</a></td>
+		<td width="2%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b>
+		<a href="../People/Knuth/index.shtml">Donald Knuth</a></b></td>
+		<td width="13%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<a href="../Bookshelf/classic.shtml"><b>TAOCP</b></a></td>
+		<td width="11%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b><a href="../Lang/c.shtml">MMIX Project</a></b></td>
+	</tr>
+	<tr>
+		<td width="7%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b><a href="sorting.shtml">Sorting</a></b></td>
+		<td width="14%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b><a href="Sorting/sorting_algorithms_style.shtml">Sorting Algorithms 
+		Coding Style</a></b></td>
+		<td width="4%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b><a href="Sorting/testing_sorting_algoritms.shtml">Testing Sorting 
+		Algorithms</a></b></td>
+		<td width="2%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b><a href="Sorting/insertion_sort.shtml">Insertion sort</a></b></td>
+		<td width="1%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+
+		<p align="center"><b><a href="Sorting/selection_sort.shtml">Selection 
+		Sort</a></b></p>
+		</td>
+		<td width="2%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b><a href="Sorting/bubblesort.shtml">Bubblesort</a></b></td>
+		<td width="6%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b>
+		<a href="searching.shtml">Searching</a></b></td>
+		<td width="4%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<a href="pattern_matching.shtml">Fast string searching and pattern matching</a></td>
+	</tr>
+	<tr>
+		<td width="7%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b><a href="bit_tricks.shtml">Bit Tricks</a></b></td>
+		<td width="14%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b>
+		<a href="compression.shtml">Compression</a></b></td>
+		<td width="13%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b><a href="Decompilation/decompilation_of_control_structures.shtml">
+		Control Flow Decompilation&nbsp; </a></b></td>
+		<td width="10%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b><a href="../Scripting/regex.shtml">Regular expressions</a></b></td>
+		<td width="10%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b><a href="#Combinatorial Algorithms">Combinatorial Algorithms</a></b></td>
+		<td width="1%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b>
+		<a href="compilers.shtml">Compiler Algorithms</a></b></td>
+		<td width="11%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b><a href="graph_algorithms.shtml">Graph Algorithms</a></b></td>
+		<td width="9%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b>
+		<a href="#Libraries">Libraries</a></b></td>
+	</tr>
+	<tr>
+		<td width="7%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b>
+		<a href="crypto_algorithms.shtml">Crypto algorithms</a></b></td>
+		<td width="14%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b>
+		<a href="Crypto/digital_signatures.shtml">Public Key Cryposystems</a></b></td>
+		<td width="13%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b><a href="random_generators.shtml">Random Generators</a></b></td>
+		<td width="10%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b><a href="../Internals/index.shtml">Operating System Algorithms</a></b></td>
+		<td width="10%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b><a href="Crypto/steganography.shtml">Steganography</a></b></td>
+		<td width="1%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b><a href="../History/lang_history.shtml">Programming Languages History</a>
+		</b></td>
+		<td width="11%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<b>
+		<a href="humor.shtml">Humor</a></b></td>
+		<td width="9%" align="center" bordercolorlight="#000000" bordercolordark="#FFFFFF">
+		<a href="#Etc">Etc</a></td>
+	</tr>
+</table>
+<div align="left">
+<table border="0" width="178" height="620" align="right" cellspacing="4" bgcolor="#FFFFFF">
+<tr><td>
+<table border="1" width="174" height="616" align="center" bgcolor="#FF0000">
+<tr><td>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Upper skyscaper -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:160px;height:600px"
+     data-ad-client="ca-pub-4031247137266443"
+     data-ad-slot="0371843916"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</td></tr></table>
+</td></tr></table>
+</div>
+
+
+<p align="right">&quot;Languages come and go,<br>
+but algorithms stand the test of time&quot;<br>
+&quot;An algorithm must be seen to be believed.&quot; <b><i><br>
+Donald Knuth<br>
+</i></b></p>
+
+<p>Why should you want to know more about algorithms? There are a number of possible 
+reasons: </p>
+
+<ul>
+
+	<li><b>To avoid re-inventing the wheel.</b> For many programming problems there 
+	are several simple and elegant algorithms that have been invented, but some 
+	of them are better than other in practical situations. These algorithms undergone 
+	a tremendous amount of polishing and peer reviews and usually you can be confident 
+	in their correctness and efficiency. Sometimes even formal properties of algorithms 
+	were discovered. For example, we know that <i>quicksort </i>requires approximately 
+	O(<i>n log n)</i> comparisons to sort a file or array, while simpler sorting 
+	algorithms the number of comparison is proportional to the square of the number 
+	of sorted elements O(<i>n**2)</i>.Another fast sorting algorithm <i>mergesort</i> 
+	has the same worst case behavior O(<i>n log n)</i> but is stable (meaning that 
+	elements with identical keys will stay ordered as they were before the sort).
+
+	<p>Those formulas mean that for sorting a small number of items simpler algorithms 
+	(or <i>shellsort</i>) are better than <i>quicksort</i> and for sorting large 
+	number of items <i>mergesort</i> is better as it can utilize natural orderness 
+	of the data ( can benefit from the fact that most &quot;real&quot; files are partially 
+	sorted; <i>quicksort</i> does not take into account this property; moreover 
+	it demonstrates worst case behavior on some nearly sorted files). Partially 
+	ordered files probably represent the most important in practice case of sorting 
+	that is often overlooked in superficial books.&nbsp; Often sorting is initiated 
+	just to put a few new records in proper place of the already sorted file.
+	</p>
+
+	<p>BTW this is a good litmus test of a quality of any book that covers sorting; 
+	if a book does not provide this information you might try to find another.
+	<br>
+	</p>
+	</li>
+
+	<li><b>To help to develop your own programs and algorithms. </b>Not all tasks 
+	have &quot;off-the-shelf&#39;&#39; algorithms available, so sometimes you need to develop 
+	your own or combine several existing. A knowledge of classic algorithms will 
+	provide a spectrum of ideas that might help to solve such tasks. <br>
+	</li>
+
+	<li><b>To help to understand the behavior and limitations of tools</b> that 
+	use a particular algorithm, for example why compression programs cannot compress 
+	well any random file. <br>
+	</li>
+
+	<li><b>Just to pass a course at the college or university</b> ;-). This is a 
+	pretty legitimate goal. Nothing to be ashamed of. <br>
+	</li>
+
+	<li><b>And last but not least: to became a better programmer.</b> Programmer 
+	without knowledge of algorithms is just an amateur/hacker (which is actually 
+	can be defined an amateur obsessed with hardware who spend inordinate time using 
+	keyboard instead of thinking about the problem in hand ;-) no matter how well 
+	he/she knows a particular programming language. </li>
+</ul>
+<!---google box ------->
+<table border="0" width="310" align="left" cellspacing="7" cellpadding="4">
+<tr><td width="340" bgcolor="#FFFF00" valign="center" align="center">
+<center>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Top Large Rectangle -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-4031247137266443"
+     data-ad-slot="3274064497"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></center>
+</td></tr>
+</table>
+<!---end of google box ------->
+
+<p>For all these reasons it is useful to have a broad familiarity with a range of 
+algorithms, and to understand what types of problems they can help to solve. This 
+is especially important for open source developers. Algorithms are intrinsically 
+connected with data structures because data structures are dreaming to become elegant 
+algorithms the same way ordinary people are dreaming about Hollywood actors ;-)
+</p>
+
+<p>I would like to note that the value of browsing the WEB in search of algorithms 
+is somewhat questionable :-). One probably will be much better off buying
+<a href="../Bookshelf/Classic/taocp.shtml">Donald Knuth&#39;s TAOCP</a> and ... disconnecting 
+from the Internet for a couple of months. Internet contains way too much noise 
+that suppress useful signal... This is especially true about algorithms. </p>
+
+<blockquote>
+
+	<p><b>Note: </b>MIX assembler is not very essential :-). Actually it represent 
+	class of computers which became obsolete even before the first volume Knuth 
+	book was published (with the release of IBM 360 which took world by storm). 
+	You 
+	can use Intel assembler if you wish. I used to teach TAOCP on mainframes and 
+	IBM assembler was pretty much OK. Knuth probably would be better off using a 
+	derivative of S/360 architecture and assembler from the very beginning ;-).Later 
+	he updated MIX to MMIX with <a href="../Lang/assembler.shtml#MMIX">a new instruction 
+	set</a> for use in future volumes, but still existing three volumes use an old 
+	one.&nbsp; There are pages on Internet that have them rewritten in IBM 260 or 
+	other more modern instruction set. </p>
+</blockquote>
+
+<p>An extremely important and often overlooked class of algorithms are
+<a href="compilers.shtml">compiler algorithms</a> (lex analysis, parsing and code 
+generation). <font color="#FF0000"><i><b>They actually represent a very efficient paradigm for solving wide 
+class of tasks similar to compilation of the program.</b></i></font> For example complex conversions 
+from one format to another. Also any complex program usually has its own command 
+language and knowledge of compiler algorithms can prevent authors from making typical 
+for amateurs blunders (which are common in open source software). In a way
+<a  target="_blank" href="http://en.wikipedia.org/wiki/Greenspun's_Tenth_Rule">Greenspun's tenth 
+rule - Wikipedia, the free encyclopedia</a></p>
+
+<blockquote>
+
+	<p>Any sufficiently complicated C or Fortran program contains an ad hoc, 
+	informally-specified, bug-ridden, slow implementation of half of Common 
+	Lisp.</p>
+</blockquote>
+
+<p>can be reformulated to: </p>
+
+<blockquote>
+
+	<p>Any sufficiently complicated&nbsp; contains an ad hoc, 
+	informally-specified, bug-ridden, slow implementation of half of a typical 
+	programming language interpreter.</p>
+</blockquote>
+
+<p>Many authors writing about algorithms try to hide their lack of competence with 
+abuse of mathematical symbolic. Excessive use of mathematics in presentation of 
+algorithms is often counterproductive (verification fiasco can serve as a warning 
+for all future generation; it buried such talented authors as
+<font face="Times New Roman" size="3">E. Dijkstra</font>, David Gries and many others). 
+Please remember
+<a target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/faq.html">Famous 
+Donald Knuth&#39;s citation about correctness proofs</a>:</p>
+
+<blockquote>
+
+	<p><font size="2">On March 22, 1977, as I was drafting Section 7.1 of The Art 
+	of Computer Programming, I read four papers by Peter van Emde Boas that turned 
+	out to be more appropriate for Chapter 8 than Chapter 7. I wrote a five-page 
+	memo entitled ``Notes on the van Emde Boas construction of priority deques: 
+	An instructive use of recursion,&#39;&#39; and sent it to Peter on March 29 (with copies 
+	also to Bob Tarjan and John Hopcroft). The final sentence was this: <b><i>``Beware 
+	of bugs in the above code; I have only proved it correct, not tried it.&#39;&#39;
+	</i></b></font></p>
+</blockquote>
+
+<p>See also <a href="../Bookshelf/algorithms.shtml">Softpanorama Computer Books 
+Reviews / Algorithms</a></p>
+
+<p align="right"><i>Dr. Nikolai Bezroukov<br>
+</i></p>
+
+<p><b>P.S:</b> In order to save the bandwidth for humans (as opposed to robots ;-), 
+previous years of&nbsp; <a href="#News">Old News</a>&nbsp; section were converted 
+into separate pages. </p>
+
+<hr>
+<table border="1" width="100%"><tr><td width="100%" align="center"  colspan="2">
+<center><b>Top updates</b></center>
+<center>
+<script type="text/javascript">
+<!--google_ad_client = "ca-pub-4031247137266443";
+/* 728x15, created 8/7/09 */
+google_ad_slot = "5138458259";
+google_ad_width = 728;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</center>
+<iframe src="/topupdates.shtml" width="100%" height="300"><p>Your browser does not support iframes.</p>
+</iframe>
+<hr>
+</td><tr><td width="29%" align="center" bgcolor="#C0C0C0">
+<a href="switchboard.shtml">Softpanorama Switchboard</a></td><td width="69%" bgcolor="#C0C0C0">
+<center><b>Google Search</b></center>
+<center><form action="http://www.google.com/cse" id="cse-search-box" target="_blank">
+<input type="hidden" name="cx" value="partner-pub-4031247137266443:gc7406rpojx" />
+<input type="hidden" name="ie" value="ISO-8859-1" />
+<input type="text" name="q1" size="60" />
+<input type="submit" name="sa" value="Search" />
+</form></center>
+</tr>
+</table>
+</td></tr></table>
+<hr noshade color="#FF0000" size="5">
+
+
+
+
+
+<hr>
+
+<h2><a name="NEWS_TOC">NEWS CONTENTS</a></h2>
+<ul>
+<li><a href="#n2013_0107_bookcompiler_construction">BookCompiler  construction</a>
+<li><a href="#n2013_0107_wikipedia">&nbsp;Wikipedia</a>
+<li><a href="#n2011_0925_algorithms_in_a_nutshell"> Algorithms in a Nutshell</a>
+<li><a href="#n2011_0606_cis300_lecture_notes">CIS300 lecture notes</a>
+<li><a href="#n2011_0606_week_2">Week 2</a>
+<li><a href="#n2011_0606_algorithms_and_data_structures">Algorithms and Data Structures</a>
+<li><a href="#n2011_0605_data_structures_and_algorithms">Data Structures and  Algorithms</a>
+<li><a href="#n2010_1230_bbva_foundation_frontiers_of_knowledge_awards"> BBVA Foundation Frontiers of Knowledge Awards</a>
+<li><a href="#n2011_0122_the_art_of_computer_programming_volume_4a"> The Art of Computer Programming, Volume 4A </a>
+<li><a href="#n2009_0814_data_structures_and_algorithms_ii"> Data Structures and Algorithms II</a>
+<li><a href="#n2009_0410_c_java_algorithm_and_data_structure_tutorials">C++, Java, Algorithm  and Data Structure Tutorials</a>
+<li><a href="#n2008_0425_interview_with_donald_knuth">Interview with  Donald Knuth</a>
+<li><a href="#n2008_0305_jperf_1_0_0_by"> JPerf 1.0.0&nbsp;  by </a>
+<li><a href="#n2007_0825_ben_pfaff_gnu_libavl">Ben Pfaff  GNU libavl</a>
+<li><a href="#n2007_0710_knuth_recent_news"> Knuth Recent News</a>
+<li><a href="#n2005_0212_news_from_knuth">News  from Knuth</a>
+<li><a href="#n2005_0115_bookpool_exclusive_excerpt_from_volume_4_of_the_art_of_computer_programming">Bookpool  Exclusive Excerpt from Volume 4 of The Art of Computer Programming</a>
+<li><a href="#n2005_0115_graph_theory_lecture_notes_16"> Graph Theory Lecture Notes 16</a>
+<li><a href="#n2005_0115_nist_minimum_spanning_tree"> NIST: minimum spanning tree</a>
+<li><a href="#n2005_0115_minimum_spanning_tree_algorithms">minimum  spanning tree algorithms</a>
+<li><a href="#n2005_0115_data_structures_and_algorithms_graph_algorithms"> Data Structures and Algorithms Graph Algorithms</a>
+<li><a href="#n2005_0115_a_blossoming_algorithm_for_tree_volumes_of_composite_digraphs"> A blossoming algorithm for tree volumes of composite digraphs</a>
+<li><a href="#n2005_0115_digraphs_theory_algorithms_applications">Digraphs, theory,  algorithms, applications </a>
+<li><a href="#n2005_0115_links_for_graph_partitioning"> Links for Graph Partitioning</a>
+<li><a href="#n2005_0115_algorithms_and_software_for_partitioning_graphs">Algorithms  and Software for Partitioning Graphs</a>
+<li><a href="#n2000_0328_an_introduction_to_graph_algorithms">An  Introduction to Graph Algorithms</a>
+<li><a href="#n1998_1231_data_structures_and_algorithms_table_of_contents"> Data Structures and Algorithms Table of Contents</a>
+<li><a href="#n1994_1231_advanced_topics_in_graph_algorithms">Advanced  Topics in Graph Algorithms</a>
+</ul>
+<h2><a name="News">Old News ;-)</a></h2>
+<div align="center">
+	<center>
+	<table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111" width="90%" bgcolor="#FFFFCC" id="table1">
+		<tr>
+			<td width="15%" align="center">2005</td>
+			<td width="14%" align="center">2004</td>
+			<td width="14%" align="center">
+			<a href="Bulletin/algorithms2003.shtml">2003</a></td>
+			<td width="14%" align="center">
+			<a href="Bulletin/algorithms2002.shtml">2002</a></td>
+			<td width="14%" align="center">
+			<a href="Bulletin/algorithms2000.shtml">2001</a></td>
+			<td width="14%" align="center">
+			<a href="Bulletin/algorithms2000.shtml">2000</a></td>
+			<td width="15%" align="center">
+			<a href="Bulletin/algorithms1999.shtml">1999</a></td>
+		</tr>
+	</table>
+	</center>
+</div>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#NEWS_TOC"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2013_0107_bookcompiler_construction" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2013_0107_wikipedia"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Jan 07, 2013]
+<a  target="_blank" href="http://en.wikipedia.org/wiki/Book:Compiler_construction">BookCompiler 
+construction</a></h4>
+
+<blockquote>
+
+	<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2013_0107_bookcompiler_construction"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2013_0107_wikipedia" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2011_0925_algorithms_in_a_nutshell"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4><a  target="_blank" href="http://en.wikipedia.org/wiki/Book:Compiler_construction">&nbsp;Wikipedia</a></h4>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2013_0107_wikipedia"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2011_0925_algorithms_in_a_nutshell" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2011_0606_cis300_lecture_notes"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Sep 25, 2011]
+<a  target="_blank" href="http://www.amazon.com/Algorithms-Nutshell-OReilly-George-Heineman/dp/059651624X/ref=nikolaibezroukov">
+Algorithms in a Nutshell</a> by George T. Heineman, Gary Pollice &amp; Stanley Selkow</h4>
+<h5>Sorting examples are in C and does not use object-oriented mumbo-jumbo. Which 
+is a good sign. </h5>
+
+<blockquote>
+	<h6>
+	<a  target="_blank" href="http://www.amazon.com/Algorithms-Nutshell-OReilly-George-Heineman/dp/059651624X/ref=sr_1_1?ie=UTF8&qid=1316983655&sr=8-1">
+	Amazon.com/ O&#39;Reilly</a></h6>
+
+	<p><b>K. Jazayeri </b>(San Jose, CA United States): Its pedestrian title gives 
+	a very wrong first-impression!, December 12, 2008 </p>
+
+	<blockquote>
+
+		<p>In recent years I have found most other non-textbooks on algorithms to 
+		be uninteresting mainly for two reasons. First, there are books that are 
+		re-released periodically in a new &quot;programming language du jour&quot; without 
+		adding real value (some moving from Pascal to C/C++ to Python, Java or C#). 
+		The second group are books that are rather unimaginative collections of 
+		elementary information, often augmenting their bulk with lengthy pages of 
+		source code (touted as &quot;ready-to-use&quot;, but never actually usable). </p>
+
+		<p>I almost didn&#39;t pay any attention to this book because its title struck 
+		me as rather mundane and pedestrian .... what an uncommonly false first-impression 
+		that turned out to be! </p>
+
+		<p>The is a well-written book and a great practical and usable one for working 
+		software developers at any skill or experience level. It starts with a condensed 
+		set of introductory material. It then covers the gamut of common and some 
+		not-so-common algorithms grouped by problems/tasks that do come up in a 
+		variety of real-world applications. </p>
+
+		<p>I particularly appreciate the concise and thoughtful - and concise - 
+		descriptions -- chock-full of notes on applicability and usability -- with 
+		absolutely no fluff! If nothing else, this book can be a good quick index 
+		or a chit sheet before culling through more standard textbooks (many of 
+		which, in fact, mentioned as further references in each section). </p>
+
+		<p>I believe the authors have identified a valid &quot;hole&quot; in the technical 
+		bookshelves - and plugged it quite well! Regarding the book&#39;s title, ... 
+		now I feel it&#39;s just appropriately simple, honest, and down-to-earth.
+		</p>
+	</blockquote>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2011_0925_algorithms_in_a_nutshell"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2011_0606_cis300_lecture_notes" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2011_0606_week_2"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Jun 06, 2011]&nbsp;&nbsp;
+<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/">CIS300 lecture notes</a></h4>
+<h5>Licensed under a
+<a rel="license" href="http://creativecommons.org/licenses/by/2.0/">Creative Commons 
+License</a>. Can be reused by instructors. </h5>
+
+<blockquote>
+
+	<p><b>Week 1</b></p>
+	<dl>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Lecture0.html">
+		Fundamentals of program design</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Lecture1a.html">
+		Software development in Java: classes, objects, and packages</a> </dd>
+	</dl>
+
+	<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2011_0606_cis300_lecture_notes"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2011_0606_week_2" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2011_0606_algorithms_and_data_structures"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>Week 2</h4>
+	<dl>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/ArchNotes/arch.html">
+		Introduction to Computer Architecture</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/OSNotes/os.html">
+		Introduction to Operating Systems</a> </dd>
+	</dl>
+	<b>Week 3</b>
+	<dl>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Lecture1c.html">
+		Execution semantics</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Lecture1b.html">
+		Software development in Java: interfaces and graphics</a> </dd>
+	</dl>
+	<b>Week 4</b>
+	<dl>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Lecture2a.html">
+		What is a data structure?</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://www.cis.ksu.edu/~schmidt/CIS200/ch8V12database.html">A Case 
+		Study: Databases</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Lecture2b.html">
+		Adding interfaces to the database</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://www.cis.ksu.edu/~schmidt/CIS200/ch8V11.sort.search.html">
+		Sorting and Searching</a> </dd>
+	</dl>
+	<b>Week 5</b>
+	<dl>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week2.html">
+		Time complexity measures</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week3.html">
+		The stack data structure</a> </dd>
+	</dl>
+	<b>Week 6</b>
+	<dl>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Lecture3.html">
+		Activation-record stacks</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week4.html">
+		Linked-list implementation of stacks</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week5.html">
+		Queues</a> </dd>
+	</dl>
+	<b>Week 7</b>
+	<dl>
+		<dd>Exam 1 (<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/review1.html">review</a>)</dd>
+	</dl>
+	<b>Week 8</b>
+	<dl>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week5aa.html">
+		Doubly linked lists</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week5bb.html">
+		Recursive processing of linked lists</a> </dd>
+	</dl>
+	<b>Week 9</b>
+	<dl>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week5cc.html">
+		Execution traces of linked-list processing</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week6aa.html">
+		Inductive (recursive) data structures</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week7a.html">
+		How to implement Conslists and other recursively defined data types in Java</a>
+		</dd>
+	</dl>
+	<b>Week 10</b>
+	<dl>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week7b.html">
+		Introduction to binary trees</a> </dd>
+	</dl>
+	<b>Week 12</b>
+	<dl>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week8.html">
+		Ordered trees</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week10a.html">
+		Spelling trees</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week9.html">
+		Mutable trees, parent links, and node deletions</a> </dd>
+	</dl>
+	<b>Week 13</b>
+	<dl>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week11.html">
+		Hash tables</a> </dd>
+	</dl>
+	<b>Week 14</b>
+	<dl>
+		<dd>Exam 2 (<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/review2.html">review</a>)</dd>
+	</dl>
+	<b>Week 15</b>
+	<dl>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/GrammarNotes/bnf.html">
+		Grammars and Trees</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/GrammarNotes/compiler.html">
+		How to use lists and trees to build a compiler</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week13.html">
+		AVL-Trees</a> </dd>
+	</dl>
+	<b>Week 16</b>
+	<dl>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Collections.html">
+		The Java Collections Framework</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/review3.html">
+		Review for Exam 3 </a></dd>
+	</dl>
+	<b>Week 17 </b>
+	<dl>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week12.html">
+		Priority queues and heap structures</a> </dd>
+		<dd>
+		<a  target="_blank" href="http://people.cis.ksu.edu/~schmidt/300s05/Lectures/Week14.html">
+		Graphs</a> </dd>
+	</dl>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2011_0606_week_2"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2011_0606_algorithms_and_data_structures" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2011_0605_data_structures_and_algorithms"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Jun 06, 2011]&nbsp;&nbsp;
+<a  target="_blank" href="http://www-old.oberon.ethz.ch/WirthPubl/AD.pdf">Algorithms and Data Structures</a> 
+by N. Wirth</h4>
+
+<blockquote>
+	<h6>January 1, 1985</h6>
+
+	<p>Contents<br>
+	Prefacee<br>
+	1 Fundamental Data Structures<br>
+	1.1 Introduction<br>
+	1.2 The Concept of Data Type<br>
+	1.3 Primitive Data Types<br>
+	1.4 Standard Primitive Types<br>
+	1.4.1 Integer types<br>
+	1.4.2 The type REAL<br>
+	1.4.3 The type BOOLEAN<br>
+	1.4.4 The type CHAR<br>
+	1.4.5 The type SET<br>
+	1.5 The Array Structure<br>
+	1.6 The Record Structure<br>
+	1.7 Representation of Arrays, Records, and Sets<br>
+	1.7.1 Representation of Arrays<br>
+	1.7.2 Representation of Recors<br>
+	1.7.3 Representation of Sets<br>
+	1.8 The File (Sequence)<br>
+	1.8.1 Elementary File Operators<br>
+	1.8.2 Buffering Sequences<br>
+	1.8.3 Buffering between Concurrent Processes<br>
+	1.8.4 Textual Input and Output<br>
+	1.9 Searching<br>
+	1.9.1 Linear Search<br>
+	1.9.2 Binary Search<br>
+	1.9.3 Table Search<br>
+	1.9.4 Straight String Search<br>
+	1.9.5 The Knuth-Morris-Pratt String Search<br>
+	1.9.6 The Boyer-Moore String Search<br>
+	Exercises<br>
+	2 Sorting<br>
+	2.1 Introduction<br>
+	2.2 Sorting Arrays<br>
+	2.2.1 Sorting by Straight Insertion<br>
+	2.2.2 Sorting by Straight Selection<br>
+	2.2.3 Sorting by Straight Exchange<br>
+	2.3 Advanced Sorting Methods<br>
+	2.3.1 Insertion Sort by Diminishing Increment<br>
+	2.3.2 Tree Sort<br>
+	2.3.3 Partition Sort<br>
+	2.3.4 Finding the Median<br>
+	2.3.5 A Comparison of Array Sorting Methods<br>
+	2.4 Sorting Sequences<br>
+	2.4.1 Straight Merging<br>
+	2.4.2 Natural Merging<br>
+	2.4.3 Balanced Multiway Merging<br>
+	2.4.4 Polyphase Sort<br>
+	2.4.5 Distribution of Initial Runs<br>
+	Exercises<br>
+	6<br>
+	3 Recursive Algorithms<br>
+	3.1 Introduction<br>
+	3.2 When Not to Use Recursion<br>
+	3.3 Two Examples of Recursive Programs<br>
+	3.4 Backtracking Algorithms<br>
+	3.5 The Eight Queens Problem<br>
+	3.6 The Stable Marriage Problem<br>
+	3.7 The Optimal Selection Problem<br>
+	Exercises<br>
+	4 Dynamic Information Structures<br>
+	4.1 Recursive Data Types<br>
+	4.2 Pointers<br>
+	4.3 Linear Lists<br>
+	4.3.1 Basic Operations<br>
+	4.3.2 Ordered Lists and Reorganizing Lists<br>
+	4.3.3 An Application: Topological Sorting<br>
+	4.4 Tree Structures<br>
+	4.4.1 Basic Concepts and Definitions<br>
+	4.4.2 Basic Operations on Binary Trees<br>
+	4.4.3 Tree Search and Insertion<br>
+	4.4.4 Tree Deletion<br>
+	4.4.5 Analysis of Tree Search and Insertion<br>
+	4.5 Balanced Trees<br>
+	4.5.1 Balanced Tree Insertion<br>
+	4.5.2 Balanced Tree Deletion<br>
+	4.6 Optimal Search Trees<br>
+	4.7 B-Trees<br>
+	4.7.1 Multiway B-Trees<br>
+	4.7.2 Binary B-Trees<br>
+	4.8 Priority Search Trees<br>
+	Exercises<br>
+	5 Key Transformations (Hashing)<br>
+	5.1 Introduction<br>
+	5.2 Choice of a Hash Function<br>
+	5.3 Collision handling<br>
+	5.4 Analysis of Key Transformation<br>
+	Exercises<br>
+	Appendices<br>
+	A The ASCII Character Set<br>
+	B The Syntax of Oberon<br>
+	Index</p>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2011_0606_algorithms_and_data_structures"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2011_0605_data_structures_and_algorithms" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2010_1230_bbva_foundation_frontiers_of_knowledge_awards"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Jun 05, 2011]&nbsp;&nbsp;
+<a  target="_blank" href="http://www.mpi-inf.mpg.de/~mehlhorn/DatAlgbooks.html">Data Structures and 
+Algorithms</a>&nbsp; by Prof. Dr. Kurt Mehlhorn</h4>
+
+<blockquote>
+	<h6>Dec 31, 1984</h6>
+
+	<p><i>Data Structures and Efficient Algorithms, Springer Verlag, EATCS Monographs, 
+	1984. </i></p>
+
+	<p>The books are out of print and I have no idea, whether I will ever have time 
+	to revise them. The books are only partially available in electronic form; remember 
+	that the books were type-written. Many years ago, I started an effort to revise 
+	the books and, as a first step, some students converted the books to TeX. Being 
+	good students, they added comments. The outcome of their effort can be found 
+	below. </p>
+
+	<ul>
+
+		<li><b>Vol. 1: Sorting and Searching</b>
+
+		<ul>
+
+			<li>Chapter 1, Foundations,
+			<a  target="_blank" href="http://www.mpi-inf.mpg.de/~mehlhorn/ftp/EATCSmonograph/chapter1.ps">
+			ps?</a></li>
+
+			<li>Chapter 2, Sorting,
+			<a  target="_blank" href="http://www.mpi-inf.mpg.de/~mehlhorn/ftp/EATCSmonograph/chapter2.ps">
+			ps?</a></li>
+
+			<li>Chapter 3, Sets,
+			<a  target="_blank" href="http://www.mpi-inf.mpg.de/~mehlhorn/ftp/EATCSmonograph/chapter3.ps">
+			ps?</a>;</li>
+		</ul>
+		</li>
+
+		<li><b>Vol. 2: Graph Algorithms and NP-Completeness</b>
+
+		<ul>
+
+			<li>Chapter 4, Algorithms on Graphs,
+			<a  target="_blank" href="http://www.mpi-inf.mpg.de/~mehlhorn/ftp/EATCSmonograph/chapter4.ps">
+			ps?</a></li>
+
+			<li>Chapter 5, Path Problems in Graphs and Matrix Multiplication,
+			<a  target="_blank" href="http://www.mpi-inf.mpg.de/~mehlhorn/ftp/EATCSmonograph/chapter5.ps">
+			ps?</a></li>
+
+			<li>Chapter 6, NP-Completeness,
+			<a  target="_blank" href="http://www.mpi-inf.mpg.de/~mehlhorn/ftp/EATCSmonograph/chapter6.ps">
+			ps?</a></li>
+		</ul>
+		</li>
+	</ul>
+
+	<ul>
+
+		<li><b>Vol. 3: Multi-dimensional Searching and Computational Geometry</b>
+
+		<ul>
+
+			<li>Chapter 7, Multidimensional Data Structures,
+			<a  target="_blank" href="http://www.mpi-inf.mpg.de/~mehlhorn/ftp/EATCSmonograph/chapter7.ps">
+			ps?</a>;</li>
+
+			<li>Chapter 8, Computational Geometry,
+			<a  target="_blank" href="http://www.mpi-inf.mpg.de/~mehlhorn/ftp/EATCSmonograph/chapter8.ps">
+			ps?</a></li>
+		</ul>
+		</li>
+	</ul>
+</blockquote>
+
+<ul>
+</ul>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2011_0605_data_structures_and_algorithms"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2010_1230_bbva_foundation_frontiers_of_knowledge_awards" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2011_0122_the_art_of_computer_programming_volume_4a"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Dec 30, 2010]
+<a  target="_blank" href="http://www.fbbva.es/TLFU/tlfu/ing/microsites/premios/fronteras/galardonados/2010/informacion.jsp">
+BBVA Foundation Frontiers of Knowledge Awards</a></h4>
+<h5>2010 award went to Donald Knuth !</h5>
+
+<blockquote>
+
+	<p><strong>The BBVA Foundation Frontiers of Knowledge Award in the Information 
+	and Communication Technologies category goes in this third edition to U.S. scientist 
+	Donald E. Knuth, for �making computing a science by introducing formal mathematical 
+	techniques for the rigorous analysis of algorithms�, in the words of the prize 
+	jury. The new awardee has also distinguished himself by �advocating for code 
+	that is simple, compact and intuitively understandable.�</strong></p>
+
+	<p xmlns="http://www.w3.org/1999/xhtml">Knuth�s book <i>The Art of Computer 
+	Programming</i> is considered �the seminal work on computer science in the broadest 
+	sense, encompassing the algorithms and methods which lie at the heart of most 
+	computer systems, and doing so with uncommon depth and clarity� the citation 
+	continues. <font color="#FF0000"><i><b>�His impact on the theory and practice 
+	of computer science is beyond parallel.�</b></i></font></p>
+
+	<p xmlns="http://www.w3.org/1999/xhtml">Knuth laid the foundation for modern 
+	compilers, the programs which translate the high-level language of programmers 
+	into the binary language of computers. Programmers are thus able to write their 
+	code in a way that is closer to how a human being thinks, and their work is 
+	then converted into the language of machines.</p>
+
+	<p xmlns="http://www.w3.org/1999/xhtml">The new laureate is also the �father� 
+	of the analysis of algorithms, that is, the set of instructions conveyed to 
+	a computer so it carries out a given task. �Algorithms�, the jury clarifies, 
+	�are at the heart of today�s digital world, underlying everything we do with 
+	a computer�. Knuth systematized software design and �erected the scaffolding 
+	on which we build modern computer programs�.</p>
+
+	<p xmlns="http://www.w3.org/1999/xhtml">Knuth is also the author of today�s 
+	most widely used open-source typesetting languages for scientific texts, TeX 
+	and METAFONT. These two languages, in the jury�s view, �import the aesthetics 
+	of typesetting into a program which has empowered authors to design beautiful 
+	documents�.</p>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2010_1230_bbva_foundation_frontiers_of_knowledge_awards"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2011_0122_the_art_of_computer_programming_volume_4a" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2009_0814_data_structures_and_algorithms_ii"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Jan 22, 2011] The Art of Computer Programming, Volume 4A </h4>
+
+<blockquote>
+
+	<p><cite>Combinatorial Algorithms, Part 1</cite> (Upper Saddle River, New Jersey: 
+	Addison-Wesley, 2011), xvi+883pp.<br>
+	ISBN 0-201-03804-8 </p>
+
+	<p>(Preliminary drafts were previously published as paperback fascicles; see 
+	below.) </p>
+
+	<p>Russian translation (Moscow:
+	<a  target="_blank" href="http://www.williamspublishing.com/Books/978-5-8459-1744-7.html">Vil&#39;iams</a>), 
+	in preparation.<br>
+	Chinese translation (Hong Kong: Pearson Education Asia), in preparation.</p>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2011_0122_the_art_of_computer_programming_volume_4a"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2009_0814_data_structures_and_algorithms_ii" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2009_0410_c_java_algorithm_and_data_structure_tutorials"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Aug 14, 2009] <a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures.html">
+Data Structures and Algorithms II</a> by
+<a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/">Alison Cawsey</a></h4>
+
+<ul>
+
+	<li><a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures/l1.pdf">Lecture 1: 
+	Intro (pdf) </a></li>
+
+	<li><a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures/l2.pdf">Lecture 2: 
+	String Algs (intro) (pdf) </a></li>
+
+	<li><a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures/l3.pdf">Lecture 3: 
+	String search (pdf) </a></li>
+
+	<li><a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures/l4.pdf">Lecture 4: 
+	Pattern Matching (pdf) </a></li>
+
+	<li><a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures/l5.pdf">Lecture 5: 
+	Compression (pdf) </a></li>
+
+	<li><a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures/l7.pdf">Lecture 7: 
+	Parsing (intro) (pdf) </a></li>
+
+	<li><a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures/l8.pdf">Lecture 8: 
+	Recursive Descent Parsing (pdf) </a></li>
+
+	<li><a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures/l9.pdf">Lecture 9: 
+	Graphs (pdf) </a></li>
+
+	<li><a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures/l10.pdf">Lecture 
+	10: Graph search (pdf) </a></li>
+
+	<li><a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures/l11.pdf">Lecture 
+	11: Pointers (revision) (pdf) </a></li>
+
+	<li><a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures/l12.pdf">Lecture 
+	12: Shortest path (pdf) </a></li>
+
+	<li><a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures/l13.pdf">Lecture 
+	13: Inheritance (revision) (pdf) </a></li>
+
+	<li><a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures/l14.pdf">Lecture 
+	14: Critical path (pdf) </a></li>
+
+	<li><a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures/l15.pdf">Lecture 
+	15: Geometric Algs (pdf) </a></li>
+
+	<li><a  target="_blank" href="http://www.macs.hw.ac.uk/~alison/alg/lectures/l16.pdf">Lecture 
+	16: C++ + Geometric Algs (pdf) </a></li>
+</ul>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2009_0814_data_structures_and_algorithms_ii"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2009_0410_c_java_algorithm_and_data_structure_tutorials" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2008_0425_interview_with_donald_knuth"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Apr 10, 2009] <a  target="_blank" href="http://simpleprogrammingtutorials.com/">C++, Java, Algorithm 
+and Data Structure Tutorials</a> by Denis Kulagin. </h4>
+
+<blockquote>
+
+	<p>Includes sections: </p>
+
+	<ul>
+
+		<li><a  target="_blank" href="http://simpleprogrammingtutorials.com/data-structures.php">
+		Data Structures</a>
+
+		<p style="MARGIN-TOP: 5px; MARGIN-BOTTOM: 15px">Data structures, ADT&#39;s and 
+		implementations.</p>
+		</li>
+
+		<li><a  target="_blank" href="http://simpleprogrammingtutorials.com/algorithms.php">Algorithms 
+		and programming concepts</a>
+
+		<p style="MARGIN-TOP: 5px; MARGIN-BOTTOM: 15px">Sorting algorithms, algorithms 
+		on graphs, nubmer-theory algorithms and programming concepts.</p>
+		</li>
+
+		<li><a  target="_blank" href="http://simpleprogrammingtutorials.com/cpp.php">C++: tools and 
+		code samples</a>
+
+		<p style="MARGIN-TOP: 5px; MARGIN-BOTTOM: 15px">How to install a development 
+		environment and start programming with C++.</p>
+		</li>
+
+		<li><a  target="_blank" href="http://simpleprogrammingtutorials.com/books/">Books: reviews 
+		and TOCs</a>
+
+		<p style="MARGIN-TOP: 5px; MARGIN-BOTTOM: 15px">Find books you need for 
+		offline reading.</p>
+		</li>
+
+		<li><a  target="_blank" href="http://simpleprogrammingtutorials.com/sitemap.php">Sitemap</a>
+
+		<p style="MARGIN-TOP: 5px; MARGIN-BOTTOM: 15px">Links to all articles in 
+		alphabetical order.</p>
+		</li>
+
+		<li><a  target="_blank" href="http://simpleprogrammingtutorials.com/forum">Forum</a>
+
+		<p style="MARGIN-TOP: 5px; MARGIN-BOTTOM: 15px">Ask questions and discuss 
+		various programming issues.</p>
+		</li>
+	</ul>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2009_0410_c_java_algorithm_and_data_structure_tutorials"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2008_0425_interview_with_donald_knuth" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2008_0305_jperf_1_0_0_by"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Apr 25, 2008]
+<a  target="_blank" href="http://www.informit.com/articles/article.aspx?p=1193856">Interview with 
+Donald Knuth</a> by
+<a  target="_blank" href="http://www.informit.com/authors/bio.aspx?a=3b944909-9332-403e-b7d1-5bd9c96e26fe">
+Donald E. Knuth</a>,<a  target="_blank" href="http://www.informit.com/authors/bio.aspx?a=41c10e58-535c-490e-807c-067990173a4c">Andrew 
+Binstock</a></h4>
+
+<blockquote>
+
+	<hr><i>Andrew Binstock and Donald Knuth converse on the success of open source, 
+	the problem with multicore architecture, the disappointing lack of interest 
+	in literate programming, the menace of reusable code, and that urban legend 
+	about winning a programming contest with a single compilation. </i>
+
+	<hr>
+
+	<p><b>Andrew Binstock: You are one of the fathers of the open-source revolution, 
+	even if you aren�t widely heralded as such. You previously have stated that 
+	you released </b>
+	<a onclick="newwindow(this)" href="http://en.wikipedia.org/wiki/TeX">TeX</a><b> 
+	as open source because of the problem of proprietary implementations at the 
+	time, and to invite corrections to the code�both of which are key drivers for 
+	open-source projects today. Have you been surprised by the success of open source 
+	since that time?</b></p>
+
+	<p><b>Donald Knuth:</b> The success of open source code is perhaps the only 
+	thing in the computer field that <i>hasn�t</i> surprised me during the past 
+	several decades. But it still hasn�t reached its full potential;
+	<font color="#FF0000"><i><b>I believe that open-source programs will begin to 
+	be completely dominant as the economy moves more and more from products towards 
+	services, and as more and more volunteers arise to improve the code.</b></i></font></p>
+
+	<p><font color="#FF0000"><i><b>For example, open-source code can produce thousands 
+	of binaries, tuned perfectly to the configurations of individual users, whereas 
+	commercial software usually will exist in only a few versions.</b></i></font> 
+	A generic binary executable file must include things like inefficient &quot;sync&quot; 
+	instructions that are totally inappropriate for many installations; such wastage 
+	goes away when the source code is highly configurable. This should be a huge 
+	win for open source.</p>
+
+	<p>Yet I think that a few programs, such as Adobe Photoshop, will always be 
+	superior to competitors like the Gimp�for some reason, I really don�t know why!
+	<font color="#FF0000"><i><b>I�m quite willing to pay good money for really good 
+	software</b></i></font>, <font color="#FF0000"><i><b>if I believe that it has 
+	been produced by the best programmers.</b></i></font></p>
+
+	<p>Remember, though, that my opinion on economic questions is highly suspect, 
+	since I�m just an educator and scientist. I understand almost nothing about 
+	the marketplace.</p>
+
+	<p><b>Andrew: A story states that you once entered a programming contest at 
+	Stanford (I believe) and you submitted the winning entry, which worked correctly 
+	after a <i>single</i> compilation. Is this story true? In that vein, today�s 
+	developers frequently build programs writing small code increments followed 
+	by immediate compilation and the creation and running of unit tests. What are 
+	your thoughts on this approach to software development?</b></p>
+
+	<p><b>Donald:</b> The story you heard is typical of legends that are based on 
+	only a small kernel of truth. Here�s what actually happened:
+	<a  target="_blank" href="http://en.wikipedia.org/wiki/John_McCarthy_(computer_scientist%2529">
+	John McCarthy</a> decided in 1971 to have a Memorial Day Programming Race. All 
+	of the contestants except me worked at his AI Lab up in the hills above Stanford, 
+	using the WAITS time-sharing system; I was down on the main campus, where the 
+	only computer available to me was a mainframe for which I had to punch cards 
+	and submit them for processing in batch mode. I used Wirth�s
+	<a  target="_blank" href="http://en.wikipedia.org/wiki/Algol_W">ALGOL W</a> system (the predecessor 
+	of Pascal). My program <i>didn�t</i> work the first time, but fortunately I 
+	could use Ed Satterthwaite�s excellent offline debugging system for ALGOL W, 
+	so I needed only two runs. Meanwhile, the folks using WAITS couldn�t get enough 
+	machine cycles because their machine was so overloaded. (I think that the second-place 
+	finisher, using that &quot;modern&quot; approach, came in about an hour after I had submitted 
+	the winning entry with old-fangled methods.) It wasn�t a fair contest.</p>
+
+	<p>As to your real question, the idea of immediate compilation and &quot;unit tests&quot; 
+	appeals to me only rarely, when I�m feeling my way in a totally unknown environment 
+	and need feedback about what works and what doesn�t. <font color="#FF0000">
+	<i><b>Otherwise, lots of time is wasted on activities that I simply never need 
+	to perform or even think about. Nothing needs to be &quot;mocked up.&quot;</b></i></font></p>
+
+	<p><b>Andrew: One of the emerging problems for developers, especially client-side 
+	developers, is changing their thinking to write programs in terms of threads. 
+	This concern, driven by the advent of inexpensive multicore PCs, surely will 
+	require that many algorithms be recast for multithreading, or at least to be 
+	thread-safe. So far, much of the work you�ve published for Volume 4 of </b>
+	<a  target="_blank" href="http://www.informit.com/store/product.aspx?isbn=0201485419">The Art 
+	of Computer Programming</a><b> (<i>TAOCP</i>) doesn�t seem to touch on this 
+	dimension. Do you expect to enter into problems of concurrency and parallel 
+	programming in upcoming work, especially since it would seem to be a natural 
+	fit with the combinatorial topics you�re currently working on?</b></p>
+
+	<p>Donald: The field of combinatorial algorithms is so vast that I�ll be lucky 
+	to pack its <i>sequential</i> aspects into three or four physical volumes, and 
+	I don�t think the sequential methods are ever going to be unimportant. Conversely, 
+	the half-life of parallel techniques is very short, because hardware changes 
+	rapidly and each new machine needs a somewhat different approach. So I decided 
+	long ago to stick to what I know best. Other people understand parallel machines 
+	much better than I do; programmers should listen to them, not me, for guidance 
+	on how to deal with simultaneity.</p>
+
+	<p><b>Andrew: Vendors of multicore processors have expressed frustration at 
+	the difficulty of moving developers to this model. As a former professor, what 
+	thoughts do you have on this transition and how to make it happen? Is it a question 
+	of proper tools, such as better native support for concurrency in languages, 
+	or of execution frameworks? Or are there other solutions?</b></p>
+
+	<p><b>Donald:</b> I don�t want to duck your question entirely. I might as well 
+	flame a bit about<font color="#FF0000"><i><b> my personal unhappiness with the 
+	current trend toward multicore architecture. </b></i></font>To me, it looks 
+	more or less like the hardware designers have run out of ideas, and that
+	<font color="#FF0000"><i><b>they�re trying to pass the blame for the future 
+	demise of Moore�s Law to the software writers by giving us machines that work 
+	faster only on a few key benchmarks</b></i></font>! I won�t be surprised at 
+	all if the whole multithreading idea turns out to be a flop, worse than the 
+	&quot;<a  target="_blank" href="http://en.wikipedia.org/wiki/Itanium">Titanium</a>&quot; approach that
+	<font color="#FF0000"><i><b>was supposed to be so terrific�until it turned out 
+	that the wished-for compilers were basically impossible to write.</b></i></font></p>
+
+	<p>Let me put it this way: During the past 50 years, I�ve written well over 
+	a thousand programs, many of which have substantial size. I can�t think of even
+	<i>five</i> of those programs that would have been enhanced noticeably by parallelism 
+	or multithreading. Surely, for example, multiple processors are no help to TeX.<sup>[1]</sup></p>
+
+	<p>How many programmers do you know who are enthusiastic about these promised 
+	machines of the future?<font color="#FF0000"><i><b> I hear almost nothing but 
+	grief from software people, although the hardware folks in our department assure 
+	me that I�m wrong.</b></i></font></p>
+
+	<p>I know that important applications for parallelism exist�rendering graphics, 
+	breaking codes, scanning images, simulating physical and biological processes, 
+	etc. But all these applications require dedicated code and special-purpose techniques, 
+	which will need to be changed substantially every few years.</p>
+
+	<p>Even if I knew enough about such methods to write about them in <i>TAOCP</i>, 
+	my time would be largely wasted, because soon there would be little reason for 
+	anybody to read those parts. (Similarly, <i><b><font color="#FF0000">when I 
+	prepare the third edition of </font>
+	<a  target="_blank" href="http://www.informit.com/store/product.aspx?isbn=0201896850">
+	<font color="#FF0000">Volume 3</font></a><font color="#FF0000"> I plan to rip 
+	out much of the material about how to sort on magnetic tapes. That stuff was 
+	once one of the hottest topics in the whole software field, but now it largely 
+	wastes paper when the book is printed.</font></b></i>)</p>
+
+	<p>The machine I use today has dual processors. I get to use them both only 
+	when I�m running two independent jobs at the same time; that�s nice, but it 
+	happens only a few minutes every week. If I had four processors, or eight, or 
+	more, I still wouldn�t be any better off, considering the kind of work I do�even 
+	though I�m using my computer almost every day during most of the day. So why 
+	should I be so happy about the future that hardware vendors promise? They think 
+	a magic bullet will come along to make multicores speed up my kind of work; 
+	I think it�s a pipe dream. (No�that�s the wrong metaphor! &quot;Pipelines&quot; actually 
+	work for me, but threads don�t. Maybe the word I want is &quot;bubble.&quot;)</p>
+
+	<p>From the opposite point of view, I do grant that web browsing probably will 
+	get better with multicores. I�ve been talking about my technical work, however, 
+	not recreation. I also admit that I haven�t got many bright ideas about what 
+	I wish hardware designers would provide instead of multicores, now that they�ve 
+	begun to hit a wall with respect to sequential computation. (But my
+	<a  target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/mmix.html">MMIX</a> design 
+	contains several ideas that would substantially improve the current performance 
+	of the kinds of programs that concern me most�at the cost of incompatibility 
+	with legacy x86 programs.)</p>
+
+	<p><b>Andrew: One of the few projects of yours that hasn�t been embraced by 
+	a widespread community is </b><a  target="_blank" href="http://www.literateprogramming.com/">
+	literate programming</a><b>. What are your thoughts about why literate programming 
+	didn�t catch on? And is there anything you�d have done differently in retrospect 
+	regarding literate programming?</b></p>
+
+	<p><b>Donald:</b> Literate programming is a very personal thing. I think it�s 
+	terrific, but that might well be because I�m a very strange person. It has tens 
+	of thousands of fans, but not millions.</p>
+
+	<p><font color="#FF0000"><i><b>In my experience, software created with literate 
+	programming has turned out to be significantly better than software developed 
+	in more traditional ways. </b></i></font>Yet ordinary software is usually okay�I�d 
+	give it a grade of C (or maybe C++), but not F; hence, the traditional methods 
+	stay with us. Since they�re understood by a vast community of programmers, most 
+	people have no big incentive to change, just as I�m not motivated to learn Esperanto 
+	even though it might be preferable to English and German and French and Russian 
+	(if everybody switched).</p>
+
+	<p><a  target="_blank" href="http://en.wikipedia.org/wiki/Jon_Bentley">Jon Bentley</a> probably 
+	hit the nail on the head when he once was asked why literate programming hasn�t 
+	taken the whole world by storm. <font color="#FF0000"><i><b>He observed that 
+	a small percentage of the world�s population is good at programming, and a small 
+	percentage is good at writing; apparently I am asking everybody to be in both 
+	subsets.</b></i></font></p>
+
+	<p>Yet to me, literate programming is certainly the most important thing that 
+	came out of the TeX project. Not only has it enabled me to write and maintain 
+	programs faster and more reliably than ever before, and been one of my greatest 
+	sources of joy since the 1980s�it has actually been <i>indispensable</i> at 
+	times. Some of my major programs, such as the MMIX meta-simulator, could not 
+	have been written with any other methodology that I�ve ever heard of. The complexity 
+	was simply too daunting for my limited brain to handle; without literate programming, 
+	the whole enterprise would have flopped miserably.</p>
+
+	<p>If people do discover nice ways to use the newfangled multithreaded machines, 
+	I would expect the discovery to come from people who routinely use literate 
+	programming. <font color="#FF0000"><i><b>Literate programming is what you need 
+	to rise above the ordinary level of achievement. </b></i></font>But I don�t 
+	believe in forcing ideas on anybody. If literate programming isn�t your style, 
+	please forget it and do what you like. If nobody likes it but me, let it die.</p>
+
+	<p>On a positive note, I�ve been pleased to discover that the conventions of 
+	CWEB are already standard equipment within preinstalled software such as Makefiles, 
+	when I get off-the-shelf Linux these days.</p>
+
+	<p><b>Andrew: In </b>
+	<a  target="_blank" href="http://www.informit.com/store/product.aspx?isbn=0201853922">Fascicle 
+	1 of Volume 1</a><b>, you reintroduced the MMIX computer, which is the 64-bit 
+	upgrade to the venerable MIX machine comp-sci students have come to know over 
+	many years. You previously described MMIX in great detail in </b>
+	<a  target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/mmixware.html">MMIXware</a><b>. 
+	I�ve read portions of both books, but can�t tell whether the Fascicle updates 
+	or changes anything that appeared in MMIXware, or whether it�s a pure synopsis. 
+	Could you clarify?</b></p>
+
+	<p><b>Donald:</b> Volume 1 Fascicle 1 is a programmer�s introduction, which 
+	includes instructive exercises and such things. The MMIXware book is a detailed 
+	reference manual, somewhat terse and dry, plus a bunch of literate programs 
+	that describe prototype software for people to build upon. Both books define 
+	the same computer (once the errata to MMIXware are incorporated from my website). 
+	For most readers of <i>TAOCP</i>, the first fascicle contains everything about 
+	MMIX that they�ll ever need or want to know.</p>
+
+	<p>I should point out, however, that MMIX isn�t a single machine; it�s an architecture 
+	with almost unlimited varieties of implementations, depending on different choices 
+	of functional units, different pipeline configurations, different approaches 
+	to multiple-instruction-issue, different ways to do branch prediction, different 
+	cache sizes, different strategies for cache replacement, different bus speeds, 
+	etc. Some instructions and/or registers can be emulated with software on &quot;cheaper&quot; 
+	versions of the hardware. And so on. It�s a test bed, all simulatable with my 
+	meta-simulator, even though advanced versions would be impossible to build effectively 
+	until another five years go by (and then we could ask for even further advances 
+	just by advancing the meta-simulator specs another notch).</p>
+
+	<p>Suppose you want to know if five separate multiplier units and/or three-way 
+	instruction issuing would speed up a given MMIX program. Or maybe the instruction 
+	and/or data cache could be made larger or smaller or more associative. Just 
+	fire up the meta-simulator and see what happens.</p>
+
+	<p><b>Andrew: As I suspect you don�t use unit testing with MMIXAL, could you 
+	step me through how you go about making sure that your code works correctly 
+	under a wide variety of conditions and inputs? If you have a specific work routine 
+	around verification, could you describe it?</b></p>
+
+	<p><b>Donald:</b> Most examples of machine language code in <i>TAOCP</i> appear 
+	in Volumes 1-3; by the time we get to Volume 4, such low-level detail is largely 
+	unnecessary and we can work safely at a higher level of abstraction. Thus, I�ve 
+	needed to write only a dozen or so MMIX programs while preparing the opening 
+	parts of Volume 4, and they�re all pretty much toy programs�nothing substantial. 
+	For little things like that, I just use informal verification methods, based 
+	on the theory that I�ve written up for the book, together with the MMIXAL assembler 
+	and MMIX simulator that are readily available on the Net (and described in full 
+	detail in the MMIXware book).</p>
+
+	<p>That simulator includes debugging features like the ones I found so useful 
+	in Ed Satterthwaite�s system for ALGOL W, mentioned earlier. I always feel quite 
+	confident after checking a program with those tools.</p>
+
+	<p><b>Andrew: Despite its formulation many years ago, TeX is still thriving, 
+	primarily as the foundation for </b>
+	<a  target="_blank" href="http://en.wikipedia.org/wiki/LaTeX">LaTeX</a><b>. While TeX has been 
+	effectively frozen at your request, are there features that you would want to 
+	change or add to it, if you had the time and bandwidth? If so, what are the 
+	major items you add/change?</b></p>
+
+	<p><b>Donald:</b> I believe changes to TeX would cause much more harm than good. 
+	Other people who want other features are creating their own systems, and I�ve 
+	always encouraged further development�except that nobody should give their program 
+	the same name as mine. I want to take permanent responsibility for TeX and
+	<a  target="_blank" href="http://en.wikipedia.org/wiki/Metafont">Metafont</a>, and for all the 
+	nitty-gritty things that affect existing documents that rely on my work, such 
+	as the precise dimensions of characters in the Computer Modern fonts.</p>
+
+	<p><b>Andrew: One of the little-discussed aspects of software development is 
+	how to do design work on software in a completely new domain. You were faced 
+	with this issue when you undertook TeX: No prior art was available to you as 
+	source code, and it was a domain in which you weren�t an expert. How did you 
+	approach the design, and how long did it take before you were comfortable entering 
+	into the coding portion?</b></p>
+
+	<p><b>Donald:</b> That�s another good question! I�ve discussed the answer in 
+	great detail in Chapter 10 of my book
+	<a  target="_blank" href="http://www.amazon.com/Literate-Programming-Center-Language-Information/dp/0937073806/ref=pd_bbs_sr_1?ie=UTF8&s=books&qid=1208825413&sr=1-1">
+	Literate Programming</a>, together with Chapters 1 and 2 of my book
+	<a  target="_blank" href="http://www.amazon.com/Digital-Typography-Center-Language-Information/dp/1575860104/ref=sr_1_1?ie=UTF8&s=books&qid=1208825453&sr=1-1">
+	Digital Typography</a>. I think that anybody who is really interested in this 
+	topic will enjoy reading those chapters. (See also <i>Digital Typography</i> 
+	Chapters 24 and 25 for the complete first and second drafts of my initial design 
+	of TeX in 1977.)</p>
+
+	<p><b>Andrew: The books on TeX and the program itself show a clear concern for 
+	limiting memory usage�an important problem for systems of that era. Today, the 
+	concern for memory usage in programs has more to do with cache sizes. As someone 
+	who has designed a processor in software, the issues of cache-aware and </b>
+	<a  target="_blank" href="http://en.wikipedia.org/wiki/Cache-oblivious_algorithm">cache-oblivious 
+	algorithms</a><b> surely must have crossed your radar screen. Is the role of 
+	processor caches on algorithm design something that you expect to cover, even 
+	if indirectly, in your upcoming work?</b></p>
+
+	<p><b>Donald:</b> I mentioned earlier that MMIX provides a test bed for many 
+	varieties of cache. And it�s a software-implemented machine, so we can perform 
+	experiments that will be repeatable even a hundred years from now. Certainly 
+	the next editions of Volumes 1-3 will discuss the behavior of various basic 
+	algorithms with respect to different cache parameters.</p>
+
+	<p>In Volume 4 so far, I count about a dozen references to cache memory and 
+	cache-friendly approaches (not to mention a &quot;memo cache,&quot; which is a different 
+	but related idea in software).</p>
+
+	<p><b>Andrew: What set of tools do you use today for writing <i>TAOCP</i>? Do 
+	you use TeX? LaTeX? CWEB? Word processor? And what do you use for the coding?</b></p>
+
+	<p><b>Donald:</b> My general working style is to write everything first with 
+	pencil and paper, sitting beside a big wastebasket. Then I use Emacs to enter 
+	the text into my machine, using the conventions of TeX. I use tex, dvips, and 
+	gv to see the results, which appear on my screen almost instantaneously these 
+	days. I check my math with Mathematica.</p>
+
+	<p>I program every algorithm that�s discussed (so that I can thoroughly understand 
+	it) using CWEB, which works splendidly with the GDB debugger. I make the illustrations 
+	with <a  target="_blank" href="http://en.wikipedia.org/wiki/METAPOST">MetaPost</a> (or, in rare 
+	cases, on a Mac with Adobe Photoshop or Illustrator). I have some homemade tools, 
+	like my own spell-checker for TeX and CWEB within Emacs. I designed my own bitmap 
+	font for use with Emacs, because I hate the way the ASCII apostrophe and the 
+	left open quote have morphed into independent symbols that no longer match each 
+	other visually. I have special Emacs modes to help me classify all the tens 
+	of thousands of papers and notes in my files, and special Emacs keyboard shortcuts 
+	that make bookwriting a little bit like playing an organ. I prefer
+	<a  target="_blank" href="http://en.wikipedia.org/wiki/Rxvt">rxvt</a> to xterm for terminal input. 
+	Since last December, I�ve been using a file backup system called
+	<a  target="_blank" href="http://sourceforge.net/projects/backupfs">backupfs</a>, which meets 
+	my need beautifully to archive the daily state of every file.</p>
+
+	<p>According to the current directories on my machine, I�ve written 68 different 
+	CWEB programs so far this year. There were about 100 in 2007, 90 in 2006, 100 
+	in 2005, 90 in 2004, etc. Furthermore, CWEB has an extremely convenient &quot;change 
+	file&quot; mechanism, with which I can rapidly create multiple versions and variations 
+	on a theme; so far in 2008 I�ve made 73 variations on those 68 themes. (Some 
+	of the variations are quite short, only a few bytes; others are 5KB or more. 
+	Some of the CWEB programs are quite substantial, like the 55-page BDD package 
+	that I completed in January.) Thus, you can see how important literate programming 
+	is in my life.</p>
+
+	<p><i><b><font color="#FF0000">I currently use </font>
+	<a  target="_blank" href="http://www.ubuntu.com/"><font color="#FF0000">Ubuntu Linux</font></a><font color="#FF0000">, 
+	on a standalone laptop�it has no Internet connection.</font></b></i> I occasionally 
+	carry flash memory drives between this machine and the Macs that I use for network 
+	surfing and graphics; but I trust my family jewels only to Linux. Incidentally, 
+	with Linux I much prefer the keyboard focus that I can get with classic
+	<a  target="_blank" href="http://en.wikipedia.org/wiki/FVWM">FVWM</a> to the GNOME and KDE environments 
+	that other people seem to like better. To each his own.</p>
+
+	<p><b>Andrew: You state in the preface of </b>
+	<a  target="_blank" href="http://www.informit.com/store/product.aspx?isbn=0321534964">Fascicle 
+	0 of Volume 4</a><b> of <i>TAOCP</i> that Volume 4 surely will comprise three 
+	volumes and possibly more. It�s clear from the text that you�re really enjoying 
+	writing on this topic. Given that, what is your confidence in the note posted 
+	on the <i>TAOCP</i> website that Volume 5 will see light of day by 2015?</b></p>
+
+	<p><b>Donald:</b> If you check the Wayback Machine for previous incarnations 
+	of that web page, you will see that the number 2015 has not been constant.</p>
+
+	<p>You�re certainly correct that I�m having a ball writing up this material, 
+	because I keep running into fascinating facts that simply can�t be left out�even 
+	though more than half of my notes don�t make the final cut.</p>
+
+	<p>Precise time estimates are impossible, because I can�t tell until getting 
+	deep into each section how much of the stuff in my files is going to be really 
+	fundamental and how much of it is going to be irrelevant to my book or too advanced.
+	<font color="#FF0000"><i><b>A lot of the recent literature is academic one-upmanship 
+	of limited interest to me;</b></i></font> authors these days often introduce 
+	arcane methods that outperform the simpler techniques only when the problem 
+	size exceeds the number of protons in the universe. Such algorithms could never 
+	be important in a real computer application. I read hundreds of such papers 
+	to see if they might contain nuggets for programmers, but most of them wind 
+	up getting short shrift.</p>
+
+	<p><font color="#FF0000"><i><b>From a scheduling standpoint, all I know at present 
+	is that I must someday digest a huge amount of material that I�ve been collecting 
+	and filing for 45 years.</b></i></font> I gain important time by working in 
+	batch mode: I don�t read a paper in depth until I can deal with dozens of others 
+	on the same topic during the same week. When I finally am ready to read what 
+	has been collected about a topic, I might find out that I can zoom ahead because 
+	most of it is eminently forgettable for my purposes. On the other hand, I might 
+	discover that it�s fundamental and deserves weeks of study; then I�d have to 
+	edit my website and push that number 2015 closer to infinity.</p>
+
+	<p><b>Andrew: In late 2006, you were diagnosed with prostate cancer. How is 
+	your health today?</b></p>
+
+	<p><b>Donald:</b> Naturally, the cancer will be a serious concern. I have superb 
+	doctors. At the moment I feel as healthy as ever, modulo being 70 years old. 
+	Words flow freely as I write <i>TAOCP</i> and as I write the literate programs 
+	that precede drafts of <i>TAOCP</i>. I wake up in the morning with ideas that 
+	please me, and some of those ideas actually please me also later in the day 
+	when I�ve entered them into my computer.</p>
+
+	<p>On the other hand, I willingly put myself in God�s hands with respect to 
+	how much more I�ll be able to do before cancer or heart disease or senility 
+	or whatever strikes. If I should unexpectedly die tomorrow, I�ll have no reason 
+	to complain, because my life has been incredibly blessed. Conversely, as long 
+	as I�m able to write about computer science, I intend to do my best to organize 
+	and expound upon the tens of thousands of technical papers that I�ve collected 
+	and made notes on since 1962.</p>
+
+	<p><b>Andrew: On your website, you mention that the </b>
+	<a  target="_blank" href="http://www.peoplesarchive.com/home.jsp">Peoples Archive</a><b> recently 
+	made a series of videos in which you reflect on your past life. In segment 93, 
+	&quot;Advice to Young People,&quot; you advise that people shouldn�t do something simply 
+	because it�s trendy. As we know all too well, software development is as subject 
+	to fads as any other discipline. Can you give some examples that are currently 
+	in vogue, which developers shouldn�t adopt simply because they�re currently 
+	popular or because that�s the way they�re currently done? Would you care to 
+	identify important examples of this outside of software development?</b></p>
+
+	<p><b>Donald:</b> Hmm. That question is almost contradictory, because I�m basically 
+	advising young people to listen to themselves rather than to others, and I�m 
+	one of the others. Almost every biography of every person whom you would like 
+	to emulate will say that he or she did many things against the &quot;conventional 
+	wisdom&quot; of the day.</p>
+
+	<p>Still, I hate to duck your questions even though I also hate to offend other 
+	people�s sensibilities�given that software methodology has always been akin 
+	to religion. With the caveat that there�s no reason anybody should care about 
+	the opinions of a computer scientist/mathematician like me regarding software 
+	development, <i><b><font color="#FF0000">let me just say that almost everything 
+	I�ve ever heard associated with the term </font></i><font color="#0000FF">&quot;</font><a  target="_blank" href="http://en.wikipedia.org/wiki/Extreme_programming">extreme 
+	programming</a><font color="#0000FF">&quot;</font><i><font color="#FF0000"> sounds 
+	like exactly the wrong way to go...with one exception.</font></i></b> The exception 
+	is the idea of working in teams and reading each other�s code. That idea is 
+	crucial, and it might even mask out all the terrible aspects of extreme programming 
+	that alarm me.</p>
+
+	<p>I also must confess to a strong bias against the fashion for reusable code. 
+	To me, &quot;re-editable code&quot; is much, much better than an untouchable black box 
+	or toolkit. I could go on and on about this. If you�re totally convinced that 
+	reusable code is wonderful, I probably won�t be able to sway you anyway, but 
+	you�ll never convince me that reusable code isn�t mostly a menace.</p>
+
+	<p>Here�s a question that you may well have meant to ask: Why is the new book 
+	called Volume 4 Fascicle 0, instead of Volume 4 Fascicle 1? The answer is that 
+	computer programmers will understand that I wasn�t ready to begin writing Volume 
+	4 of <i>TAOCP</i> at its true beginning point, because we know that the initialization 
+	of a program can�t be written until the program itself takes shape. So I started 
+	in 2005 with Volume 4 Fascicle 2, after which came Fascicles 3 and 4. (Think 
+	of <i>Star Wars</i>, which began with Episode 4.)</p>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2008_0425_interview_with_donald_knuth"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2008_0305_jperf_1_0_0_by" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2007_0825_ben_pfaff_gnu_libavl"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Mar 5, 2008]<a  target="_blank" href="http://freshmeat.net/releases/273114/"> JPerf 1.0.0&nbsp; 
+by </a><a  target="_blank" href="http://freshmeat.net/~shevek/">Shevek </a></h4>
+
+<blockquote>
+
+	<p><b>About:</b> JPerf is a perfect hash function generator for Java. The principle 
+	of perfect hashing is to reduce the average constant overhead of a hash table 
+	by precomputing a hash function which is optimal for the key set. Other advantages 
+	include a reduction in memory usage. Finding such a hash function is hard, especially 
+	in the general case. These run-time savings come at a cost of increased map 
+	creation time. JPerf can create a perfect hash function for a given set of keys 
+	and values. </p>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2008_0305_jperf_1_0_0_by"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2007_0825_ben_pfaff_gnu_libavl" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2007_0710_knuth_recent_news"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Aug 25, 2007] <a  target="_blank" href="http://www.stanford.edu/~blp/avl/index.html">Ben Pfaff 
+GNU libavl</a></h4>
+<h5>A well documented library</h5>
+
+<blockquote>
+	<h6>28 Sep 2006 </h6>
+
+	<p>Binary search trees provide O(lg <i>n</i>) performance on average for important 
+	operations such as item insertion, deletion, and search operations. Balanced 
+	trees provide O(lg <i>n</i>) even in the worst case.</p>
+
+	<p>GNU libavl is the most complete, well-documented collection of binary search 
+	tree and balanced tree library routines anywhere. It supports these kinds of 
+	trees:</p>
+
+	<ul>
+
+		<li>Plain binary trees:<ul>
+
+			<li>Binary search trees </li>
+
+			<li>AVL trees </li>
+
+			<li>Red-black trees </li>
+		</ul>
+		</li>
+
+		<li>Threaded binary trees:<ul>
+
+			<li>Threaded binary search trees </li>
+
+			<li>Threaded AVL trees </li>
+
+			<li>Threaded red-black trees </li>
+		</ul>
+		</li>
+
+		<li>Right-threaded binary trees:<ul>
+
+			<li>Right-threaded binary search trees </li>
+
+			<li>Right-threaded AVL trees </li>
+
+			<li>Right-threaded red-black trees </li>
+		</ul>
+		</li>
+
+		<li>Binary trees with parent pointers:<ul>
+
+			<li>Binary search trees with parent pointers </li>
+
+			<li>AVL trees with parent pointers </li>
+
+			<li>Red-black trees with parent pointers </li>
+		</ul>
+		</li>
+	</ul>
+
+	<p>Visit the <a  target="_blank" href="http://www.stanford.edu/~blp/avl/libavl.html/">online 
+	HTML version</a> of libavl.</p>
+
+	<p>libavl&#39;s name is a historical accident: it originally implemented only AVL 
+	trees. Its name may change to something more appropriate in the future, such 
+	as �libsearch�. You should also expect this page to migrate to www.gnu.org sometime 
+	in the indefinite future.</p>
+
+	<p><b>Version 2.0</b></p>
+
+	<p>Version 2.0 of libavl was released on January 6, 2002. It is a complete rewrite 
+	of earlier versions implemented in a �literate programming� fashion, such that 
+	in addition to being a useful library, it is also a book describing in full 
+	the algorithms behind the library.</p>
+
+	<p>Version 2.0.1 of libavl was released on August 24, 2002. It fixes some typos 
+	in the text and introduces an HTML output format. No bugs in the libavl code 
+	were fixed, because none were reported. Unlike 2.0, this version is compatible 
+	with recent releases of Texinfo. dvipdfm is now used for producing the PDF version.</p>
+
+	<p>Version 2.0.2 of libavl was released on December 28, 2004. It fixes a bug 
+	in <code>tavl_delete()</code> reported by Petr Silhavy a long time ago. This 
+	is the same fix
+	<a  target="_blank" href="http://www.stanford.edu/~blp/avl/avl-2.0.1-tavl_delete.patch">posted 
+	here earlier</a>. This version (again) works with recent versions of Texinfo, 
+	fixes a few typos in the text, and slightly enhances the HTML output format.</p>
+
+	<p>You can download the preformatted book or a source distribution that will 
+	allow you to use the library in your own programs. You can also use the source 
+	distribution to format the book yourself:</p>
+
+	<ul>
+
+		<li>Preformatted book:<ul>
+
+			<li><a  target="_blank" href="http://www.stanford.edu/~blp/avl/libavl.html">Online HTML</a> 
+			or <a href="ftp://ftp.gnu.org/pub/gnu/avl/avl-2.0.2.html.tar.gz">gzip&#39;d 
+			tar archive</a> (1.7 MB)</li>
+
+			<li><a href="ftp://ftp.gnu.org/pub/gnu/avl/avl-2.0.2.pdf.gz">gzip&#39;d 
+			PDF</a> (1.4 MB)</li>
+
+			<li><a href="ftp://ftp.gnu.org/pub/gnu/avl/avl-2.0.2.ps.gz">gzip&#39;d PostScript</a> 
+			(746 kB)</li>
+
+			<li><a href="ftp://ftp.gnu.org/pub/gnu/avl/avl-2.0.2.text.gz">gzip&#39;d 
+			plain text</a> (224 kB)</li>
+		</ul>
+
+		<p>The PostScript and PDF versions are 432 U.S. letter-size pages in length. 
+		The plain text version is 26,968 lines long, or about 409 pages at 66 lines 
+		per page.</p>
+		</li>
+
+		<li>Source distribution as a
+		<a href="ftp://ftp.gnu.org/pub/gnu/avl/avl-2.0.2a.tar.gz">gzip&#39;d tar archive</a> 
+		(1.4 MB)</li>
+	</ul>
+
+	<p>For an overview of the ideas behind libavl 2.0, see the
+	<a  target="_blank" href="http://www.stanford.edu/~blp/avl/poster/index.html">poster presentation</a> 
+	made on April 6, 2001, at Michigan </p>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2007_0825_ben_pfaff_gnu_libavl"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2007_0710_knuth_recent_news" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2005_0212_news_from_knuth"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Jul 10, 2007] <a  target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/news.html">
+Knuth Recent News</a></h4>
+
+<blockquote>
+
+	<p>Paperback previews of new material for
+	<a  target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/taocp.html"><cite>The Art 
+	of Computer Programming</cite></a>, called ``fascicles,&#39;&#39; have been published 
+	occasionally since 2005, and I spend most of my time these days grinding out 
+	new pages for the fascicles of the future. Early drafts of excerpts from some 
+	of this material are now ready for beta-testing. </p>
+
+	<p>I&#39;ve put these drafts online primarily so that experts in the field can help 
+	me check the results; but brave souls who aren&#39;t afraid to look at relatively 
+	raw copy are welcome to look too. (Yes, the usual rewards apply if you find 
+	any mistakes.) </p>
+
+	<ul>
+
+		<li><a  target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/fasc0a.ps.gz">Pre-Fascicle 
+		0a: Introduction to Combinatorial Algorithms</a> (version of 28 May 2007)
+		</li>
+
+		<li><a  target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/fasc0b.ps.gz">Pre-Fascicle 
+		0b: Boolean Basics</a> (version of 28 Apr 2007) </li>
+
+		<li><a  target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/fasc0c.ps.gz">Pre-Fascicle 
+		0c: Boolean Evaluation</a> (version of 20 May 2007) </li>
+
+		<li><a  target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/fasc1a.ps.gz">Pre-Fascicle 
+		1a: Bitwise Tricks and Techniques</a> (version of 28 Apr 2007) </li>
+	</ul>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2007_0710_knuth_recent_news"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2005_0212_news_from_knuth" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2005_0115_bookpool_exclusive_excerpt_from_volume_4_of_the_art_of_computer_programming"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Feb 12, 2005]
+<a target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/news.html">News 
+from Knuth</a> Previews of Volume 4 </h4>
+
+<blockquote>
+
+	<p>I&#39;ve been making some headway on actually writing
+	<a target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/taocp.html#vol4">
+	Volume 4 of <cite>The Art of Computer Programming</cite></a> instead of merely 
+	preparing to write it, and some first drafts are now ready for beta-testing. 
+	I&#39;ve put them online primarily so that experts in the field can help me check 
+	the results, but brave souls who aren&#39;t afraid to look at relatively raw copy 
+	are welcome to look too. (Yes, the usual rewards apply if you find any mistakes.)
+	</p>
+
+	<ul>
+
+		<li>
+		<a target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/fasc2a.ps.gz">
+		Pre-Fascicle 2a: Generating all $n$-tuples</a> (version of 10 December 2004)
+		</li>
+
+		<li>
+		<a target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/fasc2b.ps.gz">
+		Pre-Fascicle 2b: Generating all permutations</a> (version of 10 December 
+		2004) </li>
+
+		<li>
+		<a target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/fasc3a.ps.gz">
+		Pre-Fascicle 3a: Generating all combinations</a> (version of 19 January 
+		2005) </li>
+
+		<li>
+		<a target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/fasc3b.ps.gz">
+		Pre-Fascicle 3b: Generating all partitions</a> (version of 10 December 2004)
+		</li>
+
+		<li>
+		<a target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/fasc4a.ps.gz">
+		Pre-Fascicle 4a: Generating all trees</a> (version of 11 December 2004)
+		</li>
+
+		<li>
+		<a target="_blank" href="http://www-cs-faculty.stanford.edu/~knuth/fasc4b.ps.gz">
+		Pre-Fascicle 4b: History of combinatorial generation</a> (version of 28 
+		December 2004) </li>
+	</ul>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2005_0212_news_from_knuth"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2005_0115_bookpool_exclusive_excerpt_from_volume_4_of_the_art_of_computer_programming" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2005_0115_graph_theory_lecture_notes_16"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Jan 15, 2005]
+<a target="_blank" href="http://www.bookpool.com/.x/dwtbcyv9d6/ct/163">Bookpool 
+Exclusive Excerpt from Volume 4 of The Art of Computer Programming</a></h4>
+
+<blockquote>
+
+	<p><font face="Arial"><i><font size="2">Volume 1, Fascicle 1: MMIX -- A RISC 
+	Computer for the New Millennium</font></i><font size="2"> provides a programmer&#39;s 
+	introduction to the long-awaited MMIX, a RISC-based computer that replaces the 
+	original MIX, and describes the MMIX assembly language. It also presents new 
+	material on subroutines, coroutines and interpretive routines. </font>
+	</font></p>
+
+	<p><font face="Arial"><i><font size="2">Volume 4, Fascicle 2: Generating All 
+	Tuples and Permutations</font></i><font size="2"> begins his treatment of how 
+	to generate all possibilities. Specifically, it discusses the generation of 
+	all n-tuples, then extends those ideas to all permutations. Such algorithms 
+	provide a natural means by which many of the key ideas of combinatorial mathematics 
+	can be introduced and explored. Knuth illuminates important theories by discussing 
+	related games and puzzles. Even serious programming can be fun.
+	<a target="_blank" href="http://g.bookpool.com/gp/0501knuth/Knuth_v4f2_bookpool.pdf" target="_blank">
+	Download the excerpt.</a> </font></font></p>
+
+	<p><font size="2" face="Arial"><i>Volume 4, Fascicle 3: Generating All Combinations 
+	and Partitions.</i> Estimated publication date July 2005. </font></p>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2005_0115_bookpool_exclusive_excerpt_from_volume_4_of_the_art_of_computer_programming"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2005_0115_graph_theory_lecture_notes_16" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2005_0115_nist_minimum_spanning_tree"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Jan 15, 2005]
+<a target="_blank" href="http://www-math.cudenver.edu/~wcherowi/courses/m4408/gtln16.html">
+Graph Theory Lecture Notes 16</a> </h4>
+<h5>Minimum Spanning Trees</h5>
+
+<blockquote>
+	<b>Def</b>: A <i>network</i> (<i>directed network</i>) is a graph (digraph) 
+	where the edges (arcs) have been assigned non-negative real numbers. The numbers 
+	that have been assigned are called <i>weights</i>.
+
+	<p><b>Def</b>: A <i>minimum spanning tree</i> in a network is a spanning tree 
+	of the underlying graph which has the smallest sum of weights amongst all spanning 
+	trees. </p>
+
+	<p><b>Example</b>: Suppose that the vertices of a graph represent towns and 
+	the edges of the graph are roads between these towns. Label each edge with the 
+	distance between the towns. If, in this network, it is desired to run telephone 
+	wires along the roads so that all the towns are connected. Where should the 
+	wires be put to minimize the amount of wire needed to do this? To answer the 
+	question, we need to find a minimum spanning tree in the network. </p>
+
+	<p>We give two <i>greedy</i> algorithms for finding minimum spanning trees.
+	</p>
+
+	<p style="text-align: left"><b>Kruskal&#39;s Algorithm</b></p>
+	Let G be a network with n vertices. Sort the edges of G in increasing order 
+	by weight (ties can be in arbitrary order). Create a list T of edges by passing 
+	through the sorted list of edges and add to T any edge which does not create 
+	a circuit with the edges already in T. Stop when T contains n-1 edges. If you 
+	run out of edges before reaching n-1 in T, then the graph is disconnected and 
+	no spanning tree exists. If T contains n-1 edges, then these edges form a minimum 
+	spanning tree of G.
+
+	<p><i>Pf</i>: If the algorithm finishes, then T is a spanning tree (n-1 edges 
+	with no circuits in a graph with n vertices). </p>
+
+	<p>Suppose that S is a minimum spanning tree of G. If S is not T, let e = {x,y} 
+	be the first edge (by weight) in T which is not in S. Since S is a tree, there 
+	is a chain C, from x to y in S. C U e is a circuit in G, so not all of its edges 
+	can be in T. Let f be an edge in C which is not in T.<br>
+	Suppose that wt f &lt; wt e. Since the algorithm did not put f in T, f must have 
+	formed a circuit with earlier edges in T, but these edges are all in S as is 
+	f, so S would contain a circuit ... contradiction. Thus we have wt f &gt;= wt e. 
+	Let S&#39; = (S - {f}) U {e}. S&#39; is connected and has n-1 edges, so it is a spanning 
+	tree of G. Since wt S&#39; &lt;= wt S, and S was a minimal spanning tree, we must have 
+	wt f = wt e. Thus, S&#39; is also a minimum spanning tree having one more edge in 
+	common with T than S does. </p>
+
+	<p>This argument can now be repeated with S&#39; in place of S, and so on, until 
+	we reach T, showing that T must have been a minimum spanning tree. </p>
+
+	<p style="text-align: left"><b>Prim&#39;s Algorithm</b></p>
+	Let G be a network with n vertices. Pick a vertex and place it in a list L. 
+	Amongst all the edges with one endpoint in the list L and the other not in L, 
+	choose one with the smallest weight (arbitrarily select amongst ties) and add 
+	it to a list T and put the second vertex in L. Continue doing this until T has 
+	n-1 edges. If there are no more edges satisfying the condition and T does not 
+	have n-1 edges, then G is disconnected. If T has n-1 edges, then these form 
+	a minimum spanning tree of G.
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2005_0115_graph_theory_lecture_notes_16"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2005_0115_nist_minimum_spanning_tree" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2005_0115_minimum_spanning_tree_algorithms"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Jan 15, 2005]&nbsp;
+<a target="_blank" href="http://www.nist.gov/dads/HTML/minimumSpanningTree.html">
+NIST: minimum spanning tree</a></h4>
+
+<blockquote>
+
+	<p><b>Definition:</b> A minimum-weight
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/tree.html"><i>tree</i></a> 
+	in a
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/weightedGraph.html">
+	<i>weighted graph</i></a> which contains all of the graph&#39;s
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/vertex.html"><i>vertices</i></a>.
+	</p>
+
+	<p><b>Also known as</b> MST, shortest spanning tree, SST. </p>
+
+	<p><b>Generalization</b> (I am a kind of ...)<br>
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/spanningtree.html">
+	<i>spanning tree</i></a>. </p>
+
+	<p><b>Aggregate parent</b> (I am a part of or used in ...)<br>
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/christofides.html">
+	<i>Christofides algorithm</i></a> (1). </p>
+
+	<p><b>See also</b>
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/kruskalsalgo.html">
+	<i>Kruskal&#39;s algorithm</i></a>,
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/primJarnik.html"><i>Prim-Jarnik 
+	algorithm</i></a>,
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/boruvkasAlgorithm.html">
+	<i>Boruvka&#39;s algorithm</i></a>,
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/steinertree.html"><i>
+	Steiner tree</i></a>,
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/arborescence.html">
+	<i>arborescence</i></a>, similar problems:
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/allPairsShortestPath.html">
+	<i>all pairs shortest path</i></a>,
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/travelingSalesman.html">
+	<i>traveling salesman</i></a>. </p>
+
+	<p><i>Note: A minimum spanning tree can be used to quickly find a near-optimal 
+	solution to the
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/travelingSalesman.html">
+	traveling salesman</a> problem. </p>
+
+	<p>The term &quot;shortest spanning tree&quot; may be more common in the field of operations 
+	research. </p>
+
+	<p>A Steiner tree is allowed added connection points to reduce the total length 
+	even more.</i> </p>
+
+	<p>Author:
+	<a target="_blank" href="http://www.nist.gov/dads/Other/contrib.html#authorJLG">
+	JLG</a></p>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2005_0115_nist_minimum_spanning_tree"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2005_0115_minimum_spanning_tree_algorithms" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2005_0115_data_structures_and_algorithms_graph_algorithms"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Jan 15, 2005]&nbsp;
+<a target="_blank" href="http://www.people.vcu.edu/~gasmerom/MAT131/mst.html">minimum 
+spanning tree algorithms</a> Kruskal and Prim algorithms covered. </h4>
+
+<ul>
+
+	<li>
+	<a target="_blank" href="http://www.cs.man.ac.uk/~graham/cs2022/greedy/index.html">
+	Kruskal Step by Step</a> </li>
+
+	<li>
+	<a target="_blank" href="http://orange.mcs.dundee.ac.uk:8080/CS202/tuts/mosaic/graphs/kruskal7.htm">
+	Tutorial Kruskal</a> </li>
+
+	<li><font color="blue">
+	<a target="_blank" href="http://students.ceid.upatras.gr/~papagel/project/kruskal.htm">
+	Interactive Kruskal&#39;s Algorithm</a> </font></li>
+</ul>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2005_0115_minimum_spanning_tree_algorithms"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2005_0115_data_structures_and_algorithms_graph_algorithms" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2005_0115_a_blossoming_algorithm_for_tree_volumes_of_composite_digraphs"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Jan 15, 2005]
+<a target="_blank" href="http://ciips.ee.uwa.edu.au/~morris/Year2/PLDS210/mst.html">
+Data Structures and Algorithms Graph Algorithms</a> 10.1 Minimum Spanning Trees</h4>
+
+<blockquote>
+
+	<p><font size="2" face="Arial">Suppose we have a group of islands that we wish 
+	to link with bridges so that it is possible to travel from one island to any 
+	other in the group. Further suppose that (as usual) our government wishes to 
+	spend the absolute minimum amount on this project (because other factors like 
+	the cost of using, maintaining, etc, these bridges will probably be the responsibility 
+	of some future government :-). The engineers are able to produce a cost for 
+	a bridge linking each possible pair of islands. The set of bridges which will 
+	enable one to travel from any island to any other at minimum capital cost to 
+	the government is the <i>minimum spanning tree</i>.</font></p>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2005_0115_data_structures_and_algorithms_graph_algorithms"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2005_0115_a_blossoming_algorithm_for_tree_volumes_of_composite_digraphs" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2005_0115_digraphs_theory_algorithms_applications"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Jan 15, 2005] [-PDF-]
+<a target="_blank" href="http://202.113.25.75/publications/02-accepted/gjw-02A1/4-2002.pdf">
+A blossoming algorithm for tree volumes of composite digraphs</a> </h4>
+
+<blockquote>
+	[<a target="_blank" href="http://216.239.41.104/search?q=cache:Lc7c_46HU3EJ:202.113.25.75/publications/02-accepted/gjw-02A1/4-2002.pdf+digraphs+spanning+trees&hl=en"> 
+	View as HTML</a>]
+
+	<blockquote>
+		... combinatorial proof of the formula for forest volumes of composite digraphs 
+		obtained<br>
+		by ... studied by Knuth [8] and Kelmans [6]. The number of spanning trees 
+		of G ... <br>
+		<a class="fl" href="http://www.google.com/search?hl=en&lr=&q=related:202.113.25.75/publications/02-accepted/gjw-02A1/4-2002.pdf">
+		Similar pages</a></blockquote>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2005_0115_a_blossoming_algorithm_for_tree_volumes_of_composite_digraphs"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2005_0115_digraphs_theory_algorithms_applications" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2005_0115_links_for_graph_partitioning"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Jan 15, 2005]&nbsp;
+<a target="_blank" href="http://www.imada.sdu.dk/Research/Digraphs/">Digraphs, theory, 
+algorithms, applications </a></h4>
+
+<blockquote>
+	<i>Web page for the book Digraphs: Theory, Algorithms and Applications, by J�rgen 
+	Bang-Jensen and Gregory Gutin</i>
+
+	<blockquote>
+
+		<p><font face="Arial" size="2">J�rgen Bang-Jensen and Gregory Gutin</font></p>
+
+		<p><font face="Arial" size="2">Digraphs: Theory, Algorithms and Applications</font></p>
+
+		<p><font face="Arial" size="2">Springer-Verlag, London<br>
+		Springer Monographs in Mathematics<br>
+		ISBN 1-85233-268-9<br>
+		October 2000<br>
+		754 pages; 186 figures; 705 exercises </font></p>
+
+		<p><font face="Arial" size="2">Second printing has been released from Springer 
+		in April 2001. </font></p>
+		<center>
+
+		<p><font face="Arial" size="2">Softcover version is available as of May 
+		2002 at 29.50 British Pounds. The ISBN number is 1852336110. </font></p>
+		</center>
+	</blockquote>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2005_0115_digraphs_theory_algorithms_applications"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2005_0115_links_for_graph_partitioning" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2005_0115_algorithms_and_software_for_partitioning_graphs"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Jan 15, 2005]
+<a target="_blank" href="http://rtm.science.unitn.it/intertools/graph-partitioning/links.html">
+Links for Graph Partitioning</a></h4>
+<i>From <a target="_blank" href="http://rtm.science.unitn.it/intertools/">InterTools</a>: 
+an archive of <b>interactive tools for discrete optimization algorithms</b></i>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2005_0115_links_for_graph_partitioning"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2005_0115_algorithms_and_software_for_partitioning_graphs" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n2000_0328_an_introduction_to_graph_algorithms"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Jan 15, 2005]
+<a target="_blank" href="http://www.cs.sandia.gov/~bahendr/partitioning.html">Algorithms 
+and Software for Partitioning Graphs</a></h4>
+
+<blockquote>
+
+	<p><font size="2" face="Arial">Graph partitioning is an NP hard problem with 
+	numerous applications. It appears in various forms in parallel computing, sparse 
+	matrix reordering, circuit placement and other important disciplines. I&#39;ve worked 
+	with Rob Leland for several years on heuristic methods for partitioning graphs, 
+	with a particular focus on parallel computing applications. Our contributions 
+	include: </font></p>
+
+	<ul>
+
+		<li><font size="2" face="Arial">Development of multilevel graph partitioning. 
+		This widely imitated approach has become the premiere algorithm combining 
+		very high quality with short calculation times. </font></li>
+
+		<li><font size="2" face="Arial">Extension of spectral partitioning to enable 
+		the use of 2 or 3 Laplacian eigenvectors to quadrisect of octasect a graph.
+		</font></li>
+
+		<li><font size="2" face="Arial">Generalization of the Kernighan-Lin/Fiduccia-Mattheyses 
+		algorithm to handle weighted graphs, arbitrary number of sets and lazy initiation.
+		</font></li>
+
+		<li><font size="2" face="Arial">Development of terminal propagation to improve 
+		the mapping of a graph onto a target parallel architecture. </font></li>
+
+		<li><font size="2" face="Arial">The widely used
+		<a target="_blank" href="http://www.cs.sandia.gov/~bahendr/chaco.html">
+		<b>Chaco</b></a> partitioning tool which includes multilevel, spectral, 
+		geometric and other algorithms. </font></li>
+	</ul>
+
+	<p><font size="2" face="Arial">More recently, I have worked with Tammy Kolda 
+	on alternatives to the standard graph partitioning model. A critique of the 
+	standard approach and a discussion of alternatives can be found
+	<a href="#alternatives">below</a>. I have also been working with Karen Devine 
+	and a number of other researchers on dynamic load balancing. Dynamic load balancing 
+	is fundamentally harder than static partitioning. Algorithms and implementations 
+	must run quickly in parallel without consuming much memory. Interfaces need 
+	to be subroutine calls instead of file transfers. And since the data is already 
+	distributed, the new partition should be similar to the current one to minimize 
+	the amount of data that needs to be redistributed. We are working to build a 
+	tool called <a target="_blank" href="http://www.cs.sandia.gov/Zoltan/">Zoltan</a> 
+	to address this plethora of challenges. Zoltan is designed to be extensible 
+	to different applications, algorithms and parallel architectures. For example, 
+	it is data-structure neutral - an object oriented interface separates the application 
+	data structures from those of Zoltan. The tool will also support a very general 
+	model of a parallel computer, facilitating the use of heterogeneous machines.
+	</font></p>
+
+	<p><font size="2" face="Arial">Closely related to Zoltan, I have been interested 
+	in the software challenges inherent in parallelizing unstructured computations. 
+	I feel that well-designed tools and libraries are the key to addressing this 
+	problem. I have worked with Ali Pinar and Steve Plimpton on algorithms for some 
+	of the kernel operations which arise in this setting, and relevant papers can 
+	be found <a href="#unstructured">here</a>.</font></p>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2005_0115_algorithms_and_software_for_partitioning_graphs"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n2000_0328_an_introduction_to_graph_algorithms" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#n1998_1231_data_structures_and_algorithms_table_of_contents"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Mar 28, 2000]
+<a target="_blank" href="http://sites.google.com/site/anderavi/graphalg.pdf">An 
+Introduction to Graph Algorithms</a></h4>
+<i>by Ute Loerch, Department of Computer Science, University of Auckland, Auckland, 
+New Zealand, <a href="mailto:ute@cs.auckland.ac.nz">ute@cs.auckland.ac.nz</a></i>
+
+<blockquote>
+
+	<p>These lecture notes contain the reference material on graph algorithms for 
+	the course: Algorithms and Data Structures (415.220FT) and are based on Dr Michael 
+	Dinneen&#39;s lecture notes of the course 415.220SC given in 1999. Topics include 
+	computer representations (adjacency matrices and lists), graph searching (BFS 
+	and DFS), and basic graph algorithms such as computing the shortest distances 
+	between vertices and finding the (strongly) connected components. </p>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n2000_0328_an_introduction_to_graph_algorithms"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n1998_1231_data_structures_and_algorithms_table_of_contents" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#NEWS_TOC"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Dec 31, 1998]
+<a target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/ds_ToC.html">
+Data Structures and Algorithms Table of Contents</a></h4>
+
+<blockquote>
+
+	<p><a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/index.html">Front 
+	Page</a><br>
+	<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/plds210.html">Course 
+	Outline</a> </p>
+
+	<ol>
+
+		<li>
+		<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/introduction.html#Introduction">
+		Introduction</a> </li>
+
+		<li>
+		<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/strategies.html#Strategies">
+		Programming Strategies</a>
+
+		<ul>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/objects.html#objects">
+			2.1 Objects and ADTs</a>
+
+			<ul>
+
+				<li>
+				<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/objects.html#collections">
+				2.1.1 An Example: Collections</a> </li>
+			</ul>
+			</li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/objects.html#constructors">
+			2.2 Constructors and destructors</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/objects.html#data_structure">
+			2.3 Data Structure</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/objects.html#methods">
+			2.4 Methods</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/objects.html#pre-conditions">
+			2.5 Pre- and post-conditions</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/objects.html#conventions">
+			2.6 C conventions</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/errors.html">
+			2.7 Error Handling</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/prog_languages.html">
+			2.8 Some Programming Language Notes</a> </li>
+		</ul>
+		</li>
+
+		<li><a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/arrays.html">
+		Data Structures</a>
+
+		<ul>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/arrays.html#arrays">
+			3.1 Arrays</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/lists.html">3.2 
+			Lists</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/stacks.html">
+			3.3 Stacks</a>
+
+			<ul>
+
+				<li>
+				<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/stacks.html#stack-frames">
+				3.3.1 Stack Frames</a> </li>
+			</ul>
+			</li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/recursion.html">
+			3.4 Recursion</a>
+
+			<ul>
+
+				<li>
+				<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/recursion.html">
+				3.4.1 Recursive Functions</a> </li>
+
+				<li>
+				<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/recursion.html#factorial">
+				3.4.2 Example: Factorial</a> </li>
+			</ul>
+			</li>
+		</ul>
+		</li>
+
+		<li>
+		<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/searching.html">Searching</a>
+
+		<ul>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/searching.html#seq-search">
+			4.1 Sequential Searches</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/searching.html#binary-search">
+			4.2 Binary Search</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/trees.html">4.3 
+			Trees</a> </li>
+		</ul>
+		</li>
+
+		<li>
+		<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/complexity.html">
+		Complexity</a>
+
+		<ul>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/latex/complexity.ps">
+			5. Complexity (PS)</a></li>
+		</ul>
+		</li>
+
+		<li><a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/queues.html">
+		Queues</a>
+
+		<ul>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/queues.html#priority">
+			6.1 Priority Queues</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/heaps.html">6.2 
+			Heaps</a> </li>
+		</ul>
+		</li>
+
+		<li>
+		<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/sorting.html">Sorting</a>
+
+		<ul>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/sorting.html#bubble">
+			7.1 Bubble</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/heapsort.html">
+			7.2 Heap</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/qsort.html">7.3 
+			Quick</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/binsort.html">
+			7.4 Bin</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/radixsort.html">
+			7.5 Radix</a> </li>
+		</ul>
+		</li>
+
+		<li>
+		<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/search_trees.html">
+		Searching Revisited</a>
+
+		<ul>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/red_black.html">
+			8.1 Red-Black trees</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/AVL.html">8.1.1 
+			AVL trees</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/n_ary_trees.html">
+			8.2 General n-ary trees</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/hash_tables.html">
+			8.3 Hash Tables</a> </li>
+		</ul>
+		</li>
+
+		<li>
+		<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/dynamic.html">Dynamic 
+		Algorithms</a>
+
+		<ul>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/dynamic.html#fibonacci">
+			9.1 Fibonacci Numbers</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/binom.html">9.2 
+			Binomial Coefficients</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/opt_bin.html">
+			9.3 Optimal Binary Search Trees</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/mat_chain.html">
+			9.4 Matrix Chain Multiplication</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/lcom_subseq.html">
+			9.5 Longest Common Subsequence</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/opt_tri.html">
+			9.6 Optimal Triangulation</a> </li>
+		</ul>
+		</li>
+
+		<li><a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/mst.html">Graphs</a>
+
+		<ul>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/mst.html">10.1 
+			Minimum Spanning Tree</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/dijkstra.html">
+			10.2 Dijkstra&#39;s Algorithm</a> </li>
+		</ul>
+		</li>
+
+		<li>
+		<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/huffman.html">Huffman 
+		Encoding</a> </li>
+
+		<li><a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/fft.html">FFT</a>
+		</li>
+
+		<li><a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/hard.html">Hard 
+		or Intractable Problems</a>
+
+		<ul>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/hard.html#euler">
+			13.1 Eulerian or Hamiltonian Paths</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/hard.html#TSP">
+			13.2 Travelling Salesman&#39;s Problem</a> </li>
+		</ul>
+		</li>
+
+		<li><a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/games.html">Games</a>
+
+		<p><b>Appendices</b></p>
+
+		<ol type="A">
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/ANSI_C.html">
+			ANSI C</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/listings.html">
+			Source code listings</a> </li>
+
+			<li>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/avail.html">Getting 
+			these notes</a> </li>
+		</ol>
+
+		<p><b>Slides</b></p>
+
+		<ul>
+			<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/ppt/index.html">
+			Slides</a> from 1998 lectures (PowerPoint).
+		</ul>
+
+		<p><b>
+		<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/Labs/timetable.html">
+		Course Management</a></b></p>
+
+		<ul>
+
+			<li>Key Points from Lectures </li>
+
+			<li>Workshops </li>
+
+			<li>Past Exams </li>
+
+			<li>Tutorials </li>
+		</ul>
+
+		<p><b>Texts</b></p>
+		<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/texts.html">Texts 
+		available in UWA library</a><br>
+		<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/www_ds.html">Other 
+		on-line courses and texts</a><br>
+		<a  target="_blank" href="http://www.cs.auckland.ac.nz/~jmor159/PLDS210/alg_anim.html">Algorithm 
+		Animations</a><br>
+&nbsp;</li>
+	</ol>
+</blockquote>
+
+<center><table border="0" width="100"><tr>
+<td align="center"><a href="#n1998_1231_data_structures_and_algorithms_table_of_contents"><img border="0" src="/Images/up.png" width="16" height="16"></a></td>
+<td align="center"><a name="n1994_1231_advanced_topics_in_graph_algorithms" href="#NEWS_TOC"><img border="0" src="/Images/home.gif" width="16" height="18"></a></td>
+<td align="center"><a href="#NEWS_TOC"><img border="0" src="/Images/down.png" width="16" height="16"></a></td>
+</tr></table></center>
+<h4>[Dec 31, 1994]
+<a target="_blank" href="http://www.math.tau.ac.il/~rshamir/atga/atga.html">Advanced 
+Topics in Graph Algorithms</a></h4>
+
+<blockquote>
+
+	<ul>
+
+		<li><font face="Arial"><b><font size="2">Scribes of Spring 94 lectures
+		</font></b><font size="2">Talks were scribed by the students and revised 
+		by the lecturer. The complete set of notes was subsequently edited and formatted 
+		by <a target="_blank" href="http://www.math.tau.ac.il/~sariel/">Sariel Har-Peled
+		</a>. <i>Thanks, Sariel ! </i></font></font><font size="2" face="Arial">
+		You can either
+		<a target="_blank" href="http://www.math.tau.ac.il/~rshamir/atga/archive/atga.ps.gz">
+		download</a> the complete notes as a single postscript file (150 pages), 
+		Or each lecture separately. </font>
+
+		<h2 style="text-align: left"><font face="Arial">
+		<a target="_blank" href="http://www.math.tau.ac.il/~rshamir/atga/archive/lec0.ps.gz">
+		<font size="2">Cover</font></a><font size="2"> </font></font></h2>
+
+		<ul>
+
+			<li><font size="2" face="Arial">Cover page </font></li>
+
+			<li><font size="2" face="Arial">Table of Content </font></li>
+
+			<li><font size="2" face="Arial">List of Figures </font></li>
+		</ul>
+
+		<h2 style="text-align: left"><font face="Arial">
+		<a target="_blank" href="http://www.math.tau.ac.il/~rshamir/atga/archive/lec1.ps.gz">
+		<font size="2">Lecture #1:</font></a><font size="2"> Introduction to Graph 
+		Theory </font></font></h2>
+
+		<ul>
+
+			<li><font size="2" face="Arial">Basic Definitions and Notations
+			</font></li>
+
+			<li><font size="2" face="Arial">Intersection Graphs </font></li>
+
+			<li><font size="2" face="Arial">Circular-arc Graphs </font></li>
+
+			<li><font size="2" face="Arial">Interval Graphs </font></li>
+
+			<li><font size="2" face="Arial">Line graphs of bipartite graphs
+			</font></li>
+		</ul>
+
+		<p><b><font face="Arial" size="2">... ... ... </font></b></p>
+		</li>
+	</ul>
+</blockquote>
+
+<h4>[Oct 8, 1993]
+<a target="_blank" href="http://ieeexplore.ieee.org/xpl/freeabs_all.jsp?arnumber=365562">
+Scalable Libraries for Graph Partitioning</a> by Bhargava at all</h4>
+
+<blockquote>
+
+	<h4>School of Information Studies, Syracuse University</h4>
+	The key problem in efficiently executing irregular and unstructured data parallel 
+	applications is partitioning the data to minimize communication while balancing 
+	the load. Partitioning such applications can be posed as a graph-partitioning 
+	problem based on the computational graph. We are currently developing a library 
+	of partitioners (especially based on physical optimization) which aim to find 
+	good suboptimal solutions in parallel. The initial target use of these partitioning 
+	methods are for runtime support of data parallel compilers (HPF). </dd>
+</blockquote>
+
+<h4>&nbsp;</h4>
+
+<h4><a target="_blank" href="http://www.cs.pitt.edu/~kirk/algorithmcourses/">Algorithms 
+Courses on the WWW</a></h4>
+
+<h4><a target="_blank" href="http://www.nist.gov/dads/">Dictionary of Algorithms 
+and Data Structures</a></h4>
+
+<blockquote>
+
+	<p><font size="2" face="Arial">This web site is hosted in part by the
+	<a target="_blank" href="http://www.itl.nist.gov/div897/sqg/">Software Quality 
+	Group</a> of the <a target="_blank" href="http://www.itl.nist.gov/div897/">Software 
+	Diagnostics and Conformance Testing Division</a>,
+	<a target="_blank" href="http://www.itl.nist.gov/">Information Technology Laboratory</a>.
+	</font></p>
+
+	<p><font size="2" face="Arial">This is a dictionary of algorithms, algorithmic 
+	techniques, data structures, archetypical problems, and related definitions. 
+	Algorithms include common functions, such as
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/ackermann.html">Ackermann&#39;s 
+	function</a>. Problems include
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/travelingSalesman.html">
+	traveling salesman</a> and
+	<a target="_blank" href="http://www.nist.gov/dads/HTML/byzantine.html">Byzantine 
+	generals</a>. Some entries have links to
+	<a target="_blank" href="http://www.nist.gov/dads/termsImpl.html">implementations</a> 
+	and more information. Index pages list entries by
+	<a target="_blank" href="http://www.nist.gov/dads/termsArea.html">area</a> and 
+	by <a target="_blank" href="http://www.nist.gov/dads/termsType.html">type</a>. 
+	The <a target="_blank" href="http://www.nist.gov/dads/terms2.html">two-level 
+	index</a> has a total download 1/20 as big as this page. </font></p>
+</blockquote>
+
+<h4>
+<a target="_blank" href="http://www.mathtools.net/C++/Algorithms_and_Data_structures/">
+C++ Algorithms and Data structures</a></h4>
+
+<h4><a target="_blank" href="http://users.utu.fi/sisasa/oasis/oasis-algo.html">PO 
+- Algorithms, Data Structures</a> nice collection of links</h4>
+
+<h2><a name="Recommended_Links">Recommended Links</a></h2>
+<table border="0" width="100%" height="110">
+<tr>
+<td width="100%" align="center">	
+
+<h3><a href="/topvisited_history.shtml">Softpanorama Top Visited</a></h3>
+<iframe src="/topvisited.shtml" width="100%" height="330"><p>Your browser does not support iframes.</p>
+</iframe>
+</td>
+</table>
+<h3>Softpanorama Recommended</h3>
+
+
+<p>Please note that <a href="../Bookshelf/Classic/taocp.shtml">TAOCP</a> was started 
+as a compiler book. See also <a href="compilers.shtml">compiler algorithms</a>. 
+Algorithms programming also influenced by <a href="#Computer_architecture">computer 
+architecture</a>. After fundamental paper of Donald Knuth, the design of a CPU instruction 
+set can be viewed as an optimization problem. </p>
+
+<p><b><a name="See also">See also</a></b>:</p>
+
+<ul>
+
+	<li><a href="compilers.shtml">Compiler Construction Tools</a></li>
+
+	<li><a href="crypto_algorithms.shtml">Crypto Algorithms Links</a></li>
+</ul>
+
+<p><b><a name="Directories">Directories</a></b> (usual mix :-)</p>
+
+<ul>
+
+	<li><a target="_blank" href="http://dmoz.org/Computers/Algorithms/">Open Directory 
+	- Computers Algorithms</a><ul>
+
+		<li>
+		<a target="_blank" href="http://dmoz.org/Computers/Programming/Graphics/Algorithms_and_Data_Structures/">
+		Open Directory - Computers Programming Graphics Algorithms and Data Structures</a></li>
+
+		<li>
+		<a target="_blank" href="http://dmoz.org/Science/Math/Combinatorics/">Open 
+		Directory - Science Math Combinatorics</a></li>
+	</ul>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://directory.google.com/Top/Computers/Algorithms/">
+	Google Directory - Computers Algorithms</a></li>
+
+	<li>
+	<a target="_blank" href="http://srd.yahoo.com/srct/245725/Algorithms/1/3/*http://dir.yahoo.com/Science/Computer_Science/Algorithms/">
+	Yahoo Computer Science/Algorithms</a><br>
+	</li>
+</ul>
+
+<ul>
+
+	<li><b>Leading Universities</b><ul>
+
+		<li>
+		<a target="_blank" href="http://www.cs.haverford.edu/CS-Departments.html">
+		Computer Science Department Web Servers</a></li>
+
+		<li><a href="#MIT-Lectures">MIT Lectures </a></li>
+
+		<li><a target="_blank" href="http://www.cs.princeton.edu/courses/">Notes 
+		at Princeton </a><br>
+		</li>
+	</ul>
+	</li>
+
+	<li>***** <a target="_blank" href="http://www.cs.sunysb.edu/~algorith/">The 
+	Stony Brook Algorithm Repository</a></li>
+
+	<li>***** <a target="_blank" href="http://arxiv.org/">arXiv.org e-Print archive</a> 
+	see also <a target="_blank" href="http://arxiv.org/servers.html">Mirrors</a><ul>
+
+		<li><a target="_blank" href="http://arxiv.org/blurb/pg01unesco.html">Creating 
+		a global knowledge network</a></li>
+
+		<li><a target="_blank" href="http://arxiv.org/blurb/pg00bmc.html">More on 
+		Clones</a></li>
+
+		<li><a target="_blank" href="http://arxiv.org/blurb/pg14Oct94.html">PG, 
+		After Dinner Remarks, 14 Oct &#39;94</a></li>
+	</ul>
+	</li>
+
+	<li>**** <a target="_blank" href="http://hissa.nist.gov/dads/">Dictionary of 
+	Algorithms, Data Structures, and Problems</a> NIST Site
+
+	<blockquote>
+
+		<p><font size="2" face="Arial">This is a dictionary of algorithms, algorithmic 
+		techniques, data structures, archetypical problems, and related definitions. 
+		Algorithms include common functions, such as
+		<a target="_blank" href="http://www.nist.gov/dads/HTML/ackermann.html">Ackermann&#39;s 
+		function</a>. Problems include
+		<a target="_blank" href="http://www.nist.gov/dads/HTML/travelingSalesman.html">
+		traveling salesman</a> and
+		<a target="_blank" href="http://www.nist.gov/dads/HTML/byzantine.html">Byzantine 
+		generals</a>. Some entries have links to further information and
+		<a target="_blank" href="http://www.nist.gov/dads/termsImpl.html">implementations</a>. 
+		Index pages list entries by
+		<a target="_blank" href="http://www.nist.gov/dads/termsArea.html">area</a>, 
+		for instance, sorting, searching, or graphs, and by
+		<a target="_blank" href="http://www.nist.gov/dads/termsType.html">type</a>, 
+		for example, algorithms or data structures. The
+		<a target="_blank" href="http://www.nist.gov/dads/terms2.html">two-level 
+		index</a> has a total download 1/20 as big as this page. </font></p>
+
+		<p><font face="Arial"><a name="needHelp"><font size="2">If you can define 
+		or correct terms, please contact </font></a><font size="2">
+		<a target="_blank" href="http://xsun.sdct.itl.nist.gov/~black/">Paul E. 
+		Black</a>. We need help in state machines, combinatorics, parallel and randomized 
+		algorithms, heuristics, and quantum computing. We do not include algorithms 
+		particular to communications, information processing, operating systems, 
+		programming languages, AI, graphics, or numerical analysis: it is tough 
+		enough covering &quot;general&quot; algorithms and data structures. </font></font>
+		</p>
+
+		<p><font size="2" face="Arial">If you want terms dealing with hardware, 
+		the computer industry, slang, etc., try the
+		<a target="_blank" href="http://www.nist.gov/cgi-bin/exit_nist.cgi?url=http://foldoc.doc.ic.ac.uk/">
+		Free On-Line Dictionary Of Computing</a> or the
+		<a target="_blank" href="http://www.nist.gov/cgi-bin/exit_nist.cgi?url=http://www.ciw.uni-karlsruhe.de/kopien/babel.html">
+		Glossary of Computer Oriented Abbreviations and Acronyms</a>. If you don&#39;t 
+		find a term with a leading variable, such as <i>n</i>-way, <i>m</i>-dimensional, 
+		or <i>p</i>-branching, look under <a href="#K"><i>k</i>-</a>. </font>
+		</p>
+	</blockquote>
+	</li>
+
+	<li>
+
+	<p><a target="_blank" href="http://netlib2.cs.utk.edu/tomspdf/">tomspdf</a>-- 
+	some old ACM algorithms.<br>
+	</p>
+	</li>
+
+	<li>**** <a target="_blank" href="http://www.ddj.com/topics/algorithms/">DDJ 
+	Algorithms page</a> see
+	<a target="_blank" href="http://www.ddj.com/topics/algorithms/articles.htm?topic=algorithms">
+	Complete list of articles</a>. They also sell CD with several algorithm-related 
+	books
+
+	<ul>
+
+		<li>
+		<a target="_blank" href="http://www.ddj.com/forums/algorithms/index.cgi">
+		Algorithms Discussion Forum</a></li>
+
+		<li>
+		<a target="_blank" href="http://www.ddj.com/articles/1998/9804/9804a/9804a.htm?topic=algorithms">
+		Ternary Search Trees</a></li>
+
+		<li>
+		<a target="_blank" href="http://www.ddj.com/articles/1997/9701/9701o/9701o.htm?topic=algorithms">
+		Algorithm Alley/The Fibonacci Heap</a></li>
+
+		<li>
+		<a target="_blank" href="http://www.ddj.com/articles/1996/9604/9604b/9604b.htm?topic=algorithms">
+		Hashing Rehashed</a></li>
+	</ul>
+	</li>
+</ul>
+
+<h4>Individual home pages</h4>
+
+<ul>
+
+	<li>****
+	<a target="_blank" href="http://www-cgrl.cs.mcgill.ca/~godfried/teaching/algorithms-web.html">
+	Web Data Structures and Algorithms</a> -- nice collection of materials and links 
+	by Godfried Toussaint, McGill University<br>
+	</li>
+
+	<li>****
+	<a target="_blank" href="http://www.cs.purdue.edu/homes/stelo/pattern.html">
+	Pattern Matching Pointers</a> -- very good<br>
+	</li>
+
+	<li><a target="_blank" href="http://www.pdmi.ras.ru/">Petersburg Department 
+	of Steklov Institute of Mathematics</a><ul>
+
+		<li><a target="_blank" href="http://www.pdmi.ras.ru/links/links.html">PDMI 
+		Links to Math.Servers</a><br>
+		</li>
+	</ul>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://www.handilinks.com/index.php3/Computers/Algorithms/">
+	Handilinks Algorithms Directory</a><br>
+	</li>
+
+	<li><a target="_blank" href="http://pauillac.inria.fr/algo/AofA/">ANALYSIS of 
+	ALGORITHMS HOME PAGE</a>
+
+	<ul>
+
+		<li>
+		<a target="_blank" href="http://www.wits.ac.za/helmut/AofA/Resources/index.html">
+		Resources</a></li>
+
+		<li>
+		<a target="_blank" href="http://www.wits.ac.za/helmut/AofA/People/index.html">
+		People</a></li>
+
+		<li>
+		<a target="_blank" href="http://pauillac.inria.fr/algo/AofA/Research/index.html">
+		Research</a><br>
+		</li>
+	</ul>
+	</li>
+
+	<li><a target="_blank" href="http://www.utc.edu/~cpmawata/petersen/">Graph Theory 
+	Lessons</a><br>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://www.uni-paderborn.de/fachbereich/AG/agmadh/WWW/scripts.html">
+	Collection of Lecture Notes, Survey Papers, etc</a> currently maintained by
+	<a target="_blank" href="http://www.uni-paderborn.de/fachbereich/AG/agmadh/WWW/english/Fomi.html">
+	Fedor V. Fomin</a><br>
+	(<tt><a href="mailto:fomin@upb.de">fomin@upb.de</a></tt>) . A lot of unique 
+	links. <br>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://www.cs.pitt.edu/~kirk/algorithmcourses/index.html">
+	Algorithms Courses on the WWW</a><br>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://www.yahoo.com/Science/Computer_Science/Algorithms/">
+	Yahoo! Computer ScienceAlgorithms</a><br>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://www.yahoo.ca/Science/Computer_Science/Algorithms/">
+	Yahoo! Canada - ScienceComputer ScienceAlgorithms</a><br>
+	</li>
+
+	<li><a target="_blank" href="http://www.mpi-sb.mpg.de/LEDA/leda.html">LEDA</a><br>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://robotics.stanford.edu/~suresh/theory/pointers.html">
+	Theory Pointers</a><br>
+	</li>
+
+	<li><a target="_blank" href="http://www.algorithms.org/">Algorithms, Calculations 
+	and Formulae</a><br>
+	</li>
+
+	<li><a target="_blank" href="http://nr.harvard.edu/nr/bookc.html">Numerical 
+	Recipes in C</a><br>
+	</li>
+
+	<li><a target="_blank" href="http://cs-tr.cs.cornell.edu/">NCSTRL Home Page</a><br>
+	</li>
+
+	<li><a target="_blank" href="http://www.cs.indiana.edu:800/cstr/search">UCSTRI 
+	-- Cover Page</a><br>
+	</li>
+
+	<li><a target="_blank" href="http://www.bdti.com/faq/dsp_faq.htm">Comp.dsp Frequently 
+	Asked Questions (FAQs)</a><br>
+	</li>
+
+	<li><b>
+	<a target="_blank" href="http://www.sourcebank.com/directorybrowse/directorybrowse_132.html">
+	Sourcebank - Computer Science - Algorithms</a></b><ul>
+
+		<li><b>
+		<a target="_blank" href="http://www.sourcebank.com/directorybrowse/directorybrowse_141.html">
+		Data Structures</a></b><br>
+		</li>
+	</ul>
+	</li>
+
+	<li><b>
+	<a target="_blank" href="http://www.mat.uc.pt/~eqvm/OPP/shortestpath.html">Shortest 
+	Path Problem Web Pages</a></b><ul>
+
+		<li>
+		<a target="_blank" href="http://www.mat.uc.pt/~eqvm/cientificos/investigacao/op_papers.html">
+		The Optimal Path Problem </a>, a paper by Ernesto Martins, Marta Pascoal, 
+		Deolinda Rasteiro and Jos� Luis Santos, that is on line for now. </li>
+
+		<li>
+		<a target="_blank" href="http://www.mat.uc.pt/~eqvm/links/questions.html#optimal_path">
+		About optimal path problem</a>, from my &quot;questions from old examinations&quot; 
+		Web page. </li>
+
+		<li>
+		<a target="_blank" href="http://www.mat.uc.pt/~eqvm/cientificos/fortran/codigos.html#spath">
+		Codes for the shortest path problem</a>, from my &quot;Fortran Source Codes&quot; 
+		Web page. <br>
+		</li>
+
+		<li>
+		<a target="_blank" href="http://www.tutor.ms.unimelb.edu.au/path/path.html">
+		Path me and I&#39;ll path you!</a> from tutOR </li>
+
+		<li>
+		<a target="_blank" href="http://www.mcs.anl.gov/dbpp/text/node35.html">Case 
+		Study: Shortest-Path Algorithms</a> by Ian Foster </li>
+
+		<li><a target="_blank" href="http://www.uea.ac.uk/~u9533532/work.html">The 
+		Shortest Path Problem</a>, by Jonathan Jenkyn </li>
+
+		<li>
+		<a target="_blank" href="http://mat.gsia.cmu.edu/classes/networks/networks.html">
+		A Tutorial on Network Optimization</a>, by Girard Cornuijols and Michael 
+		A. Trick </li>
+
+		<li>
+		<a target="_blank" href="http://www.cs.uwa.edu.au:80/~gordon/cs300/readings1998/graphapplet/graph.html">
+		Dijkstra&#39;s Shortest Path Algortithm Animation in Java</a>, by Carla Laffra 
+		of Pace University </li>
+
+		<li><a target="_blank" href="http://www.lehigh.edu/~eju2/OR/OR.html">The 
+		Shortest Path Problem</a>, by Daniel Castellon, Gianluca DiNunzio, and Enairo 
+		Urdaneta </li>
+
+		<li>
+		<a target="_blank" href="http://www.orie.cornell.edu/~or115/handouts/handout3/handout3.html">
+		The Shortest Path algorithm</a> from Cornell University Web Page </li>
+
+		<li>
+		<a target="_blank" href="http://www-b2.is.tokushima-u.ac.jp/~ikeda/suuri/dijkstra/Dijkstra.html">
+		Shortest Path Problem</a>, by Ikeda </li>
+
+		<li>
+		<a target="_blank" href="http://www.research.digital.com/SRC/3D-animate/tvcg/tvcg.html">
+		Obliq-3D: A High-Level, Fast-Turnaround 3D Animation System</a>, by Marc 
+		A. Najork and Marc H. Brown </li>
+
+		<li><a target="_blank" href="http://www.mpi-sb.mpg.de/~marco/java.html">
+		Algorithm/Data Structure Animations for Educational Use</a> by Marco Nissen
+		</li>
+
+		<li>
+		<a target="_blank" href="http://www.undergrad.math.uwaterloo.ca/~crpalmer/sp/">
+		Shortest Paths: Dijkstra&#39;s Algorithm</a>, by Chris Palmer </li>
+
+		<li>
+		<a target="_blank" href="http://www.etext.caltech.edu:80/Chapters/DP/apsp2/apsp.html">
+		All-Points Shortest Path (A Second Solution)</a>, from The Caltech Archetypes 
+		/ eText Project Web Page </li>
+
+		<li>
+		<a target="_blank" href="http://pete.cs.caltech.edu/Archetype/Papers/DP_paper/node2.html">
+		All Points Shortest Path</a>, by Yolanda Palomo </li>
+
+		<li>
+		<a target="_blank" href="http://info.risc.uni-linz.ac.at:70/0/archive/parlab/misc/path.c">
+		Path.c</a>, a C code for the all pairs shortest path problem by Wolfgang 
+		Schreiner </li>
+
+		<li>
+		<a target="_blank" href="http://www.research.digital.com/SRC/zeus/kpaths.html">
+		An Animation of the k-Shortest Paths Algorithm</a>, by Mark Manasse, and 
+		Greg Nelson </li>
+
+		<li>
+		<a target="_blank" href="http://www-math.cudenver.edu/~hgreenbe/glossary/S.html#Shortest_path">
+		Shortest Path</a>, from Harvey Greenberg Mathematical Programming Glossary
+		</li>
+
+		<li>
+		<a target="_blank" href="http://www.sor.princeton.edu/~dhb/PULSAR/ALTERNATIVE_PATHS/">
+		Finding Alternative Routes</a>, from THE SCIENCE AND TECHNOLOGY OF DECISION-MAKING 
+		Web Page </li>
+
+		<li>
+		<a target="_blank" href="http://www.sor.princeton.edu/~dhb/PULSAR/NONADDITIVE_PATHS/">
+		Finding Routes when Values of Time are Nonlinear</a>, from THE SCIENCE AND 
+		TECHNOLOGY OF DECISION-MAKING Web Page </li>
+
+		<li>
+		<a target="_blank" href="http://www.cs.sunysb.edu/~algorith/files/shortest-path.shtml">
+		Shortest Path</a>, from The Stony Brook Algorithm Repository Web Page
+		</li>
+
+		<li>
+		<a target="_blank" href="http://www.dcss.mcmaster.ca/cs3ea3/cgi-bin/GRAPHSdir/GROUP4dir/dijkstra.html">
+		Dijkstra&#39;s Algorithm: A Shortest Path Algorithm</a>, by Isidore Pires<br>
+		</li>
+	</ul>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://www.csee.usf.edu/~maurer/optalg/index.htm">Optimal 
+	Algorithms</a> -- Peter M. Maurer, University of South Florida<br>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://www.ibilce.unesp.br/courseware/datas/data1.htm">
+	<b>Data Structures And Number Systems</b></a> by Brian Brown<br>
+	</li>
+
+	<li><a target="_blank" href="http://www.astrolog.org/labyrnth/algrithm.htm">
+	<b>Maze classification and algorithms</b></a> -- A short description of mazes 
+	and how to create them. Definition of different mazetypes and their algorithms.<br>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://tonic.physics.sunysb.edu/docs/num_meth.html">
+	Numerical methods</a><br>
+	</li>
+
+	<li><a target="_blank" href="http://www.olympus.net/biz/7seas/recurse.html">
+	Stack Free Recursion</a> -- A paper describing the &quot;Stack Free Recursion&quot; algorithm. 
+	C code with C++ comments.<br>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://www.faqs.org/faqs/graphics/algorithms-faq/">
+	comp.graphics.algorithms Frequently Asked Questions</a><br>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://www.personal.kent.edu/~rmuhamma/Algorithms/algorithm.html">
+	Design and Analysis of Computer Algorithms</a><br>
+	</li>
+
+	<li><a  target="_blank" href="http://simpleprogrammingtutorials.com/">C++, Java, Algorithm and 
+	Data Structure Tutorials</a> by Denis Kulagin. Includes sections:
+
+	<ul>
+
+		<li><a  target="_blank" href="http://simpleprogrammingtutorials.com/data-structures.php">
+		Data Structures</a>
+
+		<p style="MARGIN-TOP: 5px; MARGIN-BOTTOM: 15px">Data structures, ADT&#39;s and 
+		implementations.</p>
+		</li>
+
+		<li><a  target="_blank" href="http://simpleprogrammingtutorials.com/algorithms.php">Algorithms 
+		and programming concepts</a>
+
+		<p style="MARGIN-TOP: 5px; MARGIN-BOTTOM: 15px">Sorting algorithms, algorithms 
+		on graphs, nubmer-theory algorithms and programming concepts.</p>
+		</li>
+
+		<li><a  target="_blank" href="http://simpleprogrammingtutorials.com/cpp.php">C++: tools and 
+		code samples</a>
+
+		<p style="MARGIN-TOP: 5px; MARGIN-BOTTOM: 15px">How to install a development 
+		environment and start programming with C++.</p>
+		</li>
+
+		<li><a  target="_blank" href="http://simpleprogrammingtutorials.com/books/">Books: reviews 
+		and TOCs</a>
+
+		<p style="MARGIN-TOP: 5px; MARGIN-BOTTOM: 15px">Find books you need for 
+		offline reading.</p>
+		</li>
+
+		<li><a  target="_blank" href="http://simpleprogrammingtutorials.com/sitemap.php">Sitemap</a>
+
+		<p style="MARGIN-TOP: 5px; MARGIN-BOTTOM: 15px">Links to all articles in 
+		alphabetical order.</p>
+		</li>
+
+		<li><a  target="_blank" href="http://simpleprogrammingtutorials.com/forum">Forum</a>
+
+		<p style="MARGIN-TOP: 5px; MARGIN-BOTTOM: 15px">Ask questions and discuss 
+		various programming issues.</p>
+		</li>
+	</ul>
+
+	<p>&nbsp;</p>
+	</li>
+</ul>
+
+<h2><a name="Tutorials">Lecture Notes, E-books</a> and Tutorials</h2>
+
+<p>See also
+<a target="_blank" href="http://www.cs.pitt.edu/~kirk/algorithmcourses/">Algorithms 
+Courses on the WWW</a> and
+<a target="_blank" href="http://www.informatik.fernuni-hagen.de/import/pi4/luaces/DatenstrukturenLinks.html">
+Data Structures in the Web</a> </p>
+
+<h3 style="text-align: left">Lecture Notes</h3>
+
+<ul>
+
+	<li>
+	<a target="_blank" href="http://www.cs.utexas.edu/users/lavender/courses/ee360c/index.html">
+	Introduction to Algorithms and Data Structures Using C++</a> [link updated Aug 
+	1, 2002] </li>
+
+	<li>
+	<a target="_blank" href="http://www.cee.hw.ac.uk/~alison/ds98/ds98.html">Data 
+	Structures and Algorithms II</a> by Alison Cawsey This is closer to e-book than 
+	lectures</li>
+
+	<li><a target="_blank" href="http://www.cs.unc.edu/~lin/COMP122/">COMP122 Algorithms 
+	and Analysis</a> -- nice notes</li>
+
+	<li>
+	<a target="_blank" href="http://www.maths.abdn.ac.uk/~igc/tch/mx4002/notes/notes.html">
+	Algorithms MX4028</a> -- <b>Ian Craw and John Pulham, University of Aberdeen</b></li>
+
+	<li><b>
+	<a target="_blank" href="http://epaperpress.com/sortsearch/index.html">Sorting 
+	and Searching Algorithms</a> same as </b>
+	<a target="_blank" href="http://ciips.ee.uwa.edu.au/~morris/Year2/PLDS210/niemann/s_man.htm">
+	Sorting and Searching Algorithms: A Cookbook</a> by <small>by <b>
+	<!-- #BeginLibraryItem "/Library/mailto.lbi" -->
+	<a href="mailto:thomasn@epaperpress.com">Thomas Niemann</a><!-- #EndLibraryItem -->
+	</b></small></li>
+
+	<li>
+	<a target="_blank" href="http://www-theory.cs.st-and.ac.uk/~mda/cs2001/CS2001.html">
+	CS 2001 Computer Algorithms</a></li>
+
+	<li>
+	<a target="_blank" href="http://wwwcsif.cs.ucdavis.edu/~fletcher/classes/110F98/lecture_notes/">
+	ECS 110 Fall 1998</a> --
+	<a target="_blank" href="http://wwwcsif.cs.ucdavis.edu/~fletcher/classes/110F98/homepage.html">
+	ECS110 -- Data Structures and Algorithm Analysis (Fletcher, Fall 1998)</a></li>
+
+	<li><a target="_blank" href="http://www.cs.ucdavis.edu/~rogaway/">Phil Rogaway 
+	- Home Page</a><ul>
+
+		<li>
+		<a target="_blank" href="http://www.cs.ucdavis.edu/~rogaway/teaching.html">
+		List of cources</a></li>
+
+		<li>
+		<a target="_blank" href="http://www.cs.ucdavis.edu/~rogaway/classes/754/2002/index.html">
+		COMP 754</a> Cryptography and Computer Security - Term 1 of 2002-2003</li>
+
+		<li>
+		<a target="_blank" href="http://www.cs.ucdavis.edu/~rogaway/classes/20/spring00/">
+		ECS 20</a> - Discrete Mathematics for Computer Science - Spring 2000</li>
+
+		<li>
+		<a target="_blank" href="http://www.cs.ucdavis.edu/~rogaway/classes/110/spring97/main.html">
+		ECS 110</a> - Data Structures and Programming - Spring 1997</li>
+	</ul>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://www.eli.sdsu.edu/courses/fall95/cs660/notes/">
+	CS-660 Combinatorial Algorithms - Lecture Notes</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.cs.curtin.edu.au/units/cp501/notes/contents1.html">
+	CP501 --- Course Contents</a></li>
+
+	<li>
+	<a target="_blank" href="http://csr.uvic.ca/~wendym/courses/225/index.html">
+	CSC 225 Class Notes Fall 1998</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.brunel.ac.uk/~csstade/cs2095s/lecture1/index.htm">
+	CS2095S Data Structures &amp; Algorithms</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.dgp.toronto.edu/people/JamesStewart/270/9697f/">
+	CSC 270 Fundamental Data Structures and Techniques (Fall &#39;96)</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.ctc.dcu.ie/ctcweb/courses/algorithms/">CTC 
+	Online Courses Algorithms &amp; Data Structures</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.ctc.dcu.ie/ctcweb/courses/algorithms/links.html">
+	CTC Algorithms on the WWW</a></li>
+
+	<li>
+	<a target="_blank" href="http://ciips.ee.uwa.edu.au/~morris/Year2/PLDS210/ds_ToC.html">
+	Data Structures and Algorithms</a> Course Notes, University of Western Australia</li>
+
+	<li>
+	<a target="_blank" href="http://watson2.cs.binghamton.edu/~ehead/CS333/cs333Index.html">
+	Algorithms CS333</a>
+
+	<ul>
+
+		<li>
+		<a target="_blank" href="http://watson2.cs.binghamton.edu/~ehead/CS333/notes333Index.html">
+		Notes available for down loading. CS333</a></li>
+	</ul>
+	</li>
+</ul>
+
+<h3 style="text-align: left">E-books</h3>
+
+<ul>
+
+	<li>
+	<a target="_blank" href="http://www.cs.sunysb.edu/~algorith/implement/wilf/implement.shtml">
+	Nijenhuis and Wilf Combinatorial Algorithms</a> e-book</li>
+
+	<li>
+	<a target="_blank" href="http://www.cee.hw.ac.uk/~alison/ds98/ds98.html">Data 
+	Structures and Algorithms II</a> by Alison Cawsey </li>
+
+	<li>
+	<a target="_blank" href="http://www-lsi.upc.es/~rbaeza/handbook/hbook.html">
+	Handbook of Algorithms and Data Structures</a> -- fragments from the beta book. 
+	also at
+	<a target="_blank" href="http://www.dcc.uchile.cl/~rbaeza/handbook/hbook.html">
+	Handbook of Algorithms and Data Structures</a></li>
+
+	<li><a target="_blank" href="http://nr.harvard.edu/nr/bookc.html">Numerical 
+	Recipes in C</a> full e-text is online. Ch.20 contains some non-numerical algorithms</li>
+
+	<li><a target="_blank" href="http://members.xoom.com/thomasn/s_man.htm">Sorting 
+	and Searching Algorithms A Cookbook</a> by <a href="mailto:thomasn@jps.net">
+	Thomas Niemann</a> C and VB code. Translation into Russian is available from 
+	the same page</li>
+
+	<li><a target="_blank" href="http://www.mhhe.com/engcs/compsci/sahni/">Sahni 
+	Data Structures Algorithms and Applications in C++</a> -- web site for the book. 
+	Not much information</li>
+
+	<li><a target="_blank" href="http://www.cs.sunysb.edu/~algorith/index.html">
+	The Stony Brook Algorithm Repository</a></li>
+
+	<li><a target="_blank" href="http://www.cs.bu.edu/fac/lnd/toc/">L. Levin. Theory 
+	of Computation.</a></li>
+
+	<li><a target="_blank" href="http://www.cis.upenn.edu/~wilf/AlgComp2.html">Algorithms 
+	and Complexity</a> <font color="#000000">by Herbert S. Wilf</li>
+</ul>
+
+<hr>
+
+<h2><a name="Magazines">Magazines</a></h2>
+
+<ul>
+
+	<li><a target="_blank" href="http://www.cs.brown.edu/publications/jgaa/">Journal 
+	of Graph Algorithms and Applications</a> Biannual online Journal. Contains many 
+	interesting papers. </li>
+
+	<li><a target="_blank" href="http://link.springer.de/series/lncs/">Lecture Notes 
+	in Computer Science</a></li>
+
+	<li>
+	<a target="_blank" href="http://epubs.siam.org/sam-bin/dbq/toclist/SICOMP">SIAM 
+	Journal on Computing</a></li>
+
+	<li><a target="_blank" href="http://www.elsevier.com/locate/tcs">Theoretical 
+	Computer Science</a></li>
+
+	<li><a target="_blank" href="http://www.oup.co.uk/computer_journal/">The Computer 
+	Journal</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.elsevier.nl/inca/publications/store/5/0/5/6/1/2/?menu=cont&label=table">
+	Information Processing Letters</a></li>
+
+	<li><a target="_blank" href="http://www.ddj.com/topics/algorithms/">DDJ Algorithms 
+	page</a> see
+	<a target="_blank" href="http://www.ddj.com/topics/algorithms/articles.htm?topic=algorithms">
+	Complete list of articles</a>. They also sell CD with several algorithm-related 
+	books
+
+	<ul>
+
+		<li>
+		<a target="_blank" href="http://www.ddj.com/forums/algorithms/index.cgi">
+		Algorithms Discussion Forum</a></li>
+
+		<li>
+		<a target="_blank" href="http://www.ddj.com/articles/1998/9804/9804a/9804a.htm?topic=algorithms">
+		Ternary Search Trees</a></li>
+
+		<li>
+		<a target="_blank" href="http://www.ddj.com/articles/1997/9701/9701o/9701o.htm?topic=algorithms">
+		Algorithm Alley/The Fibonacci Heap</a></li>
+
+		<li>
+		<a target="_blank" href="http://www.ddj.com/articles/1996/9604/9604b/9604b.htm?topic=algorithms">
+		Hashing Rehashed</a></li>
+	</ul>
+
+	<p></p>
+	</li>
+</ul>
+
+<hr>
+
+<h2><a name="Papers">Papers</a></h2>
+
+<p>[July 2, 1999] <a target="_blank" href="http://www.acm.org/repository/">ACM Computing 
+Research Repository</a> -- great !</p>
+
+<hr>
+
+<h2><a name="Libraries">Libraries</a></h2>
+
+<p><a target="_blank" href="http://www.mpi-sb.mpg.de/LEDA/leda.html">LEDA - Main 
+Page of LEDA Research</a> -- C++ libraries, several restrictions apply (non-commercial 
+use, no source code, etc.) </p>
+
+<ul>
+
+	<li>
+	<a target="_blank" href="http://www.cse.nd.edu/academics/cse331/hints/LEDA-3.5.1/MANUAL/tableofcontents.html">
+	Leda user manual</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.cs.sunysb.edu/~algorith/implement/LEDA/implement.shtml">
+	LEDA - A Library of Efficient Data Types and Algorithms</a></li>
+
+	<li>
+	<a target="_blank" href="http://www-users.cs.umn.edu/~obryan/leda/Manual35/MANUAL.html">
+	The LEDA User Manual Version 3.5</a></li>
+
+	<li><a href="ftp://ftp.mpi-sb.mpg.de/pub/LEDA/">Directory of pub/LEDA</a> -- 
+	download for researchers and educators only. LEDA 3.7 is out starting July 17th 
+	98, visit download page and take a look at the CHANGES and FIXES files for additional 
+	information.</li>
+</ul>
+
+<p><a target="_blank" href="http://ubiqx.org/modules.html">ubiqx --</a> The goal 
+of the ubiqx project is to develop a set of clean, small, re-usable code modules 
+which implement<br>
+fundamental constructs and mechanisms, and to make them available under the terms 
+of the GNU Library<br>
+General Public License (LGPL).</p>
+
+<p>
+<a target="_blank" href="http://www.geocities.com/SiliconValley/Garage/3323/aat/">
+Album of Algorithms and Techniques</a> by Vladimir Zabrodsky -- This is the collection 
+of the algorithms (at present about 50) from excellent textbooks (Cormen-Leiserson-Rivest, 
+Knuth, Kruse, Marcello-Toth, Sedgewick, Wirth) translated into the Rexx language. 
+You can study the Album online or offline. It is packed up by WinZip - find an icon 
+of a little black butterfly on the cover page. <i>Suggested by Tom Moran &lt;tmoran8@yahoo.com&gt;</i>[Jan 
+23, 2000]</p>
+
+<p><a target="_blank" href="http://www.enteract.com/~bradapp/ftp/">Brad Appleton&#39;s 
+FTP Site</a> At the moment, he has some C++ class libraries for implementing AVL 
+trees 2-3 trees red-black trees (bottom up) command-line option &amp; argument parsing 
+(CmdLine and Options)</p>
+
+<p><br>
+<a target="_blank" href="http://www.delorie.com/gnu/docs/avl/avl_toc.html">libavl 
+manual - Table of Contents</a> libavl -- A library for manipulation of AVL trees 
+Ben Pfaff (GNU)</p>
+<table id="table3">
+	<tr>
+		<td><font color="#808080" size="2" face="Verdana"><a name="911648821">
+		<b>AVLTree 0.1.0</b></a></font></td>
+	</tr>
+	<tr>
+		<td><font face="Verdana" size="2">AVLTree is a small implementation of AVL 
+		trees for the C programming language. It is distributed under the Library 
+		Gnu Public License. This library does the basic stuff. It allows for inserts, 
+		searches, and deletes in O(log n) time. It also provides an interface to 
+		iterate through your entire AVL tree, in order by key, in O(n) time (the 
+		calls that allow the iterating take constant amortized time).
+
+		<ul type="disk">
+
+			<li>
+			<a target="_blank" href="http://www.tezcat.com/~cosine/pub/AVLTree/AVLTree.tar.gz">
+			Download</a></li>
+
+			<li>
+			<a target="_blank" href="http://www.tezcat.com/~cosine/pub/AVLTree/">
+			Homepage</a></li>
+
+			<li>
+			<a target="_blank" href="http://appindex.freshmeat.net/view/911621551/">
+			Appindex Record</a></font></li>
+		</ul>
+		</td>
+	</tr>
+</table>
+
+<h2><a name="Combinatorial Algorithms">Combinatorial Algorithms</a></h2>
+
+<ul>
+
+	<li><a target="_blank" href="http://www.cs.sunysb.edu/~algorith/index.html">
+	The Stony Brook Algorithm Repository</a>
+
+	<ul>
+
+		<li>
+		<a target="_blank" href="http://www.cs.sunysb.edu/~algorith/major_section/1.3.shtml">
+		1.3 Combinatorial Problems</a></li>
+	</ul>
+	</li>
+
+	<li><a target="_blank" href="http://www.combinatorics.org/">Volume 5 (1) of 
+	The Electronic Journal of Combinatorics</a></li>
+
+	<li>
+	<a target="_blank" href="http://elib.zib-berlin.de:88/Math-Net/Links/math.html">
+	Math-Net Links to the Mathematical World</a></li>
+
+	<li>
+	<a target="_blank" href="http://dimacs.rutgers.edu/OtherLinks/index.html">A 
+	Gallimaufry of Pages for Discrete Mathematics and Theoretical Computer Science.</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.statslab.cam.ac.uk/~richard/teaching/algnets/">
+	Algorithms and Networks</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.iwr.uni-heidelberg.de/iwr/comopt/soft/TSPLIB95/TSPLIB.html">
+	TSPLIB</a> -- Symmetric traveling salesman problem</li>
+
+	<li>
+	<a target="_blank" href="http://www.math.tu-berlin.de/coga/publications/technical_reports_1997.html">
+	Technical reports 1997 of the group Combinatorial Optimization &amp; Graph Algorithms</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.uni-paderborn.de/fachbereich/AG/monien/RESEARCH/CO/">
+	Combinatorial Optimization</a></li>
+
+	<li><a target="_blank" href="http://www.brics.dk/~pekec/">A. PEKEC</a> -- The 
+	main area of his research interests is in development and analysis of combinatorial 
+	optimization models for various problems arising in practice. He is also interested 
+	in some extremal combinatorics problems. Some of his publications can be downloaded.</li>
+
+	<li><a target="_blank" href="http://www.cs.columbia.edu/index.html">Columbia 
+	University Department of Computer Science</a> (<a target="_blank" href="http://www.cs.columbia.edu/info/research-guide/html/node2.html" name="tex2html2">Alfred 
+	V. Aho</a>)</li>
+</ul>
+
+<hr>
+
+<h2><a name="Sample Assignments">Sample Assignments</a></h2>
+
+<h3><a target="_blank" href="http://www.cs.colorado.edu/~main/projects/">Sample 
+Data Structures Programming Assignments</a></h3>
+
+<h3>Programming Assignments</h3>
+
+<p>You can copy and modify these programming assignments, or use them as is for 
+your own class. <b>WARNING TO STUDENTS: These are only sample assignments; check 
+with your instructor to find out what your actual programming assignments are.</b>
+</p>
+<dl>
+	<dt>Chapter 2: </dt>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap02a.html">
+	A Simple Statistician Class</a> </dd>
+	<dt>Chapter 3: </dt>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap03a.html">
+	The List Class from Section 3.2 (with a fixed array)</a> </dd>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap03b.html">
+	A Preliminary Polynomial Class (with a fixed-size array)</a> </dd>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap03c.html">
+	Clean-up Notes for the Preliminary Polynomial</a> </dd>
+	<dt>Chapter 4: </dt>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap04a.html">
+	The List Class with a dynamic array.</a> </dd>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap04c.html">
+	The polynomial class with a dynamic array. </a>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap04b.html">
+	The Bag with Receipts, using dynamic arrays.</a> </dd>
+	<dt>Chapter 5: </dt>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap05a.html">
+	Extending the Linked List Toolkit.</a> </dd>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap05c.html">
+	Extending the Linked List Toolkit (Version 2).</a> </dd>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap05b.html">
+	The List Class with a linked list.</a> </dd>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap05d.html">
+	The polynomial class with a linked list.</a> </dd>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap05e.html">
+	Using the polynomial in a CGI program.</a> </dd>
+	<dt>Chapter 6: </dt>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap06a.html">
+	The List Template Class with an External Iterator.</a> </dd>
+	<dt>Chapter 7: </dt>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap07a.html">
+	Evaluator for Postfix or Infix Expressions.</a> </dd>
+	<dt>Chapter 8: </dt>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap08a.html">
+	A Priority Queue Class.</a> </dd>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap08b.html">
+	A Simple Traffic Light Simulation.</a> </dd>
+	<dt>Chapter 9: </dt>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap09a.html">
+	Four Small Recursive Functions.</a> </dd>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap09c.html">
+	Four More Small Recursive Functions.</a> </dd>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap09e.html">
+	(Preliminary Version) A Recursive Permutation Generator.</a> </dd>
+	<dt>Chapter 10: </dt>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap10a.html">
+	A Binary Search Tree Implementation of the Bag (now using the new binary_tree_node 
+	from the second edition)</a> </dd>
+	<dt>Chapter 11: </dt>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap11a.html">
+	A Heap Implementation of the Priority Queue Class.</a> </dd>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap11b.html">
+	A B-Tree Implementation of the Set Class.</a> </dd>
+	<dt>Chapter 12: </dt>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap12a.html">
+	A Chained Hash Table.</a> </dd>
+	<dt>Chapter 13: </dt>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap13a.html">
+	A Quicksort Function.</a> </dd>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap13b.html">
+	The Standard Library Quicksort Function.</a> </dd>
+	<dt>Chapter 14: </dt>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap14b.html">
+	Ideas for Derived Game Classes from Section 14.3.</a> </dd>
+	<dd>
+	<a target="_blank" href="http://www.cs.colorado.edu/~main/projects/chap14a.html">
+	Preliminary Version of a Short Bonus Assignment on Inheritance.</a></dd>
+</dl>
+</font>
+
+<hr>
+
+<h2><a name="Computer_architecture">Computer architecture</a></h2>
+
+<ul>
+
+	<li>
+	<a target="_blank" href="http://dev.acm.org/pubs/citations/proceedings/micro/123465/p153-holmer/">
+	ACM Digital Library Viewing instruction set design as an optimization problem</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.cs.clemson.edu/~mark/architects.html">Recent 
+	Processor Architects</a></li>
+
+	<li>
+	<a target="_blank" href="http://www-ist.massey.ac.nz/~crjessho/comp_net/Ch3-99/">
+	Chapter 3</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.intel.com/pressroom/archive/speeches/mpf1097c.htm">
+	Motivations and Design Approach for the IA-64 64-Bit Instruction Set Architecture</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.cs.panam.edu/~meng/Course/CS4335/Notes/master/node1.html">
+	Contents</a><ul>
+
+		<li>
+		<a target="_blank" href="http://www.cs.wisc.edu/~glew/HOME_DIRECTORY/work/research/public/instruction-set-issues.html">
+		Instruction Set Design Issues</a></li>
+	</ul>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://www.rdrop.com/~cary/html/computer_architecture.html#bebop">
+	Computer Architecture</a> -- very interesting</li>
+
+	<li><a target="_blank" href="http://www.linkpopularity.com/">LinkPopularity.com 
+	The Free Link Popularity Service</a></li>
+
+	<li><a target="_blank" href="http://archive.comlab.ox.ac.uk/cards.html">Microprocessor 
+	instruction set cards</a></li>
+
+	<li>
+	<a target="_blank" href="http://murray.newcastle.edu.au/users/students/1999/c9311421/isd.html">
+	VHDL Based Design of a RISC Processor - Instruction Set</a></li>
+
+	<li><a target="_blank" href="http://www.ele.uri.edu/Courses/ele305/p1.htm">ELE 
+	305 Introduction to Computer Architecture</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.sics.se/simics/publications/usenix98/">SimICS-sun4m 
+	A VIRTUAL WORKSTATION</a></li>
+</ul>
+
+<p><b>Instruction set usage patterns</b></p>
+
+<ul>
+
+	<li>
+	<a target="_blank" href="http://citeseer.nj.nec.com/araujo96instruction.html">
+	Instruction Set Design and Optimizations for Address Computation in DSP Architectures 
+	- Araujo, Sudarsanam (ResearchIndex)</a></li>
+
+	<li>
+	<a target="_blank" href="http://dev.acm.org/pubs/citations/proceedings/asplos/70082/p152-adams/">
+	Summary Analysis of x86 Instruction Set Usage for DOS-Windows Applications and 
+	Its Implication on Superscalar Design</a></li>
+
+	<li><a target="_blank" href="http://www.xsim.com/bib/index1.d/Index.html">Instruction-Set 
+	Simulation and Tracing</a></li>
+
+	<li>
+	<a target="_blank" href="http://dev.acm.org/pubs/citations/proceedings/micro/123465/p153-holmer/">
+	ACM Digital Library Viewing instruction set design as an optimization problem</a></li>
+</ul>
+
+<font color="#000000">
+
+<b>Random Findings</b><ul>
+
+	<p>
+	<a target="_blank" href="http://www.cs.uq.oz.au/~bof/Bib/Zobrist1969a.html">
+	A Model of Visual Organisation in the Games of Go</a> A. Zobrist </p>
+
+	<li>
+	<a target="_blank" href="http://www.cs.uq.oz.au/~bof/Bib/acmforum1979a.html">
+	Comments on Social Processes and Proofs</a> acm forum </li>
+
+	<li>
+	<a target="_blank" href="http://www.cs.uq.oz.au/~bof/Bib/dCBEL1994a.html">State-based 
+	Formalisms for Data Refinement</a>
+	<td>W-P. de Roever and J. Coenen and K-H. Buth and K. Engelhart and Y. Lakhneche 
+	and F. Stomp </li>
+
+	<li>
+	<a target="_blank" href="http://www.cs.uq.oz.au/~bof/Bib/vanHeijenoort1967a.html">
+	From Frege to G\&quot;odel: A Source Book in Mathematical Knowledge 1879-1931</a>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://www.cs.uq.oz.au/~bof/Bib/vanWijngaarden1966a.html">
+	Numerical Analysis as an independent science</a> A. van Wijngaarden </li>
+
+	<li>
+	<a target="_blank" href="http://remus.rutgers.edu/~rhoads/links.html#Alg">Lots 
+	of Algorithms related Links</a></li>
+
+	<li>***
+	<a target="_blank" href="http://www.cs.sunysb.edu/~algorith/implement/weisses/implement.shtml">
+	Weisses Data Structure</a></li>
+
+	<li>
+
+	<p>
+	<a target="_blank" href="http://compsci.about.com/science/compsci/library/weekly/aa090400a.htm">
+	linked lists - linear data structures</a></p>
+	</li>
+
+	<li>
+
+	<p>
+	<a target="_blank" href="http://www.cs.rochester.edu/u/www/u/pawlicki/LECTURE24/sld032.htm">
+	The Linked-List Data Structure</a> (slides)</p>
+	</li>
+
+	<li>
+
+	<p>
+	<a target="_blank" href="http://developer.java.sun.com/developer/technicalArticles/DataTypes/DataStructures/">
+	How to Build Data Structures in Java</a></p>
+	</li>
+
+	<li>
+
+	<p>
+	<a target="_blank" href="http://www.cs.bsu.edu/homepages/black/cs/link.htm">
+	Linked List Data Structure</a></p>
+	</li>
+
+	<li>
+
+	<p>
+	<a target="_blank" href="http://www1.mmu.edu.my/~mukund/dsal/appldsal.html">
+	R.MukundanData Structures</a></p>
+	</li>
+
+	<li>
+
+	<p>
+	<a target="_blank" href="http://developer.gnome.org/doc/API/glib/glib-doubly-linked-lists.html">
+	Doubly-Linked Lists</a> glib</p>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://www.zdnet.com/devhead/stories/articles/0,4413,2215844,00.html">
+	ZDNet: developer: Comparing Vectors and Linked Lists</a><a target="_blank" href="http://www.scit.wlv.ac.uk/~jphb/spos/notes/alloc.html">Memory 
+	allocation using calloc() etc.,</a> </li>
+
+	<li></font>
+	<a target="_blank" href="http://www.cs.cf.ac.uk/Dave/C/node11.html">Dynamic 
+	Memory Allocation and Dynamic Structures</a> </li>
+
+	<li>
+	<a target="_blank" href="http://www.plover.com/~mjd/perl/Stream/stream.html">
+	Infinite Lists in Perl</a> </li>
+
+	<li>
+	<a target="_blank" href="http://www.linuxgazette.com/issue57/tindale.html">Hash 
+	Tables in Java LG #57</a> </li>
+
+	<li>
+	<a target="_blank" href="http://www.w3.org/TR/1999/WD-DOM-Level-2-19990304/filters-and-iterators.html">
+	Document Object Model Filters and Iterators</a> </li>
+
+	<li>
+	<a target="_blank" href="http://www.sourceforge.net/snippet/browse.php?by=cat&cat=12">
+	SourceForge: Snippet Library</a> </li>
+
+	<li><a target="_blank" href="http://www.webglimpse.org/pubs/suffix.txt">Suffix 
+	arrays: A new method for on-line string searches Udi Manber1 Gene Myers2 Department 
+	of Computer Science University of Arizona Tucson, AZ 85721 May 1989 Revised 
+	August 1991</a> </li>
+
+	<li>
+	<a target="_blank" href="http://www.dina.dk/DinaUnix/Info/elisp/elisp_toc.html">
+	GNU Emacs Lisp Reference Manual - Table of Contents</a><p></p>
+	</li>
+
+	<li>
+
+	<p><a target="_blank" href="http://www.flipcode.com/harmless/issue01.htm">FlipCode 
+	- Harmless Algorithms</a></p>
+	</li>
+
+	<li>
+	<a target="_blank" href="http://cthulhu.mandrake.net/~abigail/Perl/index.html">
+	Abigail&#39;s Perl stuff</a> -- some interesting algorithms in Perl</li>
+
+	<li>
+	<a target="_blank" href="http://www.cc.gatech.edu/people/home/idris/AlgorithmsProject/Index.html">
+	Algorithms A Help Site</a></li>
+
+	<li><a target="_blank" href="http://wannabe.guru.org/alg">Algorithm Archive</a> 
+	-- is it alive?</li>
+
+	<li><a target="_blank" href="http://cs.felk.cvut.cz/psc/">The Prague Stringology 
+	Club</a></li>
+
+	<li><a target="_blank" href="http://www.eecs.umich.edu/gasm/">Abstract State 
+	Machines</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.eecs.umich.edu/~qstout/abs/DARPA92.html">
+	Ultrafast Parallel Algorithms and Reconfigurable Meshes</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.informatik.uni-frankfurt.de/~fp/uudeview/">
+	UUDeview Home Page</a></li>
+
+	<li><a href="ftp://theory.lcs.mit.edu/pub/tds/RSS20.ps.gz">Distributed Algorithms 
+	Tutorial (by Nancy Lynch and Boaz Patt-Shamir)</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.cs.brown.edu/people/mph/tutorial.ps">Tutorial 
+	on Algebraic Topology and Distributed Computation(by M. Herlihy)</a></li>
+
+	<li><a target="_blank" href="http://www.cs.brown.edu/people/mph/home.html">Maurice 
+	Herlihy&#39;s Home Page</a></li>
+
+	<li><a target="_blank" href="http://www.cs.rochester.edu/u/www/u/istrate/">Nancy 
+	Lynch&#39;s home page</a></li>
+</ul>
+
+<ul>
+
+	<li>
+	<a target="_blank" href="http://momonga.t.u-tokyo.ac.jp/~ooura/index.html">Ooura&#39;s 
+	Mathematical Software Packages</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.infomaniak.ch/~dblock/software/expression.html">
+	Expression Calculator</a></li>
+
+	<li>
+	<a target="_blank" href="http://camel.math.ca/Recreation/kabol/knotlinks.html">
+	Knot a Braid</a></li>
+
+	<li><a target="_blank" href="http://www.mathsource.com/">Welcome to MathSource</a></li>
+
+	<li><a target="_blank" href="http://www-ocean.tamu.edu/~baum/wavelets.html">
+	Wavelet sources</a></li>
+
+	<li><a target="_blank" href="http://net.indra.com/~sullivan/q10.html">FAQ: Numerical 
+	Analysis &amp; Associated Fields Resource Guide</a></li>
+
+	<li><a target="_blank" href="http://www.cs.duke.edu/~jeffe/mathgames.html">Mathematical 
+	Games, Toys, and Puzzles</a></li>
+
+	<li>
+	<a target="_blank" href="http://archives.math.utk.edu/software/.msdos.directory.html">
+	Mathematics Archives MSDOS Software</a></li>
+
+	<li>
+	<a target="_blank" href="http://archives.math.utk.edu/" add_date="851098532" last_modified="851098525" last_visit="885849087">
+	Mathematics Archives WWW Server</a></li>
+
+	<li>
+	<a target="_blank" href="http://pauillac.inria.fr/algo/bsolve/constant/constant.html">
+	Favorite Mathematical Constants</a> Link updated Aug 1, 2002</li>
+
+	<li>
+	<a target="_blank" href="http://euclid.math.fsu.edu/Science/math.html" add_date="851098830" last_modified="851098563" last_visit="868280417">
+	The World-Wide Web Virtual Library: Mathematics</a></li>
+
+	<li>
+	<a target="_blank" href="http://gams.nist.gov/" add_date="851132118" last_modified="851132108" last_visit="868280208">
+	GAMS : Guide to Available Mathematical Software</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.NovaGenetica.com/" add_date="849147592" last_modified="849147482" last_visit="849147482">
+	Nova Genetica, Your #1 Source for Genetic Algorithm Links and Information</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.mcs.anl.gov/home/otc/Guide/faq/nonlinear-programming-faq.html" add_date="848721259" last_modified="848721243" last_visit="848721243">
+	Nonlinear Programming FAQ</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.isr.umd.edu/Labs/CACSE/FSQP/fsqp.html" add_date="848720650" last_modified="848720640" last_visit="881615323">
+	The FSQP Home Page</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.wri.com/" add_date="850345525" last_modified="884808895" last_visit="891888709">
+	Wolfram Research: Mathematica</a></li>
+
+	<li>
+	<a target="_blank" href="http://nr.harvard.edu/numerical-recipes/" add_date="850949534" last_modified="850949530" last_visit="893455350">
+	Numerical Recipes Home Page</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.mcs.anl.gov/home/otc/Guide/SoftwareGuide/index.html" add_date="849778156" last_modified="849778151" last_visit="849778151">
+	NEOS Guide: Optimization Software</a></li>
+
+	<li>
+	<a target="_blank" href="http://fndsys.kuamp.kyoto-u.ac.jp/~harada/research-eg.html" add_date="849807618" last_modified="849807432" last_visit="874440616">
+	Research: Monte Carlo Method</a></li>
+
+	<li>
+	<a target="_blank" href="http://csep1.phy.ornl.gov/mc/mc.html" add_date="849778128" last_modified="849778112" last_visit="849778112">
+	MC Chapter</a></li>
+
+	<li>
+	<a target="_blank" href="http://mthwww.uwc.edu/wwwmahes/files/math01.htm" add_date="850345525" last_modified="868280250" last_visit="885848493">
+	A Catalog of Mathematics Resources</a></li>
+
+	<li>
+	<a target="_blank" href="http://elib.zib-berlin.de:88/Math-Net/Links/math.html" add_date="850130155" last_modified="850130150" last_visit="868280444">
+	Math-Net Links- experimental</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.math.psu.edu/dna/num_methods.html" add_date="849778141" last_modified="849778135" last_visit="893461188">
+	Numerical methods</a></li>
+
+	<li>
+	<a target="_blank" href="http://netlib.cs.utk.edu/" add_date="850130345" last_modified="850130323" last_visit="893461410">
+	Netlib</a></li> </font></li>
+
+	<li>
+	<a target="_blank" href="http://www.geog.ubc.ca/courses/klink/gis.notes/ncgia/u36.html">
+	UNIT 36 - HIERARCHICAL DATA STRUCTURES</a></li>
+</ul>
+
+<ul>
+
+	<li>
+	<a target="_blank" href="http://www.rdrop.com/~cary/html/html.html#backlinks">
+	HTML Style Guides</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.andrewcooke.free-online.co.uk/andrew/writing/lang.html">
+	andrew cooke an introduction to programming languages</a></li>
+
+	<li><a target="_blank" href="http://tunes.org/Review/Languages.html">Review 
+	of existing Languages</a></li>
+
+	<li><a target="_blank" href="http://www.cs.berkeley.edu/~bh/v3-toc2.html">Beyond 
+	Programming contents</a></li>
+
+	<li><a target="_blank" href="http://www.cs.colostate.edu/~shrum/cs314/">Ken 
+	Shrum&#39;s CSU Home Page</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.research.ibm.com/journal/sj/372/aiken.html">
+	Reverse engineering of data</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.cs.princeton.edu/software/cii/preface.html">
+	Preface for C Interfaces and Implementations</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.accu.org/bookreviews/public/reviews/0sb/data_structures.htm">
+	ACCU - Reviews by subject data structures</a></li>
+
+	<li>
+	<a target="_blank" href="http://people.aero.und.edu/~mschroed/jpeg.html">JPEG 
+	Algorithm and Associated <b>Data</b> <b>Structures</b></a></li>
+
+	<li>
+	<a target="_blank" href="http://swww.ee.uwa.edu.au/~plsd210/ds/ds_ToC.html">
+	<b>Data</b> <b>Structures</b> and Algorithms: Table of Contents</a></li>
+
+	<li>
+	<a target="_blank" href="http://odin.ee.uwa.edu.au/~morris/Year2/PLDS210/ds_ToC.html">
+	<b>Data</b> <b>Structures</b> and Algorithms: Table of Contents</a></li>
+
+	<li><a target="_blank" href="http://hissa.nist.gov/dads/">Dictionary of Algorithms, 
+	Data Structures, and Problems</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.dcc.uchile.cl/~rbaeza/handbook/hbook.html">
+	Handbook of Algorithms and <b>Data</b> <b>Structures</b></a></li>
+
+	<li>
+	<a target="_blank" href="http://users.utu.fi/sisasa/oasis/oasis-algo.html">PO 
+	- Algorithms, Data Structures</a></li>
+
+	<li><a target="_blank" href="http://www4.ncsu.edu/~kbauer/rubiks.htm"><b>Data</b>
+	<b>structures</b> for AI Search Strategies: Solving the Rubik&#39;s <b>...</b></a></li>
+
+	<li>
+	<a target="_blank" href="http://www.cs.unm.edu/~crowley/papers/sds/sds.html">
+	<b>Data</b> <b>Structures</b> for Text Sequences</a></li>
+
+	<li>
+	<a target="_blank" href="http://www.cs.sunysb.edu/~algorith/files/graph-data-structures.shtml">
+	1.1.4 Graph <b>Data</b> <b>Structures</b></a></li>
+
+	<li>
+	<a target="_blank" href="http://www.pads.uwaterloo.ca/Bruno.Preiss/books/opus5/html/book.html">
+	Data Structures and Algorithms with Object-Oriented Design Patterns in Java</a> 
+	-e book by Bruno R. Preiss B.A.Sc., M.A.Sc., Ph.D., P.Eng. Associate Professor 
+	Department of Electrical and Computer Engineering University of Waterloo, Waterloo, 
+	Canada</li>
+</ul>
+
+<hr>
+<hr noshade color="#FF0000" size="5"><center>
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-4031247137266443";
+/* upper */
+google_ad_slot = "4815841291";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</center>
+<hr noshade color="#FF0000" size="5">
+
+<h2><a name="Etc">Etc</a></h2>
+
+<p>FAIR USE NOTICE This site contains 
+		copyrighted material the use of which has not always been specifically 
+		authorized by the copyright owner. We are making such material available 
+		in our efforts to advance understanding of environmental, political, 
+		human rights, economic, democracy, scientific, and social justice 
+		issues, etc. We believe this constitutes a 'fair use' of any such 
+		copyrighted material as provided for in section 107 of the US Copyright 
+		Law. In accordance with Title 17 U.S.C. Section 107, the material on 
+		this site is distributed without profit exclusivly for research and educational purposes.&nbsp;&nbsp; If you wish to use 
+		copyrighted material from this site for purposes of your own that go 
+		beyond 'fair use', you must obtain permission from the copyright owner.&nbsp; </p>
+
+<p>ABUSE: IPs or network segments from which we detect a stream of probes might be blocked for no 
+less then 90 days. Multiple types of probes increase this period.&nbsp;&nbsp; </p>
+
+<p><b>Society</b></p>
+<blockquote>
+
+<p><b><a href="/Skeptics/groupthink.shtml"><font size="2">Groupthink</font></a><font size="2"> :
+<a href="/Skeptics/Political_skeptic/Two_party_system_as_poliarchy/index.shtml">Two Party System 
+as Polyarchy</a> : 
+<a href="/Skeptics/Financial_skeptic/Casino_capitalism/Corruption_of_regulators/index.shtml">
+Corruption of Regulators</a> :
+<a href="/Social/Bureaucracy/index.shtml">Bureaucracies</a> :
+<a href="/Social/Toxic_managers/Micromanagers/understanding_micromanagers.shtml">Understanding Micromanagers 
+and Control Freaks</a> : <a href="/Social/Toxic_managers/index.shtml">Toxic Managers</a> :&nbsp;&nbsp;
+<a href="/Skeptics/Pseudoscience/harvard_mafia.shtml">Harvard Mafia</a> :
+<a href="/Social/Toxic_managers/Communication/diplomatic_communication.shtml">Diplomatic Communication</a> 
+: <a href="/Social/Toxic_managers/surviving_a_bad_performance_review.shtml">Surviving a Bad Performance 
+Review</a> : <a href="/Skeptics/Financial_skeptic/index.shtml">Insufficient Retirement Funds as 
+Immanent Problem of Neoliberal Regime</a> : <a href="/Skeptics/index.shtml">PseudoScience</a> :
+<a href="/Skeptics/Political_skeptic/index.shtml">Who Rules America</a> :
+<a href="/Skeptics/Political_skeptic/Neoliberalism/index.shtml">Neoliberalism
+</a>&nbsp;: <a href="/Skeptics/Political_skeptic/Elite_theory/iron_law_of_oligarchy.shtml">The Iron 
+Law of Oligarchy</a> : </font><a href="/Skeptics/Political_skeptic/libertarianism.shtml">
+<font size="2">Libertarian Philosophy</font></a></b></p>
+</blockquote>
+
+<p><b>Quotes</b></p>
+<blockquote>
+
+<p><b><font size="2" face="Arial"> 
+<a href="/Skeptics/Quotes/war_and_peace_quotes.shtml">War and Peace</a> </font>
+<font face="Arial"><font size="2">: <a href="/Skeptics/Quotes/financial_quotes.shtml">Skeptical 
+Finance</a></font><font size="2"> : <a href="/Skeptics/Quotes/famous_galbraith_quotes.shtml">John 
+Kenneth Galbraith</a> :<a href="/Skeptics/Quotes/talleyrand_quotes.shtml">Talleyrand</a> :
+<a href="/Skeptics/Quotes/oscar_wilde_quotes.shtml">Oscar Wilde</a> :
+<a href="/Skeptics/Quotes/bismarck_quotes.shtml">Otto Von Bismarck</a> :
+<a href="/Skeptics/Quotes/keynes_quotes.shtml">Keynes</a> :
+<a href="/Skeptics/Quotes/george_carlin.shtml">George Carlin</a> :
+<a href="/Skeptics/skeptical_quotes.shtml">Skeptics</a> :
+<a href="/Skeptics/Quotes/propaganda.shtml">Propaganda</a>&nbsp; : <a href="/SE/quotes.shtml">SE 
+quotes</a> : <a href="/Lang/quotes.shtml">Language Design and Programming Quotes</a> :
+<a href="/Bulletin/quotes.shtml">Random IT-related quotes</a> :&nbsp;
+<a href="/Skeptics/Quotes/somerset_maugham.shtml">Somerset Maugham</a> :
+<a href="/Skeptics/Quotes/marcus_aurelius.shtml">Marcus Aurelius</a> :
+<a href="/Skeptics/Quotes/kurt_vonnegut_quotes.shtml">Kurt Vonnegut</a> :
+<a href="/Skeptics/Quotes/eric_hoffer.shtml">Eric Hoffer</a> :
+<a href="/Skeptics/Quotes/churchill_quotes.shtml">Winston Churchill</a> :
+<a href="/Skeptics/Quotes/napoleon_quotes.shtml">Napoleon Bonaparte</a> :
+<a href="/Skeptics/Quotes/ambrose_bierce.shtml">Ambrose Bierce</a> :&nbsp;
+<a href="/Skeptics/Quotes/bernard_shaw.shtml">Bernard Shaw</a> : </font>
+<a href="/Skeptics/Quotes/mark_twain_quotes.shtml"><font size="2">Mark Twain Quotes</font></a></font></b></p>
+</blockquote>
+
+<p><b>Bulletin:</b></p>
+<blockquote>
+
+<p><b><font face="Arial"><a href="http://softpanorama.biz/Bulletin/Sp2013_v25/bulletin25_12.shtml">
+<font size="2">Vol 25, No.12 (December, 2013) Rational Fools vs. Efficient Crooks The efficient 
+markets hypothesis</font></a><font size="2"> :
+<a href="http://softpanorama.biz/Skeptics/Political_skeptic/Bulletin/political_skeptic2013.shtml">
+Political Skeptic Bulletin, 2013</a> :
+<a href="http://softpanorama.biz/Skeptics/Financial_skeptic/Unemployment/Bulletin/unempoyment2010.shtml">
+Unemployment Bulletin, 2010</a> :
+<a href="http://softpanorama.biz/Bulletin/Sp2011_v23/bulletin23_10.shtml">&nbsp;Vol 23, No.10 
+(October, 2011) An observation about corporate security departments</a> :
+<a href="http://softpanorama.biz/Skeptics/Political_skeptic/Fifth_column/Color_revolutions/Euromaydan/Bulletin/euromaydan14_06.shtml">
+Slightly Skeptical Euromaydan Chronicles, June 2014</a> :
+<a href="http://softpanorama.biz/Skeptics/Financial_skeptic/Casino_capitalism/12_Apostols_of_deregulation/Greenspan/Bulletin/greenspan_bulletin2008.shtml">
+Greenspan legacy bulletin, 2008</a> :
+<a href="/Bulletin/Sp2013_v25/bulletin25_10.shtml">Vol 25, No.10 (October, 2013) Cryptolocker Trojan 
+(Win32/Crilock.A)</a> :
+<a href="/Bulletin/Sp2013_v25/bulletin25_08.shtml">Vol 25, No.08 (August, 2013) Cloud providers 
+as intelligence collection hubs</a> : 
+<a href="http://softpanorama.biz/Skeptics/Financial_skeptic/Humor/Bulletin/financial_humor2010.shtml">
+Financial Humor Bulletin, 2010</a> :
+<a href="http://softpanorama.biz/Skeptics/Financial_skeptic/Inequality/Bulletin/inequality2009.shtml">
+Inequality Bulletin, 2009</a> :
+<a href="http://softpanorama.biz/Skeptics/Financial_skeptic/Humor/Bulletin/financial_humor2008.shtml">
+Financial Humor Bulletin, 2008</a> :
+<a href="http://softpanorama.biz/Copyright/Bulletin/copyleft_problems2004.shtml">Copyleft Problems 
+Bulletin, 2004</a> :
+<a href="http://softpanorama.biz/Skeptics/Financial_skeptic/Humor/Bulletin/financial_humor2011.shtml">
+Financial Humor Bulletin, 2011</a> :
+<a href="http://softpanorama.biz/Skeptics/Financial_skeptic/Energy/Bulletin/energy_bulletin2010.shtml">
+Energy Bulletin, 2010</a> : <a href="http://softpanorama.biz/Malware/Bulletin/malware2010.shtml">
+Malware Protection Bulletin, 2010</a> : <a href="/Bulletin/Sp2014_v26/bulletin26_01.shtml">Vol 26, 
+No.1 (January, 2013) Object-Oriented Cult</a> :
+<a href="http://softpanorama.biz/Skeptics/Political_skeptic/Bulletin/political_skeptic2011.shtml">
+Political Skeptic Bulletin, 2011</a> :
+<a href="/Bulletin/Sp2011_v23/bulletin23_11.shtml">Vol 23, No.11 (November, 2011) Softpanorama classification 
+of sysadmin horror stories</a> : <a href="/Bulletin/Sp2013_v25/bulletin25_05.shtml">Vol 25, No.05 
+(May, 2013) Corporate bullshit as a communication method</a>&nbsp; : </font><a href="/Bulletin/Sp2013_v25/bulletin25_06.shtml">
+<font size="2">Vol 25, No.06 (June, 2013) A Note on the Relationship of Brooks Law and Conway Law</font></a></font></b></p>
+</blockquote>
+
+<p align="left"><b>History:</b></p>
+<blockquote>
+
+<p><b><font face="Arial"><a href="/History/index.shtml"><font size="2">Fifty glorious years (1950-2000): 
+the triumph of the US computer engineering</font></a><font size="2"> :
+<a href="/People/Knuth/index.shtml">Donald Knuth</a> : <a href="/People/Knuth/taocp.shtml">TAoCP 
+and its Influence of Computer Science</a> : <a href="/People/Stallman/index.shtml">Richard Stallman</a> 
+: <a href="/People/Torvalds/index.shtml">Linus Torvalds</a>&nbsp; :
+<a href="/People/Wall/index.shtml">Larry Wall </a>&nbsp;:
+<a href="/People/Ousterhout/index.shtml">John K. Ousterhout</a> : <a href="/History/ctss.shtml">
+CTSS</a> : <a href="/History/multix.shtml">Multix OS</a> <a href="/History/Unix/index.shtml">Unix 
+History</a> : <a href="/People/Shell_giants/introduction.shtml">Unix shell history</a> :
+<a href="/Editors/Vimorama/history.shtml">VI editor</a> :
+<a href="/Scripting/Piporama/history.shtml">History of pipes concept</a> :
+<a href="/Solaris/solaris_history.shtml">Solaris</a> : <a href="/History/dos_history.shtml">MS DOS</a> 
+:&nbsp; <a href="/History/lang_history.shtml">Programming Languages History</a> :
+<a href="/Lang/pl1.shtml">PL/1</a> : <a href="/Lang/simula67.shtml">Simula 67</a> :
+<a href="/Lang/Cilorama/history.shtml">C</a> :
+<a href="/People/Stallman/history_of_gcc_development.shtml">History of GCC development</a> :&nbsp;
+<a href="/People/Scripting_giants/scripting_languages_as_vhll.shtml">Scripting Languages</a> :
+<a href="/Scripting/Perlbook/Ch01/perl_history.shtml">Perl history&nbsp; </a>&nbsp;:
+<a href="/History/os_history.shtml">OS History</a> : <a href="/Mail/history.shtml">Mail</a> :
+<a href="/DNS/history.shtml">DNS</a> : <a href="/Net/Application_layer/SSH/ssh_history.shtml">SSH</a> 
+: <a href="/History/cpu_history.shtml">CPU Instruction Sets</a> :
+<a href="/Hardware/Sun/history_of_sparc.shtml">SPARC systems 1987-2006</a> :
+<a href="/OFM/Paradigm/Ch03/norton_commander.shtml">Norton Commander</a> :
+<a href="/Windows/Norton_utilities/history.shtml">Norton Utilities</a> :
+<a href="/Windows/Ghosting/ghost_history.shtml">Norton Ghost</a> :
+<a href="/Office/Frontpage/history.shtml">Frontpage history</a> :
+<a href="/Malware/Malware_defense_history/index.shtml">Malware Defense History</a> :
+<a href="/Utilities/Screen/history.shtml">GNU Screen</a> : </font>
+<a href="/OSS/oss_early_history.shtml"><font size="2">OSS early history</font></a></font></b></p>
+</blockquote>
+
+<p><b>Classic books:</b></p>
+<blockquote>
+
+<p><b><font face="Arial"><a href="/Bookshelf/Classic/peter_principle.shtml"><font size="2">The Peter 
+Principle</font></a><font size="2"> : <a href="/Bookshelf/Classic/parkinson_law.shtml">Parkinson 
+Law</a> : <a href="/Bookshelf/Classic/nineteen_eighty_four.shtml">1984</a> :
+<a href="/Bookshelf/Classic/tmmm.shtml">The Mythical Man-Month</a> :&nbsp;
+<a href="/Bookshelf/Classic/polya_htsi.shtml">How to Solve It by George Polya</a> :
+<a href="/Bookshelf/Classic/taocp.shtml">The Art of Computer Programming</a> :
+<a href="/Bookshelf/Classic/teops.shtml">The Elements of Programming Style</a> :
+<a href="/Bookshelf/Classic/unix_haters_handhook.shtml">The Unix Hater�s Handbook</a> :
+<a href="/Bookshelf/Classic/jargon_file.shtml">The Jargon file</a> :
+<a href="/Bookshelf/Classic/true_believer.shtml">The True Believer</a> :
+<a href="/Bookshelf/Classic/programming_pearls.shtml">Programming Pearls</a> :
+<a href="/Bookshelf/Classic/good_soldier_svejk.shtml">The Good Soldier Svejk</a> : </font>
+<a href="/Bookshelf/Classic/power_elite.shtml"><font size="2">The Power Elite</font></a></font></b></p>
+</blockquote>
+
+<p><b>Most popular humor pages:</b></p>
+<blockquote>
+
+<p><font face="Arial"><b><a href="/Bulletin/Humor/Slackerism/it_slacker_manifest.shtml">
+<font size="2">Manifest of the Softpanorama IT Slacker Society</font></a><font size="2"> :
+<a href="/Bulletin/Humor/Slackerism/ten_commandments_of_software_slackerism.shtml">Ten Commandments 
+of the IT Slackers Society</a> : <a href="/Bulletin/Humor/index.shtml">Computer Humor Collection</a> 
+: <a href="/Bulletin/Humor/bsd_logo_story.shtml">BSD Logo Story</a> :
+<a href="/Bulletin/Humor/cuckoo_egg.shtml">The Cuckoo&#39;s Egg </a>:
+<a href="/Bulletin/Humor/slang.shtml">IT Slang</a> : <a href="/Lang/Cpp_rama/humor.shtml">C++ Humor</a> 
+: <a href="/Bulletin/Humor/Archive/humor059.shtml">ARE YOU A BBS ADDICT?</a> :
+<a href="/Bulletin/Humor/Archive/humor092.shtml">The Perl Purity Test</a> :
+<a href="/Bulletin/Humor/Archive/humor065.shtml">Object oriented programmers of all nations</a> 
+: <a href="/Skeptics/Financial_skeptic/Humor/financial_humor.shtml">Financial Humor</a> :
+<a href="/Skeptics/Financial_skeptic/Humor/Bulletin/financial_humor2008.shtml">Financial Humor Bulletin, 
+2008</a> : <a href="/Skeptics/Financial_skeptic/Humor/Bulletin/financial_humor2010.shtml">Financial 
+Humor Bulletin, 2010</a> : <a href="/Editors/humor.shtml">The Most Comprehensive Collection of Editor-related 
+Humor</a> : <a href="/Lang/programming_languages_humor.shtml">Programming Language Humor</a> :
+<a href="/Skeptics/Financial_skeptic/Casino_capitalism/Systemic_instability_of_financial_sector/TBTF/Goldman_Sachs/humor.shtml">
+Goldman Sachs related humor</a> :
+<a href="/Skeptics/Financial_skeptic/Casino_capitalism/Twelve_apostles_of_deregulation/Greenspan/greenspan_humor.shtml">
+Greenspan humor</a> : <a href="/Lang/Cilorama/humor.shtml">C Humor</a> :
+<a href="/Scripting/humor.shtml">Scripting Humor</a> :
+<a href="/Bulletin/Humor/real_programmers_humor.shtml">Real Programmers Humor</a> :
+<a href="/WWW/humor.shtml">Web Humor</a> : <a href="/Copyright/humor.shtml">GPL-related Humor</a> 
+: <a href="/OFM/ofm_humor.shtml">OFM Humor</a> :
+<a href="/Skeptics/Political_skeptic/humor.shtml">Politically Incorrect Humor</a> :
+<a href="/Security/IDS/humor.shtml">IDS Humor</a> : <a href="/Bulletin/Humor/linux_sucks.shtml">
+&quot;Linux Sucks&quot; Humor </a>: <a href="/Links/Russian/Culture/Music/russian_musical_humor.shtml">Russian 
+Musical Humor</a> : <a href="/Bulletin/Humor/best_russian_programmer_humor.shtml">Best Russian Programmer 
+Humor</a> : <a href="/Bulletin/Humor/Archive/humor070.shtml">Microsoft plans to buy Catholic Church</a> 
+: <a href="/People/Stallman/rms_related_humor.shtml">Richard Stallman Related Humor</a> :
+<a href="/Admin/humor.shtml">Admin Humor</a> : <a href="/People/Wall/perl_related_humor.shtml">Perl-related 
+Humor</a> : <a href="/People/Torvalds/linus_torvalds_related_humor.shtml">Linus Torvalds Related 
+humor</a> : <a href="/Skeptics/humor.shtml">PseudoScience Related Humor</a> :
+<a href="/Net/net_humor.shtml">Networking Humor</a> :
+<a href="/Scripting/Shellorama/humor.shtml">Shell Humor</a> :
+<a href="/Skeptics/Financial_skeptic/Humor/Bulletin/financial_humor2011.shtml">Financial Humor Bulletin, 
+2011</a> : <a href="/Skeptics/Financial_skeptic/Humor/Bulletin/financial_humor2012.shtml">Financial 
+Humor Bulletin, 2012</a> :
+<a href="/Skeptics/Financial_skeptic/Humor/Bulletin/financial_humor2013.shtml">Financial Humor Bulletin, 
+2013</a> : <a href="/Lang/Javarama/humor.shtml">Java Humor</a> : <a href="/SE/humor.shtml">Software 
+Engineering Humor</a> : <a href="/Solaris/humor.shtml">Sun Solaris Related Humor</a> :
+<a href="/Education/humor.shtml">Education Humor</a> : <a href="/Admin/Tivoli/ibm_humor.shtml">IBM 
+Humor</a> : <a href="/Lang/Asmorama/humor.shtml">Assembler-related Humor</a> :
+<a href="/Editors/Vimorama/vim_humor.shtml">VIM Humor</a> : <a href="/Malware/humor.shtml">Computer 
+Viruses Humor</a> : <a href="/Bulletin/Humor/Archive/humor034.shtml">Bright tomorrow is rescheduled 
+to a day after tomorrow</a> : <a href="/Bulletin/Humor/classic_computer_humor.shtml">Classic Computer 
+Humor</a> </font></b></font></p>
+</blockquote>
+
+<p align="left"><b><a href="/Bulletin/Humor/last_but_not_least.shtml">The Last but not Least</a></b></p>
+<hr size="5" noshade color="#FF0000"><font face="Verdana" size="1">
+
+<p><i><b>Copyright � 1996-2015 by Dr. Nikolai Bezroukov</b></i>. <a target="_blank" href>www.softpanorama.org</a> 
+was created as a service to the UN Sustainable Development Networking Programme (<a target="_blank" href="http://www.un.org/Depts/dhl/sflib/">SDNP</a>) 
+in the author free time. This document is an industrial compilation designed and <b>created exclusively 
+for educational use</b> and is distributed under the <a href="/license.shtml">Softpanorama Content License</a>. 
+</p>
+
+<p>The site uses AdSense so you need to be aware of Google privacy policy. You you do not want to be 
+tracked by Google please disable Javascript for this site. <em>This site is perfectly usable without 
+Javascript.</em> </p>
+
+<p>Original materials copyright belong 
+to respective owners. <i><b>Quotes are made<font color="#FF0000"> for educational purposes only</font> 
+in compliance with the fair use doctrine. </b></i></p>
+
+<p><em>FAIR USE NOTICE </em>This site contains 
+		copyrighted material the use of which has not always been specifically 
+		authorized by the copyright owner. We are making such material available 
+		to advance understanding of computer science, IT technology, economic, scientific, and social  
+		issues. We believe this constitutes a 'fair use' of any such 
+		copyrighted material as provided by section 107 of the US Copyright Law according to which 
+such material can be distributed without profit exclusively for research and educational purposes.</p>
+
+<p><b>This is a Spartan WHYFF (We Help You For Free) 
+site written by people for whom English is not a native language.</b> Grammar and spelling errors should 
+be expected. <b>The site contain some broken links as it develops like a living tree...</b></p>
+
+<table border="0" width="100%">
+<tr>
+<td><font face="Verdana" size="1">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</font></td>
+<td><font face="Verdana" size="1">You can use PayPal to make a contribution, supporting development 
+of this site and speed up access. In case softpanorama.org is down currently there are 
+two functional mirrors: softpanorama.info (the fastest) and softpanorama.net.</font></td>
+</tr>
+</table>
+
+<p><b>Disclaimer:</b> </p>
+
+<p><i>The statements, views and opinions presented on this web page are those of the author (or 
+referenced source) and are 
+not endorsed by, nor do they necessarily reflect, the opinions of the author present and former employers, SDNP or any other organization the author may be associated with.</i> <i>We do not warrant the correctness 
+of the information provided or its fitness for any purpose.</i></p>
+</font>
+
+<p><i>Last modified:
+<!--webbot bot="Timestamp" s-type="EDITED" s-format="%B %d, %Y" startspan -->February 19, 2014<!--webbot bot="Timestamp" i-checksum="41554" endspan --></i></p>
+
+
+</body>
+
+</html>

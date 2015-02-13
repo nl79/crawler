@@ -1,0 +1,511 @@
+undefined<!DOCTYPE html>
+<!--[if IE 7 | IE 8]>
+<html class="ie" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US">
+<!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>c program  to Create a Tree | Basic , medium ,expert programs example in c,java,c/++</title>
+
+
+
+<meta property="og:image" content="http://m.c.lnkd.licdn.com/media/p/3/005/01f/0fc/1147253.png" />
+
+<meta name="Keywords" content="Data structure," >
+
+   <meta name="description" content=" c program  to Create a Tree" />
+
+
+<link rel="stylesheet" href="/style-min.css" type="text/css" media="screen, projection" />
+<script type="text/javascript" src="/jq.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/prettify.css" />
+<script type="text/javascript" src="/prettify.js"></script>
+
+<link rel="icon" type="image/gif" href="http://m.c.lnkd.licdn.com/media/p/3/005/01f/0fc/1147253.png" >
+
+<style>
+.act{
+box-shadow: 0 0 4px 1px #888;
+-moz-box-shadow: 0 0 4px 1px #888;
+-webkit-box-shadow: 0 0 4px 1px #888;
+border-color: #DDD #DDD #CCC;
+}
+
+</style>
+
+
+</head>
+
+<body onload="prettyPrint()">
+
+<div class="container">
+<div class="header"> <meta name="viewport" content="width=device-width, minimumscale=1.0, maximum-scale=1.0" /> 
+<div class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Scanftree.com</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav"> 
+               
+                <li><a href="http://scanftree.com/Data_Structure/" >Data Structure</a></li>
+                <li><a href="http://scanftree.com/operating-system/" >Operating System</a></li>
+                  <li><a href="http://scanftree.com/c/" >C</a></li>
+                 <li><a href="http://scanftree.com/Graph-Theory/" >Graph Theory</a></li>
+                 <li><a href="http://scanftree.com/microprocessor/Applications-of-Microprocessors" >Microprocessor</a></li>
+
+
+
+ <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">DBMS<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+			<!--	  <li class="dropdown-header">Online Money</li>  --> 
+  <li><a href="http://scanftree.com/dbms/" >Database Concept</a></li>
+   <li><a href="http://scanftree.com/sql/" >SQL</a></li>
+   <li><a href="http://scanftree.com/sqlite/" >SQLite</a></li>
+ </ul></li>
+
+ <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Examples<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+			<!--	  <li class="dropdown-header">Online Money</li>  --> 
+       <li><a href="http://scanftree.com/programs/c/">C</a></li>
+       <li><a href="http://scanftree.com/programs/java/">JAVA</a></li> 
+  <li><a href="http://scanftree.com/programs/cpp/">C++</a></li> 
+ </ul></li>
+
+<!--
+ <li class="dropdown">
+                <a href="http://scanftree.com/math/" class="dropdown-toggle" data-toggle="dropdown">Math<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+       <li><a href="http://scanftree.com/math/">Formulas & Calculators</a></li>
+
+
+ </ul></li>
+
+-->
+
+ <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Extra<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+			<!--	  <li class="dropdown-header">Online Money</li>  --> 
+       <li><a href="http://scanftree.com/Cheat-Sheets/">Cheat Sheets</a></li>
+   <li><a href="http://w3seo.info">SEO</a></li>  
+    <li><a href="http://facts-india.in/ifsc-code/">IFSC Codes</a></li>  
+ </ul></li>
+
+<li><a  style="visibility:hidden" href="https://profiles.google.com/118436369275590927622" rel="publisher" >Ankit Kumar singh</a></li>
+
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+</div>
+
+           
+<div class="sidebar1" id="sideLeft">
+
+
+<div class="menu" id="list5"><ul><li><a href="http://scanftree.com/programs/operation/1-d-array-programs/">1-D Array Programs</a></li><li><a href="http://scanftree.com/programs/operation/algorithm-implementation/">Algorithm Implementation</a></li><li><a href="http://scanftree.com/programs/operation/array/">Array</a></li><li><a href="http://scanftree.com/programs/operation/conversion/">Conversion</a></li><li><a href="http://scanftree.com/programs/operation/data-structure/">Data structure</a></li><li><a href="http://scanftree.com/programs/operation/date-and-time/">Date and Time</a></li><li><a href="http://scanftree.com/programs/operation/decision-and-loops/">Decision and Loops</a></li><li><a href="http://scanftree.com/programs/operation/dynamic-allocation/">Dynamic Allocation</a></li><li><a href="http://scanftree.com/programs/operation/file-handling/">File Handling</a></li><li><a href="http://scanftree.com/programs/operation/free-books/">Free Books</a></li><li><a href="http://scanftree.com/programs/operation/frequently-asked-c-programs-in-interview/">Frequently Asked C programs in interview</a></li><li><a href="http://scanftree.com/programs/operation/function-c/">Function</a></li><li><a href="http://scanftree.com/programs/operation/graphics/">Graphics</a></li><li><a href="http://scanftree.com/programs/operation/mathematical-programs/">Mathematical Programs</a></li><li><a href="http://scanftree.com/programs/operation/matrix/">Matrix</a></li><li><a href="http://scanftree.com/programs/operation/miscellaneous/">Miscellaneous</a></li><li><a href="http://scanftree.com/programs/operation/my-first-program/">My First Program</a></li><li><a href="http://scanftree.com/programs/operation/networking/">Networking</a></li><li><a href="http://scanftree.com/programs/operation/number-programs/">Number Programs</a></li><li><a href="http://scanftree.com/programs/operation/patterns/">Patterns</a></li><li><a href="http://scanftree.com/programs/operation/pointer/">Pointer</a></li><li><a href="http://scanftree.com/programs/operation/recursion/">Recursion</a></li><li><a href="http://scanftree.com/programs/operation/searching/">Searching</a></li><li><a href="http://scanftree.com/programs/operation/series/">Series</a></li><li><a href="http://scanftree.com/programs/operation/sorting/">Sorting</a></li><li><a href="http://scanftree.com/programs/operation/string/">String</a></li><li><a href="http://scanftree.com/programs/operation/structure-and-union/">Structure / Union</a></li><li><a href="http://scanftree.com/programs/operation/swapping/">Swapping</a></li></ul></DIV>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<script>
+        $(function(){
+        var url = window.location.pathname, 
+        urlRegExp = new RegExp(url.replace(/\/$/,'') + "$");
+        $('.menu li a').each(function(){
+      if(urlRegExp.test(this.href.replace(/\/$/,''))){
+                $(this).addClass('act')
+      } }); });</script>
+
+
+
+
+
+<div class="content" id="content">
+<!--
+<div itemscope itemtype="http://data-vocabulary.org/Breadcrumb"> 
+<ul class="breadcrumb">
+  <li ><a href="/" itemprop="url"><span itemprop="title">Home</span></a> <span class="divider"></span></li>
+  <li><a href="/programs/" itemprop="url" ><span itemprop="title">Programs</span></a> <span class="divider"></span></li>
+  <li class="active">Data</li>
+</ul>
+</div>  -->
+
+  
+
+
+
+
+  <div class="blog-content">
+        <div id="content1">
+                           
+                    <article id="post-486" class="post-486 c type-c status-publish format-standard hentry category-c tag-data-structure">
+        <header class="entry-header">
+
+
+
+                            <h1 class="entry-title">c program  to Create a Tree</h1>
+
+
+<DIV>
+<br/><span class='add'>Advertisment  <CODE></CODE></span>
+<iframe src='http://www.flipkart.com/affiliate/displayWidget?affrid=WRID-141836230458539723' frameborder=0 scrolling='no' height=160 width=100%></iframe>
+</DIV>
+
+	Levels of difficulty: <a href="http://scanftree.com/programs/difficulty/hard/" rel="tag">Hard</a> /
+
+
+	perform operation: <a href="http://scanftree.com/programs/operation/data-structure/" rel="tag">Data structure</a>
+<hr/>
+
+                    </header>
+
+
+
+                    <div class="entry-content">
+                <p><br/></p>
+<h3>C Program</h3>
+<pre class="prettyprint linenums">
+#include &lt;stdio.h&gt;
+#include &lt;malloc.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;conio.h&gt;
+typedef struct TREE {
+	int data;
+	struct TREE *left;
+	struct TREE *right;
+}
+TREE;
+int main() {
+	int data,depth;
+	TREE *tree =NULL;
+	TREE *InsertTree(int data,TREE *p);
+	TREE *PrintTreeTriangle(TREE *tree, int level);
+	int TreeDepth(TREE *tree,int *depth,int level);
+	clrscr();
+	while(1) {
+		printf(&quot;\nKey to insert|&quot;);
+		scanf(&quot;%d&quot;, &#038;data);
+		if (data==0)
+			  break;
+		tree =InsertTree(data,tree);
+		printf(&quot;\n Tree Display;\n&quot;);
+		PrintTreeTriangle(tree,1);
+		depth=0;
+		TreeDepth(tree,&#038;depth,0);
+		printf(&quot;\nTree Depth =%d\n&quot;,depth);
+	}
+	return(0);
+}
+TREE *InsertTree(int data,TREE *p) {
+	if(!p) {
+		p=(TREE*)malloc(sizeof(TREE));
+		p-&gt;data=data;
+		p-&gt;left=NULL;
+		p-&gt;right=NULL;
+		return(p);
+	}
+	if(data &lt; p-&gt;data)
+		p-&gt;left=InsertTree(data,p-&gt;left); else
+		if(data &gt; p-&gt;data)
+		p-&gt;right=InsertTree(data,p-&gt;right);
+	return(p);
+}
+TREE *PrintTreeTriangle(TREE *tree, int level) {
+	int i;
+	if(tree) {
+		PrintTreeTriangle(tree-&gt;right,level+1);
+		printf(&quot;\n\n&quot;);
+		for (i=0;i&lt;level;i++)
+				printf(&quot;       &quot;);
+		printf(&quot;%d&quot;,tree-&gt;data);
+		PrintTreeTriangle(tree-&gt;left,level+1);
+	}
+	return(NULL);
+}
+int TreeDepth(TREE *tree,int *depth,int level) {
+	if(tree) {
+		if (level&gt;*depth)
+		     *depth=level;
+		TreeDepth(tree-&gt;left,depth,level+1);
+		TreeDepth(tree-&gt;right,depth,level+1);
+	}
+	return(0);
+}
+</pre>
+            </div>
+        
+     <footer class="entry-meta">
+                    </footer>
+
+
+    </article>
+
+<DIV>
+<br/><span class='add'>Advertisment  <CODE></CODE></span>
+<iframe src='http://www.flipkart.com/affiliate/displayWidget?affrid=WRID-141836230458539723' frameborder=0 scrolling='no' height=160 width=100%></iframe>
+</DIV>
+<style>
+.add{
+background:#eee;
+padding:2px;
+box-shadow: 0 0 4px 1px #888;
+-moz-box-shadow: 0 0 4px 1px #888;
+-webkit-box-shadow: 0 0 4px 1px #888;
+border-color: #DDD #DDD #CCC;
+border-radius: 4px;
+border-style: solid;
+border-width: 1px;
+}
+</style>
+
+</div><br/><br/><br/><hr/>  
+
+                                  
+                 
+
+
+         
+        </div>
+    </div>
+
+
+    </div>
+
+<div class="footer">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- first -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:320px;height:50px"
+     data-ad-client="ca-pub-5670434359943293"
+     data-ad-slot="3505535769"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37219525-1']);
+  _gaq.push(['_setDomainName', 'scanftree.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+$("#back-top").hide();
+$(function () {
+		$(window).scroll(function () {if ($(this).scrollTop() > 100) {$('#back-top').fadeIn();} 
+		else {$('#back-top').fadeOut();}
+		});
+
+		$('#back-top a').click(function () {$('body,html').animate({scrollTop: 0}, 1500);return false; });  });
+		
+		 
+
+ $('.content' ).css( "min-height", $( '.sidebar1').height() );		
+		
+		  });
+
+
+$(".gen tr:even").css("background-color", "#F4F4F8");
+ 
+$('#toggle-button').toggle(function() {
+            $('#toggle').animate({width: 750});
+            $('#toggle').animate({height: 500});     
+			 }, function() {
+            $('#toggle').animate({width: 620});
+			 $('#toggle').animate({height: 250});
+      });
+	  
+	  
+$(function(){
+         var url = window.location.pathname, 
+        urlRegExp = new RegExp(url.replace(/\/$/,'') + "$"); 
+  $('.menu li  a').each(function(){
+            if(urlRegExp.test(this.href.replace(/\/$/,''))){
+                $(this).addClass('act');
+//  $('#content' ).prepend('<div><ul class="pager"><li class="previous"><a href="codd-rule.php">&larr; Prev</a></li><li class="next"><a href= '  +$(this).parent().next("li").children("a").attr("href")  +'>Next &rarr;</a></li></ul></div> ');
+// alert($(this).siblings("li").html());
+                 asdfg=$(this).next();
+
+       }
+                                              });
+
+
+
+ });
+
+
+
+
+
+</script>
+
+<span id="back-top" ><a ><span></span></a></span>
+<div id="bottommenu" >
+
+
+
+<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+  {parsetags: 'explicit'}
+</script>
+
+
+<script type="text/javascript">
+var infolinks_pid = 1709549;
+var infolinks_wsid = 0;
+</script>
+<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+
+<div class="row">
+  <div class="col-sm-12 col-md-8">
+
+<!-- <a href="/" target="_top">HOME</a> | <a href="/c/" target="_top">C</a> | <a href="/Data_Structure/" target="_top">Data Structure</a> | <a href="http://scanftree.com/microprocessor/Pin-Diagram-of-8085-and-Pin-description-of-8085" target="_top">Microprocessor</a> | <a href="http://scanftree.com/Cheat-Sheets/" target="_top">CHEAT SHEETS</a> | <a href="/html5/" target="_top">Html 5 </a> | <a href="http://scanftree.com/operating-system/" target="_top">OS</a> | <a href="/sql/" target="_top">SQL </a> |  -->
+<p>Scanftree is optimized for learning, testing, and training. Examples might be simplified to improve reading and basic understanding. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content. While using this site, you agree to have read and accepted our	terms of use and privacy policy.</p><p>©Copyright 2014 Scanftree.</p>
+</div>
+
+  <div class="col-sm-12 col-md-4">
+
+<div class="g-person"  data-href="//plus.google.com/118436369275590927622" data-layout="landscape" data-showcoverphoto="false" data-rel="author"></div>
+</div>
+
+</div>
+
+</div>
+
+<a  style="visibility:hidden" href="https://profiles.google.com/118436369275590927622" rel="me">My Google+ Profile</a>
+<a  style="visibility:hidden" href="https://profiles.google.com/118436369275590927622" >My Google+ Profile</a>
+
+
+
+
+
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
+<script type="text/javascript" >
+        var disqus_shortname = 'scanftree'; 
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+
+$('#content' ).append('<br/><hr/><center ><span class="this"> <a class="addthis_button_google_plusone" g:plusone:size="tall"></a> <a class="addthis_button_tweet" tw:count="vertical"></a> <a class="addthis_button_facebook_like" fb:like:layout="box_count"></a> </span></center> <hr/><br/><br/> ');
+
+
+$(".content").append('<div id="disqus_thread"></div>');
+//$(".content").append('<input type="hidden" name="IL_IN_TAG" value="2"/>');
+
+
+    </script>
+	
+
+
+<script type="text/javascript">gapi.person.go();</script>
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+
+<script id="_waumo2">var _wau = _wau || []; _wau.push(["small", "uf15qyhdzbqn", "mo2"]);
+(function() {var s=document.createElement("script"); s.async=true;
+s.src="http://widgets.amung.us/small.js";
+document.getElementsByTagName("head")[0].appendChild(s);
+})();</script>
+
+
+<script>
+$('#content' ).prepend('<center title="Like Our Facebook page"><div class="fb-like" data-href="https://www.facebook.com/scanftreecom" data-layout="box_count" data-action="like" data-show-faces="false" data-share="true"></div></center> <br/><br/> ');
+</script>
+
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f758b7556b7ac22"></script>
+<script type="text/javascript">
+addthis.layers({
+    'theme' : 'transparent',
+    'domain' : 'scanftree.com',
+    'linkFilter' : function(link, layer) {
+        console.log(link.title + ' - ' + link.url + " - " + layer);
+        return link;
+    },
+    'responsive' : {
+      'maxWidth' : '979px',
+      'minWidth' : '0px'
+    },
+ 
+    'follow' : {
+        'services' : [
+            {'service' : 'facebook', 'id' : 'scanftreecom',},
+           {'service': 'google_follow', 'id': '+Ankit-Kumar-Singh'},
+         {'service': 'linkedin', 'id': 'erankitkumarsingh'},
+
+
+        ],
+        'title' : 'My Profile',
+        'postFollowTitle' : 'Thanks for following!',
+        'postFollowRecommendedMsg' : 'Recommended for you',
+        'mobile' : true,
+        'desktop' : true,
+        'theme' : 'transparent'
+    },
+});
+</script></div>
+
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script src="http://google-code-prettify.googlecode.com/svn/trunk/src/lang-css.js"></script>
+
+
+
+</body>
+</html>

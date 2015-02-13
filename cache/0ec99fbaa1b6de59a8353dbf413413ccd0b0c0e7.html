@@ -1,0 +1,698 @@
+undefined<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Tagged union - Wikipedia, the free encyclopedia</title>
+<meta name="generator" content="MediaWiki 1.25wmf16" />
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/Tagged_union" />
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Tagged_union&amp;action=edit" />
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Tagged_union&amp;action=edit" />
+<link rel="apple-touch-icon" href="//bits.wikimedia.org/apple-touch/wikipedia.png" />
+<link rel="shortcut icon" href="//bits.wikimedia.org/favicon/wikipedia.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Tagged_union" />
+<link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="canonical" href="http://en.wikipedia.org/wiki/Tagged_union" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=ext.gadget.DRN-wizard%2CReferenceTooltips%2Ccharinsert%2Cfeatured-articles-links%2CrefToolbar%2Cswitcher%2Cteahouse%7Cext.geshi.language.ada%2Cc%2Ccpp%2Cocaml%2Cpascal%2Cscala%7Cext.geshi.local%7Cext.math.styles%7Cext.uls.nojs%7Cext.visualEditor.viewPageTarget.noscript%7Cext.wikihiero%2CwikimediaBadges%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:3904d24a08aa08f6a68dc338f9be277e */</style>
+<script src="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Tagged_union","wgTitle":"Tagged union","wgCurRevisionId":646601369,"wgRevisionId":646601369,"wgArticleId":453395,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles to be merged from August 2014","All articles to be merged","Articles lacking sources from August 2009","All articles lacking sources","Data types","Type theory","Articles with example Pascal code","Articles with example ALGOL 68 code","Articles with example C code","Articles with example C++ code","Articles with example Ada code"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Tagged_union","wgRelevantArticleId":453395,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","svgMaxSize":4096,"namespacesWithSubpages":{"6":0,"8":0,"1":true,"2":true,"3":true,"4":true,"5":true,"7":true,"9":true,"10":true,"11":true,"12":true,"13":true,"14":true,"15":true,"100":true,"101":true,"102":true,"103":true,"104":true,"105":true,"106":true,"107":true,"108":true,"109":true,"110":true,"111":true,"830":true,"831":true,"447":true,"2600":false,"828":true,"829":true}},"wikilove-recipient":"","wikilove-anon":0,"wgPoweredByHHVM":true,"wgULSAcceptLanguageList":["en-us","en"],"wgULSCurrentAutonym":"English","wgFlaggedRevsParams":{"tags":{"status":{"levels":1,"quality":2,"pristine":3}}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q7675229"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});},{},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{},{});
+/* cache key: enwiki:resourceloader:filter:minify-js:7:94007ea073e20ad4a3cdce36b2f2e369 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.centralauth.centralautologin","mmv.head","ext.visualEditor.viewPageTarget.init","ext.uls.init","ext.uls.interface","ext.centralNotice.bannerController","skins.vector.js"]);
+}</script>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static-1.25wmf16/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Tagged_union skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+							<div id="siteNotice"><!-- CentralNotice --></div>
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Tagged union</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Wikipedia, the free encyclopedia</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="metadata plainlinks ambox ambox-move" role="presentation">
+<tr>
+<td class="mbox-image">
+<div style="width:52px"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Mergefrom.svg/50px-Mergefrom.svg.png" width="50" height="20" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Mergefrom.svg/75px-Mergefrom.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Mergefrom.svg/100px-Mergefrom.svg.png 2x" data-file-width="50" data-file-height="20" /></div>
+</td>
+<td class="mbox-text"><span class="mbox-text-span">It has been suggested that <i><a href="/wiki/Variant_type" title="Variant type">Variant type</a></i> be <a href="/wiki/Wikipedia:Merging" title="Wikipedia:Merging">merged</a> into this article. (<a href="/wiki/Talk:Tagged_union" title="Talk:Tagged union">Discuss</a>) <small><i>Proposed since August 2014.</i></small></span></td>
+</tr>
+</table>
+<table class="metadata plainlinks ambox ambox-content ambox-Unreferenced" role="presentation">
+<tr>
+<td class="mbox-image">
+<div style="width:52px"><a href="/wiki/File:Question_book-new.svg" class="image"><img alt="Question book-new.svg" src="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/50px-Question_book-new.svg.png" width="50" height="39" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/75px-Question_book-new.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/100px-Question_book-new.svg.png 2x" data-file-width="262" data-file-height="204" /></a></div>
+</td>
+<td class="mbox-text"><span class="mbox-text-span">This article <b>does not <a href="/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">cite</a> any <a href="/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">references or sources</a></b>. <span class="hide-when-compact">Please help <a class="external text" href="//en.wikipedia.org/w/index.php?title=Tagged_union&amp;action=edit">improve this article</a> by <a href="/wiki/Help:Introduction_to_referencing/1" title="Help:Introduction to referencing/1">adding citations to reliable sources</a>. Unsourced material may be challenged and <a href="/wiki/Wikipedia:Verifiability#Burden_of_evidence" title="Wikipedia:Verifiability">removed</a>.</span> <small><i>(August 2009)</i></small></span></td>
+</tr>
+</table>
+<p>In <a href="/wiki/Computer_science" title="Computer science">computer science</a>, a <b>tagged union</b>, also called a <b><a href="/wiki/Variant_type" title="Variant type">variant</a></b>, <b>variant record</b>, <b>discriminated union</b>, <b><a href="/wiki/Disjoint_union" title="Disjoint union">disjoint union</a></b>, or <b>sum type</b>, is a <a href="/wiki/Data_structure" title="Data structure">data structure</a> used to hold a value that could take on several different, but fixed types. Only one of the types can be in use at any one time, and a <b>tag</b> field explicitly indicates which one is in use. It can be thought of as a type that has several "cases," each of which should be handled correctly when that type is manipulated. Like ordinary <a href="/wiki/Union_(computer_science)" title="Union (computer science)" class="mw-redirect">unions</a>, tagged unions can save storage by overlapping storage areas for each type, since only one is in use at a time.</p>
+<p>Tagged unions are most important in <a href="/wiki/Functional_language" title="Functional language" class="mw-redirect">functional languages</a> such as <a href="/wiki/ML_programming_language" title="ML programming language" class="mw-redirect">ML</a> and <a href="/wiki/Haskell_(programming_language)" title="Haskell (programming language)">Haskell</a>, where they are called <b>datatypes</b> (see <a href="/wiki/Algebraic_data_type" title="Algebraic data type">algebraic data type</a>) and the compiler is able to verify that all cases of a tagged union are always handled, avoiding many types of errors. They can, however, be constructed in nearly any <a href="/wiki/Programming_language" title="Programming language">language</a>, and are much safer than untagged unions, often simply called unions, which are similar but do not explicitly keep track of which member of the union is currently in use.</p>
+<p>Tagged unions are often accompanied by the concept of a <a href="/wiki/Type_constructor" title="Type constructor">type constructor</a>, which is similar but not the same as a <a href="/wiki/Constructor_(computer_science)" title="Constructor (computer science)" class="mw-redirect">constructor</a> for a class. Type constructors produce a tagged union type, given the initial tag type and the corresponding type.</p>
+<p>Mathematically, tagged unions correspond to <i><a href="/wiki/Disjoint_union" title="Disjoint union">disjoint</a></i> or <i>discriminated unions</i>, usually written using +. Given an element of a disjoint union <i>A</i> + <i>B</i>, it is possible to determine whether it came from <i>A</i> or <i>B</i>. If an element lies in both, there will be two effectively distinct copies of the value in <i>A</i> + <i>B</i>, one from <i>A</i> and one from <i>B</i>.</p>
+<p>In <a href="/wiki/Type_theory" title="Type theory">type theory</a>, a tagged union is called a <b>sum type</b>. Sum types are the <a href="/wiki/Dual_(mathematics)" title="Dual (mathematics)" class="mw-redirect">dual</a> of <a href="/wiki/Product_type" title="Product type">product types</a>. Notations vary, but usually the sum type <img class="mwe-math-fallback-image-inline tex" alt="A+B" src="//upload.wikimedia.org/math/4/7/0/470c3f34cde50a8a7c4ed8f3926033af.png" /> comes with two introduction forms <img class="mwe-math-fallback-image-inline tex" alt="\text{inj}_1 : A \to A+B" src="//upload.wikimedia.org/math/2/9/f/29f644fd8b70aa201772dd677a1ea8cd.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="\text{inj}_2 : B \to A+B" src="//upload.wikimedia.org/math/d/b/7/db785052cc4f47adfa06d14aff856c6e.png" />. The elimination form is case analysis, known as <a href="/wiki/Pattern_matching" title="Pattern matching">pattern matching</a> in <a href="/wiki/ML_(programming_language)" title="ML (programming language)">ML-style</a> programming languages: if <img class="mwe-math-fallback-image-inline tex" alt="e" src="//upload.wikimedia.org/math/e/1/6/e1671797c52e15f763380b45e841ec32.png" /> has type <img class="mwe-math-fallback-image-inline tex" alt="A+B" src="//upload.wikimedia.org/math/4/7/0/470c3f34cde50a8a7c4ed8f3926033af.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="e_1" src="//upload.wikimedia.org/math/8/6/f/86f10061ad00479d981deb7c738917cb.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="e_2" src="//upload.wikimedia.org/math/7/8/3/7838b605a6d7dc2dffa546f485b40fa0.png" /> have type <img class="mwe-math-fallback-image-inline tex" alt="\tau" src="//upload.wikimedia.org/math/8/1/a/81a69207104f00baaabd6f84cafd15a0.png" /> under the assumptions <img class="mwe-math-fallback-image-inline tex" alt="x:A" src="//upload.wikimedia.org/math/d/4/c/d4c90e3ecc5139aeaec1c205742d7b1e.png" /> and <img class="mwe-math-fallback-image-inline tex" alt="y:B" src="//upload.wikimedia.org/math/8/9/4/89462c9480d2a23d2d64f329e9badfac.png" /> respectively, then the term <img class="mwe-math-fallback-image-inline tex" alt="\mathsf{case}\ e\ \mathsf{of}\ x \Rightarrow e_1 | y \Rightarrow e_2" src="//upload.wikimedia.org/math/b/9/5/b9581b1658cd588c7ac29a020a0487d1.png" /> has type <img class="mwe-math-fallback-image-inline tex" alt="\tau" src="//upload.wikimedia.org/math/8/1/a/81a69207104f00baaabd6f84cafd15a0.png" />. The sum type corresponds to intuitionistic <a href="/wiki/Logical_disjunction" title="Logical disjunction">logical disjunction</a> under the <a href="/wiki/Curry%E2%80%93Howard_correspondence" title="Curry–Howard correspondence">Curry–Howard correspondence</a>.</p>
+<p>An <a href="/wiki/Enumerated_type" title="Enumerated type">enumerated type</a> can be seen as a degenerate case: a tagged union of <a href="/wiki/Unit_type" title="Unit type">unit types</a>. It corresponds to a set of nullary constructors and may be implemented as a simple tag variable, since it holds no additional data besides the value of the tag.</p>
+<p>Many programming techniques and data structures – including <a href="/wiki/Rope_(data_structure)" title="Rope (data structure)">rope (data structure)</a>, <a href="/wiki/Lazy_evaluation" title="Lazy evaluation">lazy evaluation</a>, <a href="/wiki/Class_hierarchy" title="Class hierarchy">class hierarchy</a> (see below), <a href="/wiki/Arbitrary-precision_arithmetic" title="Arbitrary-precision arithmetic">arbitrary-precision arithmetic</a>, <a href="/wiki/CDR_coding" title="CDR coding">CDR coding</a>, the <a href="/wiki/Indirection_bit" title="Indirection bit" class="mw-redirect">indirection bit</a> and other kinds of <a href="/wiki/Tagged_pointer" title="Tagged pointer">tagged pointers</a>, etc. – are usually implemented using some sort of tagged union.</p>
+<p>A tagged union can be seen as the simplest kind of <a href="/wiki/Self-describing" title="Self-describing" class="mw-redirect">self-describing</a> <a href="/wiki/Comparison_of_data_serialization_formats" title="Comparison of data serialization formats">data format</a>. The tag of the tagged union can be seen as the simplest kind of <a href="/wiki/Metadata" title="Metadata">metadata</a>.</p>
+<p></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Advantages_and_disadvantages"><span class="tocnumber">1</span> <span class="toctext">Advantages and disadvantages</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Examples"><span class="tocnumber">2</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Timeline_of_language_support"><span class="tocnumber">3</span> <span class="toctext">Timeline of language support</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#1960s"><span class="tocnumber">3.1</span> <span class="toctext">1960s</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#1970s_.26_1980s"><span class="tocnumber">3.2</span> <span class="toctext">1970s &amp; 1980s</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#2000s"><span class="tocnumber">3.3</span> <span class="toctext">2000s</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Class_hierarchies_as_tagged_unions"><span class="tocnumber">4</span> <span class="toctext">Class hierarchies as tagged unions</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+<p></p>
+<h2><span class="mw-headline" id="Advantages_and_disadvantages">Advantages and disadvantages</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Tagged_union&amp;action=edit&amp;section=1" title="Edit section: Advantages and disadvantages">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>The primary advantage of a tagged union over an untagged union is that all accesses are safe, and the compiler can even check that all cases are handled. Untagged unions depend on program logic to correctly identify the currently active field, which may result in strange behavior and hard-to-find bugs if that logic fails.</p>
+<p>The primary advantage of a tagged union over a simple <a href="/wiki/Record_(computer_science)" title="Record (computer science)">record</a> containing a field for each type is that it saves storage by overlapping storage for all the types. Some implementations reserve enough storage for the largest type, while others dynamically adjust the size of a tagged union value as needed. When the value is <a href="/wiki/Immutable_object" title="Immutable object">immutable</a>, it is simple to allocate just as much storage as is needed.</p>
+<p>The main disadvantage of tagged unions is that the tag occupies space. Since there are usually a small number of alternatives, the tag can often be squeezed into 2 or 3 bits wherever space can be found, but sometimes even these bits are not available. In this case, a helpful alternative may be <b>folded</b>, <b>computed</b> or <b>encoded tags</b>, where the tag value is dynamically computed from the contents of the union field. Common examples of this are the use of <i>reserved values</i>, where, for example, a function returning a positive number may return -1 to indicate failure, and <a href="/wiki/Sentinel_value" title="Sentinel value">sentinel values</a>, most often used in <a href="/wiki/Tagged_pointer" title="Tagged pointer">tagged pointers</a>.</p>
+<p>Sometimes, untagged unions are used to perform bit-level conversions between types, called reinterpret casts in C++. Tagged unions are not intended for this purpose; typically a new value is assigned whenever the tag is changed.</p>
+<p>Many languages support, to some extent, a <a href="/wiki/Top_type" title="Top type">universal data type</a>, which is a type that includes every value of every other type, and often a way is provided to test the actual type of a value of the universal type. These are sometimes referred to as <i>variants</i>. While universal data types are comparable to tagged unions in their formal definition, typical tagged unions include a relatively small number of cases, and these cases form different ways of expressing a single coherent concept, such as a data structure node or instruction. Also, there is an expectation that every possible case of a tagged union will be dealt with when it is used. The values of a universal data type are not related and there is no feasible way to deal with them all.</p>
+<p>Like <a href="/wiki/Option_type" title="Option type">option types</a> and <a href="/wiki/Exception_handling" title="Exception handling">exception handling</a>, tagged unions are sometimes used to handle the occurrence of exceptional results. Often these tags are folded into the type as "reserved values", and their occurrence is not consistently checked: this is a fairly common source of programming errors. This use of tagged unions can be formalized as a <a href="/wiki/Monads_in_functional_programming" title="Monads in functional programming" class="mw-redirect">monad</a> with the following functions:</p>
+<dl>
+<dd><img class="mwe-math-fallback-image-inline tex" alt="\text{return}\colon A \to \left( A + E \right) = a \mapsto \text{value} \, a" src="//upload.wikimedia.org/math/5/6/3/56332e1fd5632b18b94aa29e606830c9.png" /></dd>
+<dd><img class="mwe-math-fallback-image-inline tex" alt="\text{bind}\colon \left( A + E \right) \to \left(A \to \left(B + E \right) \right) \to \left( B + E \right) = a \mapsto f \mapsto \begin{cases} \text{err} \, e &amp; \text{if} \ a = \text{err} \, e\\ f \, a' &amp; \text{if} \ a = \text{value} \, a' \end{cases}" src="//upload.wikimedia.org/math/d/0/8/d08a0fbcd4d46b7e3f774e443d33ab03.png" /></dd>
+</dl>
+<p>where "value" and "err" are the constructors of the union type, <i>A</i> and <i>B</i> are valid result types and <i>E</i> is the type of error conditions. Alternately, the same monad may be described by <i>return</i> and two additional functions, <i>fmap</i> and <i>join</i>:</p>
+<dl>
+<dd><img class="mwe-math-fallback-image-inline tex" alt="\text{fmap} \colon (A \to B) \to \left( \left( A + E \right) \to \left( B + E \right) \right) = f \mapsto a \mapsto \begin{cases} \text{err} \, e &amp; \text{if} \ a = \text{err} \, e \\ \text{value} \, f \, a' &amp; \text{if} \ a = \text{value} \, a' \end{cases}" src="//upload.wikimedia.org/math/c/2/9/c298d85f1e7e81bba5775b9b2be2166a.png" /></dd>
+<dd><img class="mwe-math-fallback-image-inline tex" alt="\text{join} \colon ((A + E ) + E) \to (A + E) = a \mapsto \begin{cases} \text{err} \, e &amp; \mbox{if} \ a = \text{err} \, e\\ \text{err} \, e &amp; \text{if} \ a = \text{value} \, \text{err} \, e \\ \text{value} \, a' &amp; \text{if} \ a = \text{value} \, \text{value} \, a' \end{cases}" src="//upload.wikimedia.org/math/3/a/c/3aca6e2434be329865a319e6e295fe8c.png" /></dd>
+</dl>
+<h2><span class="mw-headline" id="Examples">Examples</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Tagged_union&amp;action=edit&amp;section=2" title="Edit section: Examples">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Say we wanted to build a <a href="/wiki/Binary_tree" title="Binary tree">binary tree</a> of integers. In ML, we would do this by creating a datatype like this:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="ocaml source-ocaml">
+<pre class="de1">
+datatype tree <span class="sy0">=</span> Leaf
+              <span class="sy0">|</span> Node <span class="kw1">of</span> <span class="br0">(</span><span class="kw4">int</span> <span class="sy0">*</span> tree <span class="sy0">*</span> tree<span class="br0">)</span>
+</pre></div>
+</div>
+<p>This is a tagged union with two cases: one, the leaf, is used to terminate a path of the tree, and functions much like a null value would in imperative languages. The other branch holds a node, which contains an integer and a left and right subtree. Leaf and Node are the constructors, which enable us to actually produce a particular tree, such as:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="ocaml source-ocaml">
+<pre class="de1">
+Node<span class="br0">(</span><span class="nu0">5</span>, Node<span class="br0">(</span><span class="nu0">1</span>,Leaf,Leaf<span class="br0">)</span>, Node<span class="br0">(</span><span class="nu0">3</span>, Leaf, Node<span class="br0">(</span><span class="nu0">4</span>, Leaf, Leaf<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+</pre></div>
+</div>
+<p>which corresponds to this tree:</p>
+<center><a href="/wiki/File:Tagged_union_tree.svg" class="image" title="The tree produced by the above constructors"><img alt="The tree produced by the above constructors" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/73/Tagged_union_tree.svg/200px-Tagged_union_tree.svg.png" width="200" height="178" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/73/Tagged_union_tree.svg/300px-Tagged_union_tree.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/73/Tagged_union_tree.svg/400px-Tagged_union_tree.svg.png 2x" data-file-width="200" data-file-height="178" /></a></center>
+<p>Now we can easily write a typesafe function that, say, counts the number of nodes in the tree:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="ocaml source-ocaml">
+<pre class="de1">
+<span class="kw1">fun</span> countNodes<span class="br0">(</span>Leaf<span class="br0">)</span> <span class="sy0">=</span> <span class="nu0">0</span>
+  <span class="sy0">|</span> countNodes<span class="br0">(</span>Node<span class="br0">(</span><span class="kw4">int</span>,left,right<span class="br0">)</span><span class="br0">)</span> <span class="sy0">=</span>
+      <span class="nu0">1</span> <span class="sy0">+</span> countNodes<span class="br0">(</span>left<span class="br0">)</span> <span class="sy0">+</span> countNodes<span class="br0">(</span>right<span class="br0">)</span>
+</pre></div>
+</div>
+<h2><span class="mw-headline" id="Timeline_of_language_support">Timeline of language support</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Tagged_union&amp;action=edit&amp;section=3" title="Edit section: Timeline of language support">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="1960s">1960s</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Tagged_union&amp;action=edit&amp;section=4" title="Edit section: 1960s">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In <a href="/wiki/ALGOL_68" title="ALGOL 68">ALGOL 68</a>, tagged unions are called <i>united modes</i>, the tag is implicit, and the <code><b>case</b></code> construct is used to determine which field is tagged:</p>
+<p><code><b>mode</b> <b>node</b> = <b>union</b> (<b>real</b>, <b>int</b>, <b>compl</b>, <b>string</b>);</code></p>
+<p>Usage example for <code><b>union</b></code> <code><b>case</b></code> of <code><b>node</b></code>:</p>
+<pre>
+<b>node</b> n := "1234";
+ 
+<b>case</b> n <b>in</b>
+  (<b>real</b> r):   print(("real:", r)),
+  (<b>int</b> i):    print(("int:", i)),
+  (<b>compl</b> c):  print(("compl:", c)),
+  (<b>string</b> s): print(("string:", s))
+  <b>out</b>         print(("?:", n))
+<b>esac</b>
+</pre>
+<h3><span class="mw-headline" id="1970s_.26_1980s">1970s &amp; 1980s</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Tagged_union&amp;action=edit&amp;section=5" title="Edit section: 1970s &amp; 1980s">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Although primarily only <a href="/wiki/Functional_programming_language" title="Functional programming language" class="mw-redirect">functional languages</a> such as <a href="/wiki/ML_programming_language" title="ML programming language" class="mw-redirect">ML</a> and <a href="/wiki/Haskell_(programming_language)" title="Haskell (programming language)">Haskell</a> (from 1990s) give a central role to tagged unions and have the power to check that all cases are handled, other languages have support for tagged unions as well. However, in practice they can be less efficient in non-functional languages due to optimizations enabled by functional language compilers that can eliminate explicit tag checks and avoid explicit storage of tags.</p>
+<p><a href="/wiki/Pascal_programming_language" title="Pascal programming language" class="mw-redirect">Pascal</a>, <a href="/wiki/Ada_programming_language" title="Ada programming language" class="mw-redirect">Ada</a>, and <a href="/wiki/Modula-2" title="Modula-2">Modula-2</a> call them <b>variant records</b> (formally <b>discriminated type</b> in Ada), and require the tag field to be manually created and the tag values specified, as in this Pascal example:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="pascal source-pascal">
+<pre class="de1">
+<span class="kw1">type</span> shapeKind <span class="sy3">=</span> <span class="br0">(</span>square<span class="sy1">,</span> rectangle<span class="sy1">,</span> circle<span class="br0">)</span><span class="sy1">;</span>
+     shape <span class="sy3">=</span> <span class="kw4">record</span>
+                centerx <span class="sy1">:</span> <span class="kw4">integer</span><span class="sy1">;</span>
+                centery <span class="sy1">:</span> <span class="kw4">integer</span><span class="sy1">;</span>
+                <span class="kw1">case</span> kind <span class="sy1">:</span> shapeKind <span class="kw1">of</span>
+                   square <span class="sy1">:</span> <span class="br0">(</span>side <span class="sy1">:</span> <span class="kw4">integer</span><span class="br0">)</span><span class="sy1">;</span>
+                   rectangle <span class="sy1">:</span> <span class="br0">(</span>length<span class="sy1">,</span> height <span class="sy1">:</span> <span class="kw4">integer</span><span class="br0">)</span><span class="sy1">;</span>
+                   circle <span class="sy1">:</span> <span class="br0">(</span>radius <span class="sy1">:</span> <span class="kw4">integer</span><span class="br0">)</span><span class="sy1">;</span>
+	      <span class="kw1">end</span><span class="sy1">;</span>
+</pre></div>
+</div>
+<p>and this Ada equivalent:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="ada source-ada">
+<pre class="de1">
+<span class="kw3">type</span> Shape_Kind <span class="kw1">is</span> <span class="br0">(</span>Square, Rectangle, Circle<span class="br0">)</span>;
+<span class="kw3">type</span> Shape <span class="br0">(</span>Kind : Shape_Kind<span class="br0">)</span> <span class="kw1">is</span> <span class="kw3">record</span>
+   Center_X : Integer;
+   Center_Y : Integer;
+   <span class="kw1">case</span> Kind <span class="kw1">is</span>
+      <span class="kw3">when</span> Square =&gt;
+         Side : Integer;
+      <span class="kw3">when</span> Rectangle =&gt;
+         Length, Height : Integer;
+      <span class="kw3">when</span> Circle =&gt;
+         Radius : Integer;
+   <span class="kw1">end</span> <span class="kw1">case</span>;
+<span class="kw1">end</span> <span class="kw3">record</span>;
+ 
+<span class="co1">-- Any attempt to access a member whose existence depends</span>
+<span class="co1">-- on a particular value of the discriminant, while the</span>
+<span class="co1">-- discriminant is not the expected one, raises an error.</span>
+</pre></div>
+</div>
+<p>In <a href="/wiki/C_(programming_language)" title="C (programming language)">C</a> and <a href="/wiki/C%2B%2B" title="C++">C++</a>, a tagged union can be created from untagged unions using a strict access discipline where the tag is always checked:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="c source-c">
+<pre class="de1">
+<span class="kw2">enum</span> ShapeKind <span class="br0">{</span> Square<span class="sy0">,</span> Rectangle<span class="sy0">,</span> Circle <span class="br0">}</span><span class="sy0">;</span>
+ 
+<span class="kw4">struct</span> Shape <span class="br0">{</span>
+    <span class="kw4">int</span> centerx<span class="sy0">;</span>
+    <span class="kw4">int</span> centery<span class="sy0">;</span>
+    <span class="kw2">enum</span> ShapeKind kind<span class="sy0">;</span>
+    <span class="kw4">union</span> <span class="br0">{</span>
+        <span class="kw4">struct</span> <span class="br0">{</span> <span class="kw4">int</span> side<span class="sy0">;</span> <span class="br0">}</span><span class="sy0">;</span>           <span class="coMULTI">/* Square */</span>
+        <span class="kw4">struct</span> <span class="br0">{</span> <span class="kw4">int</span> length<span class="sy0">,</span> height<span class="sy0">;</span> <span class="br0">}</span><span class="sy0">;</span> <span class="coMULTI">/* Rectangle */</span>
+        <span class="kw4">struct</span> <span class="br0">{</span> <span class="kw4">int</span> radius<span class="sy0">;</span> <span class="br0">}</span><span class="sy0">;</span>         <span class="coMULTI">/* Circle */</span>
+    <span class="br0">}</span><span class="sy0">;</span>
+<span class="br0">}</span><span class="sy0">;</span>
+ 
+<span class="kw4">int</span> getSquareSide<span class="br0">(</span><span class="kw4">struct</span> Shape<span class="sy0">*</span> s<span class="br0">)</span> <span class="br0">{</span>
+    <span class="kw3">assert</span><span class="br0">(</span>s<span class="sy0">-&gt;</span>kind <span class="sy0">==</span> Square<span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">return</span> s<span class="sy0">-&gt;</span>side<span class="sy0">;</span>
+<span class="br0">}</span>
+ 
+<span class="kw4">void</span> setSquareSide<span class="br0">(</span><span class="kw4">struct</span> Shape<span class="sy0">*</span> s<span class="sy0">,</span> <span class="kw4">int</span> side<span class="br0">)</span> <span class="br0">{</span>
+    s<span class="sy0">-&gt;</span>kind <span class="sy0">=</span> Square<span class="sy0">;</span>
+    s<span class="sy0">-&gt;</span>side <span class="sy0">=</span> side<span class="sy0">;</span>
+<span class="br0">}</span>
+ 
+<span class="coMULTI">/* and so on */</span>
+</pre></div>
+</div>
+<p>As long as the union fields are only accessed through the functions, the accesses will be safe and correct. The same approach can be used for encoded tags; we simply decode the tag and then check it on each access. If the inefficiency of these tag checks is a concern, they may be automatically removed in the final version.</p>
+<p>C and C++ also have language support for one particular tagged union: the possibly-null <a href="/wiki/Pointer_(computer_programming)" title="Pointer (computer programming)">pointer</a>. This may be compared to the <code>option</code> type in ML or the <code>Maybe</code> type in Haskell, and can be seen as a <a href="/wiki/Tagged_pointer" title="Tagged pointer">tagged pointer</a>: a tagged union (with an encoded tag) of two types:</p>
+<ul>
+<li>Valid pointers,</li>
+<li>A type with only one value, <code>null</code>, indicating an exceptional condition.</li>
+</ul>
+<p>Unfortunately, C compilers do not verify that the null case is always handled, and this is a particularly prevalent source of errors in C code, since there is a tendency to ignore exceptional cases.</p>
+<h3><span class="mw-headline" id="2000s">2000s</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Tagged_union&amp;action=edit&amp;section=6" title="Edit section: 2000s">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>One advanced dialect of C called <a href="/wiki/Cyclone_programming_language" title="Cyclone programming language" class="mw-redirect">Cyclone</a> has extensive built-in support for tagged unions. See <a rel="nofollow" class="external text" href="http://cyclone.thelanguage.org/wiki/Tagged%20Unions">the tagged union section of the on-line manual</a> for more information.</p>
+<p>The enum types in the <a href="/wiki/Rust_(programming_language)" title="Rust (programming language)">Rust</a> and <a href="/wiki/Swift_(programming_language)" title="Swift (programming language)">Swift</a> languages also work as tagged unions.</p>
+<p>The variant library from <a href="/wiki/Boost_C%2B%2B_Libraries" title="Boost C++ Libraries" class="mw-redirect">Boost</a> has demonstrated it was possible to implement a safe tagged union as a library in C++, visitable using functors.</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="cpp source-cpp">
+<pre class="de1">
+<span class="kw4">struct</span> display <span class="sy4">:</span> boost<span class="sy4">::</span><span class="me2">static_visitor</span><span class="sy1">&lt;</span><span class="kw4">void</span><span class="sy1">&gt;</span>
+<span class="br0">{</span>
+    <span class="kw4">void</span> operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">int</span> i<span class="br0">)</span>
+    <span class="br0">{</span>
+        std<span class="sy4">::</span><span class="kw3">cout</span> <span class="sy1">&lt;&lt;</span> <span class="st0">"It's an int, with value "</span> <span class="sy1">&lt;&lt;</span> i <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">endl</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+ 
+    <span class="kw4">void</span> operator<span class="br0">(</span><span class="br0">)</span><span class="br0">(</span><span class="kw4">const</span> std<span class="sy4">::</span><span class="me2">string</span><span class="sy3">&amp;</span> s<span class="br0">)</span>
+    <span class="br0">{</span>
+        std<span class="sy4">::</span><span class="kw3">cout</span> <span class="sy1">&lt;&lt;</span> <span class="st0">"It's a string, with value "</span> <span class="sy1">&lt;&lt;</span> s <span class="sy1">&lt;&lt;</span> std<span class="sy4">::</span><span class="me2">endl</span><span class="sy4">;</span>
+    <span class="br0">}</span>
+<span class="br0">}</span><span class="sy4">;</span>
+ 
+boost<span class="sy4">::</span><span class="me2">variant</span><span class="sy1">&lt;</span><span class="kw4">int</span>, std<span class="sy4">::</span><span class="me2">string</span><span class="sy1">&gt;</span> v <span class="sy1">=</span> <span class="nu0">42</span><span class="sy4">;</span>
+boost<span class="sy4">::</span><span class="me2">apply_visitor</span><span class="br0">(</span>display<span class="br0">(</span><span class="br0">)</span>, v<span class="br0">)</span><span class="sy4">;</span>
+ 
+boost<span class="sy4">::</span><span class="me2">variant</span><span class="sy1">&lt;</span><span class="kw4">int</span>, std<span class="sy4">::</span><span class="me2">string</span><span class="sy1">&gt;</span> v <span class="sy1">=</span> <span class="st0">"hello world"</span><span class="sy4">;</span>
+boost<span class="sy4">::</span><span class="me2">apply_visitor</span><span class="br0">(</span>display<span class="br0">(</span><span class="br0">)</span>, v<span class="br0">)</span><span class="sy4">;</span>
+</pre></div>
+</div>
+<p><br />
+<a href="/wiki/Scala_(programming_language)" title="Scala (programming language)">Scala</a> has case classes:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="scala source-scala">
+<pre class="de1">
+<span class="kw1">sealed</span> <span class="kw1">abstract</span> <span class="kw1">class</span> Tree
+<span class="kw1">case</span> <span class="kw1">object</span> Leaf <span class="kw1">extends</span> Tree
+<span class="kw1">case</span> <span class="kw1">class</span> Node<span class="br0">(</span>value<span class="sy0">:</span> Int, left<span class="sy0">:</span> Tree, right<span class="sy0">:</span> Tree<span class="br0">)</span> <span class="kw1">extends</span> Tree
+ 
+<span class="kw1">val</span> tree <span class="sy0">=</span> Node<span class="br0">(</span><span class="nu0">5</span>, Node<span class="br0">(</span><span class="nu0">1</span>,Leaf,Leaf<span class="br0">)</span>, Node<span class="br0">(</span><span class="nu0">3</span>, Leaf, Node<span class="br0">(</span><span class="nu0">4</span>, Leaf, Leaf<span class="br0">)</span><span class="br0">)</span><span class="br0">)</span>
+</pre></div>
+</div>
+<p>Because the class hierarchy is sealed, the compiler can check that all cases are handled in a pattern match:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="scala source-scala">
+<pre class="de1">
+tree <span class="kw1">match</span> <span class="br0">{</span>
+  <span class="kw1">case</span> Node<span class="br0">(</span>x, <span class="sy0">_</span>, <span class="sy0">_</span><span class="br0">)</span> <span class="sy0">=&gt;</span> println<span class="br0">(</span><span class="st0">"top level node value: "</span> + x<span class="br0">)</span>
+  <span class="kw1">case</span> Leaf          <span class="sy0">=&gt;</span> println<span class="br0">(</span><span class="st0">"top level node is a leaf"</span><span class="br0">)</span>
+<span class="br0">}</span>
+</pre></div>
+</div>
+<p>Scala's case classes also permit reuse through subtyping:</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr">
+<div class="scala source-scala">
+<pre class="de1">
+<span class="kw1">sealed</span> <span class="kw1">abstract</span> <span class="kw1">class</span> Shape<span class="br0">(</span>centerX<span class="sy0">:</span> Int, centerY<span class="sy0">:</span> Int<span class="br0">)</span>
+<span class="kw1">case</span> <span class="kw1">class</span> Square<span class="br0">(</span>side<span class="sy0">:</span> Int, centerX<span class="sy0">:</span> Int, centerY<span class="sy0">:</span> Int<span class="br0">)</span> <span class="kw1">extends</span> Shape<span class="br0">(</span>centerX, centerY<span class="br0">)</span>
+<span class="kw1">case</span> <span class="kw1">class</span> Rectangle<span class="br0">(</span>length<span class="sy0">:</span> Int, height<span class="sy0">:</span> Int, centerX<span class="sy0">:</span> Int, centerY<span class="sy0">:</span> Int<span class="br0">)</span> <span class="kw1">extends</span> Shape<span class="br0">(</span>centerX, centerY<span class="br0">)</span>
+<span class="kw1">case</span> <span class="kw1">class</span> Circle<span class="br0">(</span>radius<span class="sy0">:</span> Int, centerX<span class="sy0">:</span> Int, centerY<span class="sy0">:</span> Int<span class="br0">)</span> <span class="kw1">extends</span> Shape<span class="br0">(</span>centerX, centerY<span class="br0">)</span>
+</pre></div>
+</div>
+<h2><span class="mw-headline" id="Class_hierarchies_as_tagged_unions">Class hierarchies as tagged unions</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Tagged_union&amp;action=edit&amp;section=7" title="Edit section: Class hierarchies as tagged unions">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>In a typical <a href="/wiki/Class_hierarchy" title="Class hierarchy">class hierarchy</a> in <a href="/wiki/Object-oriented_programming" title="Object-oriented programming">object-oriented programming</a>, each subclass can encapsulate data unique to that class. The metadata used to perform <a href="/wiki/Virtual_method" title="Virtual method" class="mw-redirect">virtual method</a> lookup (for example, the object's <a href="/wiki/Virtual_method_table" title="Virtual method table">vtable</a> pointer in most C++ implementations) identifies the subclass and so effectively acts as a tag identifying the particular data stored by the instance (see <a href="/wiki/RTTI" title="RTTI" class="mw-redirect">RTTI</a>). An object's <a href="/wiki/Constructor_(computer_science)" title="Constructor (computer science)" class="mw-redirect">constructor</a> sets this tag, and it remains constant throughout the object's lifetime.</p>
+<p>Nevertheless, a class hierarchy involves true <a href="/wiki/Subtype_polymorphism" title="Subtype polymorphism" class="mw-redirect">subtype polymorphism</a>; it can be extended by creating further subclasses of the same base type, which could not be handled correctly under a tag/dispatch model. Hence, it is usually not possible to do case analysis or dispatch on a subobject's 'tag' as one would for tagged unions. Some languages such as <a href="/wiki/Scala_(programming_language)" title="Scala (programming language)">Scala</a> allow base classes to be "sealed", and unify tagged unions with sealed base classes.</p>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Tagged_union&amp;action=edit&amp;section=8" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a href="/wiki/Discriminator" title="Discriminator">Discriminator</a>, the type tag for discriminated unions in <a href="/wiki/CORBA" title="CORBA" class="mw-redirect">CORBA</a></li>
+<li><a href="/wiki/Apache_Thrift" title="Apache Thrift">Apache Thrift</a>, an RPC system with tagged unions</li>
+</ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Tagged_union&amp;action=edit&amp;section=9" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://www.boost.org/libs/variant/index.html">boost::variant</a> is a C++ typesafe discriminated union</li>
+<li><a rel="nofollow" class="external text" href="http://www.digitalmars.com/d/phobos/std_variant.html">std.variant</a> is an implementation of variant type in <a href="/wiki/D_(programming_language)" title="D (programming language)">D</a> 2.0</li>
+</ul>
+<table class="navbox" style="border-spacing:0">
+<tr>
+<td style="padding:2px">
+<table class="nowraplinks hlist collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Data_types" title="Template:Data types"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Data_types" title="Template talk:Data types"><span title="Discuss this template" style=";;background:none transparent;border:none;">t</span></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Data_types&amp;action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%"><a href="/wiki/Data_type" title="Data type">Data types</a></div>
+</th>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Uninterpreted</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Bit" title="Bit">Bit</a></li>
+<li><a href="/wiki/Byte" title="Byte">Byte</a></li>
+<li><a href="/wiki/Ternary_numeral_system" title="Ternary numeral system">Trit</a></li>
+<li><a href="/wiki/Ternary_numeral_system#Tryte" title="Ternary numeral system">Tryte</a></li>
+<li><a href="/wiki/Word_(computer_architecture)" title="Word (computer architecture)">Word</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Numeric</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Arbitrary-precision_arithmetic" title="Arbitrary-precision arithmetic">Bignum</a></li>
+<li><a href="/wiki/Complex_data_type" title="Complex data type">Complex</a></li>
+<li><a href="/wiki/Decimal_data_type" title="Decimal data type">Decimal</a></li>
+<li><a href="/wiki/Fixed-point_arithmetic" title="Fixed-point arithmetic">Fixed-point</a></li>
+<li><a href="/wiki/Floating_point" title="Floating point">Floating-point</a></li>
+<li><a href="/wiki/Integer_(computer_science)" title="Integer (computer science)">Integer</a>
+<ul>
+<li><a href="/wiki/Signedness" title="Signedness">signedness</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Interval_arithmetic" title="Interval arithmetic">Interval</a></li>
+<li><a href="/wiki/Rational_data_type" title="Rational data type">Rational</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Plain_text" title="Plain text">Text</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Character_(computing)" title="Character (computing)">Character</a></li>
+<li><a href="/wiki/String_(computer_science)" title="String (computer science)">String</a>
+<ul>
+<li><a href="/wiki/Null-terminated_string" title="Null-terminated string">null-terminated</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Pointer_(computer_programming)" title="Pointer (computer programming)">Pointer</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Memory_address" title="Memory address">Address</a>
+<ul>
+<li><a href="/wiki/Physical_address" title="Physical address">physical</a></li>
+<li><a href="/wiki/Virtual_address_space" title="Virtual address space">virtual</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Reference_(computer_science)" title="Reference (computer science)">Reference</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Composite_data_type" title="Composite data type">Composite</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Algebraic_data_type" title="Algebraic data type">Algebraic data type</a>
+<ul>
+<li><a href="/wiki/Generalized_algebraic_data_type" title="Generalized algebraic data type">generalized</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Array_data_type" title="Array data type">Array</a></li>
+<li><a href="/wiki/Associative_array" title="Associative array">Associative array</a></li>
+<li><a href="/wiki/Class_(computer_programming)" title="Class (computer programming)">Class</a></li>
+<li><a href="/wiki/Dependent_type" title="Dependent type">Dependent</a></li>
+<li><a href="/wiki/Intuitionistic_type_theory#Equality_type" title="Intuitionistic type theory">Equality</a></li>
+<li><a href="/wiki/Inductive_type" title="Inductive type">Inductive</a></li>
+<li><a href="/wiki/List_(abstract_data_type)" title="List (abstract data type)">List</a></li>
+<li><a href="/wiki/Object_(computer_science)" title="Object (computer science)">Object</a>
+<ul>
+<li><a href="/wiki/Metaobject" title="Metaobject">metaobject</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Option_type" title="Option type">Option type</a></li>
+<li><a href="/wiki/Product_type" title="Product type">Product</a></li>
+<li><a href="/wiki/Record_(computer_science)" title="Record (computer science)">Record</a></li>
+<li><a href="/wiki/Set_(abstract_data_type)" title="Set (abstract data type)">Set</a></li>
+<li><a href="/wiki/Union_type" title="Union type">Union</a>
+<ul>
+<li><strong class="selflink">tagged</strong></li>
+</ul>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Other</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Boolean_data_type" title="Boolean data type">Boolean</a></li>
+<li><a href="/wiki/Bottom_type" title="Bottom type">Bottom type</a></li>
+<li><a href="/wiki/Container_(abstract_data_type)" title="Container (abstract data type)">Collection</a></li>
+<li><a href="/wiki/Enumerated_type" title="Enumerated type">Enumerated type</a></li>
+<li><a href="/wiki/Exception_handling" title="Exception handling">Exception</a></li>
+<li><a href="/wiki/Function_type" title="Function type">Function type</a></li>
+<li><a href="/wiki/Opaque_data_type" title="Opaque data type">Opaque data type</a></li>
+<li><a href="/wiki/Recursive_data_type" title="Recursive data type">Recursive data type</a></li>
+<li><a href="/wiki/Semaphore_(programming)" title="Semaphore (programming)">Semaphore</a></li>
+<li><a href="/wiki/Stream_(computing)" title="Stream (computing)">Stream</a></li>
+<li><a href="/wiki/Top_type" title="Top type">Top type</a></li>
+<li><a href="/wiki/Type_class" title="Type class">Type class</a></li>
+<li><a href="/wiki/Unit_type" title="Unit type">Unit type</a></li>
+<li><a href="/wiki/Void_type" title="Void type">Void</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Related topics</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Abstract_data_type" title="Abstract data type">Abstract data type</a></li>
+<li><a href="/wiki/Data_structure" title="Data structure">Data structure</a></li>
+<li><a href="/wiki/Generic_programming" title="Generic programming">Generic</a></li>
+<li><a href="/wiki/Kind_(type_theory)" title="Kind (type theory)">Kind</a>
+<ul>
+<li><a href="/wiki/Metaclass" title="Metaclass">metaclass</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Parametric_polymorphism" title="Parametric polymorphism">Parametric polymorphism</a></li>
+<li><a href="/wiki/Primitive_data_type" title="Primitive data type">Primitive data type</a></li>
+<li><a href="/wiki/Protocol_(object-oriented_programming)" title="Protocol (object-oriented programming)">Protocol</a>
+<ul>
+<li><a href="/wiki/Interface_(computing)#Software_interfaces_in_object-oriented_languages" title="Interface (computing)">interface</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Subtyping" title="Subtyping">Subtyping</a></li>
+<li><a href="/wiki/Type_constructor" title="Type constructor">Type constructor</a></li>
+<li><a href="/wiki/Type_conversion" title="Type conversion">Type conversion</a></li>
+<li><a href="/wiki/Type_system" title="Type system">Type system</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1194
+CPU time usage: 0.227 seconds
+Real time usage: 0.296 seconds
+Preprocessor visited node count: 641/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 21397/2097152 bytes
+Template argument size: 213/2097152 bytes
+Highest expansion depth: 12/40
+Expensive parser function count: 2/500
+Lua time usage: 0.034/10.000 seconds
+Lua memory usage: 1.17 MB/50 MB
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  182.758      1 - -total
+ 48.24%   88.156      1 - Template:Mergefrom
+ 23.14%   42.294      1 - Template:Mbox
+  9.94%   18.170      1 - Template:Data_types
+  7.78%   14.226      1 - Template:Navbox
+  7.36%   13.457      1 - Template:DMC
+  6.69%   12.227      1 - Template:Unreferenced
+  4.20%    7.675      1 - Template:FULLROOTPAGENAME
+  3.55%    6.497      1 - Template:Pagelist
+  3.32%    6.062      1 - Template:Ambox
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:453395-0!*!0!!en!4!*!math=0 and timestamp 20150211041959 and revision id 646601369
+ -->
+<noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>									<div class="printfooter">
+						Retrieved from &quot;<a dir="ltr" href="http://en.wikipedia.org/w/index.php?title=Tagged_union&amp;oldid=646601369">http://en.wikipedia.org/w/index.php?title=Tagged_union&amp;oldid=646601369</a>&quot;					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Data_types" title="Category:Data types">Data types</a></li><li><a href="/wiki/Category:Type_theory" title="Category:Type theory">Type theory</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:Articles_to_be_merged_from_August_2014" title="Category:Articles to be merged from August 2014">Articles to be merged from August 2014</a></li><li><a href="/wiki/Category:All_articles_to_be_merged" title="Category:All articles to be merged">All articles to be merged</a></li><li><a href="/wiki/Category:Articles_lacking_sources_from_August_2009" title="Category:Articles lacking sources from August 2009">Articles lacking sources from August 2009</a></li><li><a href="/wiki/Category:All_articles_lacking_sources" title="Category:All articles lacking sources">All articles lacking sources</a></li><li><a href="/wiki/Category:Articles_with_example_Pascal_code" title="Category:Articles with example Pascal code">Articles with example Pascal code</a></li><li><a href="/wiki/Category:Articles_with_example_ALGOL_68_code" title="Category:Articles with example ALGOL 68 code">Articles with example ALGOL 68 code</a></li><li><a href="/wiki/Category:Articles_with_example_C_code" title="Category:Articles with example C code">Articles with example C code</a></li><li><a href="/wiki/Category:Articles_with_example_C%2B%2B_code" title="Category:Articles with example C++ code">Articles with example C++ code</a></li><li><a href="/wiki/Category:Articles_with_example_Ada_code" title="Category:Articles with example Ada code">Articles with example Ada code</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Tagged+union&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Tagged+union" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Tagged_union"  title="View the content page [c]" accesskey="c">Article</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Talk:Tagged_union"  title="Discussion about the content page [t]" accesskey="t">Talk</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Tagged_union" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=Tagged_union&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Tagged_union&amp;action=history"  title="Past versions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Wikipedia [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if one exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-contents"><a href="/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li>
+													<li id="n-featuredcontent"><a href="/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li>
+													<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li>
+													<li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li>
+													<li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikimedia Shop">Wikimedia Shop</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-interaction' aria-labelledby='p-interaction-label'>
+			<h3 id='p-interaction-label'>Interaction</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+													<li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li>
+													<li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Tagged_union" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Tagged_union" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=Tagged_union&amp;oldid=646601369" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=Tagged_union&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-wikibase"><a href="//www.wikidata.org/wiki/Q7675229" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li>
+						<li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Tagged_union&amp;id=646601369" title="Information on how to cite this page">Cite this page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-coll-print_export' aria-labelledby='p-coll-print_export-label'>
+			<h3 id='p-coll-print_export-label'>Print/export</h3>
+
+			<div class="body">
+									<ul>
+													<li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Tagged+union">Create a book</a></li>
+													<li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=Tagged+union&amp;oldid=646601369&amp;writer=rdf2latex">Download as PDF</a></li>
+													<li id="t-print"><a href="/w/index.php?title=Tagged_union&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+			<h3 id='p-lang-label'>Languages</h3>
+
+			<div class="body">
+									<ul>
+													<li class="interlanguage-link interwiki-pl"><a href="//pl.wikipedia.org/wiki/Rekord_z_wariantami" title="Rekord z wariantami – Polish" lang="pl" hreflang="pl">Polski</a></li>
+													<li class="interlanguage-link interwiki-ru"><a href="//ru.wikipedia.org/wiki/%D0%A2%D0%B8%D0%BF-%D1%81%D1%83%D0%BC%D0%BC%D0%B0" title="Тип-сумма – Russian" lang="ru" hreflang="ru">Русский</a></li>
+													<li class="interlanguage-link interwiki-zh"><a href="//zh.wikipedia.org/wiki/%E6%A0%87%E7%AD%BE%E8%81%94%E5%90%88" title="标签联合 – Chinese" lang="zh" hreflang="zh">中文</a></li>
+													<li class="uls-p-lang-dummy"><a href="#"></a></li>
+											</ul>
+				<div class='after-portlet after-portlet-lang'><span class="wb-langlinks-edit wb-langlinks-link"><a action="edit" href="//www.wikidata.org/wiki/Q7675229#sitelinks-wikipedia" text="Edit links" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 11 February 2015, at 04:19.</li>
+											<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="//wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+											<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+											<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Tagged_union&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="//wikimediafoundation.org/"><img src="//bits.wikimedia.org/images/wikimedia-button.png" srcset="//bits.wikimedia.org/images/wikimedia-button-1.5x.png 1.5x, //bits.wikimedia.org/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="//bits.wikimedia.org/static-1.25wmf16/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="//bits.wikimedia.org/static-1.25wmf16/resources/assets/poweredby_mediawiki_132x47.png 1.5x, //bits.wikimedia.org/static-1.25wmf16/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"ext.globalCssJs.site":"ready","ext.globalCssJs.user":"ready","site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.switcher","ext.gadget.featured-articles-links","mmv.bootstrap.autostart","ext.eventLogging.subscriber","ext.wikimediaEvents.statsd","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","ext.uls.interlanguage"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":123,"wgHostname":"mw1074"});
+}</script>
+	</body>
+</html>
