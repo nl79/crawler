@@ -19,7 +19,8 @@ var searchTerms = ['computer',
                    'design',
                    'pattern'];
 
-var stopTerms = ['and','or','the','an']; 
+var stopTerms = ['and','or','the','an'];
+var cacheDir = '/cache'; 
 
 var swarm = new Array(); 
 
@@ -29,7 +30,9 @@ seedURL.forEach(function(val, index, arr) {
     swarm.push(crawler({'url': val,
                        'limit': 500,
                        'terms': searchTerms,
-                       'stopTerms': stopTerms}).on('error', function(err) {
+                       'stopTerms': stopTerms,
+                       'cacheDir': cacheDir,
+                       'match': 2}).on('error', function(err) {
         console.log(err); }).on('done', function(arg) {
             console.log('Finished Crawling'); 
         }).crawl()); 

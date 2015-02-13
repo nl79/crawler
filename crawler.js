@@ -23,7 +23,18 @@ function spawn (config) {
         this.terms; 
         
         //set the stop words. 
-        this.stopWords; 
+        this.stopWords;
+        
+        /*
+         *match value controls the minimum number of terms to match
+         *in the document in order to cache it localy.
+         */ 
+        this.match;
+        
+        /*
+         *directoy to which the relevant documents will be cached.
+         */
+        this.cacheDir; 
          
         
         this.addUrl = function(url) {
@@ -40,7 +51,11 @@ function spawn (config) {
                 
                 return true; 
             }
-        }; 
+        };
+        
+        this.setCacheDir = function(args){
+            this.cacheDir = args; 
+        }
         
         this.setTerms = function(args) {
             
@@ -55,7 +70,17 @@ function spawn (config) {
         this.setLimit = function(args) {
             
             this.limit = args; 
-        }; 
+        };
+        
+        this.setMatch = function(num){
+            if (!isNaN(num)) {
+                this.match = num;
+                return true; 
+            }
+            
+            return false; 
+             
+        }
         
         
         this.crawl = function() {
@@ -113,7 +138,7 @@ function spawn (config) {
                 //check if relevant. If so save the page locally.
                 if (this.isRelevant(data.body)) {
                     //store the document.
-                    console.log('save document'); 
+                    this.cacheDocument(data);  
                 }
                 
                 /*
@@ -219,33 +244,46 @@ function spawn (config) {
             });
             
             /*
-             *loop through the provided terms and compare to the
+             *loop through the provided search terms and compare to the
              *terms inside the collection.
              *Store matching values
              */
-            var matches = Object.create(null);
+            //var matches = Object.create(null);
+            var matches = new Array();
             
             this.terms.forEach(function(val, i, arr) {
                 if(val in collection) {
-                    console.log(val); 
+                    matches.push(val);  
                 }
-            }); 
+            });
             
+            /*
+             *check matches length. If greater the nor equal to the
+             *supplied minimum the document is relevant.
+             */
+            if (matches.length >= this.match) {
+                
+                return true;  
+            }
             
+            return false; 
+        }
+        
+        this.cacheDocument = function(data) {
             
-              
-            //console.log(collection); 
-            //console.log(index); 
-            
-            //compare the index to the search terms. 
+            console.log(data); 
         }
  
         this.addUrl(config.url);
-        this.setTerms(config.terms); 
+        this.setTerms(config.terms);
+        this.setCacheDir(config.cacheDir);
+        this.setMatch(config.match); 
     }
     
-    
-     
+    /*
+     *inherit the event mitter in order to
+     *provite for events.
+     */ 
     util.inherits(Crawler, emitter);
     
     Crawler.prototype.isValid = function(str){
