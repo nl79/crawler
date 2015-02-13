@@ -2,15 +2,27 @@ var
     emitter = require('events').EventEmitter,
     util = require("util"), 
     fs = require('fs'),
-    crypto = require('crypto'); 
+    crypto = require('crypto'),
+    http = require('http');
     
 
 function spawn (config) {
     
     function Crawler (config) {
         
+        /*
+         *file types to ignore
+         */
+        this.ignoreType = ['jpg','png','jpeg','tiff']; 
+        
         //busy flag. 
         this.crawling = false;
+        
+        //crawled count
+        this.crawled = 0;
+        
+        //limit the amount of links to visit. 
+        this.limit = 0; 
         
         //build the queue. 
         this.queue = new Array();
@@ -88,41 +100,46 @@ function spawn (config) {
         this.crawl = function() {
             var self = this;
             
-            var http = require('http');
-          
-            if (this.queue.length > 0) {
+            //var http = require('http');
+                    
+            if (this.queue.length > 0 && this.crawled <= this.limit) {
                 
                 this.url = this.queue.shift();
                 
-            } else {
-                this.emit('error', Error('Crawl() - Invalid URL: ' + url));
+                 console.log('Crawling: ' + this.url);
                 
-                return false; 
-            }
-            
-            console.log('Crawling: ' + this.url);
-            
-            var req = http.get(this.url, function(res) {
+                //set the crawling flag to true
+                this.crawling = true; 
                 
-                res.setEncoding('utf8');
-                
-                res.on('data', function (chunk) {
-                    this.buffer += chunk;    
+                var req = http.get(this.url, function(res) {
+                    
+                    res.setEncoding('utf8');
+                    
+                    res.on('data', function (chunk) {
+                        this.buffer += chunk;    
+                    });
+                    
+                    res.on('end', function() {
+        
+                        //call the crawlers transform method to parse the data. 
+                        self.transform({status: res.statusCode,
+                                                    headers: JSON.stringify(res.headers),
+                                                    body: this.buffer}); 
+                    })
+                    
                 });
                 
-                res.on('end', function() {
-    
-                    //call the crawlers transform method to parse the data. 
-                    self.transform({status: res.statusCode,
-                                                headers: JSON.stringify(res.headers),
-                                                body: this.buffer}); 
-                })
+                req.on('error', function(e) {
+                  console.log('problem with request: ' + e.message);
+                });
                 
-            });
+            } else {
             
-            req.on('error', function(e) {
-              console.log('problem with request: ' + e.message);
-            });
+                this.emit('error', Error('Crawl() - Invalid URL: ' + this.url));
+                
+                return; 
+            }
+                  
         }; 
         
         this.transform = function(data) {
@@ -139,58 +156,73 @@ function spawn (config) {
                 var urls = data.body.match(/href="([^"]*)"/g);
                 
                 
+                
+                if (urls && urls instanceof Array) {
+                   
+                    /*
+                     *process the urls and push them into the queue
+                     */
+                    urls.forEach(function(val, index, arr) {
+                        
+                        /*
+                         *check if the the page is an image.
+                         *by extracting the extension.
+                         */ 
+                        var ext = val.substring(val.lastIndexOf('.'));
+                        
+                        
+    
+                        var url = val.substring(6, val.indexOf('"', 6));
+                        
+                        /*check if the protocol is defined
+                         *if so, the url is valid, so save it and return. 
+                         *ex: http or https
+                         */
+                        if (url.substring(0, 4).toLowerCase() == 'http') {
+                            self.addUrl(url);
+                            
+                            return; 
+                        }
+                        
+                        /*check if the url is a current page anchor
+                         *#local_anchor
+                         *return
+                         */ 
+                        if (url.charAt(0) == '#' ) { return; }
+                        
+                        /*
+                         *check if the string is a relative link or an external link
+                         *relative link would begin with /
+                         *external links would begin with //
+                         */
+                        var slashes = url.substring(0,2);
+                        
+                        switch (slashes) {
+                            case '/':
+                                console.log(url);
+                                break; 
+                            
+                            case '//':
+                                /*
+                                 *add the protocol to the url string and push it into the links array. 
+                                 *ex: http:
+                                 */
+                                
+                                self.addUrl('http:' + url);    
+                                break; 
+                        }
+                    });
+                    
+                }
+                
                 //check if relevant. If so save the page locally.
                 if (this.isRelevant(data.body)) {
                     //store the document.
                     this.cacheDocument(data);  
+                } else {
+                    
+                    this.emit('next'); 
                 }
-                
-                /*
-                 *process the urls and push them into the queue
-                 */
-                urls.forEach(function(val, index, arr) {
-
-                    var url = val.substring(6, val.indexOf('"', 6));
-                    
-                    /*check if the protocol is defined
-                     *if so, the url is valid, so save it and return. 
-                     *ex: http or https
-                     */
-                    if (url.substring(0, 4).toLowerCase() == 'http') {
-                        self.addUrl(url);
-                        
-                        return; 
-                    }
-                    
-                    /*check if the url is a current page anchor
-                     *#local_anchor
-                     *return
-                     */ 
-                    if (url.charAt(0) == '#' ) { return; }
-                    
-                    /*
-                     *check if the string is a relative link or an external link
-                     *relative link would begin with /
-                     *external links would begin with //
-                     */
-                    var slashes = url.substring(0,2);
-                    
-                    switch (slashes) {
-                        case '/':
-                            console.log(url);
-                            break; 
-                        
-                        case '//':
-                            /*
-                             *add the protocol to the url string and push it into the links array. 
-                             *ex: http:
-                             */
-                            
-                            self.addUrl('http' + url);    
-                            break; 
-                    }
-               
-                });
                 
                 //console.log(this.queue);
             }        
@@ -275,29 +307,32 @@ function spawn (config) {
         
         this.cacheDocument = function(data) {
             
+            var self = this; 
+            
             //get the directory path
             var dir = this.cacheDir ? this.cacheDir : '/_cache-default';
             
-            console.log(this.url);
-            
             //hash the url. 
-            var sha1 = crypto.createHash('sha1');
-            sha1.update(this.url);
-             
-        
+            var sha1 = crypto.createHash('sha1').update(this.url);;
+            
             //build the filepath
             var path = dir + '/' + sha1.digest('hex') + '.html';
+            
             var body = data.body;
             
             /*
-             *helper function: writefile.
+             *helper function: save - will write the file contents to the specified path.
              */
             var save = function() {
+                
                 fs.writeFile(path, body, function(err) {
                     if(err) {
                         console.log(err);
                     } else {
                         console.log("The file was saved!");
+                        
+                        //emit a saved event.
+                        self.emit('next')
                     }
                 });
             }
@@ -311,38 +346,26 @@ function spawn (config) {
                         
                         fs.mkdir(dir, function(err){
                             
-                            if (err) {
-                                
-                                console.log(err);
-                                
-                            } else {
-                                
-                                save(); 
-                            }
+                            if (err) { console.log(err); } else { save(); }
                         })
                     }
                     
-                } else {
-                    
-                    save(); 
-                }
+                } else { save(); }
             }); 
-        /*
-            fs.writeFile(path, data.body, function(err) {
-                if(err) {
-                    console.log(err);
-                } else {
-                    console.log("The file was saved!");
-                }
-            });
-            */
-
         }
  
         this.addUrl(config.url);
         this.setTerms(config.terms);
         this.setCacheDir(config.cacheDir);
-        this.setMatch(config.match); 
+        this.setMatch(config.match);
+        this.setLimit(config.limit);
+        
+        /*
+         *wire a even handler on complete to call the
+         *crawl method repeatedly untill the queue is empty
+         *or the limit is reached
+         */
+        this.on('next', this.crawl); 
     }
     
     /*
