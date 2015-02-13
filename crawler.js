@@ -52,7 +52,28 @@ function spawn (config) {
          
         
         this.addUrl = function(url) {
-        
+            
+            
+            if (typeof url == 'string' && url !== '') {
+                
+                this.queue.push(url);
+                
+            } else if (url instanceof Array && url.length > 0) {
+                
+                var self = this; 
+                url.forEach(function(val, i,arr) {
+                    self.queue.push(val); 
+                });
+                
+            } else {
+                
+                this.emit('error', Error('Invalid URL supplied: ' + url));
+                
+                return false;
+            }
+            
+            return true; 
+        /*
             if(typeof url != 'string' || url == '')  {
     
                 this.emit('error', Error('Invalid URL supplied: ' + url));
@@ -65,6 +86,7 @@ function spawn (config) {
                 
                 return true; 
             }
+            */
         };
         
         this.setCacheDir = function(args){
@@ -324,6 +346,7 @@ function spawn (config) {
              *helper function: save - will write the file contents to the specified path.
              */
             var save = function() {
+                console.log(path);
                 
                 fs.writeFile(path, body, function(err) {
                     if(err) {
