@@ -25,6 +25,17 @@ var cacheDir = 'cache';
 var swarm = new Array(); 
 
 
+var bug = crawler({'url': seedURL,
+                       'limit': 25,
+                       'terms': searchTerms,
+                       'stopTerms': stopTerms,
+                       'cacheDir': cacheDir,
+                       'match': 2}).on('error', function(err) {
+        console.log(err); }).on('done', function(arg) {
+            console.log('Finished Crawling'); 
+        }).crawl();
+
+/*
 
 
 seedURL.forEach(function(val, index, arr) {
@@ -40,6 +51,7 @@ seedURL.forEach(function(val, index, arr) {
     
 });
 
+*/
     
 
 

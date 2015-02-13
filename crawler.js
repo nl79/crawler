@@ -21,6 +21,9 @@ function spawn (config) {
         //crawled count
         this.crawled = 0;
         
+        //visited - a hash table storing the visited links hashed as sha1. 
+        this.visited = new Array(); 
+        
         //limit the amount of links to visit. 
         this.limit = 0; 
         
@@ -31,7 +34,10 @@ function spawn (config) {
         this.config = config; 
         
         //set the url
-        this.url; 
+        this.url;
+        
+        //url hash
+        this.urlHash; 
         
         //set the search terms. 
         this.terms; 
@@ -73,20 +79,7 @@ function spawn (config) {
             }
             
             return true; 
-        /*
-            if(typeof url != 'string' || url == '')  {
-    
-                this.emit('error', Error('Invalid URL supplied: ' + url));
-                
-                return false;
-            
-            } else {
-                
-                this.queue.push(url);
-                
-                return true; 
-            }
-            */
+      
         };
         
         this.setCacheDir = function(args){
@@ -128,8 +121,25 @@ function spawn (config) {
                 
                 this.url = this.queue.shift();
                 
-                 console.log('Crawling: ' + this.url);
+                console.log('Crawling: ' + this.url);
+                 
+                 //hash the url. 
+                this.urlHash = crypto.createHash('sha1').update(this.url).digest('hex');
                 
+                /*
+                 *check if the hash is set in the visited object.
+                 *if not, set the value.
+                 */
+                
+                if (!(this.visited.indexOf(this.url) == -1)) {
+                    
+                    this.emit('next');
+                    return; 
+                }
+                
+                this.visited.push(this.url); 
+                
+                    
                 //set the crawling flag to true
                 this.crawling = true; 
                 
@@ -172,6 +182,7 @@ function spawn (config) {
             //check that the data object has valid data. 
             if (data && data.status == 200 && data.body != '') {
                 //var matches = data.body.match(/<a[^>]*href="([^"]*)"[^>]*>.*<\/a>/g);
+                
                 
 
                 // url strings contained in the document. 
@@ -334,12 +345,9 @@ function spawn (config) {
             //get the directory path
             var dir = this.cacheDir ? this.cacheDir : '/_cache-default';
             
-            //hash the url. 
-            var sha1 = crypto.createHash('sha1').update(this.url);;
-            
             //build the filepath
-            var path = dir + '/' + sha1.digest('hex') + '.html';
-            
+            var path = dir + '/' + this.urlHash + '.html';
+        
             var body = data.body;
             
             /*
