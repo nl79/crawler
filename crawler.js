@@ -1,6 +1,8 @@
 var
     emitter = require('events').EventEmitter,
-    util = require("util"); 
+    util = require("util"), 
+    fs = require('fs'),
+    crypto = require('crypto'); 
     
 
 function spawn (config) {
@@ -89,16 +91,18 @@ function spawn (config) {
             var http = require('http');
           
             if (this.queue.length > 0) {
-                var url = this.queue.shift(); 
+                
+                this.url = this.queue.shift();
+                
             } else {
                 this.emit('error', Error('Crawl() - Invalid URL: ' + url));
                 
                 return false; 
             }
             
-            console.log('Crawling: ' + url);
+            console.log('Crawling: ' + this.url);
             
-            var req = http.get(url, function(res) {
+            var req = http.get(this.url, function(res) {
                 
                 res.setEncoding('utf8');
                 
@@ -271,7 +275,68 @@ function spawn (config) {
         
         this.cacheDocument = function(data) {
             
-            console.log(data); 
+            //get the directory path
+            var dir = this.cacheDir ? this.cacheDir : '/_cache-default';
+            
+            console.log(this.url);
+            
+            //hash the url. 
+            var sha1 = crypto.createHash('sha1');
+            sha1.update(this.url);
+             
+        
+            //build the filepath
+            var path = dir + '/' + sha1.digest('hex') + '.html';
+            var body = data.body;
+            
+            /*
+             *helper function: writefile.
+             */
+            var save = function() {
+                fs.writeFile(path, body, function(err) {
+                    if(err) {
+                        console.log(err);
+                    } else {
+                        console.log("The file was saved!");
+                    }
+                });
+            }
+            
+            //check if the directory exists.
+            fs.stat(dir, function(err, data) {
+                if (err) {
+                    
+                    //if the directory does not exists, create it. 
+                    if(err.errno == 34) {
+                        
+                        fs.mkdir(dir, function(err){
+                            
+                            if (err) {
+                                
+                                console.log(err);
+                                
+                            } else {
+                                
+                                save(); 
+                            }
+                        })
+                    }
+                    
+                } else {
+                    
+                    save(); 
+                }
+            }); 
+        /*
+            fs.writeFile(path, data.body, function(err) {
+                if(err) {
+                    console.log(err);
+                } else {
+                    console.log("The file was saved!");
+                }
+            });
+            */
+
         }
  
         this.addUrl(config.url);

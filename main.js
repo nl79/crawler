@@ -20,7 +20,7 @@ var searchTerms = ['computer',
                    'pattern'];
 
 var stopTerms = ['and','or','the','an'];
-var cacheDir = '/cache'; 
+var cacheDir = 'cache'; 
 
 var swarm = new Array(); 
 
