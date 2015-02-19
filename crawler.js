@@ -145,9 +145,10 @@ function spawn (config) {
                 }
                 
                 
-                console.log('Crawling: ' + this.url);
+                console.log(this.visited.length + ': Crawling: ' + this.url);
                 
-                this.visited.push(this.url); 
+                this.visited.push(this.url);
+                this.crawled++; 
                 
                     
                 //set the crawling flag to true
@@ -186,9 +187,13 @@ function spawn (config) {
                 });
                 
             } else {
-            
-                this.emit('error', Error('Crawl() - Invalid URL: ' + this.url));
+                /*
+                 *write all of the visited urls to a file.
+                 */
+                this.writeVisited(); 
                 
+                //this.emit('error', Error('Crawl() - Invalid URL: ' + this.url));
+                this.emit('complete'); 
                 return; 
             }
                   
@@ -356,6 +361,24 @@ function spawn (config) {
             }
             
             return false; 
+        }
+        this.writeVisited = function() {
+            var self = this; 
+              
+            //build the filepath
+            var path = 'visited.txt'; 
+        
+            var body = this.visited.join("\n");
+            
+            fs.writeFile(path, body, function(err) {
+                if(err) {
+                    console.log(err);
+                } else {
+                    console.log("Visited Links Saved!");
+                    
+                
+                }
+            });
         }
         
         this.cacheDocument = function(data) {

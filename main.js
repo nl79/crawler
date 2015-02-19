@@ -1,4 +1,5 @@
 var crawler = require('./crawler.js');
+var fs = require('fs'); 
 
 /*
 var seedURL = ['http://en.wikipedia.org/wiki/Information_retrieval',
@@ -26,7 +27,7 @@ var swarm = new Array();
 
 
 var bug = crawler({'url': seedURL,
-                       'limit': 25,
+                       'limit': 500,
                        'terms': searchTerms,
                        'stopTerms': stopTerms,
                        'cacheDir': cacheDir,
