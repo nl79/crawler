@@ -3,7 +3,7 @@ undefined<!DOCTYPE html>
 <head>
 <meta charset="UTF-8" />
 <title>Data Structures/All Chapters - Wikibooks, open books for an open world</title>
-<meta name="generator" content="MediaWiki 1.25wmf16" />
+<meta name="generator" content="MediaWiki 1.25wmf17" />
 <link rel="alternate" type="application/x-wiki" title="Edit" href="/w/index.php?title=Data_Structures/All_Chapters&amp;action=edit" />
 <link rel="edit" title="Edit" href="/w/index.php?title=Data_Structures/All_Chapters&amp;action=edit" />
 <link rel="shortcut icon" href="//bits.wikimedia.org/favicon/wikibooks.ico" />
@@ -29,7 +29,7 @@ mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"vari
 mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.centralauth.centralautologin","mmv.head","ext.visualEditor.viewPageTarget.init","ext.uls.init","ext.uls.interface","ext.centralNotice.bannerController","skins.vector.js"]);
 }</script>
 <link rel="dns-prefetch" href="//meta.wikimedia.org" />
-<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static-1.25wmf16/skins/Vector/csshover.min.htc")}</style><![endif]-->
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static-1.25wmf17/skins/Vector/csshover.min.htc")}</style><![endif]-->
 </head>
 <body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Data_Structures_All_Chapters skin-vector action-view">
 		<div id="mw-page-base" class="noprint"></div>
@@ -3243,7 +3243,7 @@ BLACK <span class="sy0">=</span> <span class="nu0">0</span>
 <p>A classical B-Tree can have N-node internal nodes, and empty 2-nodes as leaf nodes, or more conveniently, the children can either be a value or a pointer to the next N-node, so it is a union.</p>
 <p>The main idea with B-trees is that one starts with a root N-node , which is able to hold N-1 entries, but on the Nth entry, the number of keys for the node is exhausted, and the node can be split into two half sized N/2 sized N nodes, separated by a single key K, which is equal to the right node's leftmost key, so any entry with key K2 equal or greater than K goes in the right node, and anything less than K goes in the left. When the root node is split, a new root node is created with one key, and a left child and a right child. Since there are N children but only N-1 entries, the leftmost child is stored as a separate pointer. If the leftmost pointer splits, then the left half becomes the new leftmost pointer, and the right half and separating key is inserted into the front of the entries.</p>
 <p>An alternative is the B+ tree which is the most commonly used in database systems, because only values are stored in leaf nodes, whereas internal nodes only store keys and pointers to other nodes, putting a limit on the size of the datum value as the size of a pointer. This often allows internal nodes with more entries able to fit a certain block size, e.g. 4K is a common physical disc block size. Hence , if a B+ tree internal node is aligned to a physical disc block, then the main rate limiting factor of reading a block of a large index from disc because it isn't cached in a memory list of blocks is reduced to one block read.</p>
-<p>A B+ tree has bigger internal nodes, so is more wider and shorter in theory than an equivalent B tree which must fit all nodes within a given physical block size, hence overall it is a faster index due to greater fan out and less height to reach keys on average.</p>
+<p>A B+ tree has bigger internal nodes, so is wider and shorter in theory than an equivalent B tree which must fit all nodes within a given physical block size, hence overall it is a faster index due to greater fan out and less height to reach keys on average.</p>
 <p>Apparently, this fan out is so important, compression can also be applied to the blocks to increase the number of entries fitting within a given underlying layer's block size (the underlying layer is often a filesystem block).</p>
 <p>Most database systems use the B+ tree algorithm, including postgresql, mysql, derbydb, firebird, many Xbase index types, etc.</p>
 <p>Many filesystems also use a B+ tree to manage their block layout (e.g. xfs, NTFS, etc).</p>
@@ -6551,12 +6551,12 @@ Associative containers (sets, associative arrays):</p>
 
 <!-- 
 NewPP limit report
-Parsed by mw1019
-CPU time usage: 1.077 seconds
-Real time usage: 1.684 seconds
+Parsed by mw1163
+CPU time usage: 0.827 seconds
+Real time usage: 1.222 seconds
 Preprocessor visited node count: 3046/1000000
 Preprocessor generated node count: 0/1500000
-Post‐expand include size: 262238/2097152 bytes
+Post‐expand include size: 262233/2097152 bytes
 Template argument size: 5732/2097152 bytes
 Highest expansion depth: 14/40
 Expensive parser function count: 0/500
@@ -6564,19 +6564,19 @@ Expensive parser function count: 0/500
 
 <!-- 
 Transclusion expansion time report (%,ms,calls,template)
-100.00% 1085.412      1 - -total
- 29.94%  325.015      1 - Data_Structures/Introduction
- 13.85%  150.293      1 - Data_Structures/Stacks_and_Queues
- 12.05%  130.751      1 - Data_Structures/Trees
-  8.61%   93.504      1 - Data_Structures/Hash_Tables
-  8.52%   92.510      1 - Data_Structures/Asymptotic_Notation
-  7.65%   83.022      1 - Data_Structures/Graphs
-  7.18%   77.917      2 - Template:Reflist
-  6.97%   75.644      1 - Data_Structures/List_Structures
-  6.54%   70.942      1 - Data_Structures/Arrays
+100.00%  812.825      1 - -total
+ 25.45%  206.841      1 - Data_Structures/Introduction
+ 15.76%  128.114      1 - Data_Structures/Stacks_and_Queues
+ 11.99%   97.446      1 - Data_Structures/Trees
+ 10.35%   84.136      1 - Data_Structures/Arrays
+  9.83%   79.928      1 - Data_Structures/Hash_Tables
+  9.04%   73.459      1 - Data_Structures/Graphs
+  7.28%   59.156      2 - Template:Reflist
+  7.03%   57.124      1 - Data_Structures/List_Structures
+  5.64%   45.846      2 - Template:Cite_book
 -->
 
-<!-- Saved in parser cache with key enwikibooks:pcache:idhash:20101-0!*!0!!en!4!*!math=0 and timestamp 20150212093355 and revision id 2758853
+<!-- Saved in parser cache with key enwikibooks:pcache:idhash:20101-0!*!0!!en!4!*!math=0 and timestamp 20150216005909 and revision id 2758853
  -->
 <noscript><img src="//en.wikibooks.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>									<div class="printfooter">
 						Retrieved from &quot;<a dir="ltr" href="http://en.wikibooks.org/w/index.php?title=Data_Structures/All_Chapters&amp;oldid=2758853">http://en.wikibooks.org/w/index.php?title=Data_Structures/All_Chapters&amp;oldid=2758853</a>&quot;					</div>
@@ -6742,7 +6742,7 @@ Transclusion expansion time report (%,ms,calls,template)
 															<a href="//wikimediafoundation.org/"><img src="//bits.wikimedia.org/images/wikimedia-button.png" srcset="//bits.wikimedia.org/images/wikimedia-button-1.5x.png 1.5x, //bits.wikimedia.org/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>
 													</li>
 											<li id="footer-poweredbyico">
-															<a href="//www.mediawiki.org/"><img src="//bits.wikimedia.org/static-1.25wmf16/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="//bits.wikimedia.org/static-1.25wmf16/resources/assets/poweredby_mediawiki_132x47.png 1.5x, //bits.wikimedia.org/static-1.25wmf16/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="//www.mediawiki.org/"><img src="//bits.wikimedia.org/static-1.25wmf17/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="//bits.wikimedia.org/static-1.25wmf17/resources/assets/poweredby_mediawiki_132x47.png 1.5x, //bits.wikimedia.org/static-1.25wmf17/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
 													</li>
 									</ul>
 						<div style="clear:both"></div>
@@ -6759,7 +6759,7 @@ mw.loader.load(["ext.cite","mediawiki.toc","mediawiki.action.view.postEdit","med
 document.write("\u003Cscript src=\"//bits.wikimedia.org/en.wikibooks.org/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
 }</script>
 <script>if(window.mw){
-mw.config.set({"wgBackendResponseTime":141,"wgHostname":"mw1071"});
+mw.config.set({"wgBackendResponseTime":127,"wgHostname":"mw1099"});
 }</script>
 	</body>
 </html>
