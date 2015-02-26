@@ -208,12 +208,17 @@ function spawn (config) {
             if (data && data.status == 200 && data.body != '') {
                 //var matches = data.body.match(/<a[^>]*href="([^"]*)"[^>]*>.*<\/a>/g);
                 
-                
+                  //check if relevant. If so save the page locally.
+                if (this.isRelevant(data.body)) {
+                    //store the document.
+                    this.cacheDocument(data);  
+                } else {
+                    
+                    this.emit('next'); 
+                }
 
                 // url strings contained in the document. 
                 var urls = data.body.match(/href="([^"]*)"/g);
-                
-                
                 
                 if (urls && urls instanceof Array) {
                    
@@ -273,16 +278,6 @@ function spawn (config) {
                     
                 }
                 
-                //check if relevant. If so save the page locally.
-                if (this.isRelevant(data.body)) {
-                    //store the document.
-                    this.cacheDocument(data);  
-                } else {
-                    
-                    this.emit('next'); 
-                }
-                
-                //console.log(this.queue);
             }        
         };
         
@@ -362,6 +357,8 @@ function spawn (config) {
             
             return false; 
         }
+        
+        
         this.writeVisited = function() {
             var self = this; 
               
