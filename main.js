@@ -31,6 +31,7 @@ var bug = crawler({'url': seedURL,
                        'terms': searchTerms,
                        'stopTerms': stopTerms,
                        'cacheDir': cacheDir,
+                       'cacheLimit': 500,
                        'match': 2}).on('error', function(err) {
         console.log(err); }).on('done', function(arg) {
             console.log('Finished Crawling'); 

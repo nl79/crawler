@@ -28,6 +28,9 @@ function spawn (config) {
         //limit the amount of links to visit. 
         this.limit = 0; 
         
+        //limit the amount of pages to cache
+        this.cacheLimit = 0;
+        
         //build the queue. 
         this.queue = new Array();
         
@@ -102,6 +105,11 @@ function spawn (config) {
             this.limit = args; 
         };
         
+        this.setCacheLimit = function(args) {
+            
+            this.cacheLimit = args; 
+        }
+        
         this.setMatch = function(num){
             if (!isNaN(num)) {
                 this.match = num;
@@ -119,7 +127,7 @@ function spawn (config) {
             
             //var http = require('http');
                     
-            if (this.queue.length > 0 && this.crawled <= this.limit) {
+            if (this.queue.length > 0 && this.crawled <= this.cacheLimit) {
                 
                 this.url = this.queue.shift();
              
@@ -432,6 +440,7 @@ function spawn (config) {
         this.setCacheDir(config.cacheDir);
         this.setMatch(config.match);
         this.setLimit(config.limit);
+        this.setCacheLimit(config.cacheLimit); 
         
         /*
          *wire a even handler on complete to call the
