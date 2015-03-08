@@ -1,0 +1,691 @@
+undefined
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Graphs &mdash; Problem Solving with Algorithms and Data Structures</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/video.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/poll.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/tabbedstuff.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/pytutor.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/codemirror.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/activecode.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/parsons.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/lib/prettify.css" type="text/css" />
+    <link rel="stylesheet" href="http://runestonestatic.appspot.com/static/2.1.5/jquery-ui-1.10.3.custom.min.css" type="text/css" />
+    <link rel="stylesheet" href="http://runestonestatic.appspot.com/static/2.1.5/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="http://runestonestatic.appspot.com/static/2.1.5/user-highlights.css" type="text/css" />
+    <link rel="stylesheet" href="../../runestone-custom-sphinx-bootstrap.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/poll.js"></script>
+    <script type="text/javascript" src="../_static/js/d3.v2.min.js"></script>
+    <script type="text/javascript" src="../_static/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery.ba-bbq.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery.jsPlumb-1.3.10-all-min.js"></script>
+    <script type="text/javascript" src="../_static/js/pytutor.js"></script>
+    <script type="text/javascript" src="../_static/jquery.highlight.js"></script>
+    <script type="text/javascript" src="../_static/bookfuncs.js"></script>
+    <script type="text/javascript" src="../_static/codemirror.js"></script>
+    <script type="text/javascript" src="../_static/python.js"></script>
+    <script type="text/javascript" src="../_static/activecode.js"></script>
+    <script type="text/javascript" src="../_static/skulpt.min.js"></script>
+    <script type="text/javascript" src="../_static/skulpt-stdlib.js"></script>
+    <script type="text/javascript" src="../_static/assess.js"></script>
+    <script type="text/javascript" src="../_static/animationbase.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../_static/lib/prettify.js"></script>
+    <script type="text/javascript" src="../_static/lib/underscore-min.js"></script>
+    <script type="text/javascript" src="../_static/lib/lis.js"></script>
+    <script type="text/javascript" src="../_static/parsons.js"></script>
+    <script type="text/javascript" src="../_static/parsons-noconflict.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="http://runestonestatic.appspot.com/static/2.1.5/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="http://runestonestatic.appspot.com/static/2.1.5/jquery-fix.js"></script>
+    <script type="text/javascript" src="http://runestonestatic.appspot.com/static/2.1.5/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://runestonestatic.appspot.com/static/2.1.5/bootstrap-sphinx.js"></script>
+    <script type="text/javascript" src="http://runestonestatic.appspot.com/static/2.1.5/waypoints.min.js"></script>
+    <script type="text/javascript" src="http://runestonestatic.appspot.com/static/2.1.5/rangy-core.js"></script>
+    <script type="text/javascript" src="http://runestonestatic.appspot.com/static/2.1.5/rangy-textrange.js"></script>
+    <script type="text/javascript" src="http://runestonestatic.appspot.com/static/2.1.5/rangy-cssclassapplier.js"></script>
+    <script type="text/javascript" src="http://runestonestatic.appspot.com/static/2.1.5/user-highlights.js"></script>
+    <script type="text/javascript" src="http://runestonestatic.appspot.com/static/2.1.5/jquery.idle-timer.js"></script>
+    <script type="text/javascript" src="http://runestonestatic.appspot.com/static/2.1.5/processing-1.4.1.min.js"></script>
+    <script type="text/javascript" src="http://runestonestatic.appspot.com/static/2.1.5/jquery.hotkey.js"></script>
+    <link rel="top" title="Problem Solving with Algorithms and Data Structures" href="../index.html" />
+    <link rel="next" title="Breadth First Search" href="graphbfs.html" />
+    <link rel="prev" title="Summary" href="../Trees/treeexercises.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+<script type="text/javascript">
+  eBookConfig = {};
+  eBookConfig.host = 'http://interactivepython.org' ? 'http://interactivepython.org' : 'http://127.0.0.1:8000';
+  eBookConfig.app = eBookConfig.host+'/runestone';
+  eBookConfig.ajaxURL = eBookConfig.app+'/ajax/';
+  eBookConfig.course = 'pythonds';
+  eBookConfig.logLevel = 10;
+  eBookConfig.loginRequired = false
+  eBookConfig.build_info = "2.1.5";
+  eBookConfig.isLoggedIn = false;
+</script>
+
+<div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&status=0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+<script>
+var _prum = [['id', '521dfcc4abe53d0749000000'],
+             ['mark', 'firstbyte', (new Date()).getTime()]];
+(function() {
+    var s = document.getElementsByTagName('script')[0]
+      , p = document.createElement('script');
+    p.async = 'async';
+    p.src = '//rum-static.pingdom.net/prum.min.js';
+    s.parentNode.insertBefore(p, s);
+})();
+</script>
+
+
+
+  </head>
+  <body>
+
+
+<!-- Begin navbar -->
+<div id="navbar" class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+  <div class="container">
+
+    <div class="navbar-header">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button type='button' class='navbar-toggle' data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <div>
+        <a class="brand-logo" style='background: transparent url("../_static/img/logo_small.png") no-repeat 0px 0px;' href="/runestone/default/user/login">&nbsp; </a>
+        <a class="navbar-brand" href="../index.html">Problem Solving with Algorithms and Data Structures</a>
+      </div>
+    </div>
+
+    <div class="navbar-collapse collapse navbar-ex1-collapse">
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="divider-vertical"></li>
+
+        <!-- social media dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-share-alt" style="opacity: 0.9"></i>
+          </a>
+          <ul class="dropdown-menu social-menu">
+              <li>
+                <div>
+                  <b>Runestone in social media:</b>
+                </div>
+                <a href="https://twitter.com/iRunestone" class="twitter-follow-button" data-show-count="true">Follow @iRunestone</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                <div class="fb-like" data-href="https://www.facebook.com/RunestoneInteractive" data-send="false" data-layout="button_count" data-width="300" data-show-faces="false" data-font="arial"></div>
+              </li>
+
+              <li class="divider"></li>
+              <li>
+                <div>
+                  <b>Help support us:</b>
+                </div>
+                <div class="gittip">
+                  <iframe style="border:0;"
+                    src="https://www.gittip.com/bnmnetp/widget.html"
+                    width="48pt" height="22pt" class="gittip-button">
+                  </iframe>
+                </div>
+              </li>
+          </ul>
+        </li>
+        <!-- end social media dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- search dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-search" style='opacity:0.9;'></i>
+          </a>
+          <ul class='dropdown-menu'>
+            
+                <li><a href='../index.html'>Table of Contents</a></li>
+            
+            <li><a href='/runestone/static/pythonds/genindex.html'>Book Index</a></li>
+            <li class="divider"></li>
+            <li id="scratch_ac_link"><a href="javascript:toggleScratchActivecode()">Scratch ActiveCode</a></li>
+            <li class="divider"></li>
+            <li style="width: 240px;">
+              <form class="navbar-search" style="margin:10px;" action="../search.html" method="get">
+                <div class="input-group">
+                  <input type="text" class="form-control" name="q" placeholder="Search this book" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" style="margin:0;" type="submit">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                  </span>
+                </div><!-- /input-group -->
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+              </form>
+            </li>
+          </ul>
+        </li>
+        <!-- end search dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- user account dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-user" style="opacity:0.9;"></i>
+          </a>
+          <ul class="dropdown-menu user-menu">
+            <li><span class='loggedinuser'></span></li>
+            <li class="divider"></li>
+            <li><a href='http://interactivepython.org/runestone/admin/index'>Instructor's Page</a></li>
+            <li class="divider"></li>
+            <li><a href="http://interactivepython.org/runestone/default/user/profile" id="profilelink">Edit Profile</a></li>
+            <li><a href="http://interactivepython.org/runestone/default/user/change_password" id="passwordlink">Change Password</a></li>
+            <li><a href="http://interactivepython.org/runestone/default/user/register" id="registerlink">Register</a></li>
+            <li class='loginout'><a href='#'>Login</a></li> <!-- correct link populated by addNavbarLoginLink() -->
+          </ul>
+        </li>
+        <!-- end user account dropdown -->
+
+        <li class="divider-vertical"></li>
+
+        <!-- help menu dropdown -->
+        <li class="dropdown">
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-question-sign" style="opacity:0.9;"></i>
+          </a>
+          <ul class="dropdown-menu user-menu">
+            <li><a href='/runestone/static/pythonds/navhelp.html'>Navigation Help</a></li>
+            <li><a href='/runestone/static/overview/instructor.html'>Help for Instructors</a></li>            
+            <li class="divider"></li>
+            <li><a href='http://runestoneinteractive.org'>About Runestone</a></li>
+            <li><a href='https://github.com/bnmnetp/runestone/issues/new'>Report A Problem</a></li>
+          </ul>
+        </li>
+        <!-- end help menu dropdown -->
+
+        <li class="divider-vertical"></li>
+
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <li class="divider-vertical"></li>
+        
+          <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"><ul>
+<li><a class="reference internal" href="#">Graphs</a><ul>
+<li><a class="reference internal" href="#objectives">Objectives</a></li>
+<li><a class="reference internal" href="#vocabulary-and-definitions">Vocabulary and Definitions</a></li>
+<li><a class="reference internal" href="#the-graph-abstract-data-type">The Graph Abstract Data Type</a><ul>
+<li><a class="reference internal" href="#an-adjacency-matrix">An Adjacency Matrix</a></li>
+<li><a class="reference internal" href="#an-adjacency-list">An Adjacency List</a></li>
+<li><a class="reference internal" href="#implementation">Implementation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+          <li class="divider-vertical"></li>
+        
+        
+          
+  <li id="relations-prev" title="Previous Chapter - Summary" data-toggle="tooltip">
+    <a href="../Trees/treeexercises.html" >
+      <i class='glyphicon glyphicon-backward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  
+  <li id="relations-next" title='Next Chapter - Breadth First Search' data-toggle="tooltip" >
+    <a href="graphbfs.html" >
+      <i class='glyphicon glyphicon-forward' style='opacity:0.9;'></i>
+    </a>
+  </li>
+  <li class="divider-vertical"></li>
+
+<script type="text/javascript">
+  opts = {'placement':'bottom',
+          'selector': '',
+          'delay': { show: 100, hide: 50}
+         };
+
+  $('#relations-prev').tooltip(opts);
+  $('#relations-next').tooltip(opts);
+</script>
+        
+        
+          <li></li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  
+  <div class="section" id="graphs">
+<h1>Graphs<a class="headerlink" href="#graphs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>To learn what a graph is and how it is used.</li>
+<li>To implement the <strong>graph</strong> abstract data type using multiple internal
+representations.</li>
+<li>To see how graphs can be used to solve a wide variety of problems</li>
+</ul>
+<p>In this chapter we will study graphs. Graphs are a more general
+structure than the trees we studied in the last chapter; in fact you can
+think of a tree as a special kind of graph. Graphs can be used to
+represent many interesting things about our world, including systems of
+roads, airline flights from city to city, how the Internet is connected,
+or even the sequence of classes you must take to complete a major in
+computer science. We will see in this chapter that once we have a good
+representation for a problem, we can use some standard graph algorithms
+to solve what otherwise might seem to be a very difficult problem.</p>
+<p>While it is relatively easy for humans to look at a road map and
+understand the relationships between different places, a computer has no
+such knowledge. However, we can also think of a road map as a graph.
+When we do so we can have our computer do interesting things for us. If
+you have ever used one of the Internet map sites, you know that a
+computer can find the shortest, quickest, or easiest path from one place
+to another.</p>
+<p>As a student of computer science you may wonder about the courses you
+must take in order to get a major. A graph is good way to represent the
+prerequisites and other interdependencies among courses.
+<a class="reference internal" href="#fig1"><em>Figure 1</em></a> shows another graph. This one represents the courses
+and the order in which they must be taken to complete a major in
+computer science at Luther College.</p>
+<div class="figure align-center" id="fig1">
+<img alt="../_images/CS-Prereqs.png" src="../_images/CS-Prereqs.png" />
+<p class="caption">Figure 1: Prerequisites for a Computer Science Major</p>
+</div>
+</div>
+<div class="section" id="vocabulary-and-definitions">
+<h2>Vocabulary and Definitions<a class="headerlink" href="#vocabulary-and-definitions" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have looked at some examples of graphs, we will more
+formally define a graph and its components. We already know some of
+these terms from our discussion of trees.</p>
+<dl class="docutils">
+<dt>Vertex</dt>
+<dd>A vertex (also called a “node”) is a fundamental part of a graph. It
+can have a name, which we will call the “key.” A vertex may also
+have additional information. We will call this additional
+information the “payload.”</dd>
+<dt>Edge</dt>
+<dd>An edge (also called an “arc”) is another fundamental part of a
+graph. An edge connects two vertices to show that there is a
+relationship between them. Edges may be one-way or two-way. If the
+edges in a graph are all one-way, we say that the graph is a
+<strong>directed graph</strong>, or a <strong>digraph</strong>. The class prerequisites graph
+shown above is clearly a digraph since you must take some classes
+before others.</dd>
+<dt>Weight</dt>
+<dd>Edges may be weighted to show that there is a cost to go from one
+vertex to another. For example in a graph of roads that connect one
+city to another, the weight on the edge might represent the distance
+between the two cities.</dd>
+</dl>
+<p>With those definitions in hand we can formally define a graph. A graph
+can be represented by <span class="math">\(G\)</span> where <span class="math">\(G =(V,E)\)</span>. For the
+graph <span class="math">\(G\)</span>, <span class="math">\(V\)</span> is a set of vertices and <span class="math">\(E\)</span> is a
+set of edges. Each edge is a tuple <span class="math">\((v,w)\)</span> where
+<span class="math">\(w,v \in V\)</span>. We can add a third component to the edge tuple to
+represent a weight. A subgraph <span class="math">\(s\)</span> is a set of edges <span class="math">\(e\)</span>
+and vertices <span class="math">\(v\)</span> such that <span class="math">\(e \subset E\)</span> and
+<span class="math">\(v \subset V\)</span>.</p>
+<p><a class="reference internal" href="#fig-dgsimple"><em>Figure&nbsp; 2</em></a> shows another example of a simple weighted
+digraph. Formally we can represent this graph as the set of six
+vertices:</p>
+<div class="math">
+\[V = \left\{ V0,V1,V2,V3,V4,V5 \right\}\]</div>
+<p>and the set of nine edges:</p>
+<div class="math">
+\[\begin{split}E = \left\{ \begin{array}{l}(v0,v1,5), (v1,v2,4), (v2,v3,9), (v3,v4,7), (v4,v0,1), \\
+             (v0,v5,2),(v5,v4,8),(v3,v5,3),(v5,v2,1)
+             \end{array} \right\}\end{split}\]</div>
+<div class="figure align-center" id="fig-dgsimple">
+<img alt="../_images/digraph.png" src="../_images/digraph.png" />
+<p class="caption">Figure 2: A Simple Example of a Directed Graph</p>
+</div>
+<p>The example graph in <a class="reference internal" href="#fig-dgsimple"><em>Figure 2</em></a> helps illustrate two other
+key graph terms:</p>
+<dl class="docutils">
+<dt>Path</dt>
+<dd>A path in a graph is a sequence of vertices that are connected by
+edges. Formally we would define a path as
+<span class="math">\(w_1, w_2, ..., w_n\)</span> such that
+<span class="math">\((w_i, w_{i+1}) \in E\)</span> for all <span class="math">\(1 \le i \le n-1\)</span>.
+The unweighted path length is the number of edges in the path,
+specifically <span class="math">\(n-1\)</span>. The weighted path length is the sum of
+the weights of all the edges in the path. For example in
+<a class="reference internal" href="#fig-dgsimple"><em>Figure 2</em></a> the path from <span class="math">\(V3\)</span> to <span class="math">\(V1\)</span> is
+the sequence of vertices <span class="math">\((V3,V4,V0,V1)\)</span>. The edges are
+<span class="math">\(\left\{(v3,v4,7),(v4,v0,1),(v0,v1,5) \right\}\)</span>.</dd>
+<dt>Cycle</dt>
+<dd>A cycle in a directed graph is a path that starts and ends at the
+same vertex. For example, in <a class="reference internal" href="#fig-dgsimple"><em>Figure 2</em></a> the path
+<span class="math">\((V5,V2,V3,V5)\)</span> is a cycle. A graph with no cycles is called
+an <strong>acyclic graph</strong>. A directed graph with no cycles is called a
+<strong>directed acyclic graph</strong> or a <strong>DAG</strong>. We will see that we can
+solve several important problems if the problem can be represented
+as a DAG.</dd>
+</dl>
+</div>
+<div class="section" id="the-graph-abstract-data-type">
+<h2>The Graph Abstract Data Type<a class="headerlink" href="#the-graph-abstract-data-type" title="Permalink to this headline">¶</a></h2>
+<p>The graph abstract data type (ADT) is defined as follows:</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">Graph()</span></tt> creates a new, empty graph.</li>
+<li><tt class="docutils literal"><span class="pre">addVertex(vert)</span></tt> adds an instance of <tt class="docutils literal"><span class="pre">Vertex</span></tt> to the graph.</li>
+<li><tt class="docutils literal"><span class="pre">addEdge(fromVert,</span> <span class="pre">toVert)</span></tt> Adds a new, directed edge to the graph
+that connects two vertices.</li>
+<li><tt class="docutils literal"><span class="pre">addEdge(fromVert,</span> <span class="pre">toVert,</span> <span class="pre">weight)</span></tt> Adds a new, weighted, directed
+edge to the graph that connects two vertices.</li>
+<li><tt class="docutils literal"><span class="pre">getVertex(vertKey)</span></tt> finds the vertex in the graph named
+<tt class="docutils literal"><span class="pre">vertKey</span></tt>.</li>
+<li><tt class="docutils literal"><span class="pre">getVertices()</span></tt> returns the list of all vertices in the graph.</li>
+<li><tt class="docutils literal"><span class="pre">in</span></tt> returns <tt class="docutils literal"><span class="pre">True</span></tt> for a statement of the form
+<tt class="docutils literal"><span class="pre">vertex</span> <span class="pre">in</span> <span class="pre">graph</span></tt>, if the given vertex is in the graph, <tt class="docutils literal"><span class="pre">False</span></tt>
+otherwise.</li>
+</ul>
+<p>Beginning with the formal definition for a graph there are several ways
+we can implement the graph ADT in Python. We will see that there are
+trade-offs in using different representations to implement the ADT
+described above. There are two well-known implementations of a graph,
+the <strong>adjacency matrix</strong> and the <strong>adjacency list</strong>. We will explain
+both of these options, and then implement one as a Python class.</p>
+<div class="section" id="an-adjacency-matrix">
+<h3>An Adjacency Matrix<a class="headerlink" href="#an-adjacency-matrix" title="Permalink to this headline">¶</a></h3>
+<p>One of the easiest ways to implement a graph is to use a two-dimensional
+matrix. In this matrix implementation, each of the rows and columns
+represent a vertex in the graph. The value that is stored in the cell at
+the intersection of row <span class="math">\(v\)</span> and column <span class="math">\(w\)</span> indicates if
+there is an edge from vertex <span class="math">\(v\)</span> to vertex <span class="math">\(w\)</span>. When two
+vertices are connected by an edge, we say that they are <strong>adjacent</strong>.
+<a class="reference internal" href="#fig-adjmat"><em>Figure 3</em></a> illustrates the adjacency matrix for the graph in
+<a class="reference internal" href="#fig-dgsimple"><em>Figure 2</em></a>. A value in a cell represents the weight of the
+edge from vertex <span class="math">\(v\)</span> to vertex <span class="math">\(w\)</span>.</p>
+<div class="figure align-center" id="fig-adjmat">
+<img alt="../_images/adjMat.png" src="../_images/adjMat.png" />
+<p class="caption">Figure 3: An Adjacency Matrix Representation for a Graph</p>
+</div>
+<p>The advantage of the adjacency matrix is that it is simple, and for
+small graphs it is easy to see which nodes are connected to other nodes.
+However, notice that most of the cells in the matrix are empty. Because
+most of the cells are empty we say that this matrix is “sparse.” A
+matrix is not a very efficient way to store sparse data. In fact, in
+Python you must go out of your way to even create a matrix structure
+like the one in <a class="reference internal" href="#fig-adjmat"><em>Figure 3</em></a>.</p>
+<p>The adjacency matrix is a good implementation for a graph when the
+number of edges is large. But what do we mean by large? How many edges
+would be needed to fill the matrix? Since there is one row and one
+column for every vertex in the graph, the number of edges required to
+fill the matrix is <span class="math">\(|V|^2\)</span>. A matrix is full when every vertex
+is connected to every other vertex. There are few real problems that
+approach this sort of connectivity. The problems we will look at in this
+chapter all involve graphs that are sparsely connected.</p>
+</div>
+<div class="section" id="an-adjacency-list">
+<h3>An Adjacency List<a class="headerlink" href="#an-adjacency-list" title="Permalink to this headline">¶</a></h3>
+<p>A more space-efficient way to implement a sparsely connected graph is to
+use an adjacency list. In an adjacency list implementation we keep a
+master list of all the vertices in the Graph object and then each vertex
+object in the graph maintains a list of the other vertices that it is
+connected to. In our implementation of the <tt class="docutils literal"><span class="pre">Vertex</span></tt> class we will use
+a dictionary rather than a list where the dictionary keys are the
+vertices, and the values are the weights. <a class="reference internal" href="#fig-adjlist"><em>Figure 4</em></a>
+illustrates the adjacency list representation for the graph in
+<a class="reference internal" href="#fig-dgsimple"><em>Figure 2</em></a>.</p>
+<div class="figure align-center" id="fig-adjlist">
+<img alt="../_images/adjlist.png" src="../_images/adjlist.png" />
+<p class="caption">Figure 4: An Adjacency List Representation of a Graph</p>
+</div>
+<p>The advantage of the adjacency list implementation is that it allows us
+to compactly represent a sparse graph. The adjacency list also allows us
+to easily find all the links that are directly connected to a particular
+vertex.</p>
+</div>
+<div class="section" id="implementation">
+<h3>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h3>
+<p>Using dictionaries, it is easy to implement the adjacency list in
+Python. In our implementation of the Graph abstract data type we will
+create two classes (see <a class="reference internal" href="#lst-vertex"><em>Listing 1</em></a> and <a class="reference internal" href="#lst-graph"><em>Listing 2</em></a>), <tt class="docutils literal"><span class="pre">Graph</span></tt>, which holds the master list of vertices,
+and <tt class="docutils literal"><span class="pre">Vertex</span></tt>, which will represent each vertex in the graph.</p>
+<p>Each <tt class="docutils literal"><span class="pre">Vertex</span></tt> uses a dictionary to keep track of the vertices to which
+it is connected, and the weight of each edge. This dictionary is called
+<tt class="docutils literal"><span class="pre">connectedTo</span></tt>. The listing below shows the code for the <tt class="docutils literal"><span class="pre">Vertex</span></tt>
+class. The constructor simply initializes the <tt class="docutils literal"><span class="pre">id</span></tt>, which will
+typically be a string, and the <tt class="docutils literal"><span class="pre">connectedTo</span></tt> dictionary. The
+<tt class="docutils literal"><span class="pre">addNeighbor</span></tt> method is used add a connection from this vertex to
+another. The <tt class="docutils literal"><span class="pre">getConnections</span></tt> method returns all of the vertices in
+the adjacency list, as represented by the <tt class="docutils literal"><span class="pre">connectedTo</span></tt> instance
+variable. The <tt class="docutils literal"><span class="pre">getWeight</span></tt> method returns the weight of the edge from
+this vertex to the vertex passed as a parameter.</p>
+<p id="lst-vertex"><strong>Listing 1</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Vertex</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">key</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connectedTo</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">addNeighbor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nbr</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">connectedTo</span><span class="p">[</span><span class="n">nbr</span><span class="p">]</span> <span class="o">=</span> <span class="n">weight</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="o">+</span> <span class="s">&#39; connectedTo: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">([</span><span class="n">x</span><span class="o">.</span><span class="n">id</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectedTo</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">getConnections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectedTo</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">getId</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span>
+
+    <span class="k">def</span> <span class="nf">getWeight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">nbr</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">connectedTo</span><span class="p">[</span><span class="n">nbr</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>The <tt class="docutils literal"><span class="pre">Graph</span></tt> class, shown in the next listing, contains a dictionary
+that maps vertex names to vertex objects. In <a class="reference internal" href="#fig-adjlist"><em>Figure 4</em></a> this
+dictionary object is represented by the shaded gray box. <tt class="docutils literal"><span class="pre">Graph</span></tt> also
+provides methods for adding vertices to a graph and connecting one
+vertex to another. The <tt class="docutils literal"><span class="pre">getVertices</span></tt> method returns the names of all
+of the vertices in the graph. In addition, we have implemented the
+<tt class="docutils literal"><span class="pre">__iter__</span></tt> method to make it easy to iterate over all the vertex
+objects in a particular graph. Together, the two methods allow you to
+iterate over the vertices in a graph by name, or by the objects
+themselves.</p>
+<p id="lst-graph"><strong>Listing 2</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">Graph</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertList</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numVertices</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">addVertex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">key</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">numVertices</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">numVertices</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">newVertex</span> <span class="o">=</span> <span class="n">Vertex</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertList</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">newVertex</span>
+        <span class="k">return</span> <span class="n">newVertex</span>
+
+    <span class="k">def</span> <span class="nf">getVertex</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertList</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertList</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">__contains__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">n</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertList</span>
+
+    <span class="k">def</span> <span class="nf">addEdge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">cost</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">f</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertList</span><span class="p">:</span>
+            <span class="n">nv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">addVertex</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">t</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertList</span><span class="p">:</span>
+            <span class="n">nv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">addVertex</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vertList</span><span class="p">[</span><span class="n">f</span><span class="p">]</span><span class="o">.</span><span class="n">addNeighbor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vertList</span><span class="p">[</span><span class="n">t</span><span class="p">],</span> <span class="n">cost</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">getVertices</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vertList</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vertList</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Using the <tt class="docutils literal"><span class="pre">Graph</span></tt> and <tt class="docutils literal"><span class="pre">Vertex</span></tt> classes just defined, the following
+Python session creates the graph in <a class="reference internal" href="#fig-dgsimple"><em>Figure 2</em></a>. First we
+create six vertices numbered 0 through 5. Then we display the vertex
+dictionary. Notice that for each key 0 through 5 we have created an
+instance of a <tt class="docutils literal"><span class="pre">Vertex</span></tt>. Next, we add the edges that connect the
+vertices together. Finally, a nested loop verifies that each edge in the
+graph is properly stored. You should check the output of the edge list
+at the end of this session against <a class="reference internal" href="#fig-dgsimple"><em>Figure 2</em></a>.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">Graph</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
+<span class="gp">... </span>   <span class="n">g</span><span class="o">.</span><span class="n">addVertex</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">vertList</span>
+<span class="go">{0: &lt;adjGraph.Vertex instance at 0x41e18&gt;,</span>
+<span class="go"> 1: &lt;adjGraph.Vertex instance at 0x7f2b0&gt;,</span>
+<span class="go"> 2: &lt;adjGraph.Vertex instance at 0x7f288&gt;,</span>
+<span class="go"> 3: &lt;adjGraph.Vertex instance at 0x7f350&gt;,</span>
+<span class="go"> 4: &lt;adjGraph.Vertex instance at 0x7f328&gt;,</span>
+<span class="go"> 5: &lt;adjGraph.Vertex instance at 0x7f300&gt;}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">addEdge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">addEdge</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">addEdge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">addEdge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">addEdge</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">addEdge</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">addEdge</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">addEdge</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">addEdge</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">g</span><span class="p">:</span>
+<span class="gp">... </span>   <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">getConnections</span><span class="p">():</span>
+<span class="gp">... </span>       <span class="k">print</span><span class="p">(</span><span class="s">&quot;( </span><span class="si">%s</span><span class="s"> , </span><span class="si">%s</span><span class="s"> )&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">getId</span><span class="p">(),</span> <span class="n">w</span><span class="o">.</span><span class="n">getId</span><span class="p">()))</span>
+<span class="gp">...</span>
+<span class="go">( 0 , 5 )</span>
+<span class="go">( 0 , 1 )</span>
+<span class="go">( 1 , 2 )</span>
+<span class="go">( 2 , 3 )</span>
+<span class="go">( 3 , 4 )</span>
+<span class="go">( 3 , 5 )</span>
+<span class="go">( 4 , 0 )</span>
+<span class="go">( 5 , 4 )</span>
+<span class="go">( 5 , 2 )</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <span id='numuserspan'></span> readers online now | <span class='loggedinuser'></span> | <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2013 Brad Miller, David Ranum.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </p>
+  </div>
+</footer>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(addUserToFooter);
+    $(document).ready(addNavbarLoginLink);
+    $(document).ready(createEditors);
+    $(document).ready(getNumUsers);
+    $(document).ready(getOnlineUsers);
+    $(document).ready(createScratchActivecode());
+    $(document).ready(styleUnittestResults());
+</script>
+
+<script type="text/javascript">
+  // add the video play button overlay image
+  $(".video-play-overlay").each(function() {
+    $(this).css('background-image', "url(\'../_static/play_overlay_icon.png\')")
+    });
+
+  // This function is needed to allow the dropdown search bar to work;
+  // The default behaviour is that the dropdown menu closes when something in
+  // it (like the search bar) is clicked
+  $(function() {
+    // Fix input element click problem
+    $('.dropdown input, .dropdown label').click(function(e) {
+      e.stopPropagation();
+      });
+  });
+
+  // style codelens buttons (doing it here because PyTutor is a submodule owned by someone else
+  $(function() {
+    $(".ExecutionVisualizer").each(function() {
+      $(this).find("#jmpFirstInstr").addClass('btn btn-default');
+      $(this).find("#jmpStepBack").addClass('btn btn-danger');
+      $(this).find("#jmpStepFwd").addClass('btn btn-success');
+      $(this).find("#jmpLastInstr").addClass('btn btn-default');
+      });
+  });
+
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-32029811-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,852 @@
+undefined
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xml:lang="en-gb"
+	lang="en-gb">
+<head>
+<!-- 21yFlPdzvdJhunAC6iiSb27xhC0 -->
+<!-- i5P1QeO99jbmSdFutbdkX-b5ZZA -->
+<meta name="verify-v1"
+	content="jAbxEf3UIobl0L5uWiokUgZ69dGY8XGO7P0cldXJlJg=" />
+<meta name="msvalidate.01" content="FFD798CC333DA7BA81914B9AB5A48521" />
+
+  <base href="http://www.i-programmer.info/babbages-bag/477-trees.html" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content="Programming book reviews, programming tutorials,programming news, developer news,software programmer news, C#, Ruby, Python,C, C++, PHP, Visual Basic, Computer book reviews, computer history, programming history, joomla, theory, spreadsheets, developer book reviews, programmer news, developer news, news" />
+  <meta name="title" content="Data structures - Trees" />
+  <meta name="author" content="Administrator" />
+  <meta name="description" content="Programming book reviews, programming tutorials,programming news, C#, Ruby, Python,C, C++, PHP, Visual Basic, Computer book reviews, computer history, programming history, joomla, theory, spreadsheets and more." />
+  <meta name="generator" content="Joomla! 1.5 - Open Source Content Management" />
+  <title>Data structures - Trees</title>
+  <link href="/templates/news/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link href="http://www.i-programmer.info/index.php?option=com_ninjarsssyndicator&amp;feed_id=3&amp;format=raw" rel="alternate" type="application/rss+xml" title="I Programmer - full contents" />
+  <script type="text/javascript" src="/media/system/js/mootools.js"></script>
+  <script type="text/javascript" src="/media/system/js/caption.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://www.i-programmer.info/modules/mod_minifrontpage/css/style.css" title="default" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-9645537-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript">var p="http",d="static";if(document.location.protocol=="https:"){p+="s";d="engine";}var z=document.createElement("script");z.type="text/javascript";z.async=true;z.src=p+"://"+d+".adzerk.net/ados.js";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(z,s);</script>
+<script type="text/javascript">
+var ados = ados || {};
+ados.run = ados.run || [];
+ados.run.push(function() {
+/* load placement for account: Neudesic Media Group, site: iProgrammer, size: 728x90 - Leaderboard*/
+ados_add_placement(2072, 15649, "azk87025", 4);
+/* load placement for account: Neudesic Media Group, site: iProgrammer, size: 728x90 - Leaderboard*/
+ados_add_placement(2072, 15649, "azk83602", 4);
+/* load placement for account: Neudesic Media Group, site: iProgrammer, size: 728x90 - Leaderboard*/
+ados_add_placement(2072, 15649, "azk68287", 4);
+/* load placement for account: Neudesic Media Group, site: iProgrammer, size: 300x250 - Medium Rectangle*/
+ados_add_placement(2072, 15649, "azk56326", 5);
+/* load placement for account: Neudesic Media Group, site: iProgrammer, size: 300x250 - Medium Rectangle*/
+ados_add_placement(2072, 15649, "azk44399", 5);
+/* load placement for account: Neudesic Media Group, site: iProgrammer, size: 300x250 - Medium Rectangle*/
+ados_add_placement(2072, 15649, "azk63268", 5);
+/* load placement for account: Neudesic Media Group, site: iProgrammer, size: 160x600 - Wide Skyscraper*/
+ados_add_placement(2072, 15649, "azk42853", 6);
+/* load placement for account: Neudesic Media Group, site: iProgrammer, size: 160x600 - Wide Skyscraper*/
+ados_add_placement(2072, 15649, "azk23147", 6);
+/* load placement for account: Neudesic Media Group, site: iProgrammer, size: 160x600 - Wide Skyscraper*/
+ados_add_placement(2072, 15649, "azk4904", 6);
+ados_load();
+});</script>
+
+
+
+  <!--iprogrammer scripts-->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+        <script src="/includes/js/iprogrammer/JqueryUI/jquery-ui-1.11.1.custom/jquery-ui.min.js" type="text/javascript"></script>
+        <script src="/includes/js/iprogrammer/newdecoration.js" type="text/javascript"></script>
+        
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+       <!-- <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+-->
+
+<!-- GooglePlusOne-->
+<link href="https://plus.google.com/109209064991427323662" rel="publisher" /><script type="text/javascript">
+(function() 
+{var po = document.createElement("script");
+po.type = "text/javascript"; po.async = true;po.src = "https://apis.google.com/js/plusone.js";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(po, s);
+})();</script>
+
+
+
+
+<link rel="stylesheet"
+	href="/templates/system/css/system.css"
+	type="text/css" />
+
+<link rel="stylesheet"
+	href="/templates/system/css/general.css"
+	type="text/css" />
+
+<link rel="stylesheet"
+		href="/templates/news/css/template.css"
+	type="text/css" />
+
+<link rel="stylesheet"
+	href="/templates/news/css/blue.css"
+	type="text/css" />
+
+<link rel="stylesheet"
+	href="/templates/news/css/blue_bg.css"
+	type="text/css" />
+
+<!--[if lte IE 6]>
+<link href="/templates/news/css/ieonly.css" rel="stylesheet" type="text/css" />
+<![endif]-->
+
+
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "50cd3240-e940-4cd4-91a3-6d7d01f47481"}); </script>
+
+
+</head>
+
+<body id="page_bg"
+	class="color_blue bg_blue width_fmax">
+<a name="up" id="up"></a>
+<div class="center" align="center">
+
+<div id="wrapper">
+<div id="wrapper_r">
+<div id="header">
+<div id="header_l">
+<div id="header_r">
+<a href="http://www.i-programmer.info"><div id="logo"></div></a>
+
+
+  <div class="bannergroup">
+
+<div class="banneritem"><div id="azk87025"></div><div class="clr"></div>
+	</div>
+
+</div>
+
+
+<div id="a144c75828" class="pagefair-acceptable"></div>
+</div>
+</div>
+<!--[if lt IE 7]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;'> <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg" border="0" height="42" width="820" alt="" /></a></div> <![endif]--> 
+</div>
+
+<div id="tabarea">
+<div id="tabarea_l">
+<div id="tabarea_r">
+<div id="tabmenu">
+<table cellpadding="0" cellspacing="0" class="pill">
+	<tr>
+		<td class="pill_l">&nbsp;</td>
+		<td class="pill_m">
+		 <div id="pillmenu"><ul class="menu"><li class="item8"><a href="/login.html"><span>Login</span></a></li><li class="item9"><a href="/register.html"><span>Register</span></a></li><li class="item44"><a href="/edit-profile.html"><span>Edit Profile</span></a></li><li class="item11"><a href="/change-region.html"><span>Change Region</span></a></li><li class="item10"><a href="/about-us.html"><span>About Us</span></a></li></ul></div>
+		</td>
+		<td class="pill_r">&nbsp;</td>
+	</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="search"></div>
+
+<div id="pathway"><span class="breadcrumbs pathway">
+<a href="http://www.i-programmer.info/" class="pathway">Home</a> <img src="/templates/news/images/arrow.png" alt=""  /> <a href="/babbages-bag.html" class="pathway">Babbage's Bag</a> <img src="/templates/news/images/arrow.png" alt=""  /> </span>
+</div>
+
+<div class="clr"></div>
+
+<div id="whitebox">
+<div id="whitebox_t">
+<div id="whitebox_tl">
+<div id="whitebox_tr"></div>
+</div>
+</div>
+
+<div id="whitebox_m">
+<div id="area">
+
+<div id="leftcolumn">
+ 
+		<div class="module_menu">
+			<div>
+				<div>
+					<div>
+													<h3>Main Menu</h3>
+											<ul class="menu"><li class="item1"><a href="http://www.i-programmer.info/"><span>Home</span></a></li><li class="item2"><a href="/bookreviews.html"><span>Book Reviews</span></a></li><li class="item32"><a href="/book-watch-archive.html"><span>Book Watch</span></a></li><li class="item36"><a href="/news.html"><span>News</span></a></li><li class="item7"><a href="/projects.html"><span>Projects</span></a></li><li class="parent item21"><a href="/programming.html"><span>The Core</span></a></li><li id="current" class="active item13"><a href="/babbages-bag.html"><span>Babbage's Bag</span></a></li><li class="parent item4"><a href="/history.html"><span>History</span></a></li><li class="parent item20"><a href="/spreadsheets.html"><span>Swift's Spreadsheets</span></a></li><li class="item15"><a href="/the-stone-tapes.html"><span>The Stone Tapes</span></a></li><li class="parent item33"><a href="/professional-programmer.html"><span>Professional Programmer</span></a></li><li class="parent item17"><a href="/ebooks.html"><span>eBooks</span></a></li><li class="item52"><a href="/programmer-puzzles.html"><span>Programmer Puzzles</span></a></li><li class="item16"><a href="/bargain-computer-books.html"><span>Bargain Computer Books</span></a></li><li class="item14"><a href="/codebin.html"><span>CodeBin</span></a></li><li class="item63"><a href="/i-programmer-weekly.html"><span>I Programmer Weekly</span></a></li></ul>					</div>
+				</div>
+			</div>
+		</div>
+			<div class="module">
+			<div>
+				<div>
+					<div>
+											<form action="index.php" method="post">
+	<div class="search">
+		<input name="searchword" id="mod_search_searchword" maxlength="20" alt="Search" class="inputbox" type="text" size="20" value="search..."  onblur="if(this.value=='') this.value='search...';" onfocus="if(this.value=='search...') this.value='';" /><input type="submit" value="Search" class="button" onclick="this.form.searchword.focus();"/>	</div>
+	<input type="hidden" name="task"   value="search" />
+	<input type="hidden" name="option" value="com_search" />
+	<input type="hidden" name="Itemid" value=13 />
+</form>					</div>
+				</div>
+			</div>
+		</div>
+			<div class="module">
+			<div>
+				<div>
+					<div>
+											<div class="bannergroup">
+
+
+</div>					</div>
+				</div>
+			</div>
+		</div>
+			<div class="module">
+			<div>
+				<div>
+					<div>
+											<div id="google_translate_element"></div><script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    gaTrack: true,
+    gaId: 'UA-9645537-2'
+  }, 'google_translate_element');
+}
+</script><script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>					</div>
+				</div>
+			</div>
+		</div>
+			<div class="module">
+			<div>
+				<div>
+					<div>
+													<h3>New Articles!</h3>
+											<ul class="latestnews">
+	<li class="latestnews">
+		<a href="/programming/javascript/8178-just-javascript-life-without-type.html" class="latestnews">
+			Just JavaScript - Life Without Type - Constructor And InstanceOf</a>
+	</li>
+	<li class="latestnews">
+		<a href="/programming/android/6097-android-adventures-the-input-controls-events-and-xml.html" class="latestnews">
+			Android Adventures - Basic Controls And Events</a>
+	</li>
+	<li class="latestnews">
+		<a href="/professional-programmer/accreditation/8331-what-is-a-data-scientist-and-how-do-i-become-one.html" class="latestnews">
+			What is a Data Scientist and How Do I Become One?</a>
+	</li>
+	<li class="latestnews">
+		<a href="/history/machines/419-colossus.html" class="latestnews">
+			Codebreaking and Colossus</a>
+	</li>
+	<li class="latestnews">
+		<a href="/programming/database/8296-sql-workshop-removing-duplicate-rows-.html" class="latestnews">
+			SQL Workshop - Removing Duplicate Rows </a>
+	</li>
+	<li class="latestnews">
+		<a href="/programming/android/5937-android-adventures-building-the-ui.html" class="latestnews">
+			Android Adventures - Building The UI</a>
+	</li>
+	<li class="latestnews">
+		<a href="/programming/hardware/8252-exploring-edison-setting-up-the-breakout-boards.html" class="latestnews">
+			Exploring Edison - Setting Up The Breakout Boards</a>
+	</li>
+	<li class="latestnews">
+		<a href="/programming/android/5914-android-adventures-activity-and-ui.html" class="latestnews">
+			Android Adventures - Activity And UI</a>
+	</li>
+	<li class="latestnews">
+		<a href="/professional-programmer/programmers-bookshelf/8236-building-a-javascript-library.html" class="latestnews">
+			Building A JavaScript Library</a>
+	</li>
+	<li class="latestnews">
+		<a href="/programming/android/5887-android-adventures-getting-started-with-android-studio.html" class="latestnews">
+			Android Adventures - Getting Started With Android Studio 1.0</a>
+	</li>
+	<li class="latestnews">
+		<a href="/programming/other-languages/8062-getting-started-with-mit-app-inventor-2.html" class="latestnews">
+			Getting started with MIT App Inventor 2</a>
+	</li>
+	<li class="latestnews">
+		<a href="/programming/artificial-intelligence/1468-fuzzy-logic-and-thinking.html" class="latestnews">
+			Fuzzy Logic And Uncertainty In AI</a>
+	</li>
+	<li class="latestnews">
+		<a href="/programming/hardware/8198-exploring-edison-meet-edison.html" class="latestnews">
+			Exploring Edison - Meet Edison</a>
+	</li>
+	<li class="latestnews">
+		<a href="/programming/c/1420-the-perils-of-the-c-parallel-for-.html" class="latestnews">
+			The Perils of the C# Parallel For </a>
+	</li>
+	<li class="latestnews">
+		<a href="/programming/javascript/8083-just-javascript-type-and-non-type.html" class="latestnews">
+			Just JavaScript - Type And Non-Type</a>
+	</li>
+</ul>					</div>
+				</div>
+			</div>
+		</div>
+			<div class="module">
+			<div>
+				<div>
+					<div>
+													<h3>New Book Reviews!</h3>
+											<ul class="latestnews">
+	<li class="latestnews">
+		<a href="/bookreviews/124-applications/8340-mastering-bitcoin.html" class="latestnews">
+			Mastering Bitcoin</a>
+	</li>
+	<li class="latestnews">
+		<a href="/bookreviews/21-database/8344-ms-sql-t-sql-and-sql-server-interview-questions.html" class="latestnews">
+			MS SQL, T-SQL, and SQL Server Interview Questions</a>
+	</li>
+	<li class="latestnews">
+		<a href="/bookreviews/23-java/8328-java-in-24-hours-7e.html" class="latestnews">
+			Java in 24 Hours (7e)</a>
+	</li>
+	<li class="latestnews">
+		<a href="/bookreviews/116-perl/8324-perl-by-example-5th-ed.html" class="latestnews">
+			Perl by Example (5th Ed)</a>
+	</li>
+	<li class="latestnews">
+		<a href="/bookreviews/33-phone/8303-android-security-internals.html" class="latestnews">
+			Android Security Internals</a>
+	</li>
+	<li class="latestnews">
+		<a href="/bookreviews/21-database/8299-joe-celkos-sql-for-smarties-advanced-sql-programming-5th-ed.html" class="latestnews">
+			Joe Celko’s SQL for Smarties Advanced SQL Programming 5th Ed</a>
+	</li>
+	<li class="latestnews">
+		<a href="/bookreviews/29-javascript/8287-developing-backbonejs-applications.html" class="latestnews">
+			Developing Backbone.js Applications</a>
+	</li>
+	<li class="latestnews">
+		<a href="/bookreviews/28-general-interest/8284-google-search-complete.html" class="latestnews">
+			Google Search Complete!</a>
+	</li>
+	<li class="latestnews">
+		<a href="/bookreviews/28-general-interest/8275-developing-quality-technical-information.html" class="latestnews">
+			Developing Quality Technical Information</a>
+	</li>
+	<li class="latestnews">
+		<a href="/bookreviews/21-database/8266-sql-server-2014-backup-and-recovery.html" class="latestnews">
+			SQL Server 2014 Backup and Recovery</a>
+	</li>
+	<li class="latestnews">
+		<a href="/bookreviews/64-career-development/8212-becoming-a-better-programmer.html" class="latestnews">
+			Becoming a Better Programmer</a>
+	</li>
+	<li class="latestnews">
+		<a href="/bookreviews/114-cloud-computing/8246-testing-cloud-services.html" class="latestnews">
+			Testing Cloud Services</a>
+	</li>
+	<li class="latestnews">
+		<a href="/bookreviews/12-web-design-and-development-/8235-seven-web-frameworks-in-seven-weeks.html" class="latestnews">
+			Seven Web Frameworks in Seven Weeks</a>
+	</li>
+	<li class="latestnews">
+		<a href="/bookreviews/64-career-development/8229-soft-skills.html" class="latestnews">
+			Soft Skills</a>
+	</li>
+	<li class="latestnews">
+		<a href="/bookreviews/218-data-science/8217-agile-data-science.html" class="latestnews">
+			Agile Data Science</a>
+	</li>
+</ul>					</div>
+				</div>
+			</div>
+		</div>
+			<div class="module">
+			<div>
+				<div>
+					<div>
+													<h3>Popular Articles</h3>
+											<ul class="mostread">
+	<li class="mostread">
+		<a href="/programming/python/3942-arrays-in-python.html" class="mostread">
+			Arrays in Python</a>
+	</li>
+	<li class="mostread">
+		<a href="/programming/android/5887-android-adventures-getting-started-with-android-studio.html" class="mostread">
+			Android Adventures - Getting Started With Android Studio 1.0</a>
+	</li>
+	<li class="mostread">
+		<a href="/programming/javascript/1441-javascript-data-structures-the-associative-array.html" class="mostread">
+			JavaScript Data Structures  - Associative Array</a>
+	</li>
+	<li class="mostread">
+		<a href="/ebooks/automating-excel/1264-getting-started.html" class="mostread">
+			Getting started with Excel VBA</a>
+	</li>
+	<li class="mostread">
+		<a href="/programming/wpf-workings/620-using-the-wpf-net-40-datagrid-.html" class="mostread">
+			Using the WPF .NET 4.0 DataGrid </a>
+	</li>
+	<li class="mostread">
+		<a href="/professional-programmer/i-programmer/2591-dumping-net-microsofts-madness.html" class="mostread">
+			Dumping .NET - Microsoft's Madness</a>
+	</li>
+	<li class="mostread">
+		<a href="/professional-programmer/i-programmer/2983-weak-typing-the-lost-art-of-the-keyboard.html" class="mostread">
+			Weak typing - the lost art of the keyboard</a>
+	</li>
+	<li class="mostread">
+		<a href="/programming/hardware/1905-getting-started-pc-kinect.html" class="mostread">
+			Getting Started with PC Kinect</a>
+	</li>
+	<li class="mostread">
+		<a href="/babbages-bag/477-trees.html" class="mostread">
+			Data structures - Trees</a>
+	</li>
+	<li class="mostread">
+		<a href="/programming/hardware/2623-getting-started-with-microsoft-kinect-sdk.html" class="mostread">
+			Getting started with Microsoft Kinect SDK</a>
+	</li>
+</ul>					</div>
+				</div>
+			</div>
+		</div>
+			<div class="module">
+			<div>
+				<div>
+					<div>
+													<h3>Popular Book Reviews</h3>
+											<ul class="mostread">
+	<li class="mostread">
+		<a href="/bookreviews/10-software-architecture/155-beautiful-architecture-leading-thinkers-reveal-the-hidden-beauty-in-software-design-.html" class="mostread">
+			Beautiful Architecture: Leading Thinkers Reveal the Hidden Beauty in Software Design </a>
+	</li>
+	<li class="mostread">
+		<a href="/bookreviews/14-other-languages/189-hello-world-computer-programming-for-kids-and-other-beginners-.html" class="mostread">
+			Hello World! Computer Programming for Kids and Other Beginners </a>
+	</li>
+	<li class="mostread">
+		<a href="/bookreviews/19-hardware-platforms/6316-practical-raspberry-pi.html" class="mostread">
+			Practical Raspberry Pi</a>
+	</li>
+	<li class="mostread">
+		<a href="/bookreviews/14-other-languages/6293-beginning-r-the-statistical-programming-language.html" class="mostread">
+			Beginning R: The Statistical Programming Language</a>
+	</li>
+	<li class="mostread">
+		<a href="/bookreviews/5-c/159-programming-principles-and-practice-using-c.html" class="mostread">
+			Programming: Principles and Practice Using C++</a>
+	</li>
+	<li class="mostread">
+		<a href="/bookreviews/20-theory/93-algorithms-in-a-nutshell.html" class="mostread">
+			Algorithms in a Nutshell</a>
+	</li>
+	<li class="mostread">
+		<a href="/bookreviews/4-methodology/184-how-we-test-software-at-microsoft.html" class="mostread">
+			How We Test Software at Microsoft</a>
+	</li>
+	<li class="mostread">
+		<a href="/bookreviews/40-ruby/197-the-ruby-programming-language.html" class="mostread">
+			The Ruby Programming Language</a>
+	</li>
+	<li class="mostread">
+		<a href="/bookreviews/63-social-media/2065-andriod-apps-marketing.html" class="mostread">
+			Android Apps Marketing</a>
+	</li>
+	<li class="mostread">
+		<a href="/bookreviews/29-javascript/80-simply-javascript.html" class="mostread">
+			Simply Javascript</a>
+	</li>
+</ul>					</div>
+				</div>
+			</div>
+		</div>
+			<div class="module">
+			<div>
+				<div>
+					<div>
+											<div class="bannergroup">
+
+<div class="banneritem"><script type="text/javascript"><!--
+google_ad_client = "pub-9936000140414196";
+/* 160x600, created 16/04/10 */
+google_ad_slot = "0336081462";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><div class="clr"></div>
+	</div>
+<div class="banneritem"><script type="text/javascript"><!--
+google_ad_client = "pub-9936000140414196";
+/* 160x600, created 16/04/10 */
+google_ad_slot = "0336081462";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><div class="clr"></div>
+	</div>
+
+</div>					</div>
+				</div>
+			</div>
+		</div>
+	 
+</div>
+
+ <div id="maincolumn">
+ 
+
+
+ <table class="nopad">
+	<tr valign="top">
+		<td><table class="contentpaneopen">
+<tr>
+		<td class="contentheading" width="100%">
+					Data structures - Trees			</td>
+				
+		
+					</tr>
+</table>
+
+<table class="contentpaneopen">
+
+
+
+<tr>
+<td id="IprogrammerMainArticleTextBody" valign="top">
+	
+	<table cellpadding="0" cellspacing="0" class="contenttoc">
+	<tr>
+		<th>Article Index</th>
+	</tr>
+	
+	<tr>
+		<td>
+		<a href="/babbages-bag/477-trees.html" class="toclink active">Data structures - Trees</a>
+		</td>
+	</tr>
+	
+			<tr>
+				<td>
+				<a href="/babbages-bag/477-trees.html?start=1" class="toclink">Perfectly balanced tree</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+				<a href="/babbages-bag/477-trees.html?start=2" class="toclink">AVL and B Trees</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+				<a href="/babbages-bag/477-trees.html?start=3" class="toclink">Glossary</a>
+				</td>
+			</tr>
+			</table><div class="pagenavcounter">Page 1 of 4</div><p>Classic data structures produce classic tutorials. In this edition of Babbage's Bag&nbsp; we investigate the advanced ecology of trees - perfectly balanced trees, AVL trees and B-Trees.&nbsp;</p>
+
+<h2>Trees and indexes</h2>
+<p>The tree is one of the most powerful of the advanced data structures and it often pops up in even more advanced subjects such as AI and compiler design. Surprisingly though the tree is important in a much more basic application - namely the keeping of an efficient index.</p>
+<p> </p>
+<p><div class="bannergroup">
+
+<div class="banneritem"><a href="/component/banners/click/39.html"><img src="http://www.i-programmer.info/images/banners/BBBanner.png" alt="Banner" /></a><div class="clr"></div>
+	</div>
+
+</div></p>
+<p> </p>
+<p>Whenever you use a database there is a 99% chance that an index is involved somewhere. The simplest type of index is a sorted listing of the key field. This provides a fast lookup because you can use a binary search to locate any item without having to look at each one in turn.</p>
+<p>The trouble with a simple ordered list only becomes apparent once you start adding new items and have to keep the list sorted - it can be done reasonably efficiently but it takes some advanced juggling. A more important defect in these days of networking and multi-user systems is related to the file locking properties of such an index. Basically if you want to share a linear index and allow more than one user to update it then you have to lock the entire index during each update. In other words a linear index isn't easy to share and this is where trees come in - I suppose you could say that trees are shareable.</p>
+<h2>Tree ecology</h2>
+<p>A tree is a data structure consisting of nodes organised as a hierarchy - see Figure 1.</p>
+<p> </p>
+<p><img src="/images/stories/BabBag/trees/Tree1.jpg" alt="Tree1" width="290" height="231" /></p>
+<p><em>Figure 1:</em> <em>Some tree jargon<br /></em></p>
+<p> </p>
+<p>There is some obvious jargon that relates to trees and some not so obvious both are summarised in the <a href="/babbages-bag/477-trees.html?start=2">glossary </a>and selected examples are shown in Figure 1.</p>
+<p>I will try to avoid overly academic definitions or descriptions in what follows but if you need a quick definition of any term then look it up in the glossary.</p>
+<h2>Binary trees</h2>
+<p>A worthwhile simplification is to consider only binary trees. A binary tree is one in which each node has at most two descendants - a node can have just one but it can't have more than two.</p>
+<p>Clearly each node in a binary tree can have a left and/or a right descendant. The importance of a binary tree is that it can create a data structure that mimics a "yes/no" decision making process.</p>
+<p>For example, if you construct a binary tree to store numeric values such that each left sub-tree contains larger values and each right sub-tree contains smaller values then it is easy to search the tree for any particular value. The algorithm is simply a tree search equivalent of a binary search:</p>
+<pre>start at the root<br />REPEAT until you reach a terminal node<br /> IF value at the node = search value <br />                             THEN found<br /> IF value at node &lt; search value <br />        THEN move to left descendant<br />&nbsp;&nbsp;      ELSE move to right descendant<br />END REPEAT</pre>
+<p>Of course if the loop terminates because it reaches a terminal node then the search value isn't in the tree, but the fine detail only obscures the basic principles.</p>
+<p> </p>
+<p>The next question is how the shape of the tree affects the efficiency of the search. We all have a tendency to imagine complete binary trees like the one in Figure 2a and in this case it isn't difficult to see that in the worst case a search would have to go down the to the full depth of the tree. If you are happy with maths you will know that if the tree in Figure 2a contains <em>n</em> items then its depth is log2 <em>n</em> and so at best a tree search is as fast as a binary search.</p>
+<p> </p>
+<p><img src="/images/stories/BabBag/trees/Tree2a.jpg" alt="Tree2a" width="290" height="211" /></p>
+<p><em>Figure 2a: The "perfect" binary tree .<br /></em></p>
+<p> </p>
+<p>The worst possible performance is produced by a tree like that in Figure 2b. In this case all of the items are lined up on a single branch making a tree with a depth of <em>n</em>. The worst case search of such a tree would take <em>n</em> compares which is the same as searching an unsorted linear list.</p>
+<p>So depending on the shape of the tree search efficiency varies from a binary search of a sorted list to a linear search of an unsorted list. Clearly if it is going to be worth using a tree we have to ensure that it is going to be closer in shape to the tree in Figure 2a than that in 2b.</p>
+<p> </p>
+<p style="text-align: center;"><img src="/images/stories/BabBag/trees/Tree2b.jpg" alt="Tree2b" width="75" height="191" /></p>
+<p style="text-align: left;"><em>Figure 2b: This may be an extreme binary tree but it still IS a binary tree</em></p>
+<p style="text-align: left;"> </p>
+<p><div class="bannergroup">
+
+<div class="banneritem"><a href="/component/banners/click/39.html"><img src="http://www.i-programmer.info/images/banners/BBBanner.png" alt="Banner" /></a><div class="clr"></div>
+	</div>
+
+</div></p>
+<p>&lt;ASIN:3540435506&gt;</p>
+<p>&lt;ASIN:0521585198&gt;</p>
+<br /><div class="pagenavbar"><div>Prev - <a href="/babbages-bag/477-trees.html?start=1">Next &gt;&gt;</a></div></div><br /></td>
+</tr>
+
+</table>
+<span class="article_separator">&nbsp;</span>
+</td>
+                
+                <td class="greyline">&nbsp;</td>
+                
+                <td>
+
+   
+    		<div class="moduletable">
+					<div class="bannergroup">
+
+<div class="banneritem"><div id="azk44399"></div><div class="clr"></div>
+	</div>
+
+</div>		</div>
+	
+
+    
+
+                          
+
+             
+
+              <div style="width: 320px;">
+
+
+<!-- AddThis Button BEGIN -->
+<script type="text/javascript">
+var url = window.location.href;
+var buttonNotFirstPage=url.match("start=");
+// <![CDATA[
+	if (!buttonNotFirstPage) {
+		var srcxxxyyy = '';
+                srcxxxyyy = '<div style="float: left;width: 320px;height:55px;"  >';
+
+                srcxxxyyy += '<a href="https://twitter.com/share" class="twitter-share-button" data-via="Iprogrammerinfo">Tweet</a>';
+    
+              
+                srcxxxyyy += "<span class='st_plusone' displayText='Google +1'></span>";
+                srcxxxyyy += "<span class='st_facebook' displayText=''></span>";
+                srcxxxyyy += "<span class='st_linkedin' displayText='' ></span>";
+                srcxxxyyy += "<span class='st_reddit' displayText='Reddit'></span>";
+     srcxxxyyy += "<span class='st_email' displayText='' style='margin: 0px'></span>";
+                srcxxxyyy += "<span class='st_baidu' displayText='Baidu'></span>";
+                srcxxxyyy += "<span class='st_slashdot' displayText='Slashdot'></span>";
+                srcxxxyyy += "<span class='st_stumbleupon' displayText='StumbleUpon' style='margin: 2px'></span>";
+
+                srcxxxyyy += "<span class='st_dzone' displayText='DZone'></span>";
+           
+
+                srcxxxyyy +="</div>";
+	        document.write(srcxxxyyy);
+	}
+
+// ]]>
+
+
+
+</script>
+
+
+<br />
+<div style="clear: both; margin: 8px;">
+<a href="https://twitter.com/Iprogrammerinfo" class="twitter-follow-button" data-show-count="true">Follow @Iprogrammerinfo</a>
+</div>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+
+</div>
+                   
+            
+            
+                 <table class="nopad">
+                   <tr  valign="top">
+		      <td id="iProgrammerAmazoncolum">&nbsp;</td>
+		      <td class="greyline">&nbsp;</td>
+		             
+		           <td>
+                          
+                               
+   
+  
+<div class="bannergroup">
+
+
+</div> 
+     		<div class="moduletable">
+					<div class="bannergroup">
+
+<div class="banneritem"><div id="azk4904"></div><div class="clr"></div>
+	</div>
+<div class="banneritem"><div data-type="ad" data-publisher="lqm.iprogrammer.site" data-zone="ron" data-format="160x600"></div><div class="clr"></div>
+	</div>
+
+</div>		</div>
+			<div class="moduletable">
+					<div class="bannergroup">
+
+<div class="banneritem"><div id="azk23147"></div><div class="clr"></div>
+	</div>
+
+</div>		</div>
+			<div class="moduletable">
+					<div class="bannergroup">
+
+<div class="banneritem"><script id="mNCC" language="javascript">  medianet_width='160';  medianet_height= '600';  medianet_crid='448556853';  </script>  <script id="mNSC" src="http://contextual.media.net/nmedianet.js?cid=8CUG5J6EY" language="javascript"></script><div class="clr"></div>
+	</div>
+<div class="banneritem"><div id="azk42853"></div><div class="clr"></div>
+	</div>
+
+</div>		</div>
+	
+         </td>
+                                  		   
+                                         </tr>
+                 </table>
+                                      		<div class="moduletable">
+					<div class="bannergroup">
+
+<div class="banneritem"><div data-type="ad" data-publisher="lqm.iprogrammer.site" data-zone="ron" data-format="300x250"></div><div class="clr"></div>
+	</div>
+
+</div>		</div>
+	
+                  
+
+                 </td>
+	
+	</tr>
+ </table>
+
+<table class="nopad">
+	<tr>
+		<td>		<div class="moduletable">
+					<div style="text-align:left" class="bcarss">
+	<div style="text-align:left" class="bcarss_message">
+		RSS feed of all content    </div>
+<div style="text-align:left" class="bcarss_feed"><a href="http://www.i-programmer.info/index.php?option=com_ninjarsssyndicator&amp;feed_id=3&amp;format=raw"><img src="http://www.i-programmer.info/components/com_ninjarsssyndicator/assets/images/buttons/rss20.gif" alt="I Programmer - full contents" title="I Programmer - full contents" /></a></div></div>
+		</div>
+			<div class="moduletable">
+					<div>Copyright &#169; 2015 i-programmer.info. All Rights Reserved.</div>
+<div><a href="http://www.joomla.org">Joomla!</a> is Free Software released under the <a href="http://www.gnu.org/licenses/gpl-2.0.html">GNU/GPL License.</a></div>		</div>
+			<div class="moduletable">
+					<div class="bannergroup">
+
+<div class="banneritem"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-9936000140414196";
+/* bigbottombanner */
+google_ad_slot = "5870317904";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script><div class="clr"></div>
+	</div>
+
+</div>		</div>
+	</td>
+	</tr>
+</table>
+
+</div>
+<div class="clr"></div>
+</div>
+<div class="clr"></div>
+</div>
+
+<div id="whitebox_b">
+<div id="whitebox_bl">
+<div id="whitebox_br"></div>
+</div>
+</div>
+</div>
+
+<div id="footerspacer"></div>
+</div>
+
+<div id="footer">
+<div id="footer_l">
+<div id="footer_r">
+<p id="syndicate"></p>
+<p id="power_by">Powered by <a
+	href="http://www.joomla.org">Joomla!</a>. Valid<a href="http://validator.w3.org/check/referer">XHTML</a> and<a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+ 
+</div>
+
+
+
+<script type='text/javascript'>
+    function _dmBootstrap(file) {
+        var _dma = document.createElement('script'); 
+        _dma.type = 'text/javascript';
+        _dma.async = true; 
+        _dma.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + file;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(_dma);
+    }
+    function _dmFollowup(file) { if (typeof DMAds === 'undefined')  _dmBootstrap('cdn2.DeveloperMedia.com/a.min.js');}
+    (function () { _dmBootstrap('cdn1.DeveloperMedia.com/a.min.js'); setTimeout(_dmFollowup, 2000);})();
+</script>
+
+
+<script type="text/javascript">
+    (function() {
+        function async_load(script_url){
+            var protocol = ('https:' == document.location.protocol ? 'https://' : 'http://');
+            var s = document.createElement('script'); s.src = protocol + script_url;
+            var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
+        }
+        bm_website_code = '5B8AE6D08A3511E2';
+        jQuery(document).ready(function(){async_load('asset.pagefair.com/measure.min.js')});
+        jQuery(document).ready(function(){async_load('asset.pagefair.net/ads.min.js')});
+    })();
+</script>
+<!-- Kontera Tag BEGIN-->
+<script type='text/javascript'>
+var dc_PublisherID = 208905 ; // set to desktop ID
+var dc_AdLinkColor = 'blue' ; //set to color of your choosing
+if (navigator.userAgent.match(/iPhone|iPad|iPod|Android|Blackberry|IEMobile/i)) {
+                dc_PublisherID = 224904 ;   // set to mobile ID
+                dc_AdLinkColor = 'blue' ;  //set to color of your choosing for mobile
+                }
+</script>
+<script type='text/javascript' src='http://kona.kontera.com/javascript/lib/KonaLibInline.js'></script>
+<!-- Kontera Tag END--> 
+
+</body>
+</html>

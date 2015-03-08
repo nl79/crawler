@@ -1,0 +1,729 @@
+undefined<!DOCTYPE html>
+<html lang="vi" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Cấu trúc dữ liệu – Wikipedia tiếng Việt</title>
+<meta name="generator" content="MediaWiki 1.25wmf19" />
+<link rel="alternate" type="application/x-wiki" title="Sửa đổi" href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit" />
+<link rel="edit" title="Sửa đổi" href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit" />
+<link rel="apple-touch-icon" href="//bits.wikimedia.org/apple-touch/wikipedia.png" />
+<link rel="shortcut icon" href="//bits.wikimedia.org/favicon/wikipedia.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (vi)" />
+<link rel="EditURI" type="application/rsd+xml" href="//vi.wikipedia.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u" />
+<link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="Nguồn cấp Atom của Wikipedia" href="/w/index.php?title=%C4%90%E1%BA%B7c_bi%E1%BB%87t:Thay_%C4%91%E1%BB%95i_g%E1%BA%A7n_%C4%91%C3%A2y&amp;feed=atom" />
+<link rel="canonical" href="http://vi.wikipedia.org/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;amp;veaction=edit" />
+<link rel="stylesheet" href="//bits.wikimedia.org/vi.wikipedia.org/load.php?debug=false&amp;lang=vi&amp;modules=ext.gadget.AVIM%2CAVIM_portlet%2CReferenceTooltips%2Ccharinsert%2Cdid_you_mean%2Cpurgetab%2CrefToolbar%7Cext.rtlcite%2Cwikihiero%2CwikimediaBadges%7Cext.uls.nojs%7Cext.visualEditor.viewPageTarget.noscript%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="//bits.wikimedia.org/vi.wikipedia.org/load.php?debug=false&amp;lang=vi&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: viwiki:resourceloader:filter:minify-css:7:921f9b07ea22048285602c3a133d0b67 */</style>
+<script src="//bits.wikimedia.org/vi.wikipedia.org/load.php?debug=false&amp;lang=vi&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Cấu_trúc_dữ_liệu","wgTitle":"Cấu trúc dữ liệu","wgCurRevisionId":20480674,"wgRevisionId":20480674,"wgArticleId":85746,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Sơ khai","Khoa học máy tính","Cấu trúc dữ liệu"],"wgBreakFrames":false,"wgPageContentLanguage":"vi","wgPageContentModel":"wikitext","wgSeparatorTransformTable":[",\t.",".\t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"vi normal","wgMonthNames":["","tháng 1","tháng 2","tháng 3","tháng 4","tháng 5","tháng 6","tháng 7","tháng 8","tháng 9","tháng 10","tháng 11","tháng 12"],"wgMonthNamesShort":["","tháng 1","tháng 2","tháng 3","tháng 4","tháng 5","tháng 6","tháng 7","tháng 8","tháng 9","tháng 10","tháng 11","tháng 12"],"wgRelevantPageName":"Cấu_trúc_dữ_liệu","wgRelevantArticleId":85746,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"vi","pageLanguageDir":"ltr"},"wikilove-recipient":"","wikilove-anon":0,"wgPoweredByHHVM":true,"wgULSAcceptLanguageList":[],"wgULSCurrentAutonym":"Tiếng Việt","wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q175263"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"vi"});},{},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{},{});
+/* cache key: viwiki:resourceloader:filter:minify-js:7:651959e69484c4689e465c66c35a215b */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.centralauth.centralautologin","mmv.head","ext.imageMetrics.head","ext.visualEditor.viewPageTarget.init","ext.uls.init","ext.uls.interface","ext.centralNotice.bannerController","skins.vector.js"]);
+}</script>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static-1.25wmf19/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Cấu_trúc_dữ_liệu skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+							<div id="siteNotice"><!-- CentralNotice --></div>
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="vi">Cấu trúc dữ liệu</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">Bách khoa toàn thư mở Wikipedia</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Bước tới:					<a href="#mw-head">menu</a>, 					<a href="#p-search">tìm kiếm</a>
+				</div>
+				<div id="mw-content-text" lang="vi" dir="ltr" class="mw-content-ltr"><div class="thumb tright">
+<div class="thumbinner" style="width:317px;"><a href="/wiki/T%E1%BA%ADp_tin:Binary_tree.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/315px-Binary_tree.svg.png" width="315" height="263" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/473px-Binary_tree.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/630px-Binary_tree.svg.png 2x" data-file-width="300" data-file-height="250" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="/wiki/T%E1%BA%ADp_tin:Binary_tree.svg" class="internal" title="Phóng lớn"></a></div>
+<a href="/wiki/C%C3%A2y_nh%E1%BB%8B_ph%C3%A2n" title="Cây nhị phân" class="mw-redirect">Cây nhị phân</a>, một kiểu đơn giản của cấu trúc dữ liệu liên kết rẽ nhánh.</div>
+</div>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:317px;"><a href="/wiki/T%E1%BA%ADp_tin:Hash_table_3_1_1_0_1_0_0_SP.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg/315px-Hash_table_3_1_1_0_1_0_0_SP.svg.png" width="315" height="230" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg/473px-Hash_table_3_1_1_0_1_0_0_SP.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg/630px-Hash_table_3_1_1_0_1_0_0_SP.svg.png 2x" data-file-width="315" data-file-height="230" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="/wiki/T%E1%BA%ADp_tin:Hash_table_3_1_1_0_1_0_0_SP.svg" class="internal" title="Phóng lớn"></a></div>
+Bảng băm</div>
+</div>
+</div>
+<p>Trong <a href="/wiki/Khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh" title="Khoa học máy tính">khoa học máy tính</a>, <b>cấu trúc dữ liệu</b> là một cách lưu <a href="/wiki/D%E1%BB%AF_li%E1%BB%87u" title="Dữ liệu">dữ liệu</a> trong <a href="/wiki/M%C3%A1y_t%C3%ADnh" title="Máy tính">máy tính</a> sao cho nó có thể được sử dụng một cách hiệu quả.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">[1]</a></sup><sup id="cite_ref-2" class="reference"><a href="#cite_note-2">[2]</a></sup></p>
+<p>Trong thiết kế nhiều loại chương trình, việc chọn cấu trúc dữ liệu là vấn đề quan trọng. Kinh nghiệm trong việc xây dựng các hệ thóng lớn cho thấy khó khăn của việc triển khai chương trình, chất lượng và hiệu năng của kết quả cuối cùng phụ thuộc rất nhiều.</p>
+<p>Mỗi loại cấu trúc dữ liệu phù hợp với một vài loại ứng dụng khác nhau, một số cấu trúc dữ liệu dành cho những công việc đặc biệt. Ví dụ, các <a href="/w/index.php?title=B-tree&amp;action=edit&amp;redlink=1" class="new" title="B-tree (trang chưa được viết)">B-tree</a> đặc biệt phù hợp trong việc thiết kế cơ sở dữ liệu.vào việc chọn cấu trúc dữ liệu tốt nhất. Sau khi cấu trúc dữ liệu được chọn, người ta thường dễ nhận thấy <a href="/wiki/Thu%E1%BA%ADt_to%C3%A1n" title="Thuật toán">thuật toán</a> cần sử dụng. Đôi khi trình tự công việc diễn ra theo thứ tự ngược lại: cấu trúc dữ liệu được chọn do những bài toán quan trọng nhất định có thuật toán chạy tốt nhất với một số cấu trúc dữ liệu cụ thể. Trong cả hai trường hợp, việc lựa chọn cấu trúc dữ liệu là rất quan trọng.</p>
+<p></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Mục lục</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#T.E1.BB.95ng_quan"><span class="tocnumber">1</span> <span class="toctext">Tổng quan</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#C.C3.A1c_nguy.C3.AAn_t.E1.BA.AFc_c.C6.A1_b.E1.BA.A3n"><span class="tocnumber">2</span> <span class="toctext">Các nguyên tắc cơ bản</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Ng.C3.B4n_ng.E1.BB.AF_h.E1.BB.97_tr.E1.BB.A3"><span class="tocnumber">3</span> <span class="toctext">Ngôn ngữ hỗ trợ</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#C.C3.A1c_c.E1.BA.A5u_tr.C3.BAc_d.E1.BB.AF_li.E1.BB.87u_th.C6.B0.E1.BB.9Dng_d.C3.B9ng"><span class="tocnumber">4</span> <span class="toctext">Các cấu trúc dữ liệu thường dùng</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Xem_th.C3.AAm"><span class="tocnumber">5</span> <span class="toctext">Xem thêm</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Tham_kh.E1.BA.A3o"><span class="tocnumber">6</span> <span class="toctext">Tham khảo</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#.C4.90.E1.BB.8Dc_th.C3.AAm"><span class="tocnumber">7</span> <span class="toctext">Đọc thêm</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Li.C3.AAn_k.E1.BA.BFt_ngo.C3.A0i"><span class="tocnumber">8</span> <span class="toctext">Liên kết ngoài</span></a></li>
+</ul>
+</div>
+<p></p>
+<h2><span class="mw-headline" id="T.E1.BB.95ng_quan">Tổng quan</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;veaction=edit&amp;vesection=1" title="Sửa đổi phần “Tổng quan”" class="mw-editsection-visualeditor">sửa</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit&amp;section=1" title="Sửa đổi phần “Tổng quan”">sửa mã nguồn</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Thông thường, một cấu trúc dữ liệu được chọn cẩn thận sẽ cho phép thực hiện <a href="/wiki/Thu%E1%BA%ADt_to%C3%A1n" title="Thuật toán">thuật toán</a> hiệu quả hơn. Việc chọn cấu trúc dữ liệu thường bắt đầu từ chọn một <a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u_tr%E1%BB%ABu_t%C6%B0%E1%BB%A3ng&amp;action=edit&amp;redlink=1" class="new" title="Cấu trúc dữ liệu trừu tượng (trang chưa được viết)">cấu trúc dữ liệu trừu tượng</a>. Một cấu trúc dữ liệu được thiết kế tốt cho phép thực hiện nhiều phép toán, sử dụng càng ít tài nguyên, thời gian xử lý và không gian bộ nhớ càng tốt. Các cấu trúc dữ liệu được triển khai bằng cách sử dụng các <a href="/wiki/Ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u" title="Kiểu dữ liệu">kiểu dữ liệu</a>, các <a href="/w/index.php?title=Tham_chi%E1%BA%BFu&amp;action=edit&amp;redlink=1" class="new" title="Tham chiếu (trang chưa được viết)">tham chiếu</a> và các phép toán trên đó được cung cấp bởi một <a href="/wiki/Ng%C3%B4n_ng%E1%BB%AF_l%E1%BA%ADp_tr%C3%ACnh" title="Ngôn ngữ lập trình">ngôn ngữ lập trình</a>.</p>
+<p>Tri thức đó đã dẫn đến sự nổi lên của nhiều <a href="/wiki/Ng%C3%B4n_ng%E1%BB%AF_l%E1%BA%ADp_tr%C3%ACnh" title="Ngôn ngữ lập trình">ngôn ngữ lập trình</a> và phương pháp thiết kế được hình thức hóa, mà trong đó, nhân tố tổ chức quan trọng là các cấu trúc dữ liệu chứ không phải các thuật toán. Đa số ngôn ngữ có một tính năng thuộc dạng <a href="/w/index.php?title=H%E1%BB%87_th%E1%BB%91ng_module&amp;action=edit&amp;redlink=1" class="new" title="Hệ thống module (trang chưa được viết)">hệ thống module</a> cho phép các cấu trúc dữ liệu được tái sử dụng an toàn trong các ứng dụng khác nhau, bằng cách dùng các giao diện có điều khiển để che các chi tiết cài đặt đã được kiểm thử. Đặc biệt, các ngôn ngữ lập trình <a href="/wiki/L%E1%BA%ADp_tr%C3%ACnh_h%C6%B0%E1%BB%9Bng_%C4%91%E1%BB%91i_t%C6%B0%E1%BB%A3ng" title="Lập trình hướng đối tượng">hướng đối tượng</a> như <a href="/wiki/C%2B%2B" title="C++">C++</a> và <a href="/wiki/Java_(ng%C3%B4n_ng%E1%BB%AF_l%E1%BA%ADp_tr%C3%ACnh)" title="Java (ngôn ngữ lập trình)">Java</a> sử dụng <a href="/wiki/L%E1%BB%9Bp_(khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh)" title="Lớp (khoa học máy tính)">lớp</a> (class) cho mục đích này.</p>
+<p>Vì cấu trúc dữ liệu có tính chất quyết định đối với các chương trình chuyên nghiệp nên có rất nhiều hỗ trợ về cấu trúc dữ liệu trong các thư viện chuẩn của các ngôn ngữ lập trình hiện đại, ví dụ thư viện mẫu chuẩn của C++, <a href="/wiki/Java" title="Java">Java</a> API, và Microsoft <a href="/wiki/.NET_Framework" title=".NET Framework">.NET Framework</a>.</p>
+<p>Các cấu trúc xây dựng căn bản của hầu hết các cấu trúc dữ liệu là <a href="/wiki/M%E1%BA%A3ng" title="Mảng" class="mw-disambig">mảng</a> (<i>array</i>), <a href="/w/index.php?title=B%E1%BA%A3n_ghi&amp;action=edit&amp;redlink=1" class="new" title="Bản ghi (trang chưa được viết)">bản ghi</a> (<i>record</i>), tổ hợp phân biệt(?) (<i><a href="//en.wikipedia.org/wiki/Tagged_union" class="extiw" title="en:Tagged union">discriminated union</a></i>), và <a href="/w/index.php?title=Tham_chi%E1%BA%BFu&amp;action=edit&amp;redlink=1" class="new" title="Tham chiếu (trang chưa được viết)">tham chiếu</a> (<i>reference</i>). Ví dụ, tham chiếu khả rỗng (có thể có giá trị null) là một kết hợp của tham chiếu và cấu trúc discriminated union, và cấu trúc dữ liệu liên kết đơn giản nhất, <a href="/w/index.php?title=Danh_s%C3%A1ch_li%C3%AAn_k%E1%BA%BFt&amp;action=edit&amp;redlink=1" class="new" title="Danh sách liên kết (trang chưa được viết)">danh sách liên kết</a>, được xây dựng từ các bản ghi và các tham chiếu khả rỗng.</p>
+<h2><span class="mw-headline" id="C.C3.A1c_nguy.C3.AAn_t.E1.BA.AFc_c.C6.A1_b.E1.BA.A3n">Các nguyên tắc cơ bản</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;veaction=edit&amp;vesection=2" title="Sửa đổi phần “Các nguyên tắc cơ bản”" class="mw-editsection-visualeditor">sửa</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit&amp;section=2" title="Sửa đổi phần “Các nguyên tắc cơ bản”">sửa mã nguồn</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h2><span class="mw-headline" id="Ng.C3.B4n_ng.E1.BB.AF_h.E1.BB.97_tr.E1.BB.A3">Ngôn ngữ hỗ trợ</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;veaction=edit&amp;vesection=3" title="Sửa đổi phần “Ngôn ngữ hỗ trợ”" class="mw-editsection-visualeditor">sửa</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit&amp;section=3" title="Sửa đổi phần “Ngôn ngữ hỗ trợ”">sửa mã nguồn</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h2><span class="mw-headline" id="C.C3.A1c_c.E1.BA.A5u_tr.C3.BAc_d.E1.BB.AF_li.E1.BB.87u_th.C6.B0.E1.BB.9Dng_d.C3.B9ng">Các cấu trúc dữ liệu thường dùng</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;veaction=edit&amp;vesection=4" title="Sửa đổi phần “Các cấu trúc dữ liệu thường dùng”" class="mw-editsection-visualeditor">sửa</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit&amp;section=4" title="Sửa đổi phần “Các cấu trúc dữ liệu thường dùng”">sửa mã nguồn</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a href="/wiki/Ng%C4%83n_x%E1%BA%BFp" title="Ngăn xếp">Ngăn xếp</a></li>
+<li><a href="/wiki/H%C3%A0ng_%C4%91%E1%BB%A3i" title="Hàng đợi">Hàng đợi</a></li>
+<li><a href="/w/index.php?title=Danh_s%C3%A1ch_li%C3%AAn_k%E1%BA%BFt&amp;action=edit&amp;redlink=1" class="new" title="Danh sách liên kết (trang chưa được viết)">Danh sách liên kết</a></li>
+<li><a href="/wiki/C%C3%A2y_(c%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u)" title="Cây (cấu trúc dữ liệu)">Cây (cấu trúc dữ liệu)</a></li>
+<li><a href="/w/index.php?title=%C4%90%E1%BB%93_th%E1%BB%8B_(c%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u)&amp;action=edit&amp;redlink=1" class="new" title="Đồ thị (cấu trúc dữ liệu) (trang chưa được viết)">Đồ thị (cấu trúc dữ liệu)</a></li>
+</ul>
+<h2><span class="mw-headline" id="Xem_th.C3.AAm">Xem thêm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;veaction=edit&amp;vesection=5" title="Sửa đổi phần “Xem thêm”" class="mw-editsection-visualeditor">sửa</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit&amp;section=5" title="Sửa đổi phần “Xem thêm”">sửa mã nguồn</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a href="/wiki/Danh_s%C3%A1ch_c%C3%A1c_c%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u" title="Danh sách các cấu trúc dữ liệu">Danh sách các cấu trúc dữ liệu</a></li>
+<li><a href="/w/index.php?title=M%C3%B4_h%C3%ACnh_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit&amp;redlink=1" class="new" title="Mô hình dữ liệu (trang chưa được viết)">Mô hình dữ liệu</a></li>
+<li><a href="/w/index.php?title=Ph%C3%A2n_ho%E1%BA%A1ch_%C4%91%E1%BB%99ng&amp;action=edit&amp;redlink=1" class="new" title="Phân hoạch động (trang chưa được viết)">Phân hoạch động</a></li>
+<li><a href="/w/index.php?title=Danh_s%C3%A1ch_li%C3%AAn_k%E1%BA%BFt&amp;action=edit&amp;redlink=1" class="new" title="Danh sách liên kết (trang chưa được viết)">Danh sách liên kết</a></li>
+</ul>
+<h2><span class="mw-headline" id="Tham_kh.E1.BA.A3o">Tham khảo</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;veaction=edit&amp;vesection=6" title="Sửa đổi phần “Tham khảo”" class="mw-editsection-visualeditor">sửa</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit&amp;section=6" title="Sửa đổi phần “Tham khảo”">sửa mã nguồn</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="list-style-type: decimal;">
+<ol class="references">
+<li id="cite_note-1"><b><a href="#cite_ref-1">^</a></b> <span class="reference-text">Paul E. Black (ed.), entry for <i>data structure</i> in <i><a href="/w/index.php?title=Dictionary_of_Algorithms_and_Data_Structures&amp;action=edit&amp;redlink=1" class="new" title="Dictionary of Algorithms and Data Structures (trang chưa được viết)">Dictionary of Algorithms and Data Structures</a>. U.S. <a href="/w/index.php?title=National_Institute_of_Standards_and_Technology&amp;action=edit&amp;redlink=1" class="new" title="National Institute of Standards and Technology (trang chưa được viết)">National Institute of Standards and Technology</a>. ngày 15 tháng 12 năm 2004. <a rel="nofollow" class="external text" href="http://www.itl.nist.gov/div897/sqg/dads/HTML/datastructur.html">Online version</a> Accessed ngày 21 tháng 5 năm 2009.</i></span></li>
+<li id="cite_note-2"><b><a href="#cite_ref-2">^</a></b> <span class="reference-text">Entry <i>data structure</i> in the <a href="/wiki/Encyclop%C3%A6dia_Britannica" title="Encyclopædia Britannica">Encyclopædia Britannica</a> (2009) <a rel="nofollow" class="external text" href="http://www.britannica.com/EBchecked/topic/152190/data-structure">Online entry</a> accessed on ngày 21 tháng 5 năm 2009.</span></li>
+</ol>
+</div>
+<h2><span class="mw-headline" id=".C4.90.E1.BB.8Dc_th.C3.AAm">Đọc thêm</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;veaction=edit&amp;vesection=7" title="Sửa đổi phần “Đọc thêm”" class="mw-editsection-visualeditor">sửa</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit&amp;section=7" title="Sửa đổi phần “Đọc thêm”">sửa mã nguồn</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li>Peter Brass, <i>Advanced Data Structures</i>, <a href="/w/index.php?title=Cambridge_University_Press&amp;action=edit&amp;redlink=1" class="new" title="Cambridge University Press (trang chưa được viết)">Cambridge University Press</a>, 2008.</li>
+<li><a href="/wiki/Donald_Knuth" title="Donald Knuth">Donald Knuth</a>, <i><a href="/wiki/The_Art_of_Computer_Programming" title="The Art of Computer Programming">The Art of Computer Programming</a></i>, vol. 1. <a href="/w/index.php?title=Addison-Wesley&amp;action=edit&amp;redlink=1" class="new" title="Addison-Wesley (trang chưa được viết)">Addison-Wesley</a>, 3rd edition, 1997.</li>
+<li>Dinesh Mehta and <a href="/w/index.php?title=Sartaj_Sahni&amp;action=edit&amp;redlink=1" class="new" title="Sartaj Sahni (trang chưa được viết)">Sartaj Sahni</a> <i>Handbook of Data Structures and Applications</i>, <a href="/w/index.php?title=Chapman_and_Hall&amp;action=edit&amp;redlink=1" class="new" title="Chapman and Hall (trang chưa được viết)">Chapman and Hall</a>/<a href="/w/index.php?title=CRC_Press&amp;action=edit&amp;redlink=1" class="new" title="CRC Press (trang chưa được viết)">CRC Press</a>, 2007.</li>
+<li><a href="/wiki/Niklaus_Wirth" title="Niklaus Wirth">Niklaus Wirth</a>, <i>Algorithms and Data Structures</i>, <a href="/w/index.php?title=Prentice_Hall&amp;action=edit&amp;redlink=1" class="new" title="Prentice Hall (trang chưa được viết)">Prentice Hall</a>, 1985.</li>
+</ul>
+<h2><span class="mw-headline" id="Li.C3.AAn_k.E1.BA.BFt_ngo.C3.A0i">Liên kết ngoài</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;veaction=edit&amp;vesection=8" title="Sửa đổi phần “Liên kết ngoài”" class="mw-editsection-visualeditor">sửa</a><span class="mw-editsection-divider"> | </span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit&amp;section=8" title="Sửa đổi phần “Liên kết ngoài”">sửa mã nguồn</a><span class="mw-editsection-bracket">]</span></span></h2>
+<table class="metadata plainlinks mbox-small" style="border:1px solid #aaa; background-color:#f9f9f9;">
+<tr>
+<td colspan="2" style="margin: auto; text-align: center">Tìm hiểu thêm về <b>Cấu trúc dữ liệu</b> ở các dự án khác của Wikipedia:</td>
+</tr>
+<tr>
+<td><a href="http://vi.wiktionary.org/wiki/Special:Search/data_structure" title="Search Wiktionary"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Wiktionary-logo-en.svg/23px-Wiktionary-logo-en.svg.png" width="23" height="25" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Wiktionary-logo-en.svg/35px-Wiktionary-logo-en.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Wiktionary-logo-en.svg/46px-Wiktionary-logo-en.svg.png 2x" data-file-width="1000" data-file-height="1089" /></a></td>
+<td><a href="//vi.wiktionary.org/wiki/Special:Search/data_structure" class="extiw" title="wikt:Special:Search/data structure">Định nghĩa</a> ở Wiktionary<br /></td>
+</tr>
+<tr>
+<td><a href="http://commons.wikimedia.org/wiki/Special:Search/Category:Data_structures" title="Search Commons"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/18px-Commons-logo.svg.png" width="18" height="25" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/28px-Commons-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/37px-Commons-logo.svg.png 2x" data-file-width="1024" data-file-height="1376" /></a></td>
+<td><a href="//commons.wikimedia.org/wiki/Special:Search/Category:Data_structures" class="extiw" title="commons:Special:Search/Category:Data structures">Nội dung đa phương tiện</a> ở Commons<br /></td>
+</tr>
+<tr>
+<td><a href="http://vi.wikiversity.org/wiki/Special:Search/Topic:Data_structures" title="Search Wikiversity"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Wikiversity-logo-en.svg/25px-Wikiversity-logo-en.svg.png" width="25" height="23" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Wikiversity-logo-en.svg/38px-Wikiversity-logo-en.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Wikiversity-logo-en.svg/50px-Wikiversity-logo-en.svg.png 2x" data-file-width="1000" data-file-height="900" /></a></td>
+<td><a href="//vi.wikiversity.org/wiki/Special:Search/Topic:Data_structures" class="extiw" title="v:Special:Search/Topic:Data structures">Tư liệu học tập</a> ở Wikiversity<br /></td>
+</tr>
+<tr>
+<td><a href="http://vi.wikiquote.org/wiki/Special:Search/C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u" title="Search Wikiquote"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/21px-Wikiquote-logo.svg.png" width="21" height="25" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/32px-Wikiquote-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikiquote-logo.svg/42px-Wikiquote-logo.svg.png 2x" data-file-width="300" data-file-height="355" /></a></td>
+<td><a href="//vi.wikiquote.org/wiki/Special:Search/C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u" class="extiw" title="q:Special:Search/Cấu trúc dữ liệu">Câu nói nổi tiếng</a> ở Wikiquote<br /></td>
+</tr>
+<tr>
+<td><a href="http://vi.wikisource.org/wiki/Special:Search/C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u" title="Search Wikisource"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/24px-Wikisource-logo.svg.png" width="24" height="25" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/36px-Wikisource-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Wikisource-logo.svg/48px-Wikisource-logo.svg.png 2x" data-file-width="410" data-file-height="430" /></a></td>
+<td><a href="//vi.wikisource.org/wiki/Special:Search/C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u" class="extiw" title="s:Special:Search/Cấu trúc dữ liệu">Văn bản</a> ở Wikisource<br /></td>
+</tr>
+<tr>
+<td><a href="http://vi.wikibooks.org/wiki/Special:Search/Data_Structures" title="Search Wikibooks"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikibooks-logo.svg/25px-Wikibooks-logo.svg.png" width="25" height="25" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikibooks-logo.svg/38px-Wikibooks-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Wikibooks-logo.svg/50px-Wikibooks-logo.svg.png 2x" data-file-width="300" data-file-height="300" /></a></td>
+<td><a href="//vi.wikibooks.org/wiki/Special:Search/Data_Structures" class="extiw" title="b:Special:Search/Data Structures">Sách</a> ở Wikibooks<br /></td>
+</tr>
+</table>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://academicearth.org/courses/data-structures">UC Berkeley video course on data structures</a></li>
+<li><a rel="nofollow" class="external text" href="http://nist.gov/dads/">Descriptions</a> from the <a href="/w/index.php?title=Dictionary_of_Algorithms_and_Data_Structures&amp;action=edit&amp;redlink=1" class="new" title="Dictionary of Algorithms and Data Structures (trang chưa được viết)">Dictionary of Algorithms and Data Structures</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.cse.unr.edu/~bebis/CS308/">CSE.unr.edu</a></li>
+<li><a rel="nofollow" class="external text" href="http://www.cs.auckland.ac.nz/software/AlgAnim/ds_ToC.html">Data structures course with animations</a></li>
+<li><a rel="nofollow" class="external text" href="http://courses.cs.vt.edu/~csonline/DataStructures/Lessons/index.html">Data structure tutorials with animations</a></li>
+<li><a rel="nofollow" class="external text" href="http://msdn.microsoft.com/en-us/library/aa289148(VS.71).aspx">An Examination of Data Structures from.NET perspective</a></li>
+<li><a rel="nofollow" class="external text" href="http://people.cs.vt.edu/~shaffer/Book/C++3e20110915.pdf">Schaffer, C. <i>Data Structures and Algorithm Analysis</i></a></li>
+</ul>
+<table class="metadata mbox-small plainlinks" style="border:1px solid #aaa; background-color:#f9f9f9;">
+<tr>
+<td class="mbox-image"><a href="//commons.wikimedia.org/wiki/Special:Search/C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u" title="commons:Special:Search/Cấu trúc dữ liệu"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/30px-Commons-logo.svg.png" width="30" height="40" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/45px-Commons-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Commons-logo.svg/59px-Commons-logo.svg.png 2x" data-file-width="1024" data-file-height="1376" /></a></td>
+<td class="mbox-text" style="">Wikimedia Commons có thêm thể loại hình ảnh và phương tiện truyền tải về <i><b><a class="external text" href="//commons.wikimedia.org/wiki/Category:Data_structures?uselang=vi"><font title="Hình ảnh, tài liệu về Cấu trúc dữ liệu trên Wikimedia Commons">Cấu trúc dữ liệu</font></a></b></i></td>
+</tr>
+</table>
+<table cellspacing="0" class="navbox" style="border-spacing:0;">
+<tr>
+<td style="padding:2px;">
+<table cellspacing="0" class="nowraplinks collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/B%E1%BA%A3n_m%E1%BA%ABu:C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u" title="Bản mẫu:Cấu trúc dữ liệu"><span title="Xem bản mẫu này" style=";;background:none transparent;border:none;;">x</span></a></li>
+<li class="nv-talk"><a href="/w/index.php?title=Th%E1%BA%A3o_lu%E1%BA%ADn_B%E1%BA%A3n_m%E1%BA%ABu:C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit&amp;redlink=1" class="new" title="Thảo luận Bản mẫu:Cấu trúc dữ liệu (trang chưa được viết)"><span title="Thảo luận về bản mẫu này" style=";;background:none transparent;border:none;;">t</span></a></li>
+<li class="nv-edit"><a class="external text" href="//vi.wikipedia.org/w/index.php?title=B%E1%BA%A3n_m%E1%BA%ABu:C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit"><span title="Sửa đổi bản mẫu này" style=";;background:none transparent;border:none;;">s</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%;"><strong class="selflink">Cấu trúc dữ liệu</strong></div>
+</th>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Kiểu</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=Collection_(m%C3%A1y_t%C3%ADnh)&amp;action=edit&amp;redlink=1" class="new" title="Collection (máy tính) (trang chưa được viết)">Collection</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Container_(c%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u)&amp;action=edit&amp;redlink=1" class="new" title="Container (cấu trúc dữ liệu) (trang chưa được viết)">Container</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/w/index.php?title=Ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u_tr%E1%BB%ABu_t%C6%B0%E1%BB%A3ng&amp;action=edit&amp;redlink=1" class="new" title="Kiểu dữ liệu trừu tượng (trang chưa được viết)">Trừu tượng</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=Danh_s%C3%A1ch_(m%C3%A1y_t%C3%ADnh)&amp;action=edit&amp;redlink=1" class="new" title="Danh sách (máy tính) (trang chưa được viết)">Danh sách</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=M%E1%BA%A3ng_k%E1%BA%BFt_h%E1%BB%A3p&amp;action=edit&amp;redlink=1" class="new" title="Mảng kết hợp (trang chưa được viết)">Mảng kết hợp</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Multimap&amp;action=edit&amp;redlink=1" class="new" title="Multimap (trang chưa được viết)">Multimap</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Set_(ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u_tr%E1%BB%ABu_t%C6%B0%E1%BB%A3ng)&amp;action=edit&amp;redlink=1" class="new" title="Set (kiểu dữ liệu trừu tượng) (trang chưa được viết)">Set</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Set_(ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u_tr%E1%BB%ABu_t%C6%B0%E1%BB%A3ng)&amp;action=edit&amp;redlink=1" class="new" title="Set (kiểu dữ liệu trừu tượng) (trang chưa được viết)">Multiset</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Double-ended_queue&amp;action=edit&amp;redlink=1" class="new" title="Double-ended queue (trang chưa được viết)">Double-ended queue</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/H%C3%A0ng_%C4%91%E1%BB%A3i" title="Hàng đợi">Hàng đợi</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=H%C3%A0ng_%C4%91%E1%BB%A3i_%C6%B0u_ti%C3%AAn&amp;action=edit&amp;redlink=1" class="new" title="Hàng đợi ưu tiên (trang chưa được viết)">Hàng đợi ưu tiên</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Ng%C4%83n_x%E1%BA%BFp" title="Ngăn xếp">Ngăn xếp</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/M%E1%BA%A3ng_(c%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u)" title="Mảng (cấu trúc dữ liệu)">Mảng</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=M%E1%BA%A3ng_%C4%91%E1%BB%99ng&amp;action=edit&amp;redlink=1" class="new" title="Mảng động (trang chưa được viết)">Mảng động</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Sparse_array&amp;action=edit&amp;redlink=1" class="new" title="Sparse array (trang chưa được viết)">Sparse array</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Circular_buffer&amp;action=edit&amp;redlink=1" class="new" title="Circular buffer (trang chưa được viết)">Circular buffer</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=M%E1%BA%A3ng_bit&amp;action=edit&amp;redlink=1" class="new" title="Mảng bit (trang chưa được viết)">Mảng bit</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/B%E1%BA%A3ng_b%C4%83m" title="Bảng băm">Bảng băm</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/w/index.php?title=Li%C3%AAn_k%E1%BA%BFt_(C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u)&amp;action=edit&amp;redlink=1" class="new" title="Liên kết (Cấu trúc dữ liệu) (trang chưa được viết)">Liên kết</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=Danh_s%C3%A1ch_li%C3%AAn_k%E1%BA%BFt&amp;action=edit&amp;redlink=1" class="new" title="Danh sách liên kết (trang chưa được viết)">Danh sách liên kết</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Unrolled_linked_list&amp;action=edit&amp;redlink=1" class="new" title="Unrolled linked list (trang chưa được viết)">Unrolled linked list</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Danh_s%C3%A1ch_li%C3%AAn_k%E1%BA%BFt_XOR&amp;action=edit&amp;redlink=1" class="new" title="Danh sách liên kết XOR (trang chưa được viết)">Danh sách liên kết XOR</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Skip_list&amp;action=edit&amp;redlink=1" class="new" title="Skip list (trang chưa được viết)">Skip list</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/C%C3%A2y_(c%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u)" title="Cây (cấu trúc dữ liệu)">Cây</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/wiki/B-c%C3%A2y" title="B-cây">B-cây</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/C%C3%A2y_t%C3%ACm_ki%E1%BA%BFm_nh%E1%BB%8B_ph%C3%A2n" title="Cây tìm kiếm nhị phân">Cây tìm kiếm nhị phân</a> (<a href="/w/index.php?title=C%C3%A2y_t%C3%ACm_ki%E1%BA%BFm_nh%E1%BB%8B_ph%C3%A2n_t%E1%BB%B1_c%C3%A2n_b%E1%BA%B1ng&amp;action=edit&amp;redlink=1" class="new" title="Cây tìm kiếm nhị phân tự cân bằng (trang chưa được viết)">tự cân bằng</a>: <a href="/w/index.php?title=C%C3%A2y_AA&amp;action=edit&amp;redlink=1" class="new" title="Cây AA (trang chưa được viết)">AA</a>, <a href="/wiki/C%C3%A2y_AVL" title="Cây AVL">AVL</a>, <a href="/wiki/C%C3%A2y_%C4%91%E1%BB%8F_%C4%91en" title="Cây đỏ đen">đỏ đen</a>, <a href="/w/index.php?title=Splay_tree&amp;action=edit&amp;redlink=1" class="new" title="Splay tree (trang chưa được viết)">splay</a>)<span style="font-weight:bold;">&#160;·</span> <a href="/wiki/%C4%90%E1%BB%91ng_(c%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u)" title="Đống (cấu trúc dữ liệu)">Đống</a> (<a href="/wiki/%C4%90%E1%BB%91ng_nh%E1%BB%8B_ph%C3%A2n" title="Đống nhị phân">nhị phân</a>, <a href="/w/index.php?title=%C4%90%E1%BB%91ng_nh%E1%BB%8B_th%E1%BB%A9c&amp;action=edit&amp;redlink=1" class="new" title="Đống nhị thức (trang chưa được viết)">nhị thức</a>, <a href="/w/index.php?title=%C4%90%E1%BB%91ng_Fibonacci&amp;action=edit&amp;redlink=1" class="new" title="Đống Fibonacci (trang chưa được viết)">Fibonacci</a>)<span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Trie" title="Trie">Trie</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/w/index.php?title=%C4%90%E1%BB%93_th%E1%BB%8B_(c%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u)&amp;action=edit&amp;redlink=1" class="new" title="Đồ thị (cấu trúc dữ liệu) (trang chưa được viết)">Đồ thị</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=Directed_graph&amp;action=edit&amp;redlink=1" class="new" title="Directed graph (trang chưa được viết)">Directed graph</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Directed_acyclic_graph&amp;action=edit&amp;redlink=1" class="new" title="Directed acyclic graph (trang chưa được viết)">Directed acyclic graph</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=S%C6%A1_%C4%91%E1%BB%93_quy%E1%BA%BFt_%C4%91%E1%BB%8Bnh_nh%E1%BB%8B_ph%C3%A2n&amp;action=edit&amp;redlink=1" class="new" title="Sơ đồ quyết định nhị phân (trang chưa được viết)">Sơ đồ quyết định nhị phân</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Si%C3%AAu_%C4%91%E1%BB%93_th%E1%BB%8B" title="Siêu đồ thị">Siêu đồ thị</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div><a href="/wiki/Danh_s%C3%A1ch_c%C3%A1c_c%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u" title="Danh sách các cấu trúc dữ liệu">Danh sách các cấu trúc dữ liệu</a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table cellspacing="0" class="navbox" style="border-spacing:0;">
+<tr>
+<td style="padding:2px;">
+<table cellspacing="0" class="nowraplinks collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/B%E1%BA%A3n_m%E1%BA%ABu:C%C3%A1c_ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u" title="Bản mẫu:Các kiểu dữ liệu"><span title="Xem bản mẫu này" style=";;background:none transparent;border:none;;">x</span></a></li>
+<li class="nv-talk"><a href="/w/index.php?title=Th%E1%BA%A3o_lu%E1%BA%ADn_B%E1%BA%A3n_m%E1%BA%ABu:C%C3%A1c_ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit&amp;redlink=1" class="new" title="Thảo luận Bản mẫu:Các kiểu dữ liệu (trang chưa được viết)"><span title="Thảo luận về bản mẫu này" style=";;background:none transparent;border:none;;">t</span></a></li>
+<li class="nv-edit"><a class="external text" href="//vi.wikipedia.org/w/index.php?title=B%E1%BA%A3n_m%E1%BA%ABu:C%C3%A1c_ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit"><span title="Sửa đổi bản mẫu này" style=";;background:none transparent;border:none;;">s</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%;">Các <a href="/wiki/Ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u" title="Kiểu dữ liệu">kiểu dữ liệu</a></div>
+</th>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Không được lí giải</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/wiki/Bit" title="Bit">Bit</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Byte" title="Byte">Byte</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Trit&amp;action=edit&amp;redlink=1" class="new" title="Trit (trang chưa được viết)">Trit</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Tryte&amp;action=edit&amp;redlink=1" class="new" title="Tryte (trang chưa được viết)">Tryte</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Word_(%C4%91i%E1%BB%87n_to%C3%A1n)&amp;action=edit&amp;redlink=1" class="new" title="Word (điện toán) (trang chưa được viết)">Word</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Số</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=S%E1%BB%91_nguy%C3%AAn_(khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh)&amp;action=edit&amp;redlink=1" class="new" title="Số nguyên (khoa học máy tính) (trang chưa được viết)">Nguyên</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=S%E1%BB%91_h%E1%BB%8Dc_d%E1%BA%A5u_ph%E1%BA%A9y_t%C4%A9nh&amp;action=edit&amp;redlink=1" class="new" title="Số học dấu phẩy tĩnh (trang chưa được viết)">Có dấu phẩy cố định</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=C%C3%B3_d%E1%BA%A5u_ph%E1%BA%A9y_%C4%91%E1%BB%99ng&amp;action=edit&amp;redlink=1" class="new" title="Có dấu phẩy động (trang chưa được viết)">Có dấu phẩy động</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u_h%E1%BB%AFu_t%E1%BB%89&amp;action=edit&amp;redlink=1" class="new" title="Kiểu dữ liệu hữu tỉ (trang chưa được viết)">Hữu tỉ</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u_s%E1%BB%91_ph%E1%BB%A9c&amp;action=edit&amp;redlink=1" class="new" title="Kiểu dữ liệu số phức (trang chưa được viết)">Phức</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=S%E1%BB%91_h%E1%BB%8Dc_%C4%91%E1%BB%99_ch%C3%ADnh_x%C3%A1c_t%C3%B9y_%C3%BD&amp;action=edit&amp;redlink=1" class="new" title="Số học độ chính xác tùy ý (trang chưa được viết)">Số lớn</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=S%E1%BB%91_h%E1%BB%8Dc_kho%E1%BA%A3ng&amp;action=edit&amp;redlink=1" class="new" title="Số học khoảng (trang chưa được viết)">Khoảng</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/V%C4%83n_b%E1%BA%A3n" title="Văn bản">Văn bản</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=K%C3%AD_t%E1%BB%B1_(%C4%91i%E1%BB%87n_to%C3%A1n)&amp;action=edit&amp;redlink=1" class="new" title="Kí tự (điện toán) (trang chưa được viết)">Kí tự</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Chu%E1%BB%97i_k%C3%AD_t%E1%BB%B1_(khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh)&amp;action=edit&amp;redlink=1" class="new" title="Chuỗi kí tự (khoa học máy tính) (trang chưa được viết)">Chuỗi kí tự</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/w/index.php?title=Con_tr%E1%BB%8F&amp;action=edit&amp;redlink=1" class="new" title="Con trỏ (trang chưa được viết)">Con trỏ</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=%C4%90%E1%BB%8Ba_ch%E1%BB%89_v%E1%BA%ADt_l%C3%AD&amp;action=edit&amp;redlink=1" class="new" title="Địa chỉ vật lí (trang chưa được viết)">Địa chỉ</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Tham_chi%E1%BA%BFu_(khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh)&amp;action=edit&amp;redlink=1" class="new" title="Tham chiếu (khoa học máy tính) (trang chưa được viết)">Tham chiếu</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/w/index.php?title=Ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u_h%E1%BB%97n_h%E1%BB%A3p&amp;action=edit&amp;redlink=1" class="new" title="Kiểu dữ liệu hỗn hợp (trang chưa được viết)">Hỗn hợp</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=Ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u_%C4%91%E1%BA%A1i_s%E1%BB%91&amp;action=edit&amp;redlink=1" class="new" title="Kiểu dữ liệu đại số (trang chưa được viết)">Kiểu dữ liệu đại số</a> (<a href="/w/index.php?title=Ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u_%C4%91%E1%BA%A1i_s%E1%BB%91_%C4%91%C6%B0%E1%BB%A3c_t%E1%BB%95ng_qu%C3%A1t_h%C3%B3a&amp;action=edit&amp;redlink=1" class="new" title="Kiểu dữ liệu đại số được tổng quát hóa (trang chưa được viết)">được tổng quát hóa</a>)<span style="font-weight:bold;">&#160;·</span> <a href="/wiki/M%E1%BA%A3ng_(tin_h%E1%BB%8Dc)" title="Mảng (tin học)">Mảng</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=M%E1%BA%A3ng_k%E1%BA%BFt_h%E1%BB%A3p&amp;action=edit&amp;redlink=1" class="new" title="Mảng kết hợp (trang chưa được viết)">Mảng kết hợp</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/L%E1%BB%9Bp_(khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh)" title="Lớp (khoa học máy tính)">Lớp</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Danh_s%C3%A1ch_(k%C4%A9_thu%C3%A2t_m%C3%A1y_t%C3%ADnh)&amp;action=edit&amp;redlink=1" class="new" title="Danh sách (kĩ thuât máy tính) (trang chưa được viết)">Danh sách</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/%C4%90%E1%BB%91i_t%C6%B0%E1%BB%A3ng_(khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh)" title="Đối tượng (khoa học máy tính)">Đối tượng</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Ki%E1%BB%83u_t%C3%B9y_ch%E1%BB%8Dn&amp;action=edit&amp;redlink=1" class="new" title="Kiểu tùy chọn (trang chưa được viết)">Kiểu tùy chọn</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Ki%E1%BB%83u_s%E1%BA%A3n_ph%E1%BA%A9m&amp;action=edit&amp;redlink=1" class="new" title="Kiểu sản phẩm (trang chưa được viết)">Sản phẩm</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=B%E1%BA%A3n_ghi_(khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh)&amp;action=edit&amp;redlink=1" class="new" title="Bản ghi (khoa học máy tính) (trang chưa được viết)">Bản ghi</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=T%E1%BA%ADp_h%E1%BB%A3p_(khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh)&amp;action=edit&amp;redlink=1" class="new" title="Tập hợp (khoa học máy tính) (trang chưa được viết)">Tập hợp</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Union_(khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh)&amp;action=edit&amp;redlink=1" class="new" title="Union (khoa học máy tính) (trang chưa được viết)">Union</a> (<a href="/w/index.php?title=Tagged_union&amp;action=edit&amp;redlink=1" class="new" title="Tagged union (trang chưa được viết)">tagged</a>)</div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Khác</th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=Boolean_(Ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u)&amp;action=edit&amp;redlink=1" class="new" title="Boolean (Kiểu dữ liệu) (trang chưa được viết)">Boolean</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Ki%E1%BB%83u_%C4%91%C3%A1y&amp;action=edit&amp;redlink=1" class="new" title="Kiểu đáy (trang chưa được viết)">Kiểu đáy</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Container_(c%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u)&amp;action=edit&amp;redlink=1" class="new" title="Container (cấu trúc dữ liệu) (trang chưa được viết)">Collection</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Ki%E1%BB%83u_li%E1%BB%87t_k%C3%AA&amp;action=edit&amp;redlink=1" class="new" title="Kiểu liệt kê (trang chưa được viết)">Kiểu liệt kê</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=%C4%90i%E1%BB%81u_khi%E1%BB%83n_ngo%E1%BA%A1i_l%E1%BB%87&amp;action=edit&amp;redlink=1" class="new" title="Điều khiển ngoại lệ (trang chưa được viết)">Ngoại lệ</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=H%C3%A0m_l%E1%BB%9Bp-nh%E1%BA%A5t&amp;action=edit&amp;redlink=1" class="new" title="Hàm lớp-nhất (trang chưa được viết)">Hàm lớp-nhất</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u_m%E1%BB%9D&amp;action=edit&amp;redlink=1" class="new" title="Kiểu dữ liệu mờ (trang chưa được viết)">Kiểu dữ liệu mờ</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u_%C4%91%E1%BB%87_quy&amp;action=edit&amp;redlink=1" class="new" title="Kiểu dữ liệu đệ quy (trang chưa được viết)">Kiểu dữ liệu đệ quy</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Semaphore_(l%E1%BA%ADp_tr%C3%ACnh)&amp;action=edit&amp;redlink=1" class="new" title="Semaphore (lập trình) (trang chưa được viết)">Semaphore</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Stream_(k%C4%A9_thu%E1%BA%ADt_t%C3%ADnh)&amp;action=edit&amp;redlink=1" class="new" title="Stream (kĩ thuật tính) (trang chưa được viết)">Stream</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Ki%E1%BB%83u_%C4%91%E1%BB%89nh&amp;action=edit&amp;redlink=1" class="new" title="Kiểu đỉnh (trang chưa được viết)">Kiểu đỉnh</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=L%E1%BB%9Bp_ki%E1%BB%83u&amp;action=edit&amp;redlink=1" class="new" title="Lớp kiểu (trang chưa được viết)">Lớp kiểu</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Ki%E1%BB%83u_unit&amp;action=edit&amp;redlink=1" class="new" title="Kiểu unit (trang chưa được viết)">Kiểu unit</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Void_(ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u)" title="Void (kiểu dữ liệu)">Void</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Các chủ đề liên quan</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=Ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u_tr%E1%BB%ABu_t%C6%B0%E1%BB%A3ng&amp;action=edit&amp;redlink=1" class="new" title="Kiểu dữ liệu trừu tượng (trang chưa được viết)">Kiểu dữ liệu trừu tượng</a><span style="font-weight:bold;">&#160;·</span>
+<p><strong class="selflink">Cấu trúc dữ liệu</strong><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Giao_di%E1%BB%87n_(khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh)" title="Giao diện (khoa học máy tính)" class="mw-redirect">Giao diện</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Kind_(l%C3%AD_thuy%E1%BA%BFt_ki%E1%BB%83u)&amp;action=edit&amp;redlink=1" class="new" title="Kind (lí thuyết kiểu) (trang chưa được viết)">Kind (lí thuyết kiểu)</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Ki%E1%BB%83u_d%E1%BB%AF_li%E1%BB%87u_nguy%C3%AAn_th%E1%BB%A7y&amp;action=edit&amp;redlink=1" class="new" title="Kiểu dữ liệu nguyên thủy (trang chưa được viết)">Kiểu dữ liệu nguyên thủy</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=T%C3%ADnh_%C4%91a_h%C3%ACnh_c%E1%BB%A7a_ki%E1%BB%83u_con&amp;action=edit&amp;redlink=1" class="new" title="Tính đa hình của kiểu con (trang chưa được viết)">Kiểu con</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Template_(l%E1%BA%ADp_tr%C3%ACnh)&amp;action=edit&amp;redlink=1" class="new" title="Template (lập trình) (trang chưa được viết)">Template</a><span style="font-weight:bold;">&#160;·</span></p>
+<a href="/w/index.php?title=Constructor_ki%E1%BB%83u&amp;action=edit&amp;redlink=1" class="new" title="Constructor kiểu (trang chưa được viết)">Constructor kiểu</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=T%C3%ADnh_%C4%91a_h%C3%ACnh_c%E1%BB%A7a_ki%E1%BB%83u&amp;action=edit&amp;redlink=1" class="new" title="Tính đa hình của kiểu (trang chưa được viết)">Tính đa hình tham biến</a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table cellspacing="0" class="navbox" style="border-spacing:0;">
+<tr>
+<td style="padding:2px;">
+<table cellspacing="0" class="nowraplinks collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/B%E1%BA%A3n_m%E1%BA%ABu:Khoa_h%E1%BB%8Dc_M%C3%A1y_t%C3%ADnh" title="Bản mẫu:Khoa học Máy tính"><span title="Xem bản mẫu này" style=";;background:none transparent;border:none;;">x</span></a></li>
+<li class="nv-talk"><a href="/w/index.php?title=Th%E1%BA%A3o_lu%E1%BA%ADn_B%E1%BA%A3n_m%E1%BA%ABu:Khoa_h%E1%BB%8Dc_M%C3%A1y_t%C3%ADnh&amp;action=edit&amp;redlink=1" class="new" title="Thảo luận Bản mẫu:Khoa học Máy tính (trang chưa được viết)"><span title="Thảo luận về bản mẫu này" style=";;background:none transparent;border:none;;">t</span></a></li>
+<li class="nv-edit"><a class="external text" href="//vi.wikipedia.org/w/index.php?title=B%E1%BA%A3n_m%E1%BA%ABu:Khoa_h%E1%BB%8Dc_M%C3%A1y_t%C3%ADnh&amp;action=edit"><span title="Sửa đổi bản mẫu này" style=";;background:none transparent;border:none;;">s</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%;">Những lĩnh vực chính của <a href="/wiki/Khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh" title="Khoa học máy tính">khoa học máy tính</a></div>
+</th>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/To%C3%A1n_h%E1%BB%8Dc" title="Toán học">Các nền tảng toán học</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height:1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/Logic_to%C3%A1n_h%E1%BB%8Dc" title="Logic toán học" class="mw-redirect">Logic toán học</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/L%C3%AD_thuy%E1%BA%BFt_t%E1%BA%ADp_h%E1%BB%A3p" title="Lí thuyết tập hợp" class="mw-redirect">Lí thuyết tập hợp</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/L%C3%AD_thuy%E1%BA%BFt_s%E1%BB%91" title="Lí thuyết số" class="mw-redirect">Lí thuyết số</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/L%C3%AD_thuy%E1%BA%BFt_%C4%91%E1%BB%93_th%E1%BB%8B" title="Lí thuyết đồ thị" class="mw-redirect">Lí thuyết đồ thị</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=L%C3%AD_thuy%E1%BA%BFt_ki%E1%BB%83u&amp;action=edit&amp;redlink=1" class="new" title="Lí thuyết kiểu (trang chưa được viết)">Lí thuyết kiểu</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=L%C3%AD_thuy%E1%BA%BFt_th%E1%BB%83_lo%E1%BA%A1i&amp;action=edit&amp;redlink=1" class="new" title="Lí thuyết thể loại (trang chưa được viết)">Lí thuyết thể loại</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Gi%E1%BA%A3i_t%C3%ADch_s%E1%BB%91" title="Giải tích số">Giải tích số</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/L%C3%AD_thuy%E1%BA%BFt_th%C3%B4ng_tin" title="Lí thuyết thông tin" class="mw-redirect">Lí thuyết thông tin</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/%C4%90%E1%BA%A1i_s%E1%BB%91" title="Đại số">Đại số</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Nh%E1%BA%ADn_d%E1%BA%A1ng_m%E1%BA%ABu" title="Nhận dạng mẫu">Nhận dạng mẫu</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Nh%E1%BA%ADn_d%E1%BA%A1ng_ti%E1%BA%BFng_n%C3%B3i" title="Nhận dạng tiếng nói">Nhận dạng tiếng nói</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/To%C3%A1n_h%E1%BB%8Dc_t%E1%BB%95_h%E1%BB%A3p" title="Toán học tổ hợp">Toán học tổ hợp</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/%C4%90%E1%BA%A1i_s%E1%BB%91_Boole" title="Đại số Boole">Đại số Boole</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/To%C3%A1n_r%E1%BB%9Di_r%E1%BA%A1c" title="Toán rời rạc" class="mw-redirect">Toán rời rạc</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/w/index.php?title=L%C3%AD_thuy%E1%BA%BFt_ph%C3%A9p_t%C3%ADnh&amp;action=edit&amp;redlink=1" class="new" title="Lí thuyết phép tính (trang chưa được viết)">Lí thuyết phép tính</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height:1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=%C4%90%E1%BB%99_ph%E1%BB%A9c_t%E1%BA%A1p_Kolmogorov&amp;action=edit&amp;redlink=1" class="new" title="Độ phức tạp Kolmogorov (trang chưa được viết)">Độ phức tạp Kolmogorov</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=L%C3%AD_thuy%E1%BA%BFt_Automat&amp;action=edit&amp;redlink=1" class="new" title="Lí thuyết Automat (trang chưa được viết)">Lí thuyết Automat</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=L%C3%AD_thuy%E1%BA%BFt_t%C3%ADnh_%C4%91%C6%B0%E1%BB%A3c&amp;action=edit&amp;redlink=1" class="new" title="Lí thuyết tính được (trang chưa được viết)">Lí thuyết tính được</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/L%C3%AD_thuy%E1%BA%BFt_%C4%91%E1%BB%99_ph%E1%BB%A9c_t%E1%BA%A1p_t%C3%ADnh_to%C3%A1n" title="Lí thuyết độ phức tạp tính toán" class="mw-redirect">Lí thuyết độ phức tạp tính toán</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/M%C3%A1y_t%C3%ADnh_l%C6%B0%E1%BB%A3ng_t%E1%BB%AD" title="Máy tính lượng tử">Lí thuyết điện toán lượng tử</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><strong class="selflink">Các cấu trúc dữ liệu</strong> và <a href="/wiki/Gi%E1%BA%A3i_thu%E1%BA%ADt" title="Giải thuật" class="mw-redirect">các giải thuật</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height:1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=Ph%C3%A2n_t%C3%ADch_gi%E1%BA%A3i_thu%E1%BA%ADt&amp;action=edit&amp;redlink=1" class="new" title="Phân tích giải thuật (trang chưa được viết)">Phân tích giải thuật</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Thi%E1%BA%BFt_k%E1%BA%BF_gi%E1%BA%A3i_thu%E1%BA%ADt&amp;action=edit&amp;redlink=1" class="new" title="Thiết kế giải thuật (trang chưa được viết)">Thiết kế giải thuật</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/H%C3%ACnh_h%E1%BB%8Dc_t%C3%ADnh_to%C3%A1n" title="Hình học tính toán">Hình học tính toán</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=T%E1%BB%91i_%C6%B0u_h%C3%B3a_t%E1%BB%95_h%E1%BB%A3p&amp;action=edit&amp;redlink=1" class="new" title="Tối ưu hóa tổ hợp (trang chưa được viết)">Tối ưu hóa tổ hợp</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Ng%C3%B4n_ng%E1%BB%AF_l%E1%BA%ADp_tr%C3%ACnh" title="Ngôn ngữ lập trình">Các ngôn ngữ lập trình</a> và <a href="/wiki/Tr%C3%ACnh_bi%C3%AAn_d%E1%BB%8Bch" title="Trình biên dịch">Các trình biên dịch</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height:1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=Ph%C3%A2n_t%C3%ADch_c%C3%BA_ph%C3%A1p&amp;action=edit&amp;redlink=1" class="new" title="Phân tích cú pháp (trang chưa được viết)">Các bộ phân tích cú pháp</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Tr%C3%ACnh_th%C3%B4ng_d%E1%BB%8Bch" title="Trình thông dịch">Các trình thông dịch</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/L%E1%BA%ADp_tr%C3%ACnh_c%E1%BA%A5u_tr%C3%BAc" title="Lập trình cấu trúc">Lập trình cấu trúc</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/L%E1%BA%ADp_tr%C3%ACnh_th%E1%BB%A7_t%E1%BB%A5c" title="Lập trình thủ tục">Lập trình thủ tục</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/L%E1%BA%ADp_tr%C3%ACnh_h%C6%B0%E1%BB%9Bng_%C4%91%E1%BB%91i_t%C6%B0%E1%BB%A3ng" title="Lập trình hướng đối tượng">Lập trình hướng đối tượng</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=L%E1%BA%ADp_tr%C3%ACnh_h%C6%B0%E1%BB%9Bng_kh%C3%ADa_c%E1%BA%A1nh&amp;action=edit&amp;redlink=1" class="new" title="Lập trình hướng khía cạnh (trang chưa được viết)">Lập trình hướng khía cạnh</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/L%E1%BA%ADp_tr%C3%ACnh_h%C3%A0m" title="Lập trình hàm">Lập trình hàm</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/L%E1%BA%ADp_tr%C3%ACnh_logic" title="Lập trình logic">Lập trình logic</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/L%E1%BA%ADp_tr%C3%ACnh_m%C3%A1y_t%C3%ADnh" title="Lập trình máy tính">Lập trình máy tính</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=L%E1%BA%ADp_tr%C3%ACnh_m%E1%BB%87nh_l%E1%BB%87nh&amp;action=edit&amp;redlink=1" class="new" title="Lập trình mệnh lệnh (trang chưa được viết)">Lập trình mệnh lệnh</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=L%E1%BA%ADp_tr%C3%ACnh_song_song&amp;action=edit&amp;redlink=1" class="new" title="Lập trình song song (trang chưa được viết)">Lập trình song song</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=L%E1%BA%ADp_tr%C3%ACnh_t%C6%B0%C6%A1ng_tranh&amp;action=edit&amp;redlink=1" class="new" title="Lập trình tương tranh (trang chưa được viết)">Lập trình tương tranh</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/M%C3%B4_h%C3%ACnh_l%E1%BA%ADp_tr%C3%ACnh" title="Mô hình lập trình" class="mw-redirect">Các mô hình lập trình</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Prolog" title="Prolog">Prolog</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=T%E1%BB%91i_%C6%B0u_h%C3%B3a_tr%C3%ACnh_bi%C3%AAn_d%E1%BB%8Bch&amp;action=edit&amp;redlink=1" class="new" title="Tối ưu hóa trình biên dịch (trang chưa được viết)">Tối ưu hóa trình biên dịch</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/T%C6%B0%C6%A1ng_tranh_(khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh)" title="Tương tranh (khoa học máy tính)">Tính song hành</a>, <a href="/wiki/T%C3%ADnh_to%C3%A1n_song_song" title="Tính toán song song">Song song</a>, và các hệ thống <a href="/wiki/%C4%90i%E1%BB%87n_to%C3%A1n_ph%C3%A2n_t%C3%A1n" title="Điện toán phân tán">phân tán</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height:1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=%C4%90a_x%E1%BB%AD_l%C3%AD&amp;action=edit&amp;redlink=1" class="new" title="Đa xử lí (trang chưa được viết)">Đa xử lí</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/%C4%90i%E1%BB%87n_to%C3%A1n_l%C6%B0%E1%BB%9Bi" title="Điện toán lưới">Điện toán lưới</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Ki%E1%BB%83m_so%C3%A1t_song_h%C3%A0nh&amp;action=edit&amp;redlink=1" class="new" title="Kiểm soát song hành (trang chưa được viết)">Kiểm soát song hành</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Hi%E1%BB%87u_n%C4%83ng_h%E1%BB%87_th%E1%BB%91ng&amp;action=edit&amp;redlink=1" class="new" title="Hiệu năng hệ thống (trang chưa được viết)">Hiệu năng hệ thống</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/T%C3%ADnh_to%C3%A1n_ph%C3%A2n_t%C3%A1n" title="Tính toán phân tán" class="mw-redirect">Tính toán phân tán</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/C%C3%B4ng_ngh%E1%BB%87_ph%E1%BA%A7n_m%E1%BB%81m" title="Công nghệ phần mềm">Công nghệ phần mềm</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height:1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/Ph%C3%A2n_t%C3%ADch_y%C3%AAu_c%E1%BA%A7u" title="Phân tích yêu cầu">Phân tích yêu cầu</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Thi%E1%BA%BFt_k%E1%BA%BF_ph%E1%BA%A7n_m%E1%BB%81m" title="Thiết kế phần mềm">Thiết kế phần mềm</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/C%C3%A1c_ph%C6%B0%C6%A1ng_ph%C3%A1p_h%C3%ACnh_th%E1%BB%A9c" title="Các phương pháp hình thức">Các phương pháp hình thức</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Ki%E1%BB%83m_th%E1%BB%AD_ph%E1%BA%A7n_m%E1%BB%81m" title="Kiểm thử phần mềm">Kiểm thử phần mềm</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Quy_tr%C3%ACnh_ph%C3%A1t_tri%E1%BB%83n_ph%E1%BA%A7n_m%E1%BB%81m" title="Quy trình phát triển phần mềm">Quy trình phát triển phần mềm</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=C%C3%A1c_ph%C3%A9p_%C4%91o_ph%E1%BA%A7n_m%E1%BB%81m&amp;action=edit&amp;redlink=1" class="new" title="Các phép đo phần mềm (trang chưa được viết)">Các phép đo phần mềm</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=%C4%90%E1%BA%B7c_t%E1%BA%A3_ch%C6%B0%C6%A1ng_tr%C3%ACnh&amp;action=edit&amp;redlink=1" class="new" title="Đặc tả chương trình (trang chưa được viết)">Đặc tả chương trình</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=LISP&amp;action=edit&amp;redlink=1" class="new" title="LISP (trang chưa được viết)">LISP</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/M%E1%BA%ABu_thi%E1%BA%BFt_k%E1%BA%BF_(khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh)" title="Mẫu thiết kế (khoa học máy tính)">Mẫu thiết kế</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=T%E1%BB%91i_%C6%B0u_h%C3%B3a_ph%E1%BA%A7n_m%E1%BB%81m&amp;action=edit&amp;redlink=1" class="new" title="Tối ưu hóa phần mềm (trang chưa được viết)">Tối ưu hóa phần mềm</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/w/index.php?title=Ki%E1%BA%BFn_tr%C3%BAc_h%E1%BB%87_th%E1%BB%91ng&amp;action=edit&amp;redlink=1" class="new" title="Kiến trúc hệ thống (trang chưa được viết)">Kiến trúc hệ thống</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height:1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/Ki%E1%BA%BFn_tr%C3%BAc_m%C3%A1y_t%C3%ADnh" title="Kiến trúc máy tính">Kiến trúc máy tính</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Vi_ki%E1%BA%BFn_tr%C3%BAc&amp;action=edit&amp;redlink=1" class="new" title="Vi kiến trúc (trang chưa được viết)">Tổ chức máy tính</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/H%E1%BB%87_%C4%91i%E1%BB%81u_h%C3%A0nh" title="Hệ điều hành">Các hệ điều hành</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=C%C3%A1c_c%E1%BA%A5u_tr%C3%BAc_%C4%91i%E1%BB%81u_khi%E1%BB%83n&amp;action=edit&amp;redlink=1" class="new" title="Các cấu trúc điều khiển (trang chưa được viết)">Các cấu trúc điều khiển</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_b%E1%BB%99_nh%E1%BB%9B_l%C6%B0u_tr%E1%BB%AF&amp;action=edit&amp;redlink=1" class="new" title="Cấu trúc bộ nhớ lưu trữ (trang chưa được viết)">Cấu trúc bộ nhớ lưu trữ</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Vi_m%E1%BA%A1ch" title="Vi mạch">Vi mạch</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Thi%E1%BA%BFt_k%E1%BA%BF_ASIC&amp;action=edit&amp;redlink=1" class="new" title="Thiết kế ASIC (trang chưa được viết)">Thiết kế ASIC</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Vi_l%E1%BA%ADp_tr%C3%ACnh&amp;action=edit&amp;redlink=1" class="new" title="Vi lập trình (trang chưa được viết)">Vi lập trình</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=V%C3%A0o/ra_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit&amp;redlink=1" class="new" title="Vào/ra dữ liệu (trang chưa được viết)">Vào/ra dữ liệu</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Very-large-scale_integration&amp;action=edit&amp;redlink=1" class="new" title="Very-large-scale integration (trang chưa được viết)">VLSI design</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/X%E1%BB%AD_l%C3%BD_t%C3%ADn_hi%E1%BB%87u_s%E1%BB%91" title="Xử lý tín hiệu số">Xử lý tín hiệu số</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Vi%E1%BB%85n_th%C3%B4ng" title="Viễn thông">Viễn thông</a> &amp; <a href="/wiki/M%E1%BA%A1ng_m%C3%A1y_t%C3%ADnh" title="Mạng máy tính">Mạng máy tính</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height:1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=%C3%82m_nh%E1%BA%A1c_m%C3%A1y_t%C3%ADnh&amp;action=edit&amp;redlink=1" class="new" title="Âm nhạc máy tính (trang chưa được viết)">Audio máy tính</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Ch%E1%BB%8Dn_tuy%E1%BA%BFn" title="Chọn tuyến" class="mw-redirect">Chọn tuyến</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/C%E1%BA%A5u_tr%C3%BAc_li%C3%AAn_k%E1%BA%BFt_m%E1%BA%A1ng" title="Cấu trúc liên kết mạng">Cấu trúc liên kết mạng</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/M%E1%BA%ADt_m%C3%A3_h%E1%BB%8Dc" title="Mật mã học">Mật mã học</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/C%C6%A1_s%E1%BB%9F_d%E1%BB%AF_li%E1%BB%87u" title="Cơ sở dữ liệu">Các cơ sở dữ liệu</a> &amp; <a href="/wiki/H%E1%BB%87_th%E1%BB%91ng_th%C3%B4ng_tin" title="Hệ thống thông tin">Các hệ thống thông tin</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height:1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/H%E1%BB%87_qu%E1%BA%A3n_tr%E1%BB%8B_c%C6%A1_s%E1%BB%9F_d%E1%BB%AF_li%E1%BB%87u" title="Hệ quản trị cơ sở dữ liệu">Hệ quản trị cơ sở dữ liệu</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=C%C6%A1_s%E1%BB%9F_d%E1%BB%AF_li%E1%BB%87u_quan_h%E1%BB%87&amp;action=edit&amp;redlink=1" class="new" title="Cơ sở dữ liệu quan hệ (trang chưa được viết)">Cơ sở dữ liệu quan hệ</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/SQL" title="SQL">SQL</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=X%E1%BB%AD_l%C3%AD_giao_d%E1%BB%8Bch&amp;action=edit&amp;redlink=1" class="new" title="Xử lí giao dịch (trang chưa được viết)">Các giao dịch</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Ch%E1%BB%89_s%E1%BB%91_(c%C6%A1_s%E1%BB%9F_d%E1%BB%AF_li%E1%BB%87u)&amp;action=edit&amp;redlink=1" class="new" title="Chỉ số (cơ sở dữ liệu) (trang chưa được viết)">Các chỉ số cơ sở dữ liệu</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Khai_ph%C3%A1_d%E1%BB%AF_li%E1%BB%87u" title="Khai phá dữ liệu">Khai phá dữ liệu</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Bi%E1%BB%83u_di%E1%BB%85n_v%C3%A0_giao_di%E1%BB%87n_th%C3%B4ng_tin&amp;action=edit&amp;redlink=1" class="new" title="Biểu diễn và giao diện thông tin (trang chưa được viết)">Biểu diễn và giao diện thông tin</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=C%C3%A1c_h%E1%BB%87_th%E1%BB%91ng_th%C3%B4ng_tin&amp;action=edit&amp;redlink=1" class="new" title="Các hệ thống thông tin (trang chưa được viết)">Các hệ thống thông tin</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Kh%C3%B4i_ph%E1%BB%A5c_d%E1%BB%AF_li%E1%BB%87u" title="Khôi phục dữ liệu">Khôi phục dữ liệu</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=L%C6%B0u_tr%E1%BB%AF_th%C3%B4ng_tin&amp;action=edit&amp;redlink=1" class="new" title="Lưu trữ thông tin (trang chưa được viết)">Lưu trữ thông tin</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/L%C3%BD_thuy%E1%BA%BFt_th%C3%B4ng_tin" title="Lý thuyết thông tin">Lý thuyết thông tin</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=M%C3%A3_h%C3%B3a_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit&amp;redlink=1" class="new" title="Mã hóa dữ liệu (trang chưa được viết)">Mã hóa dữ liệu</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/N%C3%A9n_d%E1%BB%AF_li%E1%BB%87u" title="Nén dữ liệu">Nén dữ liệu</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Thu_th%E1%BA%ADp_th%C3%B4ng_tin" title="Thu thập thông tin" class="mw-redirect">Thu thập thông tin</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Tr%C3%AD_tu%E1%BB%87_nh%C3%A2n_t%E1%BA%A1o" title="Trí tuệ nhân tạo">Trí tuệ nhân tạo</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height:1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=L%E1%BA%ADp_lu%E1%BA%ADn_t%E1%BB%B1_%C4%91%E1%BB%99ng&amp;action=edit&amp;redlink=1" class="new" title="Lập luận tự động (trang chưa được viết)">Lập luận tự động</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Ng%C3%B4n_ng%E1%BB%AF_h%E1%BB%8Dc_t%C3%ADnh_to%C3%A1n&amp;action=edit&amp;redlink=1" class="new" title="Ngôn ngữ học tính toán (trang chưa được viết)">Ngôn ngữ học tính toán</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Th%E1%BB%8B_gi%C3%A1c_m%C3%A1y_t%C3%ADnh" title="Thị giác máy tính">Thị giác máy tính</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=T%C3%ADnh_to%C3%A1n_ti%E1%BA%BFn_h%C3%B3a&amp;action=edit&amp;redlink=1" class="new" title="Tính toán tiến hóa (trang chưa được viết)">Tính toán tiến hóa</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/H%E1%BB%87_chuy%C3%AAn_gia" title="Hệ chuyên gia">Các hệ chuyên gia</a> <span style="font-weight:bold;">&#160;·</span> <a href="/wiki/H%E1%BB%8Dc_m%C3%A1y" title="Học máy">Học máy</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/X%E1%BB%AD_l%C3%AD_ng%C3%B4n_ng%E1%BB%AF_t%E1%BB%B1_nhi%C3%AAn" title="Xử lí ngôn ngữ tự nhiên" class="mw-redirect">Xử lí ngôn ngữ tự nhiên</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Robot_h%E1%BB%8Dc" title="Robot học">Robot học</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%C4%90%E1%BB%93_h%E1%BB%8Da_m%C3%A1y_t%C3%ADnh" title="Đồ họa máy tính">Đồ họa máy tính</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height:1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=Tr%E1%BB%B1c_quan_h%C3%B3a_(%C4%91%E1%BB%93_h%E1%BB%8Da_m%C3%A1y_t%C3%ADnh)&amp;action=edit&amp;redlink=1" class="new" title="Trực quan hóa (đồ họa máy tính) (trang chưa được viết)">Trực quan hóa</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Ho%E1%BA%A1t_h%E1%BB%8Da_m%C3%A1y_t%C3%ADnh" title="Hoạt họa máy tính" class="mw-redirect">Hoạt họa máy tính</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/X%E1%BB%AD_l%C3%AD_%E1%BA%A3nh" title="Xử lí ảnh" class="mw-redirect">Xử lí ảnh</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Giao_di%E1%BB%87n_ng%C6%B0%E1%BB%9Di-m%C3%A1y_t%C3%ADnh" title="Giao diện người-máy tính" class="mw-redirect">Giao diện người-máy tính</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height:1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/w/index.php?title=Kh%E1%BA%A3_n%C4%83ng_truy_c%E1%BA%ADp_m%C3%A1y_t%C3%ADnh&amp;action=edit&amp;redlink=1" class="new" title="Khả năng truy cập máy tính (trang chưa được viết)">Khả năng truy cập máy tính</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Giao_di%E1%BB%87n_ng%C6%B0%E1%BB%9Di_d%C3%B9ng&amp;action=edit&amp;redlink=1" class="new" title="Giao diện người dùng (trang chưa được viết)">Giao diện người dùng</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=M%C3%A1y_t%C3%ADnh_mang_%C4%91%C6%B0%E1%BB%A3c&amp;action=edit&amp;redlink=1" class="new" title="Máy tính mang được (trang chưa được viết)">Điện toán mang được</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=%C4%90i%E1%BB%87n_to%C3%A1n_kh%E1%BA%AFp_m%E1%BB%8Di_n%C6%A1i&amp;action=edit&amp;redlink=1" class="new" title="Điện toán khắp mọi nơi (trang chưa được viết)">Điện toán khắp mọi nơi</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Th%E1%BB%B1c_t%E1%BA%BF_%E1%BA%A3o" title="Thực tế ảo">Thực tế ảo</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/w/index.php?title=Khoa_h%E1%BB%8Dc_t%C3%ADnh_to%C3%A1n&amp;action=edit&amp;redlink=1" class="new" title="Khoa học tính toán (trang chưa được viết)">Khoa học tính toán</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height:1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/Cu%E1%BB%99c_s%E1%BB%91ng_nh%C3%A2n_t%E1%BA%A1o" title="Cuộc sống nhân tạo" class="mw-redirect">Cuộc sống nhân tạo</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Tin_sinh_h%E1%BB%8Dc" title="Tin sinh học">Tin sinh học</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Khoa_h%E1%BB%8Dc_nh%E1%BA%ADn_th%E1%BB%A9c" title="Khoa học nhận thức">Khoa học nhận thức</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/H%C3%B3a_h%E1%BB%8Dc_t%C3%ADnh_to%C3%A1n" title="Hóa học tính toán" class="mw-redirect">Hóa học tính toán</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=Khoa_h%E1%BB%8Dc_th%E1%BA%A7n_kinh_t%C3%ADnh_to%C3%A1n&amp;action=edit&amp;redlink=1" class="new" title="Khoa học thần kinh tính toán (trang chưa được viết)">Khoa học thần kinh tính toán</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=V%E1%BA%ADt_l%C3%AD_h%E1%BB%8Dc_t%C3%ADnh_to%C3%A1n&amp;action=edit&amp;redlink=1" class="new" title="Vật lí học tính toán (trang chưa được viết)">Vật lí học tính toán</a><span style="font-weight:bold;">&#160;·</span> <a href="/wiki/Gi%E1%BA%A3i_t%C3%ADch_s%E1%BB%91" title="Giải tích số">Các giải thuật số</a><span style="font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=T%C3%ADnh_to%C3%A1n_k%C3%AD_hi%E1%BB%87u&amp;action=edit&amp;redlink=1" class="new" title="Tính toán kí hiệu (trang chưa được viết)">Toán học kí hiệu</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div>Chú ý: khoa học máy tính còn có thể được chia thành nhiều chủ đề hay nhiều lĩnh vực khác dựa theo <a href="/w/index.php?title=H%E1%BB%87_th%E1%BB%91ng_x%E1%BA%BFp_lo%E1%BA%A1i_%C4%91i%E1%BB%87n_to%C3%A1n_ACM&amp;action=edit&amp;redlink=1" class="new" title="Hệ thống xếp loại điện toán ACM (trang chưa được viết)">Hệ thống xếp loại điện toán ACM</a>.</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<div class="boilerplate metadata plainlinks" id="stub">
+<table class="metadata plainlinks stub" style="background: transparent;" role="presentation">
+<tr>
+<td><i>Bài viết này vẫn còn <a href="/wiki/Wikipedia:B%C3%A0i_s%C6%A1_khai" title="Wikipedia:Bài sơ khai">sơ khai</a>. Bạn có thể giúp Wikipedia bằng cách <a class="external text" href="//vi.wikipedia.org/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;veaction=edit">mở rộng nội dung</a> để bài được hoàn chỉnh hơn.</i></td>
+</tr>
+</table>
+</div>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1041
+CPU time usage: 0.340 seconds
+Real time usage: 0.407 seconds
+Preprocessor visited node count: 1654/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 96360/2097152 bytes
+Template argument size: 2290/2097152 bytes
+Highest expansion depth: 11/40
+Expensive parser function count: 0/500
+Lua time usage: 0.042/10.000 seconds
+Lua memory usage: 1,003 KB/50 MB
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  184.417      1 - -total
+ 55.93%  103.145      3 - Bản_mẫu:Navbox
+ 30.28%   55.843      1 - Bản_mẫu:Cấu_trúc_dữ_liệu
+ 19.16%   35.342      1 - Bản_mẫu:Liên_kết_tới_các_dự_án_khác
+ 18.18%   33.522      1 - Bản_mẫu:Khoa_học_Máy_tính
+ 14.10%   25.998      1 - Bản_mẫu:Các_kiểu_dữ_liệu
+  8.48%   15.641      1 - Bản_mẫu:Commonscat
+  7.74%   14.271      6 - Bản_mẫu:Sec_link_auto
+  7.01%   12.919      6 - Bản_mẫu:Sec_link_image
+  6.09%   11.226      1 - Bản_mẫu:Sơ_khai
+-->
+
+<!-- Saved in parser cache with key viwiki:pcache:idhash:85746-0!*!0!!vi!4!* and timestamp 20150225234512 and revision id 20480674
+ -->
+<noscript><img src="//vi.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>									<div class="printfooter">
+						Lấy từ “<a dir="ltr" href="http://vi.wikipedia.org/w/index.php?title=Cấu_trúc_dữ_liệu&amp;oldid=20480674">http://vi.wikipedia.org/w/index.php?title=Cấu_trúc_dữ_liệu&amp;oldid=20480674</a>”					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/%C4%90%E1%BA%B7c_bi%E1%BB%87t:Th%E1%BB%83_lo%E1%BA%A1i" title="Đặc biệt:Thể loại">Thể loại</a>: <ul><li><a href="/wiki/Th%E1%BB%83_lo%E1%BA%A1i:S%C6%A1_khai" title="Thể loại:Sơ khai">Sơ khai</a></li><li><a href="/wiki/Th%E1%BB%83_lo%E1%BA%A1i:Khoa_h%E1%BB%8Dc_m%C3%A1y_t%C3%ADnh" title="Thể loại:Khoa học máy tính">Khoa học máy tính</a></li><li><a href="/wiki/Th%E1%BB%83_lo%E1%BA%A1i:C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u" title="Thể loại:Cấu trúc dữ liệu">Cấu trúc dữ liệu</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Trình đơn chuyển hướng</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Công cụ cá nhân</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=%C4%90%E1%BA%B7c_bi%E1%BB%87t:%C4%90%C4%83ng_nh%E1%BA%ADp&amp;returnto=C%E1%BA%A5u+tr%C3%BAc+d%E1%BB%AF+li%E1%BB%87u&amp;returntoquery=amp%253Bveaction%3Dedit&amp;type=signup" title="Khuyến khích bạn mở tài khoản và đăng nhập; tuy nhiên, không phải bắt buộc phải có tài khoản">Mở tài khoản</a></li><li id="pt-login"><a href="/w/index.php?title=%C4%90%E1%BA%B7c_bi%E1%BB%87t:%C4%90%C4%83ng_nh%E1%BA%ADp&amp;returnto=C%E1%BA%A5u+tr%C3%BAc+d%E1%BB%AF+li%E1%BB%87u&amp;returntoquery=amp%253Bveaction%3Dedit" title="Đăng nhập sẽ có lợi hơn, tuy nhiên không bắt buộc. [o]" accesskey="o">Đăng nhập</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Không gian tên</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u"  title="Xem bài viết [c]" accesskey="c">Bài viết</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Th%E1%BA%A3o_lu%E1%BA%ADn:C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u"  title="Thảo luận về trang này [t]" accesskey="t">Thảo luận</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Biến thể</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Các hiển thị</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u" >Đọc</a></span></li>
+															<li id="ca-ve-edit"><span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;veaction=edit"  title="Sửa đổi trang này dùng Trình soạn thảo trực quan [v]" accesskey="v">Sửa đổi</a></span></li>
+															<li id="ca-edit" class=" collapsible"><span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;action=edit"  title="Bạn có thể sửa được trang này! (Xin vui lòng xem trước trước khi lưu.) [e]" accesskey="e">Sửa mã nguồn</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;action=history"  title="Các phiên bản cũ của trang này [h]" accesskey="h" rel="archives">Xem lịch sử</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>Khác</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Tìm kiếm</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Tìm kiếm" title="Tìm kiếm Wikipedia [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Đặc_biệt:Tìm_kiếm" name="title" /><input type="submit" name="fulltext" value="Tìm kiếm" title="Tìm trang có nội dung này" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Xem" title="Xem trang khớp với tên này nếu có" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Trang_Ch%C3%ADnh"  title="Trang Chính"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Xem nhanh</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage"><a href="/wiki/Trang_Ch%C3%ADnh" title="Trang đầu của bách khoa toàn thư mở [z]" accesskey="z">Trang Chính</a></li>
+													<li id="n-wikipedia-featuredcontent"><a href="/wiki/Ch%E1%BB%A7_%C4%91%E1%BB%81:N%E1%BB%99i_dung_ch%E1%BB%8Dn_l%E1%BB%8Dc">Nội dung chọn lọc</a></li>
+													<li id="n-currentevents"><a href="/wiki/Ch%E1%BB%A7_%C4%91%E1%BB%81:Th%E1%BB%9Di_s%E1%BB%B1" title="Các trang có liên quan đến tin tức">Tin tức</a></li>
+													<li id="n-randompage"><a href="/wiki/%C4%90%E1%BA%B7c_bi%E1%BB%87t:Ng%E1%BA%ABu_nhi%C3%AAn" title="Xem trang ngẫu nhiên [x]" accesskey="x">Bài viết ngẫu nhiên</a></li>
+													<li id="n-recentchanges"><a href="/wiki/%C4%90%E1%BA%B7c_bi%E1%BB%87t:Thay_%C4%91%E1%BB%95i_g%E1%BA%A7n_%C4%91%C3%A2y" title="Danh sách các thay đổi gần đây [r]" accesskey="r">Thay đổi gần đây</a></li>
+													<li id="n-sitesupport"><a href="//donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_vi.wikipedia.org&amp;uselang=vi" title="Quyên góp xây dựng bách khoa toàn thư mở">Quyên góp</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-wikipedia-interaction' aria-labelledby='p-wikipedia-interaction-label'>
+			<h3 id='p-wikipedia-interaction-label'>Tương tác</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-wikipedia-helppage"><a href="/wiki/Wikipedia:S%C3%A1ch_h%C6%B0%E1%BB%9Bng_d%E1%BA%ABn">Hướng dẫn</a></li>
+													<li id="n-aboutsite"><a href="/wiki/Wikipedia:Gi%E1%BB%9Bi_thi%E1%BB%87u">Giới thiệu Wikipedia</a></li>
+													<li id="n-portal"><a href="/wiki/Wikipedia:C%E1%BB%99ng_%C4%91%E1%BB%93ng" title="Giới thiệu dự án, cách sử dụng và tìm kiếm thông tin ở đây">Cộng đồng</a></li>
+													<li id="n-wikipedia-villagepump"><a href="/wiki/Wikipedia:Th%E1%BA%A3o_lu%E1%BA%ADn">Thảo luận chung</a></li>
+													<li id="n-wikipedia-helpdesk"><a href="/wiki/Wikipedia:Gi%C3%BAp_s%E1%BB%AD_d%E1%BB%A5ng_Wikipedia">Giúp sử dụng</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Công cụ</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/%C4%90%E1%BA%B7c_bi%E1%BB%87t:Li%C3%AAn_k%E1%BA%BFt_%C4%91%E1%BA%BFn_%C4%91%C3%A2y/C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u" title="Các trang liên kết đến đây [j]" accesskey="j">Các liên kết đến đây</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/%C4%90%E1%BA%B7c_bi%E1%BB%87t:Thay_%C4%91%E1%BB%95i_li%C3%AAn_quan/C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u" title="Thay đổi gần đây của các trang liên kết đến đây [k]" accesskey="k">Thay đổi liên quan</a></li>
+													<li id="t-specialpages"><a href="/wiki/%C4%90%E1%BA%B7c_bi%E1%BB%87t:Trang_%C4%91%E1%BA%B7c_bi%E1%BB%87t" title="Danh sách các trang đặc biệt [q]" accesskey="q">Các trang đặc biệt</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;oldid=20480674" title="Liên kết thường trực đến phiên bản này của trang">Liên kết thường trực</a></li>
+													<li id="t-info"><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;action=info" title="Thêm chi tiết về trang này">Thông tin trang</a></li>
+													<li id="t-wikibase"><a href="//www.wikidata.org/wiki/Q175263" title="Liên kết đến khoản mục kết nối trong kho dữ liệu [g]" accesskey="g">Khoản mục Wikidata</a></li>
+						<li id="t-cite"><a href="/w/index.php?title=%C4%90%E1%BA%B7c_bi%E1%BB%87t:Tr%C3%ADch_d%E1%BA%ABn&amp;page=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;id=20480674" title="Hướng dẫn cách trích dẫn trang này">Trích dẫn trang này</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-coll-print_export' aria-labelledby='p-coll-print_export-label'>
+			<h3 id='p-coll-print_export-label'>In/xuất ra</h3>
+
+			<div class="body">
+									<ul>
+													<li id="coll-create_a_book"><a href="/w/index.php?title=%C4%90%E1%BA%B7c_bi%E1%BB%87t:S%C3%A1ch&amp;bookcmd=book_creator&amp;referer=C%E1%BA%A5u+tr%C3%BAc+d%E1%BB%AF+li%E1%BB%87u">Tạo một quyển sách</a></li>
+													<li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=%C4%90%E1%BA%B7c_bi%E1%BB%87t:S%C3%A1ch&amp;bookcmd=render_article&amp;arttitle=C%E1%BA%A5u+tr%C3%BAc+d%E1%BB%AF+li%E1%BB%87u&amp;oldid=20480674&amp;writer=rdf2latex">Tải về dưới dạng PDF</a></li>
+													<li id="t-print"><a href="/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;printable=yes" title="Bản để in ra của trang [p]" accesskey="p">Bản để in ra</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+			<h3 id='p-lang-label'>Ngôn ngữ khác</h3>
+
+			<div class="body">
+									<ul>
+													<li class="interlanguage-link interwiki-ar"><a href="//ar.wikipedia.org/wiki/%D8%A8%D9%86%D9%8A%D8%A9_%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA" title="بنية بيانات – Tiếng Ả Rập" lang="ar" hreflang="ar">العربية</a></li>
+													<li class="interlanguage-link interwiki-ast"><a href="//ast.wikipedia.org/wiki/Estructura_de_datos" title="Estructura de datos – Tiếng Asturias" lang="ast" hreflang="ast">Asturianu</a></li>
+													<li class="interlanguage-link interwiki-id"><a href="//id.wikipedia.org/wiki/Struktur_data" title="Struktur data – Tiếng Indonesia" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+													<li class="interlanguage-link interwiki-ms"><a href="//ms.wikipedia.org/wiki/Struktur_data" title="Struktur data – Tiếng Malaysia" lang="ms" hreflang="ms">Bahasa Melayu</a></li>
+													<li class="interlanguage-link interwiki-bn"><a href="//bn.wikipedia.org/wiki/%E0%A6%89%E0%A6%AA%E0%A6%BE%E0%A6%A4%E0%A7%8D%E0%A6%A4_%E0%A6%B8%E0%A6%82%E0%A6%97%E0%A6%A0%E0%A6%A8" title="উপাত্ত সংগঠন – Tiếng Bengali" lang="bn" hreflang="bn">বাংলা</a></li>
+													<li class="interlanguage-link interwiki-be"><a href="//be.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%B4%D0%B0%D0%BD%D1%8B%D1%85" title="Структура даных – Tiếng Belarus" lang="be" hreflang="be">Беларуская</a></li>
+													<li class="interlanguage-link interwiki-bs"><a href="//bs.wikipedia.org/wiki/Struktura_podataka" title="Struktura podataka – Tiếng Nam Tư" lang="bs" hreflang="bs">Bosanski</a></li>
+													<li class="interlanguage-link interwiki-bg"><a href="//bg.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%BE%D1%82_%D0%B4%D0%B0%D0%BD%D0%BD%D0%B8" title="Структура от данни – Tiếng Bulgaria" lang="bg" hreflang="bg">Български</a></li>
+													<li class="interlanguage-link interwiki-ca"><a href="//ca.wikipedia.org/wiki/Estructura_de_dades" title="Estructura de dades – Tiếng Catalan" lang="ca" hreflang="ca">Català</a></li>
+													<li class="interlanguage-link interwiki-da"><a href="//da.wikipedia.org/wiki/Datastruktur" title="Datastruktur – Tiếng Đan Mạch" lang="da" hreflang="da">Dansk</a></li>
+													<li class="interlanguage-link interwiki-de"><a href="//de.wikipedia.org/wiki/Datenstruktur" title="Datenstruktur – Tiếng Đức" lang="de" hreflang="de">Deutsch</a></li>
+													<li class="interlanguage-link interwiki-et"><a href="//et.wikipedia.org/wiki/Andmestruktuur" title="Andmestruktuur – Tiếng Estonia" lang="et" hreflang="et">Eesti</a></li>
+													<li class="interlanguage-link interwiki-el"><a href="//el.wikipedia.org/wiki/%CE%94%CE%BF%CE%BC%CE%AE_%CE%B4%CE%B5%CE%B4%CE%BF%CE%BC%CE%AD%CE%BD%CF%89%CE%BD" title="Δομή δεδομένων – Tiếng Hy Lạp" lang="el" hreflang="el">Ελληνικά</a></li>
+													<li class="interlanguage-link interwiki-en"><a href="//en.wikipedia.org/wiki/Data_structure" title="Data structure – Tiếng Anh" lang="en" hreflang="en">English</a></li>
+													<li class="interlanguage-link interwiki-es"><a href="//es.wikipedia.org/wiki/Estructura_de_datos" title="Estructura de datos – Tiếng Tây Ban Nha" lang="es" hreflang="es">Español</a></li>
+													<li class="interlanguage-link interwiki-fa"><a href="//fa.wikipedia.org/wiki/%D8%B3%D8%A7%D8%AE%D8%AA%D9%85%D8%A7%D9%86_%D8%AF%D8%A7%D8%AF%D9%87%E2%80%8C%D9%87%D8%A7" title="ساختمان داده‌ها – Tiếng Ba Tư" lang="fa" hreflang="fa">فارسی</a></li>
+													<li class="interlanguage-link interwiki-fr"><a href="//fr.wikipedia.org/wiki/Structure_de_donn%C3%A9es" title="Structure de données – Tiếng Pháp" lang="fr" hreflang="fr">Français</a></li>
+													<li class="interlanguage-link interwiki-ko"><a href="//ko.wikipedia.org/wiki/%EC%9E%90%EB%A3%8C_%EA%B5%AC%EC%A1%B0" title="자료 구조 – Tiếng Hàn" lang="ko" hreflang="ko">한국어</a></li>
+													<li class="interlanguage-link interwiki-hi"><a href="//hi.wikipedia.org/wiki/%E0%A4%86%E0%A4%82%E0%A4%95%E0%A4%A1%E0%A4%BC%E0%A4%BE_%E0%A4%B8%E0%A4%82%E0%A4%B0%E0%A4%9A%E0%A4%A8%E0%A4%BE" title="आंकड़ा संरचना – Tiếng Hindi" lang="hi" hreflang="hi">हिन्दी</a></li>
+													<li class="interlanguage-link interwiki-hr"><a href="//hr.wikipedia.org/wiki/Podatkovna_struktura" title="Podatkovna struktura – Tiếng Croatia" lang="hr" hreflang="hr">Hrvatski</a></li>
+													<li class="interlanguage-link interwiki-is"><a href="//is.wikipedia.org/wiki/Gagnagrind" title="Gagnagrind – Tiếng Iceland" lang="is" hreflang="is">Íslenska</a></li>
+													<li class="interlanguage-link interwiki-it"><a href="//it.wikipedia.org/wiki/Struttura_dati" title="Struttura dati – Tiếng Ý" lang="it" hreflang="it">Italiano</a></li>
+													<li class="interlanguage-link interwiki-he"><a href="//he.wikipedia.org/wiki/%D7%9E%D7%91%D7%A0%D7%94_%D7%A0%D7%AA%D7%95%D7%A0%D7%99%D7%9D" title="מבנה נתונים – Tiếng Do Thái" lang="he" hreflang="he">עברית</a></li>
+													<li class="interlanguage-link interwiki-kk"><a href="//kk.wikipedia.org/wiki/%D0%9C%D3%99%D0%BB%D1%96%D0%BC%D0%B5%D1%82%D1%82%D0%B5%D1%80_%D2%9B%D2%B1%D1%80%D1%8B%D0%BB%D1%8B%D0%BC%D1%8B" title="Мәліметтер құрылымы – Tiếng Kazakh" lang="kk" hreflang="kk">Қазақша</a></li>
+													<li class="interlanguage-link interwiki-lv"><a href="//lv.wikipedia.org/wiki/Datu_strukt%C5%ABras" title="Datu struktūras – Tiếng Latvia" lang="lv" hreflang="lv">Latviešu</a></li>
+													<li class="interlanguage-link interwiki-hu"><a href="//hu.wikipedia.org/wiki/Adatszerkezet" title="Adatszerkezet – Tiếng Hungary" lang="hu" hreflang="hu">Magyar</a></li>
+													<li class="interlanguage-link interwiki-ml"><a href="//ml.wikipedia.org/wiki/%E0%B4%A1%E0%B4%BE%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B4%BE_%E0%B4%B8%E0%B5%8D%E0%B4%9F%E0%B5%8D%E0%B4%B0%E0%B4%95%E0%B5%8D%E2%80%8C%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B5%BC" title="ഡാറ്റാ സ്ട്രക്‌ച്ചർ – Tiếng Malayalam" lang="ml" hreflang="ml">മലയാളം</a></li>
+													<li class="interlanguage-link interwiki-mn"><a href="//mn.wikipedia.org/wiki/%D3%A8%D0%B3%D3%A9%D0%B3%D0%B4%D0%BB%D0%B8%D0%B9%D0%BD_%D0%B1%D2%AF%D1%82%D1%8D%D1%86" title="Өгөгдлийн бүтэц – Tiếng Mông Cổ" lang="mn" hreflang="mn">Монгол</a></li>
+													<li class="interlanguage-link interwiki-nl"><a href="//nl.wikipedia.org/wiki/Datastructuur" title="Datastructuur – Tiếng Hà Lan" lang="nl" hreflang="nl">Nederlands</a></li>
+													<li class="interlanguage-link interwiki-ja"><a href="//ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0" title="データ構造 – Tiếng Nhật" lang="ja" hreflang="ja">日本語</a></li>
+													<li class="interlanguage-link interwiki-no"><a href="//no.wikipedia.org/wiki/Datastruktur" title="Datastruktur – Tiếng Na Uy" lang="no" hreflang="no">Norsk bokmål</a></li>
+													<li class="interlanguage-link interwiki-pl"><a href="//pl.wikipedia.org/wiki/Struktura_danych" title="Struktura danych – Tiếng Ba Lan" lang="pl" hreflang="pl">Polski</a></li>
+													<li class="interlanguage-link interwiki-pt"><a href="//pt.wikipedia.org/wiki/Estrutura_de_dados" title="Estrutura de dados – Tiếng Bồ Đào Nha" lang="pt" hreflang="pt">Português</a></li>
+													<li class="interlanguage-link interwiki-ro"><a href="//ro.wikipedia.org/wiki/Structur%C4%83_de_date" title="Structură de date – Tiếng Rumani" lang="ro" hreflang="ro">Română</a></li>
+													<li class="interlanguage-link interwiki-ru"><a href="//ru.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85" title="Структура данных – Tiếng Nga" lang="ru" hreflang="ru">Русский</a></li>
+													<li class="interlanguage-link interwiki-sq"><a href="//sq.wikipedia.org/wiki/Struktura_e_t%C3%AB_dh%C3%ABnave" title="Struktura e të dhënave – Tiếng An-ba-ni" lang="sq" hreflang="sq">Shqip</a></li>
+													<li class="interlanguage-link interwiki-simple"><a href="//simple.wikipedia.org/wiki/Data_structure" title="Data structure – Simple English" lang="simple" hreflang="simple">Simple English</a></li>
+													<li class="interlanguage-link interwiki-sk"><a href="//sk.wikipedia.org/wiki/%C3%9Adajov%C3%A1_%C5%A1trukt%C3%BAra" title="Údajová štruktúra – Tiếng Slovak" lang="sk" hreflang="sk">Slovenčina</a></li>
+													<li class="interlanguage-link interwiki-sl"><a href="//sl.wikipedia.org/wiki/Podatkovna_struktura" title="Podatkovna struktura – Tiếng Slovenia" lang="sl" hreflang="sl">Slovenščina</a></li>
+													<li class="interlanguage-link interwiki-ckb"><a href="//ckb.wikipedia.org/wiki/%D9%BE%DB%8E%DA%A9%DA%BE%D8%A7%D8%AA%DB%95%D8%AF%D8%B1%D8%A7%D9%88%DB%95" title="پێکھاتەدراوە – Tiếng Kurd Sorani" lang="ckb" hreflang="ckb">کوردی</a></li>
+													<li class="interlanguage-link interwiki-sr"><a href="//sr.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0" title="Структура података – Tiếng Serbia" lang="sr" hreflang="sr">Српски / srpski</a></li>
+													<li class="interlanguage-link interwiki-sh"><a href="//sh.wikipedia.org/wiki/Struktura_podataka" title="Struktura podataka – Tiếng Xéc bi - Croatia" lang="sh" hreflang="sh">Srpskohrvatski / српскохрватски</a></li>
+													<li class="interlanguage-link interwiki-fi"><a href="//fi.wikipedia.org/wiki/Tietorakenne" title="Tietorakenne – Tiếng Phần Lan" lang="fi" hreflang="fi">Suomi</a></li>
+													<li class="interlanguage-link interwiki-sv"><a href="//sv.wikipedia.org/wiki/Datastruktur" title="Datastruktur – Tiếng Thụy Điển" lang="sv" hreflang="sv">Svenska</a></li>
+													<li class="interlanguage-link interwiki-th"><a href="//th.wikipedia.org/wiki/%E0%B9%82%E0%B8%84%E0%B8%A3%E0%B8%87%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%B9%E0%B8%A5" title="โครงสร้างข้อมูล – Tiếng Thái" lang="th" hreflang="th">ไทย</a></li>
+													<li class="interlanguage-link interwiki-tr"><a href="//tr.wikipedia.org/wiki/Veri_yap%C4%B1s%C4%B1" title="Veri yapısı – Tiếng Thổ Nhĩ Kỳ" lang="tr" hreflang="tr">Türkçe</a></li>
+													<li class="interlanguage-link interwiki-uk"><a href="//uk.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%B4%D0%B0%D0%BD%D0%B8%D1%85" title="Структура даних – Tiếng Ucraina" lang="uk" hreflang="uk">Українська</a></li>
+													<li class="interlanguage-link interwiki-zh"><a href="//zh.wikipedia.org/wiki/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" title="数据结构 – Tiếng Trung" lang="zh" hreflang="zh">中文</a></li>
+													<li class="uls-p-lang-dummy"><a href="#"></a></li>
+											</ul>
+				<div class='after-portlet after-portlet-lang'><span class="wb-langlinks-edit wb-langlinks-link"><a action="edit" href="//www.wikidata.org/wiki/Q175263#sitelinks-wikipedia" text="Sửa liên kết" title="Sửa liên kết giữa ngôn ngữ" class="wbc-editpage">Sửa liên kết</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> Trang này được sửa đổi lần cuối lúc 06:32 ngày 9 tháng 2 năm 2015.</li>
+											<li id="footer-info-copyright">Văn bản được phát hành theo <a href="http://creativecommons.org/licenses/by-sa/3.0/deed.vi">Giấy phép Creative Commons Ghi công/Chia sẻ tương tự</a>; có thể áp dụng điều khoản bổ sung. Xem <a href="//wikimediafoundation.org/wiki/Điều_khoản_Sử_dụng?uselang=vi">Điều khoản Sử dụng</a> để biết thêm chi tiết.<br />
+Wikipedia&reg; là thương hiệu đã đăng ký của <a href="//www.wikimediafoundation.org/wiki/Trang_chủ?uselang=vi">Wikimedia Foundation, Inc.</a>, một tổ chức phi lợi nhuận.<br /></li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="//wikimediafoundation.org/wiki/Quy_%C4%91%E1%BB%8Bnh_quy%E1%BB%81n_ri%C3%AAng_t%C6%B0" title="wikimedia:Quy định quyền riêng tư">Quy định quyền riêng tư</a></li>
+											<li id="footer-places-about"><a href="/wiki/Wikipedia:Gi%E1%BB%9Bi_thi%E1%BB%87u" title="Wikipedia:Giới thiệu">Giới thiệu Wikipedia</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:Ph%E1%BB%A7_nh%E1%BA%ADn_chung" title="Wikipedia:Phủ nhận chung">Lời phủ nhận</a></li>
+											<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Nhà phát triển</a></li>
+											<li id="footer-places-mobileview"><a href="//vi.m.wikipedia.org/w/index.php?title=C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u&amp;amp%3Bveaction=edit&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Phiên bản di động</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="//wikimediafoundation.org/"><img src="//bits.wikimedia.org/images/wikimedia-button.png" srcset="//bits.wikimedia.org/images/wikimedia-button-1.5x.png 1.5x, //bits.wikimedia.org/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="//bits.wikimedia.org/static-1.25wmf19/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="//bits.wikimedia.org/static-1.25wmf19/resources/assets/poweredby_mediawiki_132x47.png 1.5x, //bits.wikimedia.org/static-1.25wmf19/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"ext.globalCssJs.site":"ready","ext.globalCssJs.user":"ready","site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.gadget.did_you_mean","ext.gadget.ReferenceTooltips","ext.gadget.AVIM","ext.gadget.AVIM_portlet","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.purgetab","mmv.bootstrap.autostart","ext.imageMetrics.loader","ext.eventLogging.subscriber","ext.wikimediaEvents.statsd","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","ext.uls.interlanguage"],null,true);
+}</script>
+<script src="/w/index.php?title=MediaWiki:Gadget-ReferenceTooltips.js&amp;action=raw&amp;ctype=text/javascript&amp;18554727"></script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"//bits.wikimedia.org/vi.wikipedia.org/load.php?debug=false\u0026amp;lang=vi\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":104,"wgHostname":"mw1174"});
+}</script>
+	</body>
+</html>

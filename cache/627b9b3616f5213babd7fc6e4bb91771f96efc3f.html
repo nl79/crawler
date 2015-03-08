@@ -1,0 +1,2620 @@
+undefined<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head><title>Priority Queues</title>
+<meta name="description" content="Priority Queues (heaps). Technical reports, implementations, and researchers' home pages. By Lee Killough.">
+<meta name="robots" content="noarchive,nofollow">
+
+</head>
+
+<body bgcolor="#ffffff" text="#000000" link="#0000ee" vlink="#551a8b" alink="#ff0000">
+
+<h1>Priority Queues</h1>
+<p> By Lee Killough </p>
+
+<font size="+2" color=red><strong>If links are broken, <a href="http://citeseer.ist.psu.edu/site/48360">please look here for papers</a>. I have not had time to update links.</strong></font>
+
+<p> Contents
+<p>
+<ul>
+<li><a href="#intro">Introductory Material</a>
+<li><a href="#start">Priority Queue Starting Points</a>
+<li><a href="#papers">Papers on Priority Queues</a>
+<li><a href="#implem">Priority Queue Implementations</a>
+<li><a href="#related">Topics Related to Priority Queues</a>
+<li><a href="#stats">Heap Statistics</a>
+<li><a href="#survey">Priority Queues Survey</a>
+<li><a href="#about">About This Page</a>
+<li><a href="#referer">Pages which refer to this one</a>
+<li><a href="#glossary">Glossary</a>
+</ul>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+<hr>
+
+<h2><a name="intro">Introductory Material</a></h2>
+
+<dl>
+<dt>
+<a href="http://www.nist.gov/dads/HTML/priorityque.html">Definitions of Algorithms, Data Structures, and Problems</a>
+<dd>Definition of <em>priority queue</em> and related terms, in Paul Black's computer science glossary
+<br> <br>
+
+<dt>
+<a href="http://www.onthenet.com.au/~grahamis/int2008/week11/lect11.html">Heaps (Priority Queues)</a>
+<dd> Ian Graham's lecture
+<br> <br>
+
+<dt>
+<a href="http://www.triaxsystems.com/algorithms/heaps.htm">Heaps</a>
+<dd>
+Stefan Xenos' survey of priority queues and their complexities
+<br> <br>
+
+<dt>
+<a href="http://ciips.ee.uwa.edu.au/~morris/Year2/PLDS210/queues.html">Data Structures and Algorithms: Queues</a>
+<dd>
+John Morris' notes on priority queues
+<br> <br>
+
+<dt>
+<a href="http://www.cogs.susx.ac.uk/local/teach/dats/dats.html">Data Structures</a>
+<dd>
+Introduction to data structures, with Java code, by Peter M. Williams
+<br> <br>
+
+<dt>
+<a href="http://www.brpreiss.com/books/opus4/html/page352.html">Heaps and Priority Queues</a>
+<dd>
+Online chapter of <i>Data Structures and Algorithms with Object-Oriented Design Patterns in C++</i>, by Bruno R. Preiss
+<br> <br>
+
+<dt>
+<a href="http://www.cs.sunysb.edu/~skiena/214/lectures/lect18/lect18.html">Priority Queues and Heapsort</a>
+<dd>
+Introduction to heaps using tournaments, by Steven S. Skiena
+<br> <br>
+
+<dt>
+<a href="http://www.cs.appstate.edu/~blk/cs3460/chap06/">Priority Queues</a>
+<dd>
+Introduction to priority queues, including k-heaps, Leftist heaps, and binomial queues, by Barry Kurtz
+<br> <br>
+
+<dt>
+<a href="http://www.d.umn.edu/~tcolburn/cs2511/lectures/pqueue/pq_0.htm">Data Structures in C++ Case Study: Priority Queues</a>
+<dd>
+Timothy Colburn's lecture slides on priority queues
+<br> <br>
+
+<dt>
+<a href="http://www.cs.umbc.edu/~edelman/202/sp97/Lectures/Sorting/heapsort.html">Priority Queues and Heaps</a>
+<dd> Introduction to priority queues and heapsort, with C code
+<br> <br>
+
+<dt>
+<a href="http://www.cs.hope.edu/~alganim/">The Complete Collection of Algorithm Animations</a>
+<dd> Pointers to online animations of algorithms and data structures
+
+<dt>
+<a href="http://math.baruch.cuny.edu/~bshaw/index-7.html">A Priority Queue Tester</a>
+<dd> A Java demonstration of priority queue insertion and removal
+</dl>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+<hr>
+<h2><a name="start">Starting Points</a></h2>
+<p>
+If you're just looking for the fastest priority queue for an application,
+or if you want a survey of the different kinds of priority queues and their
+strengths and weaknesses, I recommend you first read the following:
+
+<p>
+<strong><sup>*</sup> Indicates access may be restricted</strong>
+
+<dl>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+<dt> <a href="#ayani">Rassul Ayani</a>
+<dd>
+<ul>
+<li><a href="http://www.leekillough.com/heaps/papers/p157-ronngren.pdf">A comparative study of parallel and sequential priority queue algorithms</a>,
+with <a href="#ronngren">Robert R&ouml;nngren</a>
+</ul>
+<br>
+
+<dt>
+<a href="#fagerberg">Rolf Fagerberg</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.imada.sdu.dk/pub/papers/pp-1996/12.ps.gz">A Note on Worst Case Efficient Meldable Priority Queues</a>
+&nbsp; <em><a href="http://www.imada.sdu.dk/Research/Preprints/Abstracts/1996/12.html">Abstract</a></em>
+</ul>
+<br>
+
+<dt>
+<a href="#jones">Douglas W. Jones</a>
+<dd>
+<ul>
+<li><a href="http://www.acm.org/pubs/articles/journals/cacm/1986-29-4/p300-jones/p300-jones.pdf">An Empirical Comparison of Priority-Queue and Event-Set Implementations</a><strong><sup>*</sup></strong>
+&nbsp; <em><a href="http://www.acm.org/pubs/citations/journals/cacm/1986-29-4/p300-jones/">Review</a></em>
+</ul>
+<br>
+
+<dt>
+<a href="#goldberg">Andrew V. Goldberg</a>
+<dd>
+<ul>
+
+<li><a href="http://www-cs-students.stanford.edu/~csilvers/papers/hotq-soda.ps.gz">Buckets, Heaps, Lists, and Monotone Priority Queues</a>, with
+<a href="#cherkassky">Boris V. Cherkassky</a> and <a href="#silverstein">Craig Silverstein</a>
+&nbsp; <em><a href="http://epubs.siam.org/sam-bin/dbq/article/31349">Abstract</a></em>
+&nbsp; <em><a href="http://www.avglab.com/andrew/pub/neci-tr-96-070.ps.gz">older version</a></em>
+&nbsp; <em><a href="http://www.avglab.com/andrew/soft.html">Software</a></em>
+
+<li><a href="http://www.avglab.com/andrew/pub/neci-tr-96-042.ps">Heap-on-Top Priority Queues</a>, with
+<a href="#cherkassky">Boris V. Cherkassky</a> and <a href="#silverstein">Craig Silverstein</a>
+&nbsp; <em><a href="http://www.avglab.com/andrew/pub/neci-tr-96-042-abs.html">Abstract</a></em>
+</ul>
+<br>
+
+<dt>
+<a href="#lamarca">Anthony LaMarca</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.cs.washington.edu/tr/1996/02/UW-CSE-96-02-03.PS.Z">The Influence of Caches on the Performance of Heaps</a>,
+with <a href="#ladner">Richard E. Ladner</a>
+&nbsp; <em><a href="http://www.jea.acm.org/1996/LaMarcaInfluence/">Abstract</a></em>
+</ul>
+<br>
+
+<dt>
+<a href="#marin">Mauricio Mar&#237;n</a>
+<dd>
+<ul>
+<li><a href="http://ona.fi.umag.cl/~mmarin/papers/ess98.ps.gz">On the Pending Event Set and Binary Tournaments</a>
+
+<li><a href="http://ona.fi.umag.cl/~mmarin/papers/pqcomp.ps.gz">An Empirical Comparison of Priority Queue Algorithms</a>
+</ul>
+<br>
+
+<a href="http://www.addall.com/New/BestSeller.cgi?isbn=0805380086&dispCurr=USD"><img src="/heaps/images/1503859.gif" alt="" align="right" border="0"></a>
+
+<dt>
+<a href="#moret">Bernard M.E. Moret</a>, <a href="#shapiro">H.D. Shapiro</a>
+<dd>
+<ul>
+<li><i><a href="http://www.addall.com/New/BestSeller.cgi?isbn=0805380086&dispCurr=USD">Algorithms From P to NP: Design and Efficiency</a></i>,
+pp. 130-187
+<a href="http://www.cs.sunysb.edu/~algorith/implement/moret/distrib/">Software</a>
+</ul>
+</dl>
+<br clear=all>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+<hr>
+<h2><a name="papers">Papers on Priority Queues</a></h2>
+
+<p>
+Arranged alphabetically by author. Hyperlinks under the authors' names, are
+links to their personal home pages.
+
+<p>
+<a href="#a">A</a>
+<a href="#b">B</a>
+<a href="#c">C</a>
+<a href="#d">D</a>
+<a href="#e">E</a>
+<a href="#f">F</a>
+<a href="#g">G</a>
+<a href="#h">H</a>
+<a href="#i">I</a>
+<a href="#j">J</a>
+<a href="#k">K</a>
+<a href="#l">L</a>
+<a href="#m">M</a>
+<a href="#n">N</a>
+<a href="#o">O</a>
+<a href="#p">P</a>
+<a href="#q">Q</a>
+<a href="#r">R</a>
+<a href="#s">S</a>
+<a href="#t">T</a>
+<a href="#u">U</a>
+<a href="#v">V</a>
+<a href="#w">W</a>
+<a href="#x">X</a>
+<a href="#y">Y</a>
+<a href="#z">Z</a>
+<p>
+
+<strong><sup>*</sup> Indicates access may be restricted</strong>
+<p>
+<hr>
+
+<dl>
+
+<!-- Begin HPSearch -->
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="a"></a>
+
+<a name="abraham" href="http://www.eecs.umich.edu/PPP/santosh.html">Santosh G. Abraham</a>
+<dd>
+<ul>
+<li><em>See <a href="#sugumar">Rabin A. Sugumar</a></em>
+</ul>
+<br>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="andersson" href="http://www.csd.uu.se/~arnea/">Arne Andersson</a>
+<dd>
+<ul>
+<li><em>See <a href="#thorup">Mikkel Thorup</a></em>
+</ul>
+<br>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="atkinson" href="http://www.cs.otago.ac.nz/staffpriv/mike/">Mike D. Atkinson</a>
+<dd>
+<ul>
+
+<li><a href="http://www.combinatorics.org/Volume_2/PostScriptfiles/v2i1r24.ps">Priority Queues and Multisets</a>
+<ul>
+<li><a href="http://www-theory.dcs.st-and.ac.uk/~sal/mdapaper/mdapaper.html">HTML</a>
+</ul>
+<li>Priority Queues and Permutations &nbsp; <em><a href="http://epubs.siam.org/sam-bin/dbq/article/24089">Abstract</a></em>
+
+<li><a href="http://www.acm.org/pubs/articles/journals/cacm/1986-29-10/p996-atkinson/p996-atkinson.pdf">Min-max heaps and generalized priority queues</a><strong><sup>*</sup></strong>,
+with
+<a href="#sack">J&ouml;rg-R&uuml;diger Sack</a>
+<a href="#santoro">Nicola Santoro</a>, Thomas Strothotte
+
+&nbsp; <em><a href="http://www.acm.org/pubs/citations/journals/cacm/1986-29-10/p996-atkinson/">Review</a></em>
+</ul>
+<br>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="ayani" href="http://www.it.kth.se/~rassul/">Rassul Ayani</a>
+ &nbsp;
+<em><a href="http://www.iscs.nus.edu.sg/~rassul/">(on leave)</a></em>
+<dd>
+<ul>
+<li><a href="http://www.leekillough.com/heaps/papers/p157-ronngren.pdf">A comparative study of parallel and sequential priority queue algorithms</a>, with <a href="#ronngren">Robert R&ouml;nngren</a>
+ &nbsp;
+<em><a href="http://www.acm.org/pubs/citations/journals/tomacs/1997-7-2/p157-ronngren/">Abstract</a></em>
+
+<li><a href="ftp://ftp.it.kth.se/Reports/sim/LazyQueue.IJCS.aug93.ps.Z">Lazy Queue: A new approach to implementation of the pending-event set</a>,
+with J. Riboe and <a href="#ronngren">Robert R&ouml;nngren</a>
+
+<li><a href="ftp://ftp.it.kth.se/Reports/sim/FastImplementations.MASCOTS93.ps.Z">A Comparative
+Study of Some Priority Queues Suitable For Implementation of the Pending Event Set</a>, with
+J. Riboe and <a href="#ronngren">Robert R&ouml;nngren</a>
+
+<li><a href="ftp://ftp.it.kth.se/Reports/sim/EfficientImplement.PADS93.ps.Z">Efficient
+Implementation of Event Sets in Time Warp</a>, with
+<a href="#ronngren">Robert R&ouml;nngren</a>,
+Samir R. Das and Richard M. Fujimoto
+&nbsp;
+<em><a href="http://www.acm.org/pubs/citations/proceedings/simulation/158459/p101-ronngren/">Abstract</a></em>
+<li><a href="http://www.leekillough.com/heaps/papers/LR.pdf">LR-algorithm: Concurrent Operations on Priority Queues</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="b"></a>
+
+<dt>
+<a name="baeumker" href="http://www.uni-paderborn.de/fachbereich/AG/agmadh/WWW/english/Baeu.html">Armin B&auml;umker</a>
+<dd>
+<ul>
+<li><em>See <a href="#meyer">Friedhelm Meyer auf der Heide</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="barnes" href="http://www.drizzle.com/~gsbarnes/">Greg Barnes</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.cs.washington.edu/tr/1994/12/UW-CSE-94-12-07.PS.Z">Wait-Free Algorithms for Heaps</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="baeza" href="http://www.dcc.uchile.cl/~rbaeza/">Ricardo Baeza-Yates</a>
+<dd>
+<ul>
+<li><em>See <a href="#marin">Mauricio Mar&#237;n</a></em>
+</ul>
+ 
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="berkowitz" href="http://www.stanford.edu/~staceyb/">Stacey R. Berkowitz</a>
+<dd>
+<ul>
+<li><em>See <a href="#shaby">Ben Shaby</a></em>
+</ul>
+ 
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<!--
+<dt>
+<a name="bertossi" href="http://rtm.science.unitn.it/~bertossi/">Alan Bertossi</a>
+<dd>
+<ul>
+<li><a href="http://tinman.cs.gsu.edu/~matlnyx/1259a.pdf">P-Bandwidth Priority Queues on Reconfigurable Tree of Meshes</a>, with
+<a href="#mei">Alessandro Mei</a>
+</ul>
+<br>
+-->
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="bojesen">Jesper Bojesen</a>
+<dd>
+<ul>
+<li><a href="http://www.diku.dk/research-groups/performance-engineering/Jesper/heaplab/heapsurvey_html/Welcome.html">Heap Implementations and Variations</a>
+<li><a href="http://www.diku.dk/~jyrki/Presentation/London-21.07.1999.ps">Performance Engineering Case Study: Heap Construction</a>,
+
+with <a href="#spork">Maz Spork</a> and
+<a href="#katajainen">Jyrki Juhani Katajainen</a>
+
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="boyar" href="http://www.imada.sdu.dk/~joan/">Joan Boyar</a>
+<dd>
+<ul>
+<li><em>See <a href="#fagerberg">Rolf Fagerberg</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="bright">J.D. Bright</a>
+<dd>
+<ul>
+<li><em>See <a href="#sullivan">Gregory F. Sullivan</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="brodal" href="http://www.brics.dk/~gerth/">Gerth St&oslash;lting Brodal</a>
+
+<dd>
+<em>(for abstracts or related work, refer to <a href="http://www.brics.dk/~gerth/publications.html">publications page</a>)</em>
+<ul>
+
+<li><a href="http://www.brics.dk/~gerth/Papers/isaac02.ps.gz">Funnel Heap - A Cache Oblivious Priority Queue</a>,
+with <a href="#fagerberg">Rolf Fagerberg</a>
+&nbsp; <em><a href="http://www.brics.dk/~gerth/Slides/isaac02.pdf">Slides</a></em>
+
+<li><a href="http://www.brics.dk/~gerth/Papers/diku-97-25.ps.gz">Worst-Case Efficient External-Memory Priority Queues</a>, with
+<a href="#katajainen">Jyrki Juhani Katajainen</a>
+ &nbsp;
+<em><a href="http://www.diku.dk/research/published/97-24.ps.gz">Condensed version</a></em>
+
+<li><a href="http://www.brics.dk/~gerth/Slides/swat98ext.ps.gz">Comparator Networks for Binary Heap Construction</a>, with
+<a href="#pinotti">Maria Cristina Pinotti</a>
+ &nbsp;
+<em><a href="http://www.brics.dk/~gerth/Papers/mpi-i-98-1-002.ps.gz">Other Version</a></em>
+
+<li><a href="http://www.brics.dk/~gerth/Papers/jpdc98.ps.gz">A Parallel Priority Queue with Constant Time Operations</a>, with
+<a href="http://www.mpi-sb.mpg.de/~zaro/">Christos D. Zaroliagis</a>,
+<a href="http://www.ccrl-nece.technopark.gmd.de/~traff/">Jesper Larsson Tr&auml;ff</a>
+<br>
+Other versions:
+<ul>
+<li><a href="http://www.brics.dk/~gerth/Papers/ipps97.ps.gz">A Parallel Priority Data Structure with Applications</a>
+<li><a href="http://www.brics.dk/~gerth/Papers/mpi-i-97-1-011.ps.gz">A Parallel Priority Queue with Constant Update Time</a>
+<em><a href="http://data.mpi-sb.mpg.de/internet/reports.nsf/NumberView/1997-1-011/">MPI Informatik</a></em>
+</ul>
+
+<li><a href="http://www.brics.dk/~gerth/Papers/brics-ds-97-1.ps.gz">Worst Case Efficient Data Structures</a>
+(<em>thesis</em>)
+
+<li><a href="http://www.brics.dk/~gerth/Papers/njc.swat96.ps.gz">The Randomized Complexity of Maintaining the Minimum</a>, with
+<a href="http://fano.ics.uci.edu/cites/Author/Shiva-Chaudhuri.html">Shiva Chaudhuri</a>, <a href="mailto:jaikumar@tcs.tifr.res.in">Jaikumar Radhakrishnan</a>
+
+<li><a href="http://www.cs.columbia.edu/~cdo/priority.ps">Optimal Purely Functional Priority Queues</a>
+with <a href="#okasaki">Chris Okasaki</a>
+&nbsp; <em><a href="http://www.cs.columbia.edu/~cdo/priority.html">Software</a></em>
+
+<li><a href="http://www.brics.dk/~gerth/Papers/swat96pq.ps.gz">Priority Queues on Parallel Machines</a>
+
+<li><a href="http://www.brics.dk/~gerth/Papers/soda96.ps.gz">Worst-Case Efficient Priority Queues</a>
+
+<li><a href="http://www.brics.dk/~gerth/Papers/wads95.ps.gz">Fast Meldable Priority Queues</a>
+
+</ul>
+
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="brown">Mark Robbin Brown</a>
+<dd>
+<ul>
+<li><em><a href="http://www.amazon.com/exec/obidos/ASIN/0824044088/">The analysis of a practical and nearly optimal priority queue</a></em>
+<a href="http://techreports.larc.nasa.gov/ntrs/hget.cgi?recon?1565/3=/raid5/index/star/70%256068918%201565%20N19770023951recon1">Abstract</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="rbrown">Randy Brown</a>
+<dd>
+<ul>
+<li><a href="http://www.leekillough.com/heaps/papers/calendar_queues.pdf">Calendar Queues: A Fast O(1) Priority Queue Implementation For the Simulation Event Set Problem</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="rjbrown" href="http://www.elilabs.com/~rj/">Robert J. Brown</a>
+<dd>
+<ul>
+<li><a href="http://www.elilabs.com/~rj/timerq/">An Efficient Algorithm for Very Large Priority Queues</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="buchsbaum" href="http://www.research.att.com/info/alb/">Adam L. Buchsbaum</a>
+<dd>
+<ul>
+<li><a href="http://www.research.att.com/~alb/biblio/thesis.ps.Z">Data-Structural Bootstrapping and Catenable Deques</a> <em>(thesis)</em>
+
+<li><a href="ftp://ftp.cs.princeton.edu/reports/1992/381.ps.gz">Data
+Structural Bootstrapping, Linear Path Compression,
+and Catenable Heap Ordered Double Ended Queues</a>, with
+Rajamani Sundar and <a href="#tarjan">R.E. Tarjan</a>
+
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="c"></a>
+<dt>
+<a name="carlsson" href="http://www.effnet.com/sites/effnet/setup/lb/index.asp?section=about&content=about_board">Svante Carlsson</a>
+<dd>
+<ul>
+<li><em>See <a href="#chen">Jingsen Chen</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="chazelle" href="http://www.cs.princeton.edu/~chazelle/">Bernand Chazelle</a>
+<dd>
+<ul>
+<li><a href="http://www.cs.princeton.edu/~chazelle/pubs/sheap.ps">The Soft Heap: An Approximate Priority Queue with Optimal Error Rate</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="chen" href="http://www.sm.luth.se/~jingsen/">Jingsen Chen</a>
+<dd>
+<ul>
+<li><a href="http://www.acm.org/pubs/articles/proceedings/soda/139404/p393-carlsson/p393-carlsson.pdf">The Complexity of Heaps</a><strong><sup>*</sup></strong>,
+with  <a href="#carlsson">Svante Carlsson</a>
+&nbsp; <em><a href="http://www.acm.org/pubs/citations/proceedings/soda/139404/p393-carlsson/">Abstract</a></em>
+<li>An efficient construction algorithm for a class of implicit double-ended priority queues
+<li>Parallel heap construction using multiple selection
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="schen" href="http://www.cs.duke.edu/~chen/HomePage.html">Shenfeng Chen</a>
+<dd>
+<ul>
+<li><a href="http://www.cs.duke.edu/~chen/papers/sort.ps">Using Difficulty of Prediction to
+Decrease Computation: Fast Sort, Priority Queue and Convex Hull on Entropy Bounded Inputs</a>,
+with <a href="#reif">John H. Reif</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="cherkassky" href="mailto:c10404@sucemi.bitnet">Boris V. Cherkassky</a>
+<dd>
+<ul>
+<li><em>See <a href="#goldberg">Andrew V. Goldberg</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="cho">Seonghun Cho</a>, with <a href="#sahni">Sartaj Sahni</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.cise.ufl.edu/cis/tech-reports/tr96/tr96-023.ps">Mergeable Double-Ended Priority Queues</a>
+&nbsp; <em><a href="http://www.cise.ufl.edu/tech-reports/tech-reports/tr96-abstracts.shtml#023">Abstract</a></em>
+<li><a href="ftp://ftp.cise.ufl.edu/cis/tech-reports/tr96/tr96-002.ps">Weight Biased Leftist Trees and Modified Skip Lists</a>
+&nbsp; <em><a href="http://www.cise.ufl.edu/tech-reports/tech-reports/tr96-abstracts.shtml#002">Abstract</a></em>
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="clack" href="http://www.cs.ucl.ac.uk/staff/C.Clack/">Chris Clack</a>
+<dd>
+
+<br>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="crauser" href="http://www.mpi-sb.mpg.de/~crauser/">Andreas Crauser</a>
+<dd>
+<ul>
+<li><a href="http://www.mpi-sb.mpg.de/~crauser/papers/new.ps">Efficient Priority Queues in External Memory</a>, with
+<a href="#ferragina">Paolo Ferragina</a> and <a href="#umeyer">Ulrich Meyer</a>
+&nbsp; <em><a href="http://www.mpi-sb.mpg.de/~umeyer/dps/wae99.ps.gz">Mirror</a></em>
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="cung" href="http://www.prism.uvsq.fr/~vdc/home.html">Van-Dat Cung</a>
+<dd>
+<ul>
+<li><a href="http://www.prism.uvsq.fr/~vdc/CONFS/cfpar94.ps.Z">An Efficient Implementation of Parallel A*</a>, with
+<a href="#lecun">Bertrand Le Cun</a>
+<li><a href="ftp://ftp.ens-lyon.fr/pub/users/LIP/ferreira/Scoop/Scoopbook/Chapters/versailles.ps.Z">The Outcome of a Know-how: a Branch-and-Bound Library</a>, with
+<a href="#lecun">Bertrand Le Cun</a>,
+<a href="http://www.prism.uvsq.fr/english/parallel/cr/people/roucairo_us.html">Catherine Roucairol</a>,
+Salah Dowaji
+
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="d"></a>
+
+<dt>
+<a name="das" href="http://ranger.uta.edu/~das/">Sajal K. Das</a>
+<dd>
+<ul>
+<li>Optimal and Load Balanced Mapping of Parallel Priority Queues in Hypercubes,
+with <a href="#pinotti">Maria Cristina Pinotti</a>
+and <a href="#sarkar">Falguni Sarkar</a>
+&nbsp; <em><a href="http://computer.org/tpds/td1996/l0555abs.htm">Abstract</a></em>
+<li><a href="http://www.leekillough.com/heaps/papers/hypercube.pdf">Distributed Priority Queues on Hypercube Architectures</a>,
+with <a href="#pinotti">Maria Cristina Pinotti</a>
+and <a href="#sarkar">Falguni Sarkar</a>
+
+<!--
+<li><a href="http://tinman.cs.gsu.edu/~matlnyx/1418a.pdf">O(log log N) Time Algorithms for Hamiltonian Suffix and Min-Max-Pair Heap Operations on the Hypercube</a>,
+with  <a href="#pinotti">Maria Cristina Pinotti</a>
+-->
+
+<li><a href="http://www.leekillough.com/heaps/papers/parallel_meld.pdf">Parallel and Distributed Meldable Priority Queues Based
+on Binomial Heaps</a>,
+with  <a href="#pinotti">Maria Cristina Pinotti</a>
+and Vincenzo A. Crupi
+
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="deprit" href="http://www.cs.tamu.edu/faculty/deprit/">Etienne Deprit</a>
+<dd>
+<ul>
+<li><a href="http://www.cs.berkeley.edu/projects/parallel/castle/multipol/papers/ppq.ps">Parallelism and Locality in Priority Queues</a>, with
+<a href="http://www-cad.eecs.berkeley.edu/HomePages/stcheng/">Szu-Tsung Cheng</a>,
+Jeff A. Jones, Abhiram Ranade, Sun-Inn Shih
+&nbsp; <em><a href="http://www.cs.berkeley.edu/projects/parallel/castle/multipol/papers/ppq.abs">Abstract</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="dietz">Paul F. Dietz</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.cs.rochester.edu/pub/papers/theory/92.tr409.heap_construction.ps.Z">Heap Construction in the Parallel Comparison Tree Model</a>
+<li><a href="ftp://ftp.cs.rochester.edu/pub/papers/theory/fast-heap.ps">Very Fast Optimal Algorithms for Heap Construction</a>
+<!--
+<li><a href="http://tinman.cs.gsu.edu/~matlnyx/0971a.pdf">Small-Rank Selection in Parallel, with Applications to Heap Construction</a>
+<em><a href="http://www.idealibrary.com/links/doi/10.1006/jagm.1998.0971">Abstract</a></em>
+-->
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="ding" href="http://www.bell-labs.com/user/eugene/">Yuzheng Ding</a>
+<dd>
+<ul>
+<li><em>See <a href="#weiss">Mark Allen Weiss</a></em>
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="dittrich" href="http://www.uni-paderborn.de/fachbereich/AG/agmadh/WWW/english/Ditt.html">Wolfgang Dittrich</a>
+<dd>
+<ul>
+<li><em>See <a href="#meyer">Friedhelm Meyer auf der Heide</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="dixon" href="http://cs.ua.edu/~dixon/">Brandon Dixon</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.cs.princeton.edu/reports/1993/428.ps.gz">Minimum Spanning Tree Verification, Fast Priority Queues, and Massively Parallel Factoring</a>
+<em>(thesis)</em>
+
+</ul>
+
+<br>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="e"></a>
+<dt>
+<a name="edelkamp" href="http://www.informatik.uni-freiburg.de/~edelkamp/">Stefan Edelkamp</a>
+<dd>
+<ul>
+<li><a href="http://www.informatik.uni-freiburg.de/~edelkamp/publications/acm.pdf">Implementing HEAPSORT with n log n - 0.9n and QUICKSORT with n log n + 0.2n Comparisons</a>, with Patrick Stiegeler
+
+<li><a href="http://www.informatik.uni-freiburg.de/~edelkamp/publications/Weakheap.pdf">On the Performance of WEAK-HEAPSORT</a>
+
+<li><a href="http://www.informatik.uni-freiburg.de/~edelkamp/publications/diplomarbeit.pdf">Weak-Heapsort</a>
+<em>(German)</em> <em>(Thesis)</em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="f"></a>
+
+<dt>
+<a name="fagerberg" href="http://www.brics.dk/~rolf/">Rolf Fagerberg</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.imada.sdu.dk/pub/papers/pp-1994/35.ps.gz">A Generalization of Binomial Queues</a>
+&nbsp;  <em><a href="http://www.imada.sdu.dk/Research/Preprints/Abstracts/1994/35.html">Abstract</a></em>
+<li><a href="ftp://ftp.imada.sdu.dk/pub/papers/pp-1996/12.ps.gz">A Note on Worst Case Efficient Meldable Priority Queues</a>
+&nbsp; <em><a href="http://www.imada.sdu.dk/Research/Preprints/Abstracts/1996/12.html">Abstract</a></em>
+<li>
+<a href="http://www.leekillough.com/heaps/papers/ss971511.pdf">Amortization Results for Chromatic Search Trees, with an Application to Priority Queues</a>,
+with <a href="#larsen">Kim Larsen</a> and
+<a href="#boyar">Joan Boyar</a>
+&nbsp; <em><a href="http://www.imada.sdu.dk/~kslarsen/Papers/AmortizedRedBlack.html">Abstract</a></em>
+<ul>
+<li><em>formerly</em> <a href="ftp://ftp.imada.sdu.dk/pub/papers/pp-1994/15.ps.gz">Chromatic Priority Queues</a>
+&nbsp;  <em><a href="http://www.imada.sdu.dk/Research/Preprints/Abstracts/1994/15.html">Abstract</a></em>
+</ul>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="ferragina" href="http://www.di.unipi.it/~ferragin/">Paolo Ferragina</a>
+<dd>
+<ul>
+<li><em>See <a href="#crauser">Andreas Crauser</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="fischer" href="http://www.cs.yale.edu/~fischer/">Michael J. Fischer</a>
+<dd>
+<ul>
+<li><a href="http://www.acm.org/pubs/articles/journals/jacm/1994-41-1/p3-fischer/p3-fischer.pdf">Fishspear: A Priority Queue Algorithm</a><strong><sup>*</sup></strong>,
+with
+<a href="#paterson">Michael S. Paterson</a>
+&nbsp; <em><a href="http://www.dcs.warwick.ac.uk/pub/reports/rr/221.html">Abstract</a></em>
+&nbsp; <em><a href="http://www.acm.org/pubs/toc/Abstracts/jacm/174645.html">Review</a></em>
+</ul>
+
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="fleischer" href="http://www.cs.ust.hk/~rudolf/">Rudolf Fleischer</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.mpi-sb.mpg.de/pub/papers/reports/MPI-I-91-104.dvi.Z">A tight lower bound for the worst case of bottom-up-heapsort</a>
+&nbsp; <em><a href="ftp://ftp.mpi-sb.mpg.de/pub/papers/reports/abstracts.html">Abstract</a></em>
+<li><a href="ftp://ftp.mpi-sb.mpg.de/pub/papers/reports/MPI-I-92-101.ps.Z">A simple balanced search tree with O(1) worst-case update time</a>
+&nbsp; <em><a href="ftp://ftp.mpi-sb.mpg.de/pub/papers/reports/abstracts.html">Abstract</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="frederickson" href="http://www.cs.purdue.edu/people/gnf/">G.N. Frederickson</a>
+<dd>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="fredman" href="mailto:fredman@cs.rutgers.edu">Michael L. Fredman</a>
+<dd>
+<ul>
+<li><a href="ftp://dimacs.rutgers.edu/pub/dimacs/TechnicalReports/TechReports/1997/97-52.ps.gz">Pairing Heaps are Suboptimal</a>
+&nbsp; <em><a href="http://dimacs.rutgers.edu/TechnicalReports/abstracts/1997/97-52.html">Abstract</a></em>
+
+<li><a href="http://www.acm.org/pubs/articles/journals/jacm/1999-46-4/p473-fredman/p473-fredman.pdf">On the efficiency of pairing heaps and related data structures</a><strong><sup>*</sup></strong>
+&nbsp; <em><a href="http://www.acm.org/pubs/citations/journals/jacm/1999-46-4/p473-fredman/">Abstract</a></em>
+
+<li><a href="http://www.acm.org/pubs/articles/proceedings/stoc/276698/p319-fredman/p319-fredman.pdf">Information Theoretic Implications for Pairing Heaps</a><strong><sup>*</sup></strong>
+
+<li><a href="http://www.acm.org/pubs/articles/journals/jacm/1987-34-3/p596-fredman/p596-fredman.pdf">Fibonacci heaps and their uses in improved network optimization algorithms</a><strong><sup>*</sup></strong>,
+with <a href="#tarjan">R.E. Tarjan</a>
+&nbsp; <em><a href="http://www.acm.org/pubs/citations/journals/jacm/1987-34-3/p596-fredman/">Review</a></em>
+
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="g"></a>
+<dt>
+<a name="gabow" href="http://www.cs.colorado.edu/~hal/">Harold N. Gabow</a>
+<dd>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="gerbessiotis" href="http://web.njit.edu/~alexg/">Alexandros V. Gerbessiotis</a>
+<em><a href="http://web.njit.edu/~alexg/pubs/papers.html">Publications</a></em>
+<dd>
+<ul>
+<li><a href="http://web.njit.edu/~alexg/pubs/papers/pdpta1.ps.gz">Selection on the Bulk-Synchronous Parallel model with applications to priority queues</a>,
+with <a href="#siniolakis">Constantinos J. Siniolakis</a>
+
+<li><a href="http://web.njit.edu/~alexg/pubs/papers/PRG1496.ps.gz">Concurrent Heaps on the BSP model</a>
+
+<li><a href="ftp://ftp.comlab.ox.ac.uk/pub/Documents/techpapers/Alexandre.Tiskin/97_lcontr.ps">Parallel priority queue and list contraction: The BSP approach</a>,
+with <a href="#siniolakis">Constantinos J. Siniolakis</a>
+and <a href="#tiskin">Alexandre Tiskin</a>
+&nbsp; <em><a href="ftp://ftp.comlab.ox.ac.uk/pub/Documents/techpapers/Alexandre.Tiskin/98_caai.ps">CAAI version</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt> 
+<a name="goldberg" href="http://www.avglab.com/andrew/">Andrew V. Goldberg</a>
+<dd>
+<ul>
+<!-- ftp://ftp.cs.princeton.edu/reports/1996/530.ps.Z -->
+<li><a href="http://www.avglab.com/andrew/pub/neci-tr-96-062.ps">Expected Performance of Dijkstra's Shortest Path Algorithm</a>,
+with <a href="#tarjan">R.E. Tarjan</a>
+&nbsp; <em><a href="http://www.avglab.com/andrew/pub/neci-tr-96-062-abs.html">Abstract</a></em>
+<li><a href="http://www.avglab.com/andrew/pub/neci-tr-97-104.ps">Computational Evaluation of Hot Queues</a>, with
+<a href="#silverstein">Craig Silverstein</a>
+&nbsp; <em><a href="http://www.avglab.com/andrew/pub/neci-tr-97-104-abs.html">Abstract</a></em>
+<li><a href="http://www-cs-students.stanford.edu/~csilvers/papers/hotq-soda.ps.gz">Buckets, Heaps, Lists, and Monotone Priority Queues</a>, with
+<a href="#cherkassky">Boris V. Cherkassky</a> and <a href="#silverstein">Craig Silverstein</a>
+&nbsp; <em><a href="http://www.avglab.com/andrew/pub/neci-tr-96-070.ps">older version</a></em>
+&nbsp; <em><a href="http://epubs.siam.org/sam-bin/dbq/article/31349">Abstract</a></em>
+&nbsp; <em><a href="http://www.avglab.com/andrew/soft.html">Software</a></em>
+<li><a href="http://www.avglab.com/andrew/pub/neci-tr-96-042.ps">Heap-on-Top Priority Queues</a>, with
+<a href="#cherkassky">Boris V. Cherkassky</a> and <a href="#silverstein">Craig Silverstein</a>
+&nbsp; <em><a href="http://www.avglab.com/andrew/pub/neci-tr-96-042-abs.html">Abstract</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="gonnet" href="http://www.inf.ethz.ch/personal/gonnet/">Gaston H. Gonnet</a>
+<dd>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="graaf" href="http://www.wi.leidenuniv.nl/home/graaf/">J.M. de Graaf</a>
+<dd>
+<ul> 
+<li><em>See <a href="#kosters">Walter A. Kosters</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="grammatikakis" href="http://parsys.informatik.uni-oldenburg.de/~mdgramma/">Miltos Grammatikakis</a>
+<dd>
+<ul>
+<li><a href="http://parsys.informatik.uni-oldenburg.de/~mdgramma/pq_new.ps.gz">Priority Queues and Sorting for Parallel Simulation</a>, with
+<a href="#liesche">Stefan Liesche</a>
+<ul>
+<li><em>Was</em> <a href="http://parsys.informatik.uni-oldenburg.de/~mdgramma/pq_mpp.ps.gz">Parallel Priority Queues on Cray T3E</a>
+&nbsp; <em><a href="http://www.epcc.ed.ac.uk/cgi-bin/tracs/tug98.cgi?ID=rec22">Abstract</a></em>
+</ul>
+
+<!--
+<li><a href="http://www.germany.net/teilnehmer/100,71739/darbeit.zip">MPI and Shared Memory
+Implementations of Priority Queues for Parallel Simulation on Cray-T3E</a>, with
+<a href="#liesche">Stefan Liesche</a>
+-->
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="gupta" href="http://www.cs.wmich.edu/~gupta/">Ajay Gupta</a>
+<dd>
+<ul>
+<li><a href="http://www.cs.wmich.edu/~gupta/postscript/parle94.ps">Load Balanced Priority Queues on Distributed Memory Machines</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="h"></a>
+<dt>
+<a name="hoyer" href="http://www.cpsc.ucalgary.ca/~hoyer/">Peter H&oslash;yer</a>
+<dd>
+<ul>
+<li><a href="http://www.cpsc.ucalgary.ca/~hoyer/papers/pq94.preprint.ps">A General Technique for Implementation of Efficient Priority Queues</a>
+&nbsp; <em><a href="http://www.cpsc.ucalgary.ca/~hoyer/papers/pq.istcs95.ps">Condensed version</a></em>
+&nbsp; <em><a href="http://www.datalogi.dk/blad/9495/resumeer/priority_queues.html">Review</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="hu" href="http://www.nd.edu/~shu/">Xiaobo Hu</a>
+<dd>
+<ul>
+<li>Fast and efficient operations on parallel priority queues, with D.Z. Chen
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="hui" href="http://137.132.153.41/">Timothy C.K. Hui</a>
+<dd>
+<ul>
+<li><a href="http://137.132.153.41/thesis.pdf">Improving the Efficiency of the PES Structure In Discrete Event
+Simulations</a> (<em>thesis</em>)
+<em><a href="http://137.132.153.41/pes_papers/iareport.pdf">Industrial report</a></em>
+<li><a href="http://137.132.153.41/pes_papers/felt.pdf">FELT: A Far Future Event List Structure Optimized for Calendar Queues</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="hunt" href="http://www.cs.rochester.edu/u/gchunt/">Galen C. Hunt</a>
+<dd>
+<ul>
+<li><em>See <a href="#scott">Michael L. Scott</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="hwang" href="mailto:hkhwang@stat.sinica.edu.tw">Hsien-Kuei Hwang</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.inria.fr/INRIA/Projects/algo/web/seminars/sem92-93/hwang.ps">On the number of heaps</a>
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="i"></a>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="j"></a>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="johnson" href="http://www.research.att.com/info/johnsont/">Theodore Johnson</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.cis.ufl.edu/cis/tech-reports/tr91/tr91-007.ps">A Highly Concurrent Priority Queue Based on the B-link Tree</a>
+&nbsp; <em><a href="http://www0.cise.ufl.edu/tech-reports/tech-reports/tr91-abstracts.html#007">Abstract</a></em>
+<li><a href="ftp://ftp.cis.ufl.edu/cis/tech-reports/tr93/tr93-005.ps.Z">A Prioritized Multiprocessor Spin Lock</a>
+with Krishna Harathi
+&nbsp; <em><a href="http://computer.org/tpds/td1997/l0926abs.htm">Abstract</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="jonassen">Arne T. Jonassen</a>
+<dd>
+<ul>
+<li><a href="http://elib.stanford.edu:80/Dienst/Repository/2.0/Body/stanford.cs/CS-TR-76-573/pdf">The stationary p-tree forest</a>
+&nbsp; <em><a href="http://elib.stanford.edu:80/Dienst/UI/2.0/Describe/stanford.cs/CS-TR-76-573?abstract">Abstract</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="jones" href="http://www.cs.uiowa.edu/~jones/">Douglas W. Jones</a>
+<dd>
+<ul>
+<li><a href="http://www.cs.uiowa.edu/~jones/event/">Simulation Pending-Event-Set Implementations</a>
+
+<li><a href="http://www.acm.org/pubs/articles/proceedings/simulation/256563/p756-chou/p756-chou.pdf">A generalized hold model</a><strong><sup>*</sup></strong>,
+with Chien-Chun Chou, Steven C. Bruell, Wen Zhang
+
+<li><a href="http://www.acm.org/pubs/articles/journals/cacm/1986-29-4/p300-jones/p300-jones.pdf">An Empirical Comparison of Priority-Queue and Event-Set Implementations</a><strong><sup>*</sup></strong>
+&nbsp; <em><a href="http://www.acm.org/pubs/citations/journals/cacm/1986-29-4/p300-jones/">Review</a></em>
+
+<li><a href="http://www.acm.org/pubs/articles/journals/cacm/1989-32-1/p132-jones/p132-jones.pdf">Concurrent operations on priority queues</a><strong><sup>*</sup></strong>
+&nbsp; <em><a href="http://www.acm.org/pubs/citations/journals/cacm/1989-32-1/p132-jones/">Review</a></em>
+
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="k"></a>
+
+<dt>
+<a name="karlsson" href="http://www.dna.lth.se/home/Rolf_Karlsson/">Rolf Karlsson</a>
+<dd>
+<br>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="katajainen" href="http://www.diku.dk/~jyrki/">Jyrki Juhani Katajainen</a>
+<dd>
+<ul>
+<li><a href="http://www.diku.dk/users/jyrki/Presentation/Copenhagen-26.05.2000.ps">Methodological issues in algorithm experimentation: a case study of heaps</a>
+<li><a href="http://www.diku.dk/users/jyrki/Presentation/London-21.07.1999.ps">Performance Engineering Case Study: Heap Construction</a>,
+with <a href="#spork">Maz Spork</a> and
+<a href="#bojesen">Jesper Bojesen</a>
+
+<li><a href="http://www.diku.dk/research/published/96-40.ps.gz">External heaps combined with effective buffering</a>,
+with
+Ramzi Fadel,
+Kim V. Jakobsen,
+<a href="#teuola">Jukka Teuhola</a>
+<li><a href="http://www.brics.dk/~gerth/Papers/diku-97-25.ps.gz">Worst-Case Efficient External-Memory Priority Queues</a>, with
+<a href="#brodal">Gerth St&oslash;lting Brodal</a>
+&nbsp; <em><a href="http://www.diku.dk/research/published/97-24.ps.gz">Condensed version</a></em>
+
+<li><a href="http://www.diku.dk/research/published/96-42.ps.gz">The Ultimate Heapsort</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="king" href="http://www.dcs.gla.ac.uk/~gnik/">David J. King</a>
+<dd>
+<ul>
+<li><a href="http://www.dcs.gla.ac.uk/fp/authors/David_King/binomial-queues.ps.gz">Functional Binomial Queues</a>
+&nbsp; <em><a href="http://www.dcs.gla.ac.uk/~gnik/publications.html">Abstract</a></em>
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="kingston" href="http://www.cs.su.oz.au/~jeff/">Jeffrey H. Kingston</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.cs.su.oz.au/pub/tr/TR93_476.ps.Z">Are Fibonacci Heaps Optimal?</a>, with Diab Abuaiadh
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="konemann" href="http://www.mpi-sb.mpg.de/~joe/">Jochen K&ouml;nemann</a>
+<dd>
+<ul>
+<li>Radix heaps, an efficient implementation for priority queues, with
+Christoph Schmitz
+and
+Christian Schwarz
+&nbsp; <em><a href="http://data.mpi-sb.mpg.de/internet/reports.nsf/NumberView/1995-1-009/">Abstract</a></em>
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="kosters" href="http://www.wi.leidenuniv.nl/home/kosters/">Walter A. Kosters</a>
+<dd>
+<ul>
+<li><a href="http://www.wi.leidenuniv.nl/home/kosters/trian15.ps">Triangular Heaps</a>, with
+<a href="#graaf">J.M. de Graaf</a>
+<li><a href="http://www.wi.leidenuniv.nl/home/kosters/heapbit.ps">Expected Heights in Heaps</a>, with
+<a href="#graaf">J.M. de Graaf</a>
+
+<li><strong><a href="http://liinwww.ira.uka.de/bibliography/Theory/heap.html">Heap Bibliography</a></strong>
+
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="krantz">Alan T. Krantz</a>
+<dd>
+<ul>
+<li><a href="http://www.acm.org/pubs/articles/journals/tomacs/1996-6-3/p185-krantz/p185-krantz.pdf">Analysis of an efficient algorithm for the hard-sphere problem</a><strong><sup>*</sup></strong>
+&nbsp; <em><a href="http://www.acm.org/pubs/citations/journals/tomacs/1996-6-3/p185-krantz/">Abstract</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="kumar" href="http://www-users.cs.umn.edu/~kumar/">Vipin Kumar</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.cs.umn.edu/dept/users/kumar/conc_heap.ps">Concurrent Access of Priority Queues</a>,
+with
+V. Nageshwara Rao
+
+<li><a href="http://dimacs.rutgers.edu/techps/1993/93-38.ps">Parallel Processing of Discrete Optimization Problems</a>, with
+<a href="http://www.cs.purdue.edu/homes/ayg/homepage.html">Ananth Y. Grama</a> and
+<a href="http://www.ise.ufl.edu/pardalos/">Panos M. Pardalos</a>
+&nbsp; <em><a href="http://dimacs.rutgers.edu/TechnicalReports/abstracts/1993/93-38.html">Abstract</a></em>
+<li><a href="ftp://ftp.cs.umn.edu/dept/users/kumar/bf1.ps">Parallel Best-First Search of State-Space Graphs: A Summary of Results</a>, with
+K. Ramesh
+and
+V. Nageshwara Rao
+
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="kuszmaul" href="http://www-csag.ucsd.edu/individual/fyodor/fyodor.html">Christopher Lee Kuszmaul</a>
+
+<dd>
+<ul>
+<li><a href="http://www.nas.nasa.gov/Research/Reports/Techreports/2000/PDF/nas-00-003.pdf">Efficient Merge and Insert Operations for Binary Heaps</a>
+<em><a href="http://www.nas.nasa.gov/Research/Reports/Techreports/2000/nas-00-003-abstract.html">Abstract</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="l"></a>
+<dt>
+<a name="ladner" href="http://www.cs.washington.edu/homes/ladner/">Richard E. Ladner</a>
+
+<dd>
+<ul>
+<li><em>See <a href="#lamarca">Anthony LaMarca</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="lamarca" href="http://www.lamarca.org/anthony/">Anthony LaMarca</a>
+<dd>
+<ul>
+<li><a href="http://www.lamarca.org/anthony/pubs/heaps.pdf">The Influence of Caches on the Performance of Heaps</a>,
+with <a href="#ladner">Richard E. Ladner</a>
+&nbsp; <em><a href="http://www.jea.acm.org/1996/LaMarcaInfluence/">Abstract</a></em>
+
+<li><a href="http://www.lamarca.org/anthony/pubs/focs94.pdf">Optimizing Static Calendar Queues</a>,
+with <a href="#ladner">Richard E. Ladner</a> and K. B. Erickson
+
+&nbsp; <em><a href="http://cs-tr.cs.washington.edu:80/Dienst/UI/2.0/Describe/ncstrl.uwash_cse/TR-94-09-02?abstract">Abstract</a></em>
+
+<li><a href="http://www.lamarca.org/anthony/pubs/UW-CSE-96-10-01.pdf">The Influence of Caches on the Performance of Sorting</a>,
+with <a href="#ladner">Richard E. Ladner</a>
+&nbsp; <ul><li><em><a href="ftp://ftp.cs.washington.edu/tr/1996/10/UW-CSE-96-10-01.PS.Z">Preliminary version</a></em></ul>
+
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="lam" href="http://www.cs.utexas.edu/users/lam/">Simon Lam</a>
+<dd>
+<ul>
+<li><em>See <a href="#xie">Geoffrey G. Xie</a></em>
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="larsen" href="http://www.imada.sdu.dk/~kslarsen/">Kim Skak Larsen</a>
+<dd>
+<ul>
+<li><em>See <a href="#fagerberg">Rolf Fagerberg</a></em>
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="lecun" href="http://www.prism.uvsq.fr/~blec/">Bertrand Le Cun</a>
+<dd>
+<ul>
+<li><em>See <a href="#cung">Van-Dat Cung</a></em>
+</ul>
+<br>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="liebeherr" href="http://www.cs.virginia.edu/~jorg/">J&ouml;rg Liebeherr</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.cs.virginia.edu/pub/jorg/papers/jsac699.pdf">Priority Queue Schedulers with Approximate Sorting in Output Buffered Switches</a>,
+with <a href="#wrege">Dallas Wrege</a>
+&nbsp;
+<em><a href="ftp://ftp.cs.virginia.edu/pub/jorg/papers/jsac699.html">Abstract</a></em>
+</ul>
+<br>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<!--
+<dt>
+<a name="liesche" href="http://home.germany.net/100/71739/">Stefan Liesche</a>
+<dd>
+<ul>
+<li><em>See <a href="#grammatikakis">Miltos Grammatikakis</a></em>
+</ul>
+<br>
+-->
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="luh" href="http://www.stanford.edu/~wluh/">Walter Luh</a>
+<dd>
+<ul>
+<li><a href="http://www.stanford.edu/~wluh/heapwriteup.html">A Heap Based Priority Queue</a>,
+with Edward Li
+</ul>
+<br>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="m"></a>
+<dt>
+<a name="mans" href="http://www.comp.mq.edu.au/~bmans/">Bernard Mans</a>
+<dd>
+<ul>
+<li><a href="http://www.comp.mq.edu.au/~bmans/BMans/Papers/CPE.ps">Portable Distributed Priority Queues with MPI</a>
+
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="marin" href="http://www.dcc.uchile.cl/~mmarin/">Mauricio Mar&#237;n</a>
+<dd>
+<ul>
+<li><a href="http://ona.fi.umag.cl/~mmarin/papers/thesis.ps.gz">Discrete-Event Simulation on the Bulk-Synchronous Parallel Model</a> (<em>thesis</em>)
+<li><a href="http://ona.fi.umag.cl/~mmarin/papers/ess98b.ps.gz">An Empirical Assessment of Optimistic PDES on BSP</a>
+<li><a href="http://ona.fi.umag.cl/~mmarin/papers/cbtpar.ps.gz">Binary Tournaments and Priority Queues: PRAM and BSP</a>
+<li><a href="http://ona.fi.umag.cl/~mmarin/papers/pdes.ps.gz">Direct BSP Algorithms for Parallel Discrete-Event Simulation</a>
+<li><a href="http://ona.fi.umag.cl/~mmarin/papers/ess98.ps.gz">On the Pending Event Set and Binary Tournaments</a>
+<li><a href="http://ona.fi.umag.cl/~mmarin/papers/pqcomp.ps.gz">An Empirical Comparison of Priority Queue Algorithms</a>
+<li><a href="http://ona.fi.umag.cl/~mmarin/papers/europar97.ps.gz">Priority Queue Operations on EREW-PRAM</a>
+<li><a href="http://ona.fi.umag.cl/~mmarin/papers/billiard.ps.gz">Billiards and Related Systems On The Bulk Synchronous Parallel Model</a>
+<li><a href="http://ona.fi.umag.cl/~mmarin/papers/poland.ps.gz">Hashing-Cell Combination for Boundless Space Event-Driven Molecular Dynamics</a>
+<li><a href="http://ona.fi.umag.cl/~mmarin/papers/sim95.ps.gz">An Object Oriented C++ Approach for Discrete Event Simulation of Complex and Large Systems of Many Moving Objects</a>
+<li><a href="http://ona.fi.umag.cl/~mmarin/papers/pisa.ps.gz">An Event-Driven Simulation Environmment for Hard Particle Molecular Dynamics</a>
+<li><a href="http://ona.fi.umag.cl/~mmarin/papers/mobjects.ps.gz">A New Priority Queue for Simulation of Many Objects</a>,
+with <a href="#baeza">Ricardo Baeza-Yates</a>
+and <a href="http://tamarugo.cec.uchile.cl/cinetica/">Patricio Cordero</a>
+&nbsp; <a href="ftp://sunsite.dcc.uchile.cl/pub/users/rbaeza/papers/sccc95.ps.gz"><em>Draft</em></a>
+<li><a href="http://tamarugo.cec.uchile.cl/cinetica/">Molecular Dynamics and Kinetic Theory Group</a>
+
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="matias" href="http://www.math.tau.ac.il/~matias/">Yossi Matias</a>
+<dd>
+<ul>
+<li><a href="http://www.math.tau.ac.il/~matias/papers/ads.ps">Approximate Data Structures with Applications</a>,
+with
+<a href="#vitter">Jeffrey S. Vitter</a>
+and
+<a href="#young">Neal E. Young</a>
+&nbsp; <em><a href="http://drenchedrock.net/neal_academic/papers/approxDS/SODA.html">Abstract &amp; Thumbnail</a></em>
+<li><a href="http://www.math.tau.ac.il/~matias/papers/ads-dimacs.ps">Performance evaluation of approximate priority queues</a>, with
+<a href="#sahinalp">Suleyman Cenk Sahinalp</a>
+and
+<a href="#young">Neal E. Young</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="mei" href="mailto:mei@science.unitn.it">Alessandro Mei</a>
+<dd>
+<ul>
+<li><em><a href="#bertossi">See Alan Bertossi</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="meyer" href="http://www.uni-paderborn.de/fachbereich/AG/agmadh/WWW/english/Meye.html">Friedhelm Meyer auf der Heide</a>
+<dd>
+<ul>
+<li><a href="http://www.uni-paderborn.de/~alcom-it/publications/1996/PQOps.ps.gz">Priority Queue Operations and Selection for the BSP* Model</a>
+, with
+<a href="#baeumker">Armin B&auml;umker</a>,
+<a href="#dittrich">Wolfgang Dittrich</a>,
+<a href="#rieping">Ingo Rieping</a>
+&nbsp; <em><a href="http://www.uni-paderborn.de/~alcom-it/publications/1996/abstract_PQOps.html">Abstract</a></em>
+<em><a href="http://www.leekillough.com/heaps/papers/Select_PQs_EuroPar96.ps">Euro-Par '96</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="umeyer" href="http://www.mpi-sb.mpg.de/~umeyer/">Ulrich Carsten Meyer</a>
+<dd>
+<ul>
+<li><em>See <a href="#crauser">Andreas Crauser</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="michael" href="http://www.cs.rochester.edu/u/michael/">Maged M. Michael</a>
+<dd>
+<ul>
+<li><em>See <a href="#scott">Michael L. Scott</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="moore" href="http://www.cl.cam.ac.uk/users/swm11/">Simon W. Moore</a>
+<dd>
+<ul>
+<li><a href="http://www.cl.cam.ac.uk/users/swm11/papers/spipe/cj3.ps">Tagged up/down sorter -- A hardware priority queue</a>,
+with Brian T. Graham
+&nbsp; <em><a href="http://www.cl.cam.ac.uk/users/swm11/papers/spipe/">Abstract</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="moret" href="http://www.cs.unm.edu/~moret/">Bernard M.E. Moret</a>
+<dd>
+<ul>
+<li><i><a href="http://www.addall.com/New/BestSeller.cgi?isbn=0805380086&dispCurr=USD">Algorithms From P to NP: Design and Efficiency</a></i>,
+with <a href="#shapiro">H.D. Shapiro</a>
+<a href="http://www.cs.sunysb.edu/~algorith/implement/moret/distrib/">Software</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="n"></a>
+
+<dt>
+<a name="navlakha" href="http://www.cs.fiu.edu/scspage/professor/Navlakha.html">Jainendra K. Navlakha</a>
+<dd>
+<ul>
+<li><a href="http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-51542-9">The Distribution of Keys In a Binary Heap</a>,
+ with <a href="#weiss">M.A. Weiss</a>
+<li>Finding the k-th largest element in a large heap in O(k log log n) time
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="nilsson" href="http://www.dna.lth.se/home/Bengt_Nilsson/">Bengt Julio Nilsson</a>
+<dd>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="o"></a>
+<dt>
+<a name="okasaki" href="http://www.cs.columbia.edu/~cdo/">Chris Okasaki</a>
+<dd>
+<ul>
+<li><em>See <a href="#brodal">Gerth St&oslash;lting Brodal</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="olariu" href="http://www.cs.odu.edu/~olariu/">Stephan Olariu</a>
+<dd>
+<ul>
+<li><a href="http://www.leekillough.com/heaps/papers/init_heap.pdf">Optimal Parallel Initialization Algorithm for
+a Class of Priority Queues</a>, with Zhaofang Wen
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="p"></a>
+<dt>
+<a name="parberry" href="http://hercule.csci.unt.edu/~ian/">Ian Parberry</a>
+<dd>
+<ul>
+<li><a href="http://hercule.csci.unt.edu/~ian/papers/prioq.ps">Load Sharing With Parallel Priority Queues</a>
+&nbsp; <em><a href="http://hercule.csci.unt.edu/~ian/papers/prioq.html">Abstract</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="parthasarathy" href="http://www.cs.rochester.edu/u/srini/">Srinivasan Parthasarathy</a>
+<dd>
+<ul>
+<li><em>See <a href="#scott">Michael L. Scott</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="paterson" href="http://www.dcs.warwick.ac.uk/pub/people/staff/Mike.Paterson/">Michael S. Paterson</a>
+<dd>
+<ul>
+<li><em>See <a href="#fischer">M.J. Fischer</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="perez">Stephane Perez</a>
+<dd>
+<ul>
+<li><a href="http://www.cs.mcgill.ca/~sperez/doc4.html">Priority Trees</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="pinotti" href="http://www.iei.pi.cnr.it/People/Pinotti.html">Maria Cristina Pinotti</a>
+<dd>
+<ul>
+<li><em>See <a href="#das">Sajal K. Das</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="poblete" href="http://www.dcc.uchile.cl/~ppoblete/english.html">Patricio V. Poblete</a>
+<dd>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="porter">Thomas Porter</a>
+<dd>
+<ul>
+<li><a href="http://elib.stanford.edu/Dienst/Repository/2.0/Body/stanford.cs/CS-TR-74-460/pdf">Random insertion into a priority queue structure</a>, with
+Istvan Simon
+&nbsp; <em><a href="http://elib.stanford.edu:80/Dienst/UI/2.0/Describe/stanford.cs/CS-TR-74-460?abstract=">Abstract</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="prasad" href="http://www.cs.gsu.edu/mathcsc/faculty/sprasad.html">Sushil K. Prasad</a>
+<dd>
+<ul>
+<li><a href="http://www.leekillough.com/heaps/papers/parallel_heap.pdf">Parallel Heap: A Practical Priority Queue For Fine-to-Medium Grained
+Applications on Small Multiprocessors</a>,
+with Sagar I. Sawant
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="prodinger" href="http://www.wits.ac.za/helmut/">Helmut Prodinger</a>
+<dd>
+<ul>
+<li><a href="http://www.wits.ac.za/helmut/postscriptfiles/ptrees.ps">Average Case-Analysis of Priority trees: A structure for priority queue administration</a>
+&nbsp; <em><a href="http://www.wits.ac.za/helmut/abstract/abs_137.htm">Abstract</a></em>
+<li><a href="http://www.wits.ac.za/helmut/postscriptfiles/hot_desc.ps">Descendants in heap ordered trees or a triumph of computer algebra</a>
+&nbsp; <em><a href="http://www.wits.ac.za/helmut/abstract/abs_128.htm">Abstract</a></em>
+<li><a href="http://www.wits.ac.za/helmut/postscriptfiles/hottjott.ps">The level of nodes in heap ordered trees</a>
+&nbsp; <em><a href="http://www.wits.ac.za/helmut/abstract/abs_126.htm">Abstract</a></em>
+<li><a href="http://www.wits.ac.za/helmut/postscriptfiles/mrlee3.ps">Depth and path length of heap ordered trees</a>
+&nbsp; <em><a href="http://www.wits.ac.za/helmut/abstract/abs_114.htm">Abstract</a></em>
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="q"></a>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="r"></a>
+<dt>
+<a name="raman" href="http://www.dcs.kcl.ac.uk/staff/raman/">Rajeev Raman</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.cs.rochester.edu/pub/papers/theory/92.tr439.eliminating_amortization.ps.Z">Eliminating Amortization: On Data Structures with Guaranteed Response Time</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="reif" href="http://www.cs.duke.edu/~reif/">John H. Reif</a>
+<dd>
+<ul>
+<li><em>See <a href="#schen">Shenfeng Chen</a></em>
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="rieping" href="http://www.uni-paderborn.de/fachbereich/AG/agmadh/WWW/english/Riep.html">Ingo Rieping</a>
+<dd>
+<ul>
+<li><em>See <a href="#meyer">Friedhelm Meyer auf der Heide</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="ronngren" href="http://www.it.kth.se/~robertr/">Robert R&ouml;nngren</a>
+<dd>
+<ul>
+<li><em><a href="#ayani">See Rassul Ayani</a></em>
+</ul>
+<br>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="s"></a>
+
+<dt>
+<a name="sack" href="http://www.scs.carleton.ca/~sack/">J&ouml;rg-R&uuml;diger Sack</a>
+<dd>
+<ul>
+<li><em>See <a href="#atkinson">Mike D. Atkinson</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="sahinalp" href="http://vorlon.cwru.edu/~cenk/">Suleyman Cenk Sahinalp</a>
+<dd>
+<ul>
+<li><em>See <a href="#matias">Yossi Matias</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="sahni" href="http://www.cise.ufl.edu/~sahni/">Sartaj Sahni</a>
+<dd>
+<ul>
+<li><em>See <a href="#cho">Seonghun Cho</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="santoro" href="http://www.scs.carleton.ca/~santoro/">Nicola Santoro</a>
+<dd>
+<ul>
+<li><em>See <a href="#atkinson">Mike D. Atkinson</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="sanders" href="http://www.mpi-sb.mpg.de/~sanders/">Peter Sanders</a>
+&nbsp; <a href="http://liinwww.ira.uka.de/~sanders/"><em>Old Page</em></a>
+<dd>
+<ul>
+<li><a href="http://www.mpi-sb.mpg.de/%7esanders/papers/spqjea.ps.gz">Fast Priority Queues for Cached Memory</a>
+&nbsp; <a href="http://www.mpi-sb.mpg.de/~sanders/papers/falenex.ps.gz"><em>Condensed ALENEX version</em></a>
+&nbsp; <a href="http://www.mpi-sb.mpg.de/~sanders/programs/spq/"><em>Software</em></a>
+<li><a href="ftp://ftp.ira.uka.de/pub/uni-karlsruhe/papers/techreports/1997/1997-07.ps.gz">Randomized Priority Queues for Fast Parallel Access</a>
+&nbsp; <a href="http://www.mpi-sb.mpg.de/~sanders/papers/1997-7.ps.gz"><em>Expanded Version</em></a>
+<li><a href="http://liinwww.ira.uka.de/~sanders/papers/ppq.ps.gz">Fast priority queues for parallel branch-and-bound</a>
+<li><a href="http://liinwww.ira.uka.de/~sanders/papers/pars94.ps.gz">Flaschenhalsfreie parallele Priority queues</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="sarkar" href="mailto:fsarkar@nortel.com">Falguni Sarkar</a>
+<dd>
+<ul>
+<li><em>See <a href="#das">Sajal K. Das</a></em>
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+<dt>
+<a name="schoenmakers" href="http://www.win.tue.nl/~berry/">Berry Schoenmakers</a>
+<dd>
+<ul>
+<li><a href="http://www.win.tue.nl/~berry/phd.html">Data Structures and Amortized Complexity in a Functional Setting</a> (<em>thesis</em>)
+<li><a href="http://www.win.tue.nl/~berry/papers/lowskew.ps.gz">A Tight Lower Bound for Top-Down Skew Heaps</a>
+&nbsp; <em><a href="http://www.win.tue.nl/~berry/papers.html#lowskew">Abstract</a></em>
+
+<li><a href="http://www.win.tue.nl/~berry/papers/splay.ps.gz">A Systematic Analysis of Splaying</a>
+&nbsp; <em><a href="http://www.win.tue.nl/~berry/papers.html#splay">Abstract</a></em>
+<li><a href="http://www.win.tue.nl/~berry/papers/ioheap.ps.gz">Inorder Traversal of a Binary Heap and its Inversion in Optimal Time and Space</a>
+&nbsp; <em><a href="http://www.win.tue.nl/~berry/papers.html#ioheap">Abstract</a></em>
+<li><a href="http://www.win.tue.nl/~berry/papers/topskew.ps.gz">The Derivation of a Tighter Bound for Top-Down Skew Heaps</a>, with Anne Kaldewaij
+&nbsp; <em><a href="http://www.win.tue.nl/~berry/papers.html#topskew">Abstract</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="scott" href="http://www.cs.rochester.edu/u/scott/">Michael L. Scott</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.cs.rochester.edu/pub/papers/systems/94.tr560.Efficient_algorithm_for_concurrent_priority_queue_heaps.ps.gz">Efficient Algorithm for Concurrent Priority Queue Heaps</a>,
+with <a href="#hunt">Galen C. Hunt</a>, <a href="#michael">Maged M. Michael</a>, <a href="#parthasarathy">Srinivasan Parthasarathy</a>
+&nbsp; <em><a href="http://www.cs.rochester.edu/u/srini/papers.html">Abstract</a></em>
+&nbsp; <em><a href="http://www.cs.rochester.edu/u/michael/pseudocode/IPL96-pc.html">Pseudocode</a></em>
+<li><a href="ftp://ftp.cs.rochester.edu/pub/papers/systems/96.PODC.Non-blocking_and_blocking_concurrent_queue_algorithms.ps.gz">Simple, fast, and practical non-blocking and blocking concurrent queue algorithms</a>
+&nbsp; <em><a href="http://www.cs.rochester.edu/u/michael/PODC96.html">HTML</a></em>
+&nbsp; <em><a href="http://www.cs.rochester.edu/u/michael/pseudocode/PODC96-pc.html">Software</a></em>
+&nbsp; <em><a href="http://www.acm.org/pubs/articles/proceedings/podc/248052/p267-michael/p267-michael.pdf">ACM Proc.</a></em>
+<strong><sup>*</sup></strong>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="shaby" href="http://www.stanford.edu/~bshaby/">Ben Shaby</a>
+<dd>
+<ul>
+<li><a href="http://www.stanford.edu/~bshaby/pqueue/documentation.pdf">Unix Scheduler Implemented With a Pairing Heap</a>, with
+<a href="#berkowitz">Stacey R. Berkowitz</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="shapiro" href="http://www.cs.unm.edu/~shapiro/">Henry D. Shapiro</a>
+<dd>
+<ul>
+<li><em>See <a href="#moret">Bernard M.E. Moret</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="shavit" href="http://www.math.tau.ac.il/~shanir/">Nir Shavit</a>
+&nbsp; <em><a href="http://www.toc.lcs.mit.edu/~shanir/">TOC page</a></em>
+<dd>
+<ul>
+<li><a href="http://theory.lcs.mit.edu/~shanir/priority.ps">Scalable Concurrent Priority Queues</a>,
+with <a href="mailto:asaph@theory.lcs.mit.edu">Asaph Zemach</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="silverstein" href="http://www-cs-students.stanford.edu/~csilvers/">Craig Silverstein</a>
+<dd>
+<ul>
+<li><em>See <a href="#goldberg">Andrew Goldberg</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="simha" href="http://www.seas.gwu.edu/~simha/">Rahul Simha</a>
+<dd>
+<ul>
+<li>Fast data structures for shortest path routing: a comparative evaluation,
+with G. Oberhauser
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="siniolakis">Constantinos J. Siniolakis</a>
+<dd>
+<ul>
+<li><em>See <a href="#gerbessiotis">Alex V. Gerbessiotis</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="sleator" href="http://www.cs.cmu.edu/afs/cs.cmu.edu/user/sleator/www/home.html">D.D. Sleator</a>
+<dd>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="spork" href="http://www.diku.dk/students/halgrim/">Maz Spork</a>
+<dd>
+<ul>
+<li><a href="http://www.diku.dk/research-groups/performance-engineering/Publications/spork99.pdf">Design and Analysis of Cache-Conscious Programs</a> <em>(Thesis)</em>
+
+<li><a href="http://www.diku.dk/research/published/1999/99-12.ps.gz">Performance Engineering Case Study: Heap Construction</a>,
+with
+<a href="#katajainen">Jyrki Juhani Katajainen</a> and
+<a href="#bojesen">Jesper Bojesen</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="stasko" href="http://www.cc.gatech.edu/gvu/people/faculty/john.stasko/">John T. Stasko</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.cc.gatech.edu/pub/gvu/tr/1992/92-11.ps.Z">Tidy Animations of Tree Algorithms</a>,
+with Carlton Reid Turner
+
+<li><a href="http://www.acm.org/pubs/articles/proceedings/chi/169059/p61-stasko/p61-stasko.pdf">Do algorithm animations assist learning?: an empirical study and analysis</a><strong><sup>*</sup></strong>, with
+Albert Badre and Clayton Lewis
+&nbsp; <em><a href="http://www.acm.org/pubs/citations/proceedings/chi/169059/p61-stasko/">Abstract</a></em>
+
+<li><a href="http://www.acm.org/pubs/articles/journals/cacm/1987-30-3/p234-stasko/p234-stasko.pdf">Pairing Heaps: Experiments and Analysis</a><strong><sup>*</sup></strong>, with
+<a href="#vitter">Jeffrey S. Vitter</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="staunstrup">J&oslash;rgen Staunstrup</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.fzi.de/pub/COBRA/Misc/prique.ps.Z">The priority queue as an example of hardware/software codesign</a>,
+with Niels Mellergaard, Flemming H&oslash;eg
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="steinman">Jeffrey S. Steinman</a>
+<dd>
+<ul>
+<li><a href="http://nasatech.com/Briefs/Jan99/NPO20095.html">The SPEEDES Qheap: A Priority-Queue Data Structure</a>
+<li><a href="http://www.npac.syr.edu/users/timucin/SPEEDES/">SPEEDES Introduction</a>
+<li><a href="http://www.acm.org/pubs/articles/proceedings/simulation/182478/p39-steinman/p39-steinman.pdf">Discrete-Event Simulation and the Event Horizon</a><strong><sup>*</sup></strong>
+&nbsp; <em><a href="http://www.acm.org/pubs/citations/proceedings/simulation/182478/p39-steinman/">Abstract</a></em>
+<li><a href="http://www.acm.org/pubs/articles/proceedings/simulation/238788/p170-steinman/p170-steinman.pdf">Discrete-Event Simulation and the Event Horizon Part 2: Event List Management</a><strong><sup>*</sup></strong>
+&nbsp; <em><a href="http://www.computer.org/conferen/proceed/PADS96/ABSTRACT.HTM#170">Abstract</a></em>
+<li><a href="http://www.delphion.com/details?pn=US05850538__">US5850538: Priority Queues for Computer Simulations</a>
+</ul>
+<br>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="sugumar" href="http://www.eecs.umich.edu/PPP/rabin.html">Rabin A. Sugumar</a>
+<dd>
+<ul>
+<li><a href="http://ftp.eecs.umich.edu/groups/PPP/CSE-TR-111-91.ps">Efficient Simulation of Multiple Cache Configurations using Binomial Trees</a>, with
+<a href="#abraham">Santosh G. Abraham</a>
+</ul>
+
+<br>
+
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="sullivan" href="http://www.cs.jhu.edu/~sullivan/">Gregory F. Sullivan</a>
+<dd>
+<ul>
+<li><a href="http://www.cs.jhu.edu/~sullivan/ftcs94mpq.ps">Checking Mergeable Priority Queues</a>,
+with <a href="#bright">J.D. Bright</a>
+
+<li><a href="http://www.cs.jhu.edu/~sullivan/onlinedata.ps">On-Line Error Monitoring for Several Data Structures</a>,
+with <a href="#bright">J.D. Bright</a>
+
+&nbsp; <em><a href="http://www.computer.org/conferen/proceed/ftcs95/abstract.htm#Bright">Abstract</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="sydow" href="http://www.cs.chalmers.se/~sydow/">Bj&ouml;rn von Sydow</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.cs.chalmers.se/pub/cs-reports/papers/sydow/binqueues.ps.gz">Dependently typed binomial queues</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="t"></a>
+
+<dt>
+<a name="takaoka" href="http://www.cosc.canterbury.ac.nz/~tad/">Tadao Takaoka</a>
+<dd>
+<ul>
+<li><a href="http://www.cosc.canterbury.ac.nz/~tad/acyclic.ps">Shortest Path Algorithms for Nearly Acyclic Directed Graphs</a>
+<li><a href="http://www.cosc.canterbury.ac.nz/~tad/2-3heaps.ps">Theory of 2-3 Heaps</a>
+<li><a href="http://www.cosc.canterbury.ac.nz/~tad/tri2.pdf">Theory of Trinomial Heaps</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="tarjan" href="http://www.cs.princeton.edu/~ret/">R.E. Tarjan</a>
+
+&nbsp;  <em><a href="http://www.intertrust.com/star/ret/">InterTrust</a></em>
+
+<dd>
+<ul>
+<li><a href="http://elib.stanford.edu:80/Dienst/Repository/2.0/Body/stanford.cs/CS-TR-78-709/pdf">Design and analysis of a data structure for representing sorted lists</a>, with <a href="#brown">Mark R. Brown</a>
+&nbsp; <em><a href="http://elib.stanford.edu:80/Dienst/UI/2.0/Describe/stanford.cs/CS-TR-78-709">Abstract</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="teuola" href="http://lena.cs.utu.fi/staff/jukka.teuhola/">Jukka Teuhola</a>
+<dd>
+<ul>
+<li><em>See <a href="#katajainen">Jyrki Juhani Katajainen</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="thorup" href="http://www.diku.dk/~mthorup/">Mikkel Thorup</a>
+<dd>
+<ul>
+<li><a href="http://www.csd.uu.se/~arnea/ps/det.pdf">Tight(er) Worst-case Bounds on Dynamic Searching and Priority Queues</a>, with  <a href="#andersson">Arne Andersson</a>
+&nbsp; <em><a href="http://www.csd.uu.se/~arnea/abs/det.html">Abstract</a></em>
+<li><a href="http://data.mpi-sb.mpg.de/internet/reports.nsf/NumberView/1997-1-016/">Faster deterministic sorting and priority queues in linear space</a>
+&nbsp; <em><a href="http://data.mpi-sb.mpg.de/internet/reports.nsf/NumberView/1997-1-016/">Abstract</a></em>
+<li><a href="http://www.diku.dk/~mthorup/PAPERS/pragma.ps.gz">A pragmatic implementation of monotone priority queues</a>,
+ with <a href="#andersson">Arne Andersson</a>
+<li><a href="http://www.diku.dk/~mthorup/PAPERS/combo.ps.gz">On RAM Priority Queues</a>
+<li><a href="http://lite.ncstrl.org:3803/Dienst/UI/2.0/Describe/ncstrl.dimacs/95-12?abstract=">Equivalence Between Sorting and Priority Queues</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="tiskin" href="http://oldwww.comlab.ox.ac.uk/oucl/people/alexandre.tiskin.html">Alexandre Tiskin</a>
+<dd>
+<ul>
+<li><em>See <a href="#gerbessiotis">Alex V. Gerbessiotis</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="u"></a>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="v"></a>
+<dt>
+<a name="vanemdeboas" href="http://turing.wins.uva.nl/~peter/">Peter van Emde Boas</a>
+<dd>
+<ul>
+<li><a href="http://cs-tr.cs.cornell.edu:80/Dienst/UI/2.0/Print/ncstrl.cornell/TR74-221">An O(n log logn) On-line Algorithm for the Insert-Extract Min Problem</a>
+&nbsp; <em><a href="http://cs-tr.cs.cornell.edu:80/Dienst/UI/2.0/Describe/ncstrl.cornell/TR74-221?abstract=">Abstract</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="veeraraghavan" href="http://www.csua.berkeley.edu/~ranga/">Sriranga Veeraraghavan</a>
+<dd>
+<ul>
+<li><a href="http://www.csua.berkeley.edu/~ranga/school/public/cs161/">A Heap Based Priority Queue</a>
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="vitter" href="http://www.cs.duke.edu/~jsv/">Jeffrey S. Vitter</a>
+<dd>
+<ul>
+<li><em>See <a href="#matias">Yossi Matias</a>, <a href="#stasko">John Stasko</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="vuillemin" href="http://www.di.ens.fr/~jv/">Jean E. Vuillemin</a>
+<dd>
+<ul>
+<li>A data structure for manipulating priority queues
+</ul>
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="w"></a>
+
+<dt>
+<a name="weiss" href="http://www.cs.fiu.edu/scspage/professor/Weiss.html">Mark Allen Weiss</a>
+<dd>
+<ul>
+<li>The Relaxed Min-Max Heap: A Mergeable Double-Ended Priority Queue, with <a href="#ding">Y. Ding</a>
+<li><a href="http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-57155-8">The k-d Heap: An Efficient
+Multi-Dimensional Priority Queue</a>, with <a href="#ding">Y. Ding</a>
+<li><a href="http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-51542-9">The Distribution of Keys In a Binary Heap</a>,
+with <a href="#navlakha">J.K. Navlakha</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="wozniewski" href="http://www.cs.mcgill.ca/~mwozni/">Mike Wozniewski</a>
+<dd>
+<ul>
+<li>
+<a href="http://www.cs.mcgill.ca/~mwozni/cs251/welcome.html">Priority Queues and the van Emde Boas Implementation</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="wrege" href="http://www.cs.virginia.edu/~dew6c/">Dallas E. Wrege</a>
+<dd>
+<ul>
+<li><em>See <a href="#liebeherr">J&ouml;rg Liebeherr</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="x"></a>
+<dt>
+<a name="xie" href="http://www.cs.nps.navy.mil/people/faculty/xie/">Geoffrey G. Xie</a>
+<dd>
+<ul>
+<li><a href="ftp://ftp.cs.utexas.edu/pub/techreports/tr95-29.ps.Z">An Efficient Adaptive Search Algorithm for Scheduling Real-Time Traffic</a>, with <a href="#lam">Simon S. Lam</a>
+&nbsp; <em><a href="http://www.cs.utexas.edu/users/UTCS/techreports/index/html/form.cgi?which=abstracts*mp6yearmenu=1995#TR-95-29">Abstract</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="y"></a>
+<dt>
+<a name="young" href="http://drenchedrock.net/neal_academic/">Neal E. Young</a>
+<dd>
+<ul>
+<li><em>See <a href="#matias">Yossi Matias</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<dt>
+<a name="yu">Lixin Yu</a>
+<dd>
+<ul>
+<li><a href="http://www.leekillough.com/heaps/papers/ppq_survey.ps">A Survey on Parallel Algorithms for Priority Queues</a>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<a name="z"></a>
+
+<dt>
+<a name="zanny" href="http://www.net-link.net/~zrodger/">Rodger Zanny</a>
+<dd>
+<ul>
+<li><a href="http://www.cs.wmich.edu/~parint/rrz/papers/thesis/thesis.ps.gz">Efficiency of Distributed Priority Queues in Parallel Adaptive Integration</a>
+<em>(Thesis)</em>
+&nbsp; <em><a href="http://www.cs.wmich.edu/~parint/rrz/papers/thesis/thesis-abstract.txt">Abstract</a></em>
+&nbsp; <em><a href="http://www.cs.wmich.edu/~parint/rrz/papers/thesis/html/">HTML</a></em>
+</ul>
+
+<br>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+<!-- End HPSearch -->
+
+</dl>
+<strong><sup>*</sup> Indicates access may be restricted</strong>
+<p>
+
+<hr>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+<h2><a name="implem">Implementations</a></h2>
+<dl>
+<dt>
+<a href="http://www.purists.org/georg/pqueue/">Priority Queues</a>
+<dd>
+ANSI C implementation and tutorial, by <a href="http://www.purists.org/">Georg Kraml</a>
+<br> <br>
+
+<dt>
+<a href="http://www.algorithmic-solutions.com/as_html/products/leda/products_leda.html">LEDA</a>
+<dd>
+Library of Efficient Data Structures and Algorithms
+<br> <br>
+
+<dt>
+<a href="http://www.cs.uiowa.edu/~jones/event/">Simulation Pending Event Set Implementations</a>
+<dd> Doug Jones' splay tree and other priority queue implementations
+<br> <br>
+
+<dt>
+<a href="http://www.dcc.uchile.cl/~rbaeza/handbook/selec_a.html">Selection Algorithms</a>
+<dd>
+In <em><a href="http://www.dcc.uchile.cl/~rbaeza/handbook/hbook.html">Handbook of Algorithms and Data Structures</a></em>
+<br> <br>
+
+<dt>
+<a href="http://www.windbase.com/memsl/">Memory Structures Library (MemSL) for C and C++</a>
+<dd>
+Memory Structures Library (MemSL) for C and C++
+<br> <br>
+
+<dt>
+<a href="http://www.cs.sunysb.edu/~algorith/implement/simpack/implement.shtml">SimPack/Sim++ Simulation Toolkit</a>
+<dd>
+C++ implementations, as a "starting point" for simulation
+<br> <br>
+
+<dt>
+<a href="http://www.mpi-sb.mpg.de/~sanders/programs/spq/">Heaps</a>
+<dd>
+Peter Sanders' C++ implementation of heaps, with benchmark
+<br> <br>
+
+<dt>
+<a href="http://www.cs.sunysb.edu/~algorith/files/priority-queues.shtml">The Stony Brook Algorithm Repository</a>
+<dd>Statement of priority queue problem and links to implementations
+<br> <br>
+
+<dt>
+<a href="http://www.diku.dk/users/jyrki/Experimentarium/">Sorting and Searching Experimentarium</a>
+<dd>
+C and C++ programs for sorting, including bottom-up heapsort
+<br> <br>
+
+<dt>
+<a href="http://www.boost.org/libs/pri_queue/">C++ Boost</a>
+<dd>
+C++ implementation of d-heaps, Fibonacci heaps, pairing heaps, and splay heaps
+<br> <br>
+
+<dt>
+<a href="http://137.132.165.173/swan/index.html">SWAN</a>
+<dd>
+Simulator Without A Name, with a C++ implementation of calendar queues
+<br> <br>
+
+<dt>
+<a href="http://www.informatik.uni-freiburg.de/~edelkamp/WeakHeapsort/">Weak-Heapsort</a>
+<dd>
+Weak-Heapsort, by <a href="#edelkamp">Stefan Edelkamp</a>
+<br> <br>
+
+<dt>
+<a href="http://dogma.net/markn/articles/pq_stl/priority.htm">Priority Queues and the STL</a>
+<dd>
+Heaps, and an application to Huffman coding, by <a href="http://dogma.net/markn/">Mark Nelson</a>
+<br> <br>
+
+<dt>
+<a href="http://cs.amherst.edu/~ccm/challenge5/p_queue/">Fifth DIMACS Challenge -- Priority Queue Tests</a>
+<dd>Priority queue tests, with some pointers to implementations
+<br> <br>
+
+<dt>
+<a href="http://www.msdesigninc.com/mlib_ds.html">MLIB (DS)</a>
+<dd> Commercial thread-safe software for data structures, in C and C++
+<br> <br>
+
+<dt>
+<a href="http://www.diku.dk/research-groups/performance-engineering/Jesper/heaplab/heapsurvey_html/Welcome.html">Heap Implementations and Variations</a>
+<dd>
+Discussion of several implementations using C++ testing tool Heaplab, by Jesper Bojesen
+<br> <br>
+
+<dt>
+<a href="http://www.cs.cmu.edu/afs/cs.cmu.edu/user/sleator/www/readme.html">D.D. Sleator's Splay Trees</a>
+<dd>Top-down splay tree implementations and technical reports
+<br> <br>
+
+<dt>
+<a href="http://www.msu.edu/user/pfaffben/avl/">The AVL Page</a>
+<dd>
+Threaded AVL tree library, and pointers to other AVL tree resources, by Ben Pfaff
+<br> <br>
+
+<dt>
+<a href="http://www.cs.fiu.edu/~weiss/ada.html">Mark Allen Weiss' Data Structures in Ada Page</a>
+<dd>
+Priority queues in Ada
+<br> <br>
+
+<dt>
+<a href="http://www.accesscom.com/~darius/software/scheme-data-structures.tar.gz">Scheme implementation using pairing heaps</a>
+<dd>
+by <a href="http://darius.livejournal.com/">Darius Bacon</a>
+<br> <br>
+
+<dt>
+<a href="http://pobox.com/~oleg/ftp/Scheme/#treaps">Treaps</a>
+<dd>
+Scheme priority queue code, and some Usenet articles on priority queues, by
+<a href="http://pobox.com/~oleg/ftp/">Oleg Kiselyov</a>
+<br> <br>
+
+<dt>
+<a href="http://www.mathconsult.ch/math/stuff/PriorityQueue.m">PriorityQueue.m</a>
+<dd>
+Mathematica package for destructive priority queues based on a heap
+<br> <br>
+
+<dt>
+<a href="http://www.cs.toronto.edu/~wayne/libwayne/">libwayne</a>
+<dd>
+Wayne's Little Data Structures and Algorithms Library (in C)
+<br> <br>
+
+<dt>
+<a href="http://www.boyet.com/">EZDSL</a>
+<dd>
+Easy Data Structures Library for Delphi, by Julian Bucknall
+<br> <br>
+
+<dt>
+<a href="http://www.prism.uvsq.fr/~blec/Research/BOBO/">Bob++</a>
+<dd>
+A library for sequential and parallel search algorithms
+<br> <br>
+
+<dt>
+<a href="http://www.cs.mcgill.ca/~mwozni/cs251/welcome.html">Priority Queues and the van Emde Boas Implementation</a>
+<dd>
+Introduction to the van Emde Boas implementation, by <a href="http://www.cs.mcgill.ca/~mwozni/">Mike Wozniewski</a>
+
+</dl>
+<hr>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<h2><a name="related">Related Topics</a></h2>
+<p>
+One good way to find related pages, is to <a href="#referer">find ones that refer to this one</a>.
+<p>
+Here are some which deserve to be listed separately:
+<p>
+
+<dl>
+<dt>
+<a href="http://www.red3d.com/breese/navigation.html">Navigation</a>
+<dd>
+A<sup>*</sup> search, intelligent path-finding, etc.
+<br> <br>
+
+<dt>
+<a href="http://www.nease.net/~jamsoft/shortestpath/amitpnew/">Amit's A* Pages</a>
+<dd>
+Amit's Thoughts on Path-Finding (and finding the right priority queue)
+<br> <br>
+
+<dt>
+<a href="http://www2.iro.umontreal.ca/~ratib/code/">data@{Codepage}</a>
+<dd>
+Links to specialized pages like this one
+<br> <br>
+
+<!--
+<dt>
+<a href="http://www.informatik.tu-darmstadt.de/VS/Mitarbeiter/Meister/PDES/lit.html">Parallel and Distributed Simulation Literature</a>
+<dd>
+Downloadable papers from conference proceedings on PDES, by Gerd Meister
+<br> <br>
+-->
+
+<dt>
+<a name="collide">Collision Simulation</a>
+<dd>
+<p> For over a decade, a hobby of mine was to find the most efficient method to
+simulate colliding balls. It started as a toy. Here is the latest version of
+my work:
+<p>
+<ul>
+<li><a href="http://www.leekillough.com/heaps/pool.zip">pool.zip</a> (32-bit x86 program)
+</ul>
+<p>
+It's a very old program, and it has a poor user-interface, but it's a good
+illustration of a technique better than O(n<sup>2</sup>) per step for simulating n bouncing balls.
+<p>
+Related links:
+<p>
+<dl>
+
+<dt>
+<dd>
+<a href="http://tamarugo.cec.uchile.cl/cinetica/">Molecular Dynamics and Kinetic Theory Group</a>
+<br> <br>
+
+<dt>
+<dd>
+<a href="http://www.cs.unc.edu/~geom/collide/">Interactive and Exact Collision Detection for Virtual and Simulated Environments</a>
+<br> <br>
+
+<dt>
+<dd>
+<a href="http://www.cs.berkeley.edu/~mirtich/impulse.html">Impulse based simulation</a>
+<br> <br>
+
+<dt>
+<dd>
+<a href="http://ubmail.ubalt.edu/~harsham/simulation/sim.htm">Discrete Event Systems Simulation</a>
+<br> <br>
+
+<dt>
+<dd>
+<a href="http://137.132.153.41/pes.htm">Pending Event Set (PES) Structures for Discrete Event Simulations</a>
+<br> <br>
+
+<dt>
+<dd>
+<a href="http://www.cs.unc.edu/~lin/">Ming C. Lin</a>
+
+</dl>
+</dl>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<hr>
+
+<h2><a name="stats">Heap Statistics</a></h2>
+<p>
+As an illustration of heaps, here are the most often visted links on this
+page, arranged by type:
+
+<p>
+
+<table>
+<caption align="bottom">Technical&nbsp;Reports<b><sup>*</sup></b> (including&nbsp;theses)</caption><tr>
+<td align="center" colspan="256"><a href="http://www.leekillough.com/heaps/papers/p157-ronngren.pdf">1521</a></td>
+</tr>
+<tr>
+<td align="center" colspan="128"><a href="http://www.acm.org/pubs/articles/journals/cacm/1986-29-4/p300-jones/p300-jones.pdf">403</a></td>
+<td align="center" colspan="128"><a href="http://www-cs-students.stanford.edu/~csilvers/papers/hotq-soda.ps.gz">510</a></td>
+</tr>
+<tr>
+<td align="center" colspan="64"><a href="http://ona.fi.umag.cl/~mmarin/papers/pqcomp.ps.gz">377</a></td>
+<td align="center" colspan="64"><a href="http://www.combinatorics.org/Volume_2/PostScriptfiles/v2i1r24.ps">347</a></td>
+<td align="center" colspan="64"><a href="ftp://ftp.it.kth.se/Reports/sim/LazyQueue.IJCS.aug93.ps.Z">132</a></td>
+<td align="center" colspan="64"><a href="http://www.elilabs.com/~rj/timerq/">280</a></td>
+</tr>
+<tr>
+<td align="center" colspan="32"><a href="ftp://ftp.cs.washington.edu/tr/1994/12/UW-CSE-94-12-07.PS.Z">175</a></td>
+<td align="center" colspan="32"><a href="ftp://ftp.imada.sdu.dk/pub/papers/pp-1996/12.ps.gz">326</a></td>
+<td align="center" colspan="32"><a href="http://www.acm.org/pubs/articles/journals/cacm/1986-29-10/p996-atkinson/p996-atkinson.pdf">250</a></td>
+<td align="center" colspan="32"><a href="http://www.leekillough.com/heaps/papers/LR.pdf">128</a></td>
+<td align="center" colspan="32"><a href="http://www.acm.org/pubs/articles/proceedings/soda/139404/p393-carlsson/p393-carlsson.pdf">69</a></td>
+<td align="center" colspan="32"><a href="http://www.acm.org/pubs/articles/journals/jacm/1987-34-3/p596-fredman/p596-fredman.pdf">95</a></td>
+<td align="center" colspan="32"><a href="ftp://ftp.cs.su.oz.au/pub/tr/TR93_476.ps.Z">73</a></td>
+<td align="center" colspan="32"><a href="http://www.avglab.com/andrew/pub/neci-tr-96-042.ps">270</a></td>
+</tr>
+<tr>
+<td align="center" colspan="16"><a href="http://www.stanford.edu/~wluh/heapwriteup.html">146</a></td>
+<td align="center" colspan="16"><a href="ftp://ftp.cs.washington.edu/tr/1996/02/UW-CSE-96-02-03.PS.Z">135</a></td>
+<td align="center" colspan="16"><a href="http://www.acm.org/pubs/articles/journals/jacm/1994-41-1/p3-fischer/p3-fischer.pdf">152</a></td>
+<td align="center" colspan="16"><a href="http://www-theory.dcs.st-and.ac.uk/~sal/mdapaper/mdapaper.html">244</a></td>
+<td align="center" colspan="16"><a href="http://www.brics.dk/~gerth/Papers/swat96pq.ps.gz">74</a></td>
+<td align="center" colspan="16"><a href="http://www.leekillough.com/heaps/papers/calendar_queues.pdf">188</a></td>
+<td align="center" colspan="16"><a href="ftp://ftp.cs.umn.edu/dept/users/kumar/conc_heap.ps">56</a></td>
+<td align="center" colspan="16"><a href="http://www.csua.berkeley.edu/~ranga/school/public/cs161/">116</a></td>
+<td align="center" colspan="16"><a href="http://www.prism.uvsq.fr/~vdc/CONFS/cfpar94.ps.Z">42</a></td>
+<td align="center" colspan="16"><a href="http://www.brics.dk/~gerth/Papers/diku-97-25.ps.gz">46</a></td>
+<td align="center" colspan="16"><a href="http://www.brics.dk/~gerth/Papers/jpdc98.ps.gz">90</a></td>
+<td align="center" colspan="16"><a href="http://ona.fi.umag.cl/~mmarin/papers/sim95.ps.gz">47</a></td>
+<td align="center" colspan="16"><a href="http://www.brics.dk/~gerth/Papers/brics-ds-97-1.ps.gz">50</a></td>
+<td align="center" colspan="16"><a href="http://www.cs.princeton.edu/~chazelle/pubs/sheap.ps">58</a></td>
+<td align="center" colspan="16"><a href="http://citeseer.nj.nec.com/venkatasubramanian00theory.html">91</a></td>
+<td align="center" colspan="16"><a href="ftp://ftp.it.kth.se/Reports/sim/FastImplementations.MASCOTS93.ps.Z">96</a></td>
+</tr>
+<tr>
+<td align="center" colspan="8"><a href="http://www.mpi-sb.mpg.de/~crauser/papers/new.ps">74</a></td>
+<td align="center" colspan="8"><a href="ftp://ftp.cis.ufl.edu/cis/tech-reports/tr91/tr91-007.ps">36</a></td>
+<td align="center" colspan="8"><a href="http://elib.stanford.edu/Dienst/Repository/2.0/Body/stanford.cs/CS-TR-74-460/pdf">70</a></td>
+<td align="center" colspan="8"><a href="http://ona.fi.umag.cl/~mmarin/papers/ess98.ps.gz">76</a></td>
+<td align="center" colspan="8"><a href="ftp://ftp.cise.ufl.edu/cis/tech-reports/tr96/tr96-023.ps">71</a></td>
+<td align="center" colspan="8"><a href="http://www.cl.cam.ac.uk/users/swm11/papers/spipe/cj3.ps">34</a></td>
+<td align="center" colspan="8"><a href="http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-57155-8">66</a></td>
+<td align="center" colspan="8"><a href="http://www.avglab.com/andrew/pub/neci-tr-96-062.ps">150</a></td>
+<td align="center" colspan="8"><a href="http://nasatech.com/Briefs/Jan99/NPO20095.html">57</a></td>
+<td align="center" colspan="8"><a href="http://www.leekillough.com/heaps/papers/ppq_survey.ps">62</a></td>
+<td align="center" colspan="8"><a href="ftp://ftp.cs.rochester.edu/pub/papers/systems/94.tr560.Efficient_algorithm_for_concurrent_priority_queue_heaps.ps.gz">49</a></td>
+<td align="center" colspan="8"><a href="http://www.cpsc.ucalgary.ca/~hoyer/papers/pq94.preprint.ps">111</a></td>
+<td align="center" colspan="8"><a href="http://www.mpi-sb.mpg.de/%7esanders/papers/spqjea.ps.gz">49</a></td>
+<td align="center" colspan="8"><a href="http://www.acm.org/pubs/articles/journals/jacm/1999-46-4/p473-fredman/p473-fredman.pdf">36</a></td>
+<td align="center" colspan="8"><a href="http://www.diku.dk/research-groups/performance-engineering/Publications/spork99.pdf">16</a></td>
+<td align="center" colspan="8"><a href="http://www.diku.dk/research/published/96-42.ps.gz">40</a></td>
+<td align="center" colspan="8"><a href="http://www.informatik.uni-freiburg.de/~edelkamp/publications/diplomarbeit.pdf">16</a></td>
+<td align="center" colspan="8"><a href="ftp://ftp.cs.virginia.edu/pub/jorg/papers/jsac699.pdf">37</a></td>
+<td align="center" colspan="8"><a href="ftp://ftp.comlab.ox.ac.uk/pub/Documents/techpapers/Alexandre.Tiskin/97_lcontr.ps">15</a></td>
+<td align="center" colspan="8"><a href="http://www.math.tau.ac.il/~matias/papers/ads-dimacs.ps">26</a></td>
+<td align="center" colspan="8"><a href="http://www.brics.dk/~gerth/Papers/ipps97.ps.gz">44</a></td>
+<td align="center" colspan="8"><a href="http://www.brics.dk/~gerth/Papers/wads95.ps.gz">47</a></td>
+<td align="center" colspan="8"><a href="http://www.cosc.canterbury.ac.nz/~tad/tri2.pdf">18</a></td>
+<td align="center" colspan="8"><a href="ftp://dimacs.rutgers.edu/pub/dimacs/TechnicalReports/TechReports/1997/97-52.ps.gz">44</a></td>
+<td align="center" colspan="8"><a href="http://www.wi.leidenuniv.nl/home/kosters/trian15.ps">26</a></td>
+<td align="center" colspan="8"><a href="ftp://ftp.imada.sdu.dk/pub/papers/pp-1994/35.ps.gz">31</a></td>
+<td align="center" colspan="8"><a href="http://www.leekillough.com/heaps/papers/parallel_meld.pdf">35</a></td>
+<td align="center" colspan="8"><a href="ftp://ftp.it.kth.se/Reports/sim/EfficientImplement.PADS93.ps.Z">51</a></td>
+<td align="center" colspan="8"><a href="http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-51542-9">47</a></td>
+<td align="center" colspan="8"><a href="http://www.cs.columbia.edu/~cdo/priority.ps">70</a></td>
+<td align="center" colspan="8"><a href="http://www.cosc.canterbury.ac.nz/~tad/2-3heaps.ps">29</a></td>
+<td align="center" colspan="8"><a href="http://www.leekillough.com/heaps/papers/hypercube.pdf">41</a></td>
+</tr>
+</table><br>
+
+
+<table>
+<caption align="bottom">Software</caption><tr>
+<td align="center" colspan="256"><a href="http://www.purists.org/georg/pqueue/">3737</a></td>
+</tr>
+<tr>
+<td align="center" colspan="128"><a href="http://www.mpi-sb.mpg.de/~sanders/programs/spq/">1020</a></td>
+<td align="center" colspan="128"><a href="http://dogma.net/markn/articles/pq_stl/priority.htm">897</a></td>
+</tr>
+<tr>
+<td align="center" colspan="64"><a href="http://www.cs.uiowa.edu/~jones/event/">588</a></td>
+<td align="center" colspan="64"><a href="http://www.diku.dk/research-groups/performance-engineering/Jesper/heaplab/heapsurvey_html/Welcome.html">552</a></td>
+<td align="center" colspan="64"><a href="http://www.algorithmic-solutions.com/as_html/products/leda/products_leda.html">807</a></td>
+<td align="center" colspan="64"><a href="http://www.cs.sunysb.edu/~algorith/files/priority-queues.shtml">463</a></td>
+</tr>
+<tr>
+<td align="center" colspan="32"><a href="http://www.dcc.uchile.cl/~rbaeza/handbook/selec_a.html">551</a></td>
+<td align="center" colspan="32"><a href="http://www.boost.org/libs/pri_queue/">495</a></td>
+<td align="center" colspan="32"><a href="http://allserv.rug.ac.be/~vfack/files/algori.html">223</a></td>
+<td align="center" colspan="32"><a href="http://cs.amherst.edu/~ccm/challenge5/p_queue/">269</a></td>
+<td align="center" colspan="32"><a href="http://www.diku.dk/users/jyrki/Experimentarium/">347</a></td>
+<td align="center" colspan="32"><a href="http://www.cs.mcgill.ca/~mwozni/cs251/welcome.html">518</a></td>
+<td align="center" colspan="32"><a href="http://www.mathconsult.ch/math/stuff/PriorityQueue.m">201</a></td>
+<td align="center" colspan="32"><a href="http://pobox.com/~oleg/ftp/Scheme/#treaps">184</a></td>
+</tr>
+<tr>
+<td align="center" colspan="16"><a href="http://www.cs.toronto.edu/~wayne/libwayne/">202</a></td>
+<td align="center" colspan="16"><a href="http://www.cs.cmu.edu/afs/cs.cmu.edu/user/sleator/www/readme.html">136</a></td>
+<td align="center" colspan="16"><a href="http://www.cs.sunysb.edu/~algorith/implement/moret/distrib/">108</a></td>
+<td align="center" colspan="16"><a href="http://www.windbase.com/memsl/">443</a></td>
+<td align="center" colspan="16"><a href="http://www.informatik.uni-freiburg.de/~edelkamp/WeakHeapsort/">129</a></td>
+<td align="center" colspan="16"><a href="http://www.mpi-sb.mpg.de/~~sanders/programs/spq/">2</a></td>
+<td align="center" colspan="16"><a href="http://www.cs.fiu.edu/~weiss/ada.html">111</a></td>
+<td align="center" colspan="16"><a href="http://www.accesscom.com/~darius/software/scheme-data-structures.tar.gz">85</a></td>
+<td align="center" colspan="16"><a href="http://137.132.165.173/swan/index.html">78</a></td>
+<td align="center" colspan="16"><a href="http://www.cs.columbia.edu/~cdo/priority.html">15</a></td>
+<td align="center" colspan="16"><a href="http://www.leekillough.com/heaps/pool.zip">105</a></td>
+<td align="center" colspan="16"><a href="http://www.cs.sunysb.edu/~algorith/implement/simpack/implement.shtml">369</a></td>
+<td align="center" colspan="16"><a href="http://www.avglab.com/andrew/soft.html">85</a></td>
+<td align="center" colspan="16"><a href="http://www.msu.edu/user/pfaffben/avl/">152</a></td>
+<td align="center" colspan="16"><a href="http://www.cs.rochester.edu/u/michael/pseudocode/IPL96-pc.html">11</a></td>
+<td align="center" colspan="16"><a href="http://www.boyet.com/">80</a></td>
+</tr>
+<tr>
+<td align="center" colspan="8"><a href="http://www.cs.rochester.edu/u/michael/pseudocode/PODC96-pc.html">11</a></td>
+<td align="center" colspan="8"><a href="http://www.msdesigninc.com/mlib_ds.html">97</a></td>
+<td align="center" colspan="8"><a href="http://www.prism.uvsq.fr/~blec/Research/BOBO/">99</a></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+</tr>
+</table><br>
+
+
+<table>
+<caption align="bottom">Personal Home&nbsp;Pages</caption><tr>
+<td align="center" colspan="256"><a href="http://www.eecs.umich.edu/PPP/santosh.html">225</a></td>
+</tr>
+<tr>
+<td align="center" colspan="128"><a href="http://turing.wins.uva.nl/~peter/">62</a></td>
+<td align="center" colspan="128"><a href="http://www.purists.org/">201</a></td>
+</tr>
+<tr>
+<td align="center" colspan="64"><a href="http://www.csd.uu.se/~arnea/">31</a></td>
+<td align="center" colspan="64"><a href="http://www.cs.mcgill.ca/~sperez/doc4.html">39</a></td>
+<td align="center" colspan="64"><a href="http://www.cs.fiu.edu/scspage/professor/Weiss.html">33</a></td>
+<td align="center" colspan="64"><a href="http://www.di.ens.fr/~jv/">22</a></td>
+</tr>
+<tr>
+<td align="center" colspan="32"><a href="http://www.cs.princeton.edu/~ret/">12</a></td>
+<td align="center" colspan="32"><a href="http://www.mpi-sb.mpg.de/~joe/">20</a></td>
+<td align="center" colspan="32"><a href="http://www.it.kth.se/~rassul/">13</a></td>
+<td align="center" colspan="32"><a href="http://www.cs.mcgill.ca/~mwozni/">14</a></td>
+<td align="center" colspan="32"><a href="http://www.cs.unc.edu/~lin/">22</a></td>
+<td align="center" colspan="32"><a href="http://www.drizzle.com/~gsbarnes/">11</a></td>
+<td align="center" colspan="32"><a href="http://www.cs.unm.edu/~moret/">3</a></td>
+<td align="center" colspan="32"><a href="http://www.brics.dk/~gerth/">11</a></td>
+</tr>
+<tr>
+<td align="center" colspan="16"><a href="http://www.sm.luth.se/~jingsen/">5</a></td>
+<td align="center" colspan="16"><a href="http://www.nd.edu/~shu/">12</a></td>
+<td align="center" colspan="16"><a href="http://dogma.net/markn/">11</a></td>
+<td align="center" colspan="16"><a href="http://www.seas.gwu.edu/~simha/">14</a></td>
+<td align="center" colspan="16"><a href="http://www.effnet.com/sites/effnet/setup/lb/index.asp?section=about&content=about_board">7</a></td>
+<td align="center" colspan="16"><a href="http://www.cs.purdue.edu/people/gnf/">8</a></td>
+<td align="center" colspan="16"><a href="http://www.cs.otago.ac.nz/staffpriv/mike/">13</a></td>
+<td align="center" colspan="16"><a href="http://www.diku.dk/~mthorup/">10</a></td>
+<td align="center" colspan="16"><a href="http://www-users.cs.umn.edu/~kumar/">6</a></td>
+<td align="center" colspan="16"><a href="http://www.cs.cmu.edu/afs/cs.cmu.edu/user/sleator/www/home.html">13</a></td>
+<td align="center" colspan="16"><a href="http://www.avglab.com/andrew/">8</a></td>
+<td align="center" colspan="16"><a href="http://www.prism.uvsq.fr/~vdc/home.html">5</a></td>
+<td align="center" colspan="16"><a href="http://www.cs.fiu.edu/scspage/professor/Navlakha.html">2</a></td>
+<td align="center" colspan="16"><a href="http://liinwww.ira.uka.de/~sanders/">2</a></td>
+<td align="center" colspan="16"><a href="http://pobox.com/~oleg/ftp/">4</a></td>
+<td align="center" colspan="16"><a href="http://www.csua.berkeley.edu/~ranga/">6</a></td>
+</tr>
+<tr>
+<td align="center" colspan="8"><a href="http://www.cs.uiowa.edu/~jones/">4</a></td>
+<td align="center" colspan="8"><a href="http://www.inf.ethz.ch/personal/gonnet/">5</a></td>
+<td align="center" colspan="8"><a href="http://ona.fi.umag.cl/~mmarin/">6</a></td>
+<td align="center" colspan="8"><a href="http://www.bell-labs.com/user/eugene/">9</a></td>
+<td align="center" colspan="8"><a href="http://www.cosc.canterbury.ac.nz/~tad/">3</a></td>
+<td align="center" colspan="8"><a href="http://www.cs.columbia.edu/~cdo/">10</a></td>
+<td align="center" colspan="8"><a href="http://www.imada.sdu.dk/~joan/">7</a></td>
+<td align="center" colspan="8"><a href="http://www.dcc.uchile.cl/~rbaeza/">10</a></td>
+<td align="center" colspan="8"><a href="http://www.cs.princeton.edu/~chazelle/">5</a></td>
+<td align="center" colspan="8"><a href="http://www.stanford.edu/~wluh/">5</a></td>
+<td align="center" colspan="8"><a href="http://www.prism.uvsq.fr/~blec/">5</a></td>
+<td align="center" colspan="8"><a href="http://www.cs.ucl.ac.uk/staff/C.Clack/">2</a></td>
+<td align="center" colspan="8"><a href="http://www.elilabs.com/~rj/">5</a></td>
+<td align="center" colspan="8"><a href="http://www.uni-paderborn.de/fachbereich/AG/agmadh/WWW/english/Baeu.html">9</a></td>
+<td align="center" colspan="8"><a href="http://www.mpi-sb.mpg.de/~sanders/">6</a></td>
+<td align="center" colspan="8"><a href="http://www.cs.jhu.edu/~sullivan/">5</a></td>
+<td align="center" colspan="8"><a href="http://www.cs.duke.edu/~chen/HomePage.html">5</a></td>
+<td align="center" colspan="8"><a href="http://www.cs.nps.navy.mil/people/faculty/xie/">3</a></td>
+<td align="center" colspan="8"><a href="http://www.scs.carleton.ca/~sack/">3</a></td>
+<td align="center" colspan="8"><a href="http://www.cise.ufl.edu/~sahni/">10</a></td>
+<td align="center" colspan="8"><a href="http://www.lh.com/~oleg/ftp/">6</a></td>
+<td align="center" colspan="8"><a href="http://www.stanford.edu/~staceyb/">7</a></td>
+<td align="center" colspan="8"><a href="http://www.cpsc.ucalgary.ca/~hoyer/">4</a></td>
+<td align="center" colspan="8"><a href="http://www.di.unipi.it/~ferragin/">4</a></td>
+<td align="center" colspan="8"><a href="http://www.dcc.uchile.cl/~mmarin/">2</a></td>
+<td align="center" colspan="8"><a href="http://www.win.tue.nl/~berry/">1</a></td>
+<td align="center" colspan="8"><a href="http://www.imada.sdu.dk/~kslarsen/">2</a></td>
+<td align="center" colspan="8"><a href="http://137.132.153.41/">2</a></td>
+<td align="center" colspan="8"><a href="http://www.cs.chalmers.se/~sydow/">1</a></td>
+<td align="center" colspan="8"><a href="http://www.cs.washington.edu/homes/ladner/">1</a></td>
+<td align="center" colspan="8"><a href="http://www.informatik.uni-freiburg.de/~edelkamp/">3</a></td>
+<td align="center" colspan="8"><a href="http://www.diku.dk/~jyrki/">4</a></td>
+</tr>
+</table><br>
+
+
+<table>
+<caption align="bottom">Other Web&nbsp;Pages</caption><tr>
+<td align="center" colspan="256"><a href="http://www.onthenet.com.au/~grahamis/int2008/week11/lect11.html">6158</a></td>
+</tr>
+<tr>
+<td align="center" colspan="128"><a href="http://www.nist.gov/dads/HTML/priorityque.html">5156</a></td>
+<td align="center" colspan="128"><a href="http://www.brpreiss.com/books/opus4/html/page352.html">3122</a></td>
+</tr>
+<tr>
+<td align="center" colspan="64"><a href="http://www.cs.appstate.edu/~blk/cs3460/chap06/">3535</a></td>
+<td align="center" colspan="64"><a href="http://math.baruch.cuny.edu/~bshaw/index-7.html">778</a></td>
+<td align="center" colspan="64"><a href="http://ciips.ee.uwa.edu.au/~morris/Year2/PLDS210/queues.html">3032</a></td>
+<td align="center" colspan="64"><a href="http://www.red3d.com/breese/navigation.html">133</a></td>
+</tr>
+<tr>
+<td align="center" colspan="32"><a href="http://www.triaxsystems.com/algorithms/heaps.htm">1707</a></td>
+<td align="center" colspan="32"><a href="http://www2.iro.umontreal.ca/~ratib/code/">52</a></td>
+<td align="center" colspan="32"><a href="http://www.nist.gov/dads/HTML/heapproperty.html">125</a></td>
+<td align="center" colspan="32"><a href="http://cs-tr.cs.cornell.edu:80/Dienst/UI/2.0/Print/ncstrl.cornell/TR74-221">179</a></td>
+<td align="center" colspan="32"><a href="http://www.cs.umbc.edu/~edelman/202/sp97/Lectures/Sorting/heapsort.html">2342</a></td>
+<td align="center" colspan="32"><a href="http://www.cogs.susx.ac.uk/local/teach/dats/dats.html">1856</a></td>
+<td align="center" colspan="32"><a href="http://www.google.com/search?num=30&q=link%3Apriority-queues.webhop.org">87</a></td>
+<td align="center" colspan="32"><a href="http://www2.uwindsor.ca/~hlynka/queue.html">79</a></td>
+</tr>
+<tr>
+<td align="center" colspan="16"><a href="http://www.cs.hope.edu/~alganim/">1146</a></td>
+<td align="center" colspan="16"><a href="http://www.cs.sunysb.edu/~skiena/214/lectures/lect18/lect18.html">1440</a></td>
+<td align="center" colspan="16"><a href="http://liinwww.ira.uka.de/bibliography/Theory/heap.html">48</a></td>
+<td align="center" colspan="16"><a href="http://www.cs.colorado.edu/~zorn/DSA.html">45</a></td>
+<td align="center" colspan="16"><a href="http://hpsearch.uni-trier.de/hp/">23</a></td>
+<td align="center" colspan="16"><a href="http://www.altavista.com/cgi-bin/query?text=yes&q=link%3Apriority-queues.webhop.org+-links2go+-Computers/Algorithms">41</a></td>
+<td align="center" colspan="16"><a href="http://www.cs.unc.edu/~geom/collide/">28</a></td>
+<td align="center" colspan="16"><a href="http://www.cs.appstate.edu/~~blk/cs3460/chap06/">6</a></td>
+<td align="center" colspan="16"><a href="http://ubmail.ubalt.edu/~harsham/simulation/sim.htm">122</a></td>
+<td align="center" colspan="16"><a href="http://www.d.umn.edu/~tcolburn/cs2511/lectures/pqueue/pq_0.htm">2070</a></td>
+<td align="center" colspan="16"><a href="http://www.nease.net/~jamsoft/shortestpath/amitpnew/">154</a></td>
+<td align="center" colspan="16"><a href="http://www.dcc.uchile.cl/~rbaeza/handbook/hbook.html">194</a></td>
+<td align="center" colspan="16"><a href="http://www.d.umn.edu/~~tcolburn/cs2511/lectures/pqueue/pq_0.htm">3</a></td>
+<td align="center" colspan="16"><a href="http://www.google.com/search?num=30&q=link%3Amembers.xoom.com%2Fkillough%2Fheaps.html">5</a></td>
+<td align="center" colspan="16"><a href="http://citeseer.nj.nec.com/cs/">8</a></td>
+<td align="center" colspan="16"><a href="http://www.slac.stanford.edu/pubs/icfa/download.html">56</a></td>
+</tr>
+<tr>
+<td align="center" colspan="8"><a href="http://www.germany.net/teilnehmer/100,71739/darbeit.zip">1</a></td>
+<td align="center" colspan="8"><a href="http://www.intertrust.com/star/ret/">5</a></td>
+<td align="center" colspan="8"><a href="http://hissa.nist.gov/dads/HTML/heapproperty.html">1</a></td>
+<td align="center" colspan="8"><a href="http://www.brics.dk/~gerth/publications.html">5</a></td>
+<td align="center" colspan="8"><a href="http://dictator.uwaterloo.ca/Bruno.Preiss/books/opus4/html/page352.html">1</a></td>
+<td align="center" colspan="8"><a href="http://137.132.153.41/pes.htm">36</a></td>
+<td align="center" colspan="8"><a href="http://tamarugo.cec.uchile.cl/cinetica/">33</a></td>
+<td align="center" colspan="8"><a href="http://ciips.ee.uwa.edu.au/~~morris/Year2/PLDS210/queues.html">4</a></td>
+<td align="center" colspan="8"><a href="http://www.cs.umbc.edu/~~edelman/202/sp97/Lectures/Sorting/heapsort.html">4</a></td>
+<td align="center" colspan="8"><a href="http://www.cs.berkeley.edu/~mirtich/impulse.html">22</a></td>
+<td align="center" colspan="8"><a href="http://www.onthenet.com.au/~~grahamis/int2008/week11/lect11.html">9</a></td>
+<td align="center" colspan="8"><a href="http://web.njit.edu/~alexg/pubs/papers.html">2</a></td>
+<td align="center" colspan="8"><a href="http://grc.com/downloaders.htm">7</a></td>
+<td align="center" colspan="8"><a href="http://www.informatik.tu-darmstadt.de/VS/Mitarbeiter/Meister/PDES/lit.html">14</a></td>
+<td align="center" colspan="8"><a href="http://www.cs.sunysb.edu/~~skiena/214/lectures/lect18/lect18.html">3</a></td>
+<td align="center" colspan="8"><a href="http://www.nist.gov/dads/HTML/heapconditn.html">3</a></td>
+<td align="center" colspan="8"><a href="http://cora.whizbang.com/">19</a></td>
+<td align="center" colspan="8"><a href="http://www.iscs.nus.edu.sg/~rassul/">7</a></td>
+<td align="center" colspan="8"><a href="http://fermivista.math.jussieu.fr/">24</a></td>
+<td align="center" colspan="8"><a href="http://directory.google.com/Top/Computers/Computer_Science/Publications/">17</a></td>
+<td align="center" colspan="8"><a href="http://chat.carleton.ca/~~sxenos/heaps.htm">2</a></td>
+<td align="center" colspan="8"><a href="http://citeseer.nj.nec.com/cs">11</a></td>
+<td align="center" colspan="8"><a href="http://www.cs.hope.edu/~~alganim/">1</a></td>
+<td align="center" colspan="8"><a href="http://www.toc.lcs.mit.edu/~shanir/">1</a></td>
+<td align="center" colspan="8"><a href="http://wwwebpage">1</a></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+<td align="center" colspan="8"><br></td>
+</tr>
+</table><br>
+
+<b><sup>*</sup></b> Technical reports are usually binary files, and some are only available by subscription. <p>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<hr>
+<h2><a name="survey">Priority Queues Survey</a></h2>
+<p>
+Is closed.
+<p>
+<a href="survey_results.html">See results of the survey</a>
+<p>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<hr>
+<h2><a name="about">About This Page</a></h2>
+<p>
+This page is a reference on <a href="http://www.nist.gov/dads/HTML/priorityque.html">Priority Queues</a>, by 
+<a href="/">Lee Killough</a>.
+
+<p>
+It was started in 1996 when I could find no real good online references on
+priority queues.
+<p>
+My introduction to priority queues was informal and spontaneous -- as a high
+school student in the 1980s, playing at home on my then-ultra-slow computer
+(2 MHz), I wanted to find <a href="#collide">a fast way to simulate bouncing
+balls</a>. It wasn't until years later, that I realized that what I had been
+using in my program, already had a name for it: <em>Priority Queue</em>.
+<p>
+Priority queues are interesting, because:
+<p>
+<ul>
+<li>Priority queues come in more varieties and styles than most other data structures;
+<li>The <a href="http://www.nist.gov/dads/HTML/heapproperty.html">Heap Property</a>
+is <em>weak</em>, yet strong enough for a priority queue's characteristics;
+<li>Priority queues are dynamically changing, and so there's an
+<em>eternal</em> quality to them :-)
+</ul>
+<p>
+Most of the referenced papers are available online, by following their title
+links.
+<a href="http://www.slac.stanford.edu/pubs/icfa/download.html">A page with help on viewing files</a>.
+<p>
+
+Links to abstracts are usually provided, if they can be found in HTML or
+plaintext form.
+<p>
+Unless a priority queue researcher has a home page, or a report that is
+available online, they are not usually listed. For references to offline
+reports, see the
+<a href="http://liinwww.ira.uka.de/bibliography/Theory/heap.html">Heap Bibliography</a>.
+<p>
+This page assumes that the reader has some knowledge of algorithms and data
+structures. Those without any experience at all, are encouraged to visit the
+<a href="#intro">introductory section</a>.
+<p>
+This page is one of the growing number of 
+<a href="http://citeseer.ist.psu.edu/venkatasubramanian00theory.html">Theory Repositories On the Web</a>,
+pages which single-mindedly explore a particular subject.
+<p>
+For information on <em>Queueing Theory</em>, which is the study of waiting
+lines, and which is more about processes and phenomena than about data
+structures, see
+<a href="http://www2.uwindsor.ca/~hlynka/queue.html">Myron Hlynka's Queueing Theory Page</a>.
+<p>
+For information about dynamic memory allocation (whose storage area is often
+misleadingly called a "heap"), see 
+<a href="http://www.cs.colorado.edu/~zorn/DSA.html">Benjamin Zorn's Dynamic Storage Allocation and Memory Management Information Repository</a>.
+<p>
+Reports with more than one author are usually listed under the author who has
+a home page, or the author with the most publications relating to priority
+queues. Although links to each report could be listed under every coauthor,
+they aren't, since this would involve a lot of unnecessary duplication.
+<p> 
+Items with <strong><sup>*</sup></strong> after them are usually only available
+to subscribers of the publication they are published in.
+<p>
+To find new reports on priority queues, I recommend doing a search on
+<a href="http://citeseer.nj.nec.com/cs">CiteSeer</a>,
+or one of
+the search engines listed in <a href="http://directory.google.com/Top/Computers/Computer_Science/Publications/">this directory</a>.
+<p>
+(<a href="http://fermivista.math.jussieu.fr/">FermiVista!</a> and
+<a href="http://cora.whizbang.com/">Cora</a> used to
+be my favorites, but they seem to have disappeared.)
+<p>
+For researchers' homepages, see <a href="http://hpsearch.uni-trier.de/hp/">HPSearch</a>.
+<p>
+Why are external links put through a CGI redirection program? Because it
+allows the collection of statistics on which links are actually visited. It is
+intended to improve this page, by finding out which links are important and
+<a href="#stats">providing them in an illustrative way</a>, not to spy on
+visitors. (In fact, this page goes out of its way to alert potential victims
+of <a href="http://grc.com/downloaders.htm">Spyware</a>, by detecting
+it based on browser type, and redirecting the user to information about it.)
+<p>
+I'm sorry, but I don't have the time to update this page much anymore.
+<p>
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<hr>
+<h2><a name="referer">Pages which refer to this one</a></h2>
+Select a search engine:
+<ul>
+<li><a href="http://www.google.com/search?num=30&q=link%3Apriority-queues.webhop.org">Google</a>
+<li><a href="http://www.altavista.com/cgi-bin/query?text=yes&q=link%3Apriority-queues.webhop.org+-links2go+-Computers/Algorithms">AltaVista</a>
+</ul>
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+<hr>
+<h2><a name="glossary">Glossary</a></h2>
+
+<dl>
+<dt> <small> DecreaseKey (IncreaseKey) </small>
+<dd> <small> Increase the priority of an arbitrary pointed-to item, by decreasing (increasing) the value of its key. </small>
+<br> <br>
+
+<dt> <small> Delete </small>
+<dd> <small> Delete an arbitrary pointed-to item from the priority queue. </small>
+<br><br>
+
+<dt> <small> DeleteMin (DeleteMax) </small>
+<dd> <small> Find and remove the minimum (or maxmium) keyed item in the priority queue. </small>
+<br><br>
+
+<dt> <small> FindMin (FindMax) </small>
+<dd> <small> Find, but do not remove, the minimum (or maximum) keyed item in the priority queue. </small>
+<br><br>
+
+<dt> <small> Heap </small>
+<dd> <small> A tree data structure in which every node's key is no
+       larger (or no smaller) than its children's. The root node is a node
+       with the smallest (or largest) key. </small>
+<br><br>
+
+<dt> <small> Heapify </small>
+<dd> <small> Transform an arbitrary array of items into a heap.
+     Usually more efficient than simply inserting items one at a time, hence
+     the separate category. </small>
+<br><br>
+
+<dt> <small> Insert </small>
+<dd> <small> Add an item to the priority queue. </small>
+<br><br>
+
+<dt> <small> Meld </small>
+<dd> <small> Join two priority queues into a larger one. Often the basis for Insert. </small>
+<br><br>
+
+<dt> <small> Priority Queue </small>
+<dd> <small> An abstract data type which efficiently keeps track
+   of the item with the highest priority across a series of operations.
+   The basic operations are: Insert, FindMin (or FindMax), and DeleteMin
+   (or DeleteMax). Some implementations also efficiently support joining
+   two priority queues (Meld), deleting an arbitrary item (Delete), and
+   increasing the priority of an item (DecreaseKey or IncreaseKey). </small>
+<br><br>
+</dl>
+
+
+<!-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -->
+
+<hr>
+  &copy;  2003
+Lee Killough<br>
+ 
+<br>
+
+</body>
+</html>
+

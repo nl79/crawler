@@ -1,0 +1,860 @@
+undefined<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<script type="text/javascript">
+(function(a){function b(a,b){if(+a)return~a||(d.cookie=h+"=; path=/");j=d.createElement(e),k=d.getElementsByTagName(e)[0],j.src=a,b&&(j.onload=j.onerror=b),k.parentNode.insertBefore(j,k)}function c(){n.api||b(l.shift()||-1,c)}if(this.Mobify)return;var d=document,e="script",f="mobify",g="."+f+".com/",h=f+"-path",i=g+"un"+f+".js",j,k,l=[!1,1],m,n=this.Mobify={points:[+(new Date)],tagVersion:[6,1],ajs:"//a.mobify.com/ieee-spectrum-mobile-edition-1/a.js"},o=/((; )|#|&|^)mobify-path=([^&;]*)/g.exec(location.hash+"; "+d.cookie);o?(m=o[3])&&!+(m=o[2]&&sessionStorage[h]||m)&&(l=[!0,"//preview"+g+escape(m)]):(l=a()||l,l[0]&&l.push("//cdn"+i,"//files01"+i)),l.shift()?(d.write('<plaintext style="display:none;">'),setTimeout(c)):b(l[0])})(function(){
+		if(/ip(hone|od)|android.*(mobile)|blackberry.*applewebkit|bb1\d.*mobile/i.test(navigator.userAgent) || (/iPad/.test(navigator.userAgent) && !/Safari/.test(navigator.userAgent)) ){console.debug("mobify enabled");return[1,"//cdn.mobify.com/sites/ieee-spectrum-mobile-edition-1/production/mobify.js"]}
+		else{console.debug("mobify not enabled");};
+		return[0,Mobify.ajs];
+	})
+</script>
+	<meta charset="utf-8">
+
+	
+
+	<title>A Faster Fast Fourier Transform - IEEE Spectrum</title>
+
+	
+	<meta name="viewport" content="width=1024">
+
+	
+	<!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE; chrome=1"/>
+	<![endif]-->
+
+    
+
+    
+	<link href="//fnt.webink.com/wfs/webink.css/?project=C258B735-C9E7-45A9-8619-0A725F416F5E&fonts=82DA4627-8191-9CE4-706C-58F3C2615A95:f=Theinhardt-Bold,BA766C3D-9F83-4950-AFCD-AD9F2BF5CEAB:f=Theinhardt-Regular,F77BBDE3-5270-5846-90AD-5529C2FFDA57:f=Theinhardt-Medium" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" href="/assets/css/style.css">
+	<link rel="stylesheet" href="/assets/css/sb.css">
+	<link rel="stylesheet" href="/assets/css/slimbox2.css">
+	<link rel="stylesheet" href="/assets/css/site417d.css">
+
+	
+
+    
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/assets/js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+	
+	<script src="/assets/js/libs/modernizr-2.5.3.min.js"></script>
+	<!--[if lt IE 9]>
+	<script src="/assets/js/libs/respond.min.js"></script>
+	<![endif]-->
+
+	
+	
+	 
+  
+	<link rel="icon" href="/favicon.png" type="image/png" />
+
+	<!-- begin static module global-head-spectrum4 --><link href="http://spectrum.ieee.org/ns/interactive/temp-styles/temp-styles-04.23.14.css" rel="stylesheet" type="text/css">
+<!-- end static module -->
+	
+<meta name="layout" content="spectrum"/>
+
+
+
+	<meta name="description" content="New algorithm crunches sparse data with speed"/>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" class="ga-tag">
+   var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-747464-1']);
+  _gaq.push(['_setCustomVar', 1, 'content-type-slug', 'article-NEWS']);
+_gaq.push(['_setCustomVar', 2, 'from-print', 'true']);
+_gaq.push(['_setCustomVar', 3, 'authors', 'David Schneider']);
+
+  _gaq.push(['_trackPageview']);
+  
+  (function() {
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ 	ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+ 	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+<meta name="parsely-page" content='{"title":"A Faster Fast Fourier Transform","link":"http://spectrum.ieee.org/computing/software/a-faster-fast-fourier-transform","image_url":"http://spectrum.ieee.org/img/trans-th-1330006169185.jpg","type":"post","post_id":"/computing/software/a-faster-fast-fourier-transform","pub_date":"2012-02-24T18:25:00Z","section":"News","author":"David Schneider","tags":["algorithm","fast fourier transform","fft","sparse code","sparse data","medium.print","type.article","2012 March 3","topic.computing","subtopic.software"]}'>
+
+
+
+	<link rel="alternate" title="IEEE Spectrum Recent Content full text" href="http://feeds.feedburner.com/IeeeSpectrumFullText" type="application/rss+xml">
+</head>
+
+<body class="pageBody" onload="">
+	
+	
+		
+<script type="text/template" id="tmpl-interstitial-ad">
+	<div id="tmpl-slashpage">
+		<div id="header" style="background: #5a5a5a;text-align:right; padding:20px; overflow:auto; margin-bottom:25px;">
+			<img src="/assets/img/logo-main.png" alt="IEEE Spectrum logo" style="float: left;height: 40px;">
+			<a href="javascript:splashpage.closeit()">Continue to site&nbsp;➔</a>
+		</div>
+		<div style="color:gray; font-size:18px; text-align:center; margin-bottom:8px;">ADVERTISEMENT</div>
+		<iframe name="splashpage-iframe" src="about:blank" scrolling="no" seamless="seamless" style="overflow:hidden; padding:0; z-index:6000000; width:660px; height:500px; margin:0 auto; display:block;" frameborder="0"></iframe>
+	</div>
+</script>
+		<script src="/assets/js/interstitial-ad.js"></script>
+		
+<script>
+	splashpage.splashenabled=1;
+	splashpage.splashpageurl= '/interstitial?splashType=welcome';
+	splashpage.enablefrequency=1;
+	splashpage.displayfrequency='sessiononly';
+	splashpage.cookiename = ['interstitialpagecookie2465915', 'path=/'];		
+	splashpage.autohidetimer=15;
+	splashpage.enablecounter=true;
+	splashpage.counter=1;
+	splashpage.timeremaining=0;
+	splashpage.sessiononlyCookieLifeTime=24;
+	if (splashpage.browserdetectstr && splashpage.splashenabled==1) {
+        //console.info('initializing interstitial ad');
+        splashpage.init();
+        //console.info('interstitial ad init finished');
+    }
+</script>
+	
+
+	<a href="/" class="backtotop"></a>
+<header id="header">
+	
+		<style>
+	    header #ieee-metanav ul li a:hover {
+               color: #03a6e3;
+            }
+	</style>
+        <div id="ieee-metanav" role="banner">
+		<div class="wrap">
+			<ul class="inline-list">
+				<li><a href="http://www.ieee.org" target="_blank">IEEE.org</a></li>
+				<li class="sep">|</li>
+				<li><a href="http://ieeexplore.ieee.org" target="_blank">IEEE <em>Xplore</em> Digital Library</a></li>
+				<li class="sep">|</li>
+				<li><a href="http://standards.ieee.org" target="_blank">IEEE Standards</a></li>
+				<li class="sep">|</li>
+				<li><a href="/"><span>IEEE Spectrum</span></a></li>
+				<li class="sep">|</li>
+				<li><a href="http://www.ieee.org/sitemap" target="_blank">More Sites</a></li>
+			</ul>
+		</div>
+	</div>
+	<section id="masthead">
+		<div class="masthead-wrap">
+			<div class="brand-space" role="img">
+				<a href="/" id="brand">
+					<img src="/assets/img/logo-main.png" alt="IEEE Spectrum logo">
+				</a>
+				<div id="social-space">
+					<span class="follow">Follow on:</span>
+					<ul class="inline-list social-links">
+						
+						
+						<li><a href="http://www.facebook.com/IEEE.Spectrum" target="_blank"><span class="faceBook"></span></a></li>
+						<li><a href="http://twitter.com/#!/IEEESpectrum" target="_blank"><span class="twitter"></span></a></li>
+						<li><a href="http://www.linkedin.com/groups/IEEE-Spectrum-1982451?home=&gid=1982451&trk=anet_ug_hm" target="_blank"><span class="linkedIn"></span></a></li>
+						<li><a href="https://plus.google.com/105079317383160047042/posts" target="_blank"><span class="google"></span></a></li>
+						<li><a href="/static/rss" target="_blank"><span class="rssFeed"></span></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="ad-space" role="img">
+				<span>Advertisement</span>
+				<div class="leaderboard-wrap">
+					
+<script language="JavaScript" type="text/javascript">
+if (typeof dc_tile=='undefined') {dc_tile=1;} else {dc_tile++;}
+if (typeof ord=='undefined') {ord=Math.random()*10000000000000000;}document.write('<script language="JavaScript" src="http://ad.doubleclick.net/adj/f.site220.tmus/computing;pos=1;tile=' + dc_tile +';dcopt=ist;sz=728x90;ord=' + ord + '?" type="text/javascript"><\/script>');</script>
+<noscript><a href="http://ad.doubleclick.net/jump/f.site220.tmus/computing;sz=728x90;pos=1;tile=1;ord=123456789?" target="_blank"><img src="http://ad.doubleclick.net/ad/f.site220.tmus/computing;sz=728x90;pos=1;tile=1;ord=123456789?" border="0" alt=""></a></noscript>
+				</div>
+			</div>
+		</div>
+	</section>
+	<nav id="mainNav" role="navigation">
+
+	
+	<div class="commonwrap">
+		<ul class="primary" role="menubar">
+			<li><a href="#" id="topics"><span class="trunc">Engineering </span>Topics<span class="arrow-icon">&nbsp;</span></a></li>
+			<li><a href="#" id="reports"><span class="trunc">Special </span>Reports<span class="arrow-icon">&nbsp;</span></a></li>
+			<li><a href="#" id="blogs">Blogs<span class="arrow-icon">&nbsp;</span></a></li>
+			<li><a href="#" id="multimedia">Multimedia<span class="arrow-icon">&nbsp;</span></a></li>
+			<li><a href="#" id="magazine"><span class="trunc">The </span>Magazine<span class="arrow-icon">&nbsp;</span></a></li>
+			<li><a href="#" id="resources"><span class="trunc">Professional </span>Resources<span class="arrow-icon">&nbsp;</span></a></li>
+			<li><a href="#" class="last" id="searchmenu">Search<span class="arrow-icon">&nbsp;</span></a></li>
+		</ul><!-- /.primary -->
+	</div>	
+	
+	<div class="slider collapsed" role="landmark">
+		<div id="menuCentered">
+			<div id="menuContainer"></div>
+		</div>
+	</div>
+	
+	
+</nav>
+</header>
+	
+	<div id="main" role="main">
+		<div class="wrap">
+			<section id="medium-content">
+				<article class="article-detail">
+					<ul id="breadcrumbs">
+							<li>News
+							</li>
+							<li><a href="/computing">Computing</a></li>
+							<li><a href="/computing/software">Software</a></li>
+					</ul>		
+						
+					<h1>A Faster Fast Fourier Transform</h1>
+					<h2>New algorithm crunches sparse data with speed</h2>
+						
+					<div class="metadata" role="contentinfo">
+						<div class="metadata" role="contentinfo">
+	<div class="byline">By David Schneider 
+	    <div>Posted <label style='cursor:default' datetime="">24 Feb 2012 | 18:25 GMT</label></div>
+	</div>
+
+	    <div style="float: right;" class="addthis_toolbox addthis_default_style" addthis:title="A Faster Fast Fourier Transform"> 	
+	    <ul class="inline-list article-share-options" class="addthis_toolbox addthis_default_style">
+		    <li><a href="#" class="addthis_button_compact"><span class="share icon" id="shareIconTop">&nbsp;</span><span>Share</span></a> </li>
+			<li class="sep">|</li>
+		    <li><a href="#" class="addthis_button_email"><span class="email icon">&nbsp;</span><span class="addthis_button_print">Email</span></a></li>
+			<li class="sep">|</li>
+		    <li><a href="#" class="addthis_button_print"><span class="print icon">&nbsp;</span><span>Print</span></a></li>
+		</ul>
+	</div>
+
+</div>
+		
+						
+
+<script type="text/javascript">
+var addthis_config = {
+	ui_cobrand: "IEEE Spectrum", 
+	data_track_clickback:true, 
+	ui_508_compliant: true, 
+	data_ga_property: 'UA-747464-1'
+}
+
+var addthis_share = {
+	    url_transforms: {
+	        clean: true, 
+	        shorten: {
+				twitter: 'bitly'
+		    }
+	    },
+	    shorteners: {
+			bitly: {
+				login: 'ieeespectrum',
+				apiKey: 'R_b7de0f8b69a2fad0397ee4360bf00ea4'
+			}
+		},
+		templates: { 
+			twitter: '{{title}} {{url}} via @IEEESpectrum'
+		}
+		
+}
+</script>
+
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f4cf61812d7916f"></script>
+
+
+					</div>
+
+					
+						<div id="artBody">
+							
+							<div class="articleBody entry-content">
+								<div id="artBdyImg" style="float: left; width: 216px; padding-right: 10px;">
+	<a href="/img/trans01-1330008197412.jpg" rel="lightbox" title="© 2012 IEEE Spectrum magazine"><img alt="trans01" src="/img/trans01th-1330007068789.jpg" style="width: 216px; height: 291px;" /></a>
+	<div class="artBdyImgBy" style="float: left; width: 216px; padding-right: 10px;">
+		Images and analysis: <a href="http://steveharoz.com/research/natural/index.html">Steve Haroz</a></div>
+	<div class="artBdyImgCptn" style="float: left; width: 216px; padding-right: 10px;">
+		<b>Everyday Sparsity:</b> Natural signals [top] are often &ldquo;sparse,&rdquo; which means they have relatively few frequency components of significance. A random image [bottom], however, contains significant components at all frequencies. The new fast Fourier transform algorithm accelerates calculations on sparse signals only.</div>
+	<div class="artBdyImgCptn" style="float: left; width: 216px; padding-right: 10px;">
+		<em>Click on image for a larger view.</em></div>
+</div>
+<p>
+	<a href="http://www-math.mit.edu/~gs/">Gilbert Strang</a>, author of the classic textbook <em>Linear Algebra and Its Applications</em>, once referred to the fast Fourier transform, or <a href="http://mathworld.wolfram.com/FastFourierTransform.html">FFT</a>, as &ldquo;the most important numerical algorithm in our lifetime.&rdquo; No wonder. The FFT is used to process data throughout today&rsquo;s highly networked, digital world. It allows computers to efficiently calculate the different frequency components in time-varying signals&mdash;and also to reconstruct such signals from a set of frequency components. You couldn&rsquo;t log on to a Wi-Fi network or make a call on your cellphone without it. So when some of Strang&rsquo;s MIT colleagues announced in January at the <a href="http://www.siam.org/meetings/da12/">ACM-SIAM Symposium on Discrete Algorithms</a> that they had developed ways of substantially speeding up the calculation of the FFT, lots of people took notice.  </p>
+<p>
+	&ldquo;FFTs are run billions of times a day,&rdquo; says <a href="http://web.ece.rice.edu/richb/">Richard Baraniuk</a>, a professor of electrical and computer engineering at Rice University, in Houston, and an expert in the emerging field of compressive sensing, which has much in common with the approaches now being applied to speed up the calculation of FFTs. </p>
+<p>
+	Efforts to improve the calculation of Fourier transforms have a long and generally overlooked history. While most engineers associate the FFT with the procedure James Cooley of IBM and John Tukey of Princeton described in 1965, specialists recognize that it has much deeper roots. Although he never published it, the renowned German mathematician <a href="http://www-history.mcs.st-and.ac.uk/Biographies/Gauss.html">Carl Friedrich Gauss</a> had worked out the basic approach, probably as early as 1805&mdash;predating, remarkably enough, even Fourier&rsquo;s own work on the topic. </p>
+<p>
+	Given that great mathematical minds have been thinking about how to speed up this particular calculation for more than two centuries, how is it that progress is still being made? The fundamental reason is that the newer methods are tailored to run fast for only some signals&mdash;ones that are termed &ldquo;sparse&rdquo; because they contain a relatively small number of frequency components of significant size. The traditional FFT takes the same amount of computational time for any signal. </p>
+<p>
+	&ldquo;Certainly there are applications where you need to run the full FFT because the data are not sparse at all,&rdquo; says <a href="http://people.csail.mit.edu/indyk/">Piotr Indyk</a> of MIT&rsquo;s Computer Science and Artificial Intelligence Laboratory, who developed the new algorithms in collaboration with his colleague <a href="http://nms.csail.mit.edu/~dina/">Dina Katabi</a> and two students, <a href="http://people.csail.mit.edu/haitham/">Haitham Hassanieh</a> and <a href="http://www.csail.mit.edu/user/1669">Eric Price</a>. Fortunately, many real-world signals satisfy this sparsity requirement.  </p>
+<p>
+	&ldquo;Most signals are sparse,&rdquo; says Katabi, who points out that when you send, say, a video file over wireless channels, transmitting only a few percent of the frequency content is typically sufficient&mdash;and in line with the sparsity levels that her group&rsquo;s new algorithms handle well. Baraniuk adds that the frequency content of many natural signals, be they astronomical images or bird chirps, tends to be concentrated among the lower frequencies. &ldquo;Sparsity is everywhere,&rdquo; he says. </p>
+<div id="artBdyImg" style="float: left; width: 464px; padding-right: 10px;">
+	<img alt="trans01v2" src="/img/trans02-1330358743164.jpg" style="width: 464px; height: 280px;" />
+	<div class="artBdyImgBy" style="float: left; width: 464px; padding-right: 10px;">
+		Source: MIT CSAIL</div>
+	<div class="artBdyImgCptn" style="float: left; width: 464px; padding-right: 10px;">
+		<b>Speedy:</b> A new algorithm computes quickly when the signal it&rsquo;s working on has few important frequency components. These results are for an FFT with 2 <sup>22</sup> samples.</div>
+	<p>
+		The newest MIT algorithm, which is described in a soon-to-be-published paper, beats the traditional FFT so long as the number of frequency components present is a single-digit percentage of the number of samples you take of the signal. It works for any signal, but it works faster than the FFT only under those conditions, says Indyk.  </p>
+	<p>
+		Experts say the new algorithms coming from MIT represent considerable progress. &ldquo;They&rsquo;ve added some very smart ideas to the recipe,&rdquo; says <a href="http://www.math.duke.edu/~markiwen/">Mark Iwen</a> of Duke University, in Durham, N.C., who had earlier worked on the same problem with <a href="http://www.math.lsa.umich.edu/~annacg/">Anna Gilbert</a> and <a href="http://www.eecs.umich.edu/~martinjs/">Martin Strauss</a> at the University of Michigan. The time it takes Iwen&rsquo;s best FFT algorithm to run increases in proportion to the fourth power of the logarithm of the number of samples, whereas the newest MIT algorithm has a run time that&rsquo;s proportional to just the first power of that number. &ldquo;Removing those log factors is incredibly difficult,&rdquo; says Iwen, who also credits the MIT group for coming up with impressively fast computer implementations of their new algorithms. </p>
+	<p>
+		Indyk points out that the <a href="http://fftw.org/">library of code</a> his group (and many engineers) uses to calculate the traditional FFT was released in the 1990s&mdash;three decades after Cooley and Tukey had worked out the basic computer procedures required. &ldquo;We don&rsquo;t plan to spend 30 years developing a library,&rdquo; he says. &ldquo;We plan to release our prototype code soon; researchers can just play with it and see what happens.&rdquo; Then, in something like six months, the MIT group should be able to provide a well-tested, portable library.  </p>
+	<p>
+		Why so long? &ldquo;Developing decent code takes time,&rdquo; Indyk says. But there&rsquo;s another thing, he points out, that&rsquo;s bound to delay their release of a well-tested software library: &ldquo;Every month or two we have a new idea.&rdquo;  </p>
+	<p>
+		<em>Special thanks to Steve Haroz for the images and their Fourier transform analysis.</em></p>
+	<p>
+		<em>The graph in this story was corrected on 27 February.</em></p>
+</div>
+<p>
+	&nbsp;</p>
+
+							</div>
+						</div>
+					
+					
+					
+<section class="learn-more" role="menu">
+     <h5>Learn More</h5>
+     
+
+ <style>
+  u {
+	text-decoration: none;
+  }
+</style>
+<span style="text-decoration:underlined;">
+	
+	
+		<a href="/tag/FFT">FFT</a>
+	     
+	
+		<a href="/tag/algorithm">algorithm</a>
+	     
+	
+		<a href="/tag/fast+fourier+transform">fast fourier transform</a>
+	     
+	
+		<a href="/tag/sparse+code">sparse code</a>
+	     
+	
+		<a href="/tag/sparse+data">sparse data</a>
+	    
+	
+
+</span>
+</section>
+
+<section id="bottom-share-tools" class="bold-anchor" role="menu">  
+	<div class="metadata" role="contentinfo">
+
+		<div class="social-widget facebook">
+			<a class="addthis_button_facebook_like" fb:like:layout="box_count"></a>
+ 		</div>
+		<div class="social-widget twitter">
+			<a class="addthis_button_tweet" tw:count="vertical"></a> 
+		</div>
+		<div class="social-widget linkedin">
+			<a class="addthis_button_linkedin_counter" li:counter="top"></a> 
+		</div>
+		<div style="float:right;" class="addthis_toolbox addthis_default_style" addthis:title="A Faster Fast Fourier Transform">  
+			<ul class="inline-list article-share-options">
+				<li><a href="#" class="addthis_button_compact"><span class="share icon" id="shareIconTop">&nbsp;</span><span>Share</span></a> </li>
+				<li class="sep">|</li>
+				<li><a href="#" class="addthis_button_email" title="Email"><span class="email icon">&nbsp;</span><span class="addthis_button_print">Email</span></a></li>
+				<li class="sep">|</li>
+				<li><a href="#" class="addthis_button_print" title="Print"><span class="print icon">&nbsp;</span><span>Print</span></a></li>
+			</ul>                
+			<div class="atclear"></div>
+		</div>
+	</div>
+</section>
+<section id="comments-section" role="complementary">
+  <div class="split">
+    <div class="column">
+      <h6 class="section-title">Comments</h6>
+    </div>
+    <div class="column last align-right">
+      <div class="policy"><a href="/static/comment-policy">Comment Policy</a></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div id="disqus_thread"></div>
+
+<script type="text/javascript">
+  var disqus_shortname = 'ieeespectrum';
+  var disqus_identifier = '/computing/software/a-faster-fast-fourier-transform';
+  var disqus_title = 'A Faster Fast Fourier Transform';
+  var disqus_url = 'http://spectrum.ieee.org/computing/software/a-faster-fast-fourier-transform';
+
+  
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the &lt;a
+  href="http://disqus.com/?ref_noscript"&gt;comments powered by
+  Disqus.&lt;/a&gt;</noscript>
+  <a href="http://disqus.com" class="dsq-brlink">Comments powered
+by <span class="logo-disqus">Disqus</span></a>
+</section>
+				
+				</article>
+			</section>
+			<section id="iso-content">
+				<div class="articles" role="article">
+					<article class="item sml_article ad-item-related corner-item recent-item" style="width: 300px; height: 270px;" >
+	<div class="ad-module"><div class="adtext">Advertisement</div><script type="text/javascript">
+if(typeof(cachebuster) == "undefined"){var cachebuster = Math.floor(Math.random()*10000000000)}
+if(typeof(tile) == "undefined"){var tile = 1} else {tile++}
+document.write('<scr'+'ipt src="http://ad.doubleclick.net/adj/f.site220.tmus/computing;pos=1;tile=' + tile + ';sz=300x250;ord=' + cachebuster + '?"></scr'+'ipt>');
+</script>
+<noscript><a href="http://ad.doubleclick.net/jump/f.site220.tmus/computing;pos=1;sz=300x250;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/f.site220.tmus/computing;pos=1;sz=300x250;ord=123456789?" border="0" alt="" /></a></noscript></div>
+</article>
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/view-from-the-valley/computing/software/the-oscar-goes-to-engineer-larry-hornbeck-and-his-digital-micromirrors"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/08-vvFuLv0XY2AcMj8iA0ww-1424401785559.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>The Oscar Goes to… Engineer Larry Hornbeck and His Digital Micromirrors</h3>					
+            <p>A Texas Instruments engineer receives the Academy of Motion Pictures’ highest honor; developers of facial motion capture and algorithms for blowing up buildings also honored<span class="pubDate"><time>20&nbsp;Feb</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/computing/software/the-language-of-ebooks"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/5sazf-KlDh1Y4czU5MJbo4w-1421946222996.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>The Language of E-books</h3>					
+            <p>Competing formats and incompatible devices have spawned a complex lexicon<span class="pubDate"><time>28&nbsp;Jan</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/tech-talk/computing/software/mits-planning-algorithms-are-like-siri-except-creative-and-helpful"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/8AVUmAfaCa5j0DnAhkk-N0Q-1421963827942.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>MIT's Planning Algorithms are Like Siri, Except Creative and Helpful</h3>					
+            <p>Siri, Cortana, and other virtual assistants are good at doing what you tell them, but MIT's algorithms could make them clever on their own<span class="pubDate"><time>22&nbsp;Jan</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/tech-talk/computing/software/fighting-ebola-with-simulations-and-algorithms"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/2a2ndIrE_6GUtMCct-ZPmxQ-1421337039546.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>Fighting Ebola with Simulations and Algorithms</h3>					
+            <p>Researchers receive NSF grant to improve computational models of an Ebola epidemic<span class="pubDate"><time>15&nbsp;Jan</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/tech-talk/computing/software/computers-conquer-texas-holdem-poker-for-first-time"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/9Oki2brPB9y1XGDmQZKnB8A-1420674821943.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>Computers Conquer Texas Hold'em Poker for First Time</h3>					
+            <p>A computer algorithm's triumph over the Texas Hold'em card game could lead to real-world security applications<span class="pubDate"><time>8&nbsp;Jan</time></span></p>
+    	</a>
+    </article>
+<article class="item sml_article ad-item  recent-item" style="width: 300px; height: 620px;" >
+	<div class="ad-module"><div class="adtext">Advertisement</div><script type="text/javascript">
+if(typeof(cachebuster) == "undefined"){var cachebuster = Math.floor(Math.random()*10000000000)}
+if(typeof(tile) == "undefined"){var tile = 1} else {tile++}
+document.write('<scr'+'ipt src="http://ad.doubleclick.net/adj/f.site220.tmus/computing;tile=' + tile + ';sz=300x600;ord=' + cachebuster + '?"></scr'+'ipt>');
+</script>
+<noscript><a href="http://ad.doubleclick.net/jump/f.site220.tmus/computing;sz=300x600;ord=123456789?" target="_blank" ><img src="http://ad.doubleclick.net/ad/f.site220.tmus/computing;sz=300x600;ord=123456789?" border="0" alt="" /></a></noscript></div>
+</article>
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/tech-talk/computing/software/iowa-wants-smartphone-app-to-replace-drivers-license"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/87vG0Y2vkGdehCREHY8hkpg-1418920950002.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>Iowa Wants Smartphone App to Replace Driver's Licenses</h3>					
+            <p>Iowa's plan to allow digital driver's licenses may raise new privacy and security risks<span class="pubDate"><time>19&nbsp;Dec&nbsp;2014</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/tech-talk/computing/software/skypes-realtime-translator-previews-english-and-spanish"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/8Luh0MCLbqWsz1AywPZLXuQ-1418790255297.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>Skype's Real-Time Translator Previews English and Spanish</h3>					
+            <p>Skype's translation service for spoken conversations kicks off the first preview phase<span class="pubDate"><time>17&nbsp;Dec&nbsp;2014</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/tech-talk/computing/software/rethinking-databases-for-an-avalanche-of-genetic-data"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/2j68StvQ779Db0IrtwNr37A-1415389655337.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>Rethinking Databases for an Avalanche of Genetic Data</h3>					
+            <p>DeCODE Genetics in Iceland is on a mission, sequencing thousands of Icelanders to help fight disease. How are they dealing with the data?<span class="pubDate"><time>7&nbsp;Nov&nbsp;2014</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing videomodule"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/video/computing/software/transform-your-photos-with-a-magic-word"> 
+            <span class="videoicon">&nbsp;</span>
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/5kL-cczhg77kBKwDpPnBa9A-1413570056466.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>Transform Your Photos with a Magic Word</h3>					
+            <p>This photo editor morphs your rainy pictures into sunny days with attribute algorithms<span class="pubDate"><time>23&nbsp;Oct&nbsp;2014</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/computing/software/skypes-real-time-translator-learns-how-to-speak-from-social-media"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/3znhQi42qfKLpAu-bHeZVAg-1408715438618.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>Skype’s Real-Time Translator Learns How to Speak From Social Media</h3>					
+            <p>The quirky cant of Twitter and Facebook helped Microsoft build the tools for its real-time translator<span class="pubDate"><time>22&nbsp;Aug&nbsp;2014</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/tech-talk/computing/software/cybersecurity-center-mathematical-obfuscation"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/7vWmBaat9ghQJ6lqy5CnZEw-1407957847189.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>Mathematical Obfuscation Against Hackers Is Focus of New Cybersecurity Center</h3>					
+            <p>Researchers hope obfuscation methods will protect software from hackers<span class="pubDate"><time>14&nbsp;Aug&nbsp;2014</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/tech-talk/computing/software/google-searches-predict-politics-stock-market"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/0qh7iBKJ-1YXiYpb6iiqd9w-1406660980378.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>Google Searches About Politics Predict the Stock Market</h3>					
+            <p>But the connection is weakening<span class="pubDate"><time>30&nbsp;Jul&nbsp;2014</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/view-from-the-valley/computing/software/a-madefortv-compression-metric-moves-to-the-real-world"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/6qnLExndK-wmTeZoqdT7u5A-1406515986960.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>A Fictional Compression Metric Moves Into the Real World</h3>					
+            <p>The Weissman Score, a compression algorithm metric created for HBO's Silicon Valley, is making its way into the real world<span class="pubDate"><time>28&nbsp;Jul&nbsp;2014</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/view-from-the-valley/computing/software/a-madefortv-compression-algorithm"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/5eMZ1e8wcHsYVRH_jT8mdiw-1406226043867.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>A Made-For-TV Compression Algorithm</h3>					
+            <p>Stanford’s Tsachy Weissman and Vinith Misra created a fictional, but plausible, compression algorithm for HBO’s Silicon Valley comedy series<span class="pubDate"><time>25&nbsp;Jul&nbsp;2014</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/computing/software/browser-fingerprinting-and-the-onlinetracking-arms-race"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/6qbKUZrk7o9I6QbGWMOAX3w-1405516620752.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>Browser Fingerprinting and the Online-Tracking Arms Race</h3>					
+            <p>Web advertisers are stealthily monitoring our browsing habits—even when we tell them not to<span class="pubDate"><time>25&nbsp;Jul&nbsp;2014</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/tech-talk/computing/software/camerafilled-dome-recreates-full-3d-motion-scenes"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/2Ivya6WSFU-UspVRwy8CuaA-1406124325054.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>Camera-Filled Dome Recreates Full 3-D Motion Scenes</h3>					
+            <p>The same technique could theoretically recreate scenes captured by hundreds of spectator cameras<span class="pubDate"><time>23&nbsp;Jul&nbsp;2014</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/computing/software/top-10-programming-languages"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/4xRxAnhtqmDlF9YNziEgCYQ-1403644005849.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>Top 10 Programming Languages</h3>					
+            <p>Spectrum’s 2014 Ranking<span class="pubDate"><time>19&nbsp;Jul&nbsp;2014</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/tech-talk/computing/software/motion-capture-technology-goes-into-the-wild-for-dawn-of-the-planet-of-the-apes"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/6NRzt7QttRsmFz84sL8nVtA-1404924668837.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>Motion Capture Technology Goes Into the Wild for Dawn of the Planet of the Apes</h3>					
+            <p>Weta Digital takes motion capture systems out of the movie studio and into the woods<span class="pubDate"><time>10&nbsp;Jul&nbsp;2014</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/static/interactive-the-top-programming-languages"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/2yL4wrpmfLWQHoYVtFfXtmQ-1403643879820.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>Interactive: The Top Programming Languages</h3>					
+            <p>IEEE Spectrum’s 2014 Ranking<span class="pubDate"><time>3&nbsp;Jul&nbsp;2014</time></span></p>
+    	</a>
+    </article>
+
+    <article class="item sml_article related-item recent-item computing"  >
+        <span class="blur">&nbsp;</span>
+        <a href="/podcast/computing/software/combing-sensors-and-rewards-for-good-behavior-with-nudge-engines"> 
+            
+            <figure>
+                <div class="shade">&nbsp;</div>
+                <img class="lazy" src="/assets/img/x.gif" data-original="/img/0_eGWAMTiR-STo8xg4txEJg-1402937103398.jpg" width="300" height="225"/>
+                <figcaption>Computing</figcaption>
+            </figure>
+            <h3>Combing Sensors and Rewards for Good Behavior with “Nudge Engines”</h3>					
+            <p>Balaji Prabhakar’s technology can produce less-crowded streets and healthier employees<span class="pubDate"><time>17&nbsp;Jun&nbsp;2014</time></span></p>
+    	</a>
+    </article>
+
+				</div>
+			</section>
+		</div>
+	</div>
+	
+	
+
+	<footer id="global-footer" role="landmark">
+
+	
+    <div id="topFooter" role="region" >
+        <div class="commonwrap" role="section">
+            <a href="/">
+                
+                <img class="footerLogo lazy" src="/assets/img/x.gif" data-original="/assets/img/footer-logo.png" alt="IEEE Spectrum logo" width="270" role="img" />
+            </a>
+            <div id="footerTopMenu" role="navigation">
+                <ul class="topics" role="menu">
+                    <h4 role="heading">Topics</h4>
+                    
+                    <li role="menuitem"><a href="/aerospace">Aerospace</a></li>
+                    <li role="menuitem"><a href="/at-work">At Work</a></li>
+                    <li role="menuitem"><a href="/biomedical">Biomedical</a></li>
+                    <li role="menuitem"><a href="/computing">Computing</a></li>
+                    <li role="menuitem"><a href="/energy">Energy</a></li>
+                    <li role="menuitem"><a href="/gadgets">Gadgets</a></li>
+                    <li role="menuitem"><a href="/geek-life">Geek Life</a></li>
+                    <li role="menuitem"><a href="/robotics">Robotics</a></li>
+                    <li role="menuitem"><a href="/semiconductors">Semiconductors</a></li>
+                    <li role="menuitem"><a href="/telecom">Telecom</a></li>
+                </ul>
+
+                <ul class="social-links" role="menu">
+                    <h4 role="heading">Connect</h4>
+                    <li role="menuitem"><a href="http://www.facebook.com/IEEE.Spectrum" class="icn-sml" target="_blank"><span class="faceBook"></span>Facebook</a></li>
+                    <li role="menuitem"><a href="http://twitter.com/#!/IEEESpectrum" class="icn-sml" target="_blank"><span class="twitter"></span>Twitter</a></li>
+					<li role="menuitem"><a href="http://www.linkedin.com/groups/IEEE-Spectrum-1982451?home=&gid=1982451&trk=anet_ug_hm" class="icn-sml" target="_blank"><span class="linkedIn"></span>LinkedIn</a></li>
+                    <li role="menuitem"><a href="https://plus.google.com/105079317383160047042/posts" class="icn-sml" target="_blank"><span class="google"></span>Google+</a></li>
+                    <li role="menuitem"><a href="/static/rss" class="icn-sml" target="_blank"><span class="rssFeed"></span>RSS</a></li>
+                </ul>
+
+                <ul class="spectrum-footer-links" role="menu">
+                    <h4 role="heading">IEEE Spectrum</h4>
+                    <li role="menuitem"><a href="/static/contactus">Contact Us</a></li>
+                    <li role="menuitem"><a href="/static/aboutus">About</a></li>
+                    <li role="menuitem"><a href="/static/newsletters">Newsletters</a></li>
+                    <li role="menuitem"><a href="http://m.spectrum.ieee.org/">Mobile Site</a></li>
+                    <h4 class="footerTitle" role="heading">IEEE Partners</h4>
+                    <li role="menuitem"><a href="http://advertise.ieee.org">Advertising &amp; Media Center</a></li>
+                    <li role="menuitem"><a href="http://careers.ieee.org/">IEEE Job Site</a></li>
+                    <li role="menuitem"><a href="http://spectrumsuppliermarketplace.com/">Buyer&rsquo;s Guide</a></li>
+                </ul>
+
+                <ul class="magazine-links" role="menu">
+                    <h4 role="heading">The Magazine</h4>
+                    <li role="menuitem"><a href="/magazine"><img class="lazy" src="/assets/img/x.gif" data-original="/img/03Cover-100px-1425049116568.jpg" width="100" height="133" alt="Magazine cover image"></a></li>
+                    <li role="menuitem"><a href="/static/readerservices">Subscribe Now</a></li>
+                    <li role="menuitem"><a href="http://www.qmags.com/subscribers">Digital Download</a></li>
+                </ul>
+            </div>
+
+            <ul id="footerCopy">
+                <li id="copyrightTag" role="contentinfo">&copy; Copyright 2015 IEEE Spectrum</li>
+                <li role="menu" id="policyNav"><a href="http://www.ieee.org/site_terms_conditions.html">Terms &amp; Conditions</a> | <a href="http://www.ieee.org/privacy">Privacy &amp; Opting Out of Cookies</a> | <a href="http://www.ieee.org/accessibility_statement.html">Accessibility</a> | <a href="http://www.ieee.org/nondiscrimination">Nondiscrimination Policy</a></li>
+            </ul>
+        </div>
+    </div>
+
+	
+    <div id="subFooter" role="navigation">
+        <div class="commonwrap" role="region">
+            <a href="http://www.ieee.org">
+                
+                <img class="footerLogo lazy" src="/assets/img/x.gif" data-original="/assets/img/ieee-logo.png" width="142" height="41" alt="IEEE logo" role="img" />
+            </a>
+
+            <div id="footerSubMenu" role="section">
+                <ul role="menu">
+                    <li role="menuitem"><a href="http://www.ieee.org/about/index.html">About IEEE</a></li>
+                    <li role="menuitem"><a href="http://www.ieee.org/conferences_events/index.html">Conferences &amp; Events</a></li>
+                    <li role="menuitem"><a href="http://www.ieee.org/education_careers/index.html">Education &amp; Careers</a></li>
+                </ul>
+
+                <ul role="menu">
+                    <li role="menuitem"><a href="http://www.ieee.org/membership_services/index.html">Membership &amp; Services</a></li>
+                    <li role="menuitem"><a href="http://www.ieee.org/publications_standards/index.html">Publications and Standards</a></li>
+                    <li role="menuitem"><a href="http://www.ieee.org/societies_communities/index.html">Societies &amp; Communities</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+	
+
+<script src="/assets/js/libs/plugins.js"></script>
+<script src="/assets/js/libs/jquery.isotope.min.js"></script>
+<script src="/assets/js/slimbox2.min.js"></script>
+
+<script src="/assets/js/libs/autoload.js"></script>
+<script src="/assets/js/masonry-ads-right.min.js"></script>
+<script src="/assets/js/libs/spin.min.js"></script>
+<script src="/assets/js/libs/jquery-lazyload/jquery.lazyload.min.js"></script>
+<script src="/assets/js/libs/jquery.touchwipe.min.js"></script>
+
+<script src="/assets/js/libs/jquery.fitvids.js"></script>
+<script src="/assets/js/script6.js"></script>
+
+
+
+<script type="text/javascript">
+function ss_track(slideshow_image, image_number, image_name, image_caption, path_to_assets){
+	//console.log(slideshow_image);
+	 _gaq.push(['_setAccount', 'UA-747464-1']);
+	 _gaq.push(['_trackEvent','Slideshows', 'Change Slide', '', image_number, true]);
+}
+</script>
+
+<!-- START Parse.ly Include: Standard -->
+<div id="parsely-root" style="display: none">
+<div id="parsely-cfg" data-parsely-site="spectrum.ieee.org"></div>
+</div>
+<script>
+(function(s, p, d) {
+var h=d.location.protocol, i=p+"-"+s,
+e=d.getElementById(i), r=d.getElementById(p+"-root"),
+u=h==="https:"?"d1z2jf7jlzjs58.cloudfront.net"
+:"static."+p+".com";
+if (e) return;
+e = d.createElement(s); e.id = i; e.async = true;
+e.src = h+"//"+u+"/p.js"; r.appendChild(e);
+})("script", "parsely", document);
+</script>
+<!-- END Parse.ly Include -->
+
+
+<script type="text/javascript">
+  var _bizo_data_partner_id = "473";
+  var _bizo_p = (("https:" == document.location.protocol) ? "https://sjs." : "http://js.");
+  document.write(unescape("%3Cscript src='" + _bizo_p + "bizographics.com/convert_data.js?partner_id=" + _bizo_data_partner_id + "' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+	<!-- begin static module global-footer-spectrum4 --><script type="text/javascript" src="https://api.swishu.com/publisher/page/load?website_key=TXyQ25oi0jN5"></script>
+<script type="text/javascript">swishu.init();</script>
+
+<!-- end static module -->
+</body>
+</html>

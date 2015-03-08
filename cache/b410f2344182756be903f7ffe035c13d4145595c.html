@@ -1,0 +1,241 @@
+undefined<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>SQL Tutorial: Web programming with PHP and MySQL</title>
+<meta name="description" content="This SQL tutorial is based on real examples, written in PHP. The syntax and command of SQL are explained through short articles with ready to use code.">
+<link type="text/css" href="../scriptol.css" rel="stylesheet">
+<style>
+ul a, ul a:visited, ul a:active, ul a:link  {
+	font-size:16px;
+	font-height:24px;
+	text-decoration:none;
+}
+h1 {
+	font-size:20px;
+}	
+</style>
+</head>
+<body>
+
+<div id="saat">
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-6574971-2";
+</script>
+</div>
+ 
+<div id="logo"> 
+<a href="http://www.scriptol.com/"><div id="logoimage"> </div></a>
+<div id="searchbox"><button class="graybutton" onclick=
+"location.href='http://www.scriptol.com/dictionary.php'">Dictionary</button></div>
+<div id="topmenu">
+<div id="toplist">
+<span class="tentry"><a href="http://www.scriptol.com/ajax/" target="_top">Ajax</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/cms/" target="_top">CMS</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/design/" target="_top">Design</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/how-to/" target="_top">How to</a></span>  
+<span class="tentry"><a href="http://www.scriptol.com/html5/" target="_top">HTML 5</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/javascript/" target="_top">JavaScript</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/mobile/" target="_top">Mobiles</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/programming/" target="_top">Programming</a></span>  
+<span class="tentry"><a href="http://www.scriptol.com/rss/" target="_top">RSS</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/sql/" target="_top">SQL</a></span> 	  
+<span class="tentry"><a href="http://www.scriptol.com/scripts/" target="_top">Scripts</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/software/" target="_top">Software</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/getting-started/" target="_top">Webmaster</a></span>
+</div>
+</div>
+
+</div><div id="menupanel">
+
+<div class="menu">
+<div class="menutitle">
+  <a href="http://www.scriptol.com/sql/" target="_top">SQL TUTORIAL</a></div>
+<div class="menulist">
+  <a href="http://www.scriptol.com/sql/sql-introduction.php" target="_top">Overview</a><br>
+  <a href="http://www.scriptol.com/sql/sql-environment.php" target="_top">SQL Environment</a><br>
+  <a href="http://www.scriptol.com/sql/sql-table.php" target="_top">Tables and files</a><br>
+  <a href="http://www.scriptol.com/sql/sql-first-program.php" target="_top">First program</a><br>
+  <a href="http://www.scriptol.com/sql/interface.php">Interface</a><br>
+  <a href="http://www.scriptol.com/sql/sqlite-tutorial.php" target="_top">SQLite tutorial</a> 
+</div>
+</div>
+
+<div class="menu">
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:inline-block;width:180px;height:90px"
+     data-ad-client="ca-pub-2681794164750401"
+     data-ad-slot="5844506056"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div class="menu">
+<div class="menutitle">TUTORIALS</div>
+<div class="menulist">
+ <a href="http://www.scriptol.com/cms/building-a-cms.php" target="_top">Building a CMS</a><br>
+ <a href="http://www.scriptol.com/ajax/ria.php" target="_top">RIA</a>
+</div>
+</div>
+
+
+</div>
+
+
+
+<div id="content"> 
+<h1>
+<svg width="440px" height="80px">
+  <linearGradient id="shaded" x1="0" x2="0" y1="0" y2="1">
+    <stop offset="10%" stop-color="#6ae" stop-opacity="0"/>
+    <stop offset="80%" stop-color="#069" />
+  </linearGradient>
+  <text font-size="64" fill="url(#shaded)" stroke="#006" stroke-width="1px"
+      x="64px" y="48px"  font-family="Rondalo, Arial">
+  SQL Tutorial
+  </text>
+</svg>
+<br>Web programming with PHP and MySQL
+</h1>  
+  
+  <p>First manual to start with SQL, you should be able to modify the code of 
+    a CMS.</p>
+<fieldset><legend>SQL Tutorial</legend>
+<ul class="la">
+  <p><a href="http://www.scriptol.com/sql/sql-introduction.php" target="_top">Introduction: What is SQL and SQL injection?</a><br>
+  Presenting this query language.</p>
+  <p><a href="http://www.scriptol.com/sql/sql-environment.php" target="_top">Building an SQL Environment</a><br>
+    To run the examples, we have to verify that the host supports PHP and MySQL 
+  and we will also install a local server.</p>
+  <p><a href="http://www.scriptol.com/sql/sql-table.php" target="_top">Tables and files</a><br>
+    Data from a file are stored in the database as a table. A table is made of 
+  field, the columns, and records, the rows.</p>
+  <p><a href="http://www.scriptol.com/sql/interface.php" target="_top">Creating a query interface</a><br>
+  Model of interface to send requests to a database.  </p>
+  <p><a href="http://www.scriptol.com/sql/sql-first-program.php" target="_top">First SQL program with PHP 
+    and MySQL</a><br>
+    All the step for using a database, from the creation to the reading, and 
+    adding data. This tutorial is based on simple PHP example on a MySQL server. 
+    These can work locally on remotely.</p>
+  <p><a href="users.php" target="_top">One page SQL tutorial: User management</a><br>
+    The study of SQL commands to create and manage a file of registered members  exposes most of the SQL commands in action.</p>
+  <p><a href="table-commands.php" target="_top">All SQL commands to modify a table</a><br>
+  List of commands to modify the structure of a table and change the columns.. </p>
+  <p><a href="describe.php" target="_top">SHOW and DESCRIBE commands</a><br>
+    To display the internal structure of a database, and its columns.</p>
+</ul>	
+</fieldset>
+
+<fieldset><legend>SQLite</legend>
+<ul class="la">
+    <p><a href="http://www.scriptol.com/sql/sqlite-tutorial.php" target="_top">SQLite tutorial in PHP</a><br>
+    Building SQL application without MySQL.</p>
+</ul>	
+</fieldset>
+
+<fieldset><legend>Applications</legend>
+<ul class="la">
+    <p><a href="http://www.scriptol.com/sql/punbb-threads-on-home-page.php" target="_top"><em><strong>fluxBB</strong></em> : Last threads of a forum on the home page</a>.</p>
+    <p><a href="http://www.scriptol.com/sql/displaying-phpbb-titles-on-home-page.php" target="_top"><em><strong>phpBB</strong></em> : Displaying 
+      titles of last threads on the home page</a>.</p>
+    <p><a href="http://www.scriptol.com/wordpress/sidepress.php" target="_top">Displaying title 
+      and summary of last post in Wordpress</a>.</p>
+</ul>	  
+</fieldset>
+   
+<fieldset><legend>Scripts</legend>
+<ul class="la">
+    <p><a href="check-table.php" target="_top">How to test the integrity of  tables in a MySQL database</a>.<br>
+    Works directly on Wordpress, phpBB and FluxBB.</p>
+    <p><a href="form-to-table.php" target="_top">Generating an SQL table directly from a form</a>.<br>
+Easing the development phase. </p>
+</ul>
+</fieldset>
+ 
+  <p><em>Resources  </em></p>
+  <ul class="la">
+    <li>
+      <p><a href="http://www.scriptol.com/sql/frameworks.php" target="_top">PHP and SQL frameworks</a><br>
+      Simplifying the use of a database and reusable Web application components. </p>
+    </li>
+  </ul>
+
+
+<div class="pub">
+<script type="text/javascript"><!--
+google_ad_client = "pub-2681794164750401";
+google_ad_slot = "0934517442";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+
+<div class="container">
+<table class="social">
+<tr>
+ <td>
+<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+ </td>
+ <td>
+<g:plusone count="false"></g:plusone>
+<script type="text/javascript">
+  (function() {
+	var po = document.createElement('script'); po.type = 'text/javascript'; 
+	po.async = true;
+	po.src = 'https://apis.google.com/js/plusone.js';
+	var s = document.getElementsByTagName('script')[0]; 
+	s.parentNode.insertBefore(po, s);
+  })();
+</script>
+ </td>
+
+ <td>
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.scriptol.com%2Fsql%2F&amp;send=false&amp;layout=button_count&amp;width=54&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+ </td>
+ 
+<td>
+<script src="http://platform.linkedin.com/in.js" type="text/javascript"></script>
+<script type="IN/Share"></script>
+</td> 
+ 
+</tr>
+</table>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'scriptol';
+(function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+<div id="footer"> &copy; 2010-2012  <a href="http://www.scriptol.com/sql/" target="_top">Scriptol.com</a></div>
+    
+</div>
+
+<div id="sea">
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-6574971-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</div>
+<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
+</body>
+</html>

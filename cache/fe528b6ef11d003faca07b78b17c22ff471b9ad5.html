@@ -1,0 +1,569 @@
+undefined<!DOCTYPE html>
+<html lang="zh" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>数据结构 - 维基百科，自由的百科全书</title>
+<meta name="generator" content="MediaWiki 1.25wmf19" />
+<link rel="alternate" type="application/x-wiki" title="编辑本页" href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;action=edit" />
+<link rel="edit" title="编辑本页" href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;action=edit" />
+<link rel="apple-touch-icon" href="//bits.wikimedia.org/apple-touch/wikipedia.png" />
+<link rel="shortcut icon" href="//bits.wikimedia.org/favicon/wikipedia.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (zh)" />
+<link rel="EditURI" type="application/rsd+xml" href="//zh.wikipedia.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="zh" href="/zh/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" />
+<link rel="alternate" hreflang="zh-Hans" href="/zh-hans/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" />
+<link rel="alternate" hreflang="zh-Hant" href="/zh-hant/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" />
+<link rel="alternate" hreflang="zh-CN" href="/zh-cn/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" />
+<link rel="alternate" hreflang="zh-HK" href="/zh-hk/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" />
+<link rel="alternate" hreflang="zh-MO" href="/zh-mo/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" />
+<link rel="alternate" hreflang="zh-SG" href="/zh-sg/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" />
+<link rel="alternate" hreflang="zh-TW" href="/zh-tw/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" />
+<link rel="alternate" hreflang="x-default" href="/wiki/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" />
+<link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="Wikipedia的Atom feed" href="/w/index.php?title=Special:%E6%9C%80%E8%BF%91%E6%9B%B4%E6%94%B9&amp;feed=atom" />
+<link rel="canonical" href="http://zh.wikipedia.org/w/index.php?title=数据结构&amp;amp;oldid=26682678" />
+<link rel="stylesheet" href="//bits.wikimedia.org/zh.wikipedia.org/load.php?debug=false&amp;lang=zh&amp;modules=ext.gadget.AdvancedSiteNotices%2CFixedTopBottomLink%2CNavFrame%2CReferenceTooltips%2CUnihanTooltips%2CWikiMiniAtlas%2CcollapsibleTables%2Cedit0%2ChideConversionTab%2CinternalLinkHelper-altcolor%2CnoteTA%2CnoteTAvector%2Cvariant-link-fix%7Cext.uls.nojs%7Cext.visualEditor.viewPageTarget.noscript%7Cext.wikihiero%2CwikimediaBadges%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="//bits.wikimedia.org/zh.wikipedia.org/load.php?debug=false&amp;lang=zh&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: zhwiki:resourceloader:filter:minify-css:7:a13f9f0382ae47ff093d83d6284c8a1c */</style>
+<script src="//bits.wikimedia.org/zh.wikipedia.org/load.php?debug=false&amp;lang=zh&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"数据结构","wgTitle":"数据结构","wgCurRevisionId":26682678,"wgRevisionId":26682678,"wgArticleId":114,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["含有英語的條目","计算机科学","理论计算机科学","数据结构"],"wgBreakFrames":false,"wgPageContentLanguage":"zh","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"zh","wgMonthNames":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgMonthNamesShort":["","1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],"wgRelevantPageName":"数据结构","wgRelevantArticleId":114,"wgUserVariant":"zh","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"zh","pageLanguageDir":"ltr"},"wikilove-recipient":"","wikilove-anon":0,"wgPoweredByHHVM":true,"wgULSAcceptLanguageList":[],"wgULSCurrentAutonym":"中文","wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q175263"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set([]);},{},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{},{});
+/* cache key: zhwiki:resourceloader:filter:minify-js:7:c27d336791e6a79884d3f8c79b7699cf */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.gadget.variant-link-fix","ext.centralauth.centralautologin","mmv.head","ext.imageMetrics.head","ext.visualEditor.viewPageTarget.init","ext.uls.init","ext.uls.interface","ext.centralNotice.bannerController","skins.vector.js"]);
+}</script>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static-1.25wmf19/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-数据结构 skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+							<div id="siteNotice"><!-- CentralNotice --></div>
+						<div class="mw-indicators">
+<div id="mw-indicator-noteTA-7887952f" class="mw-indicator"><img alt="本页使用了标题或全文手工转换" src="//upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Zh_conversion_icon_m.svg/35px-Zh_conversion_icon_m.svg.png" title="本页使用了标题或全文手工转换" width="35" height="22" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Zh_conversion_icon_m.svg/53px-Zh_conversion_icon_m.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Zh_conversion_icon_m.svg/70px-Zh_conversion_icon_m.svg.png 2x" data-file-width="32" data-file-height="20" /></div>
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="zh">数据结构</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">维基百科，自由的百科全书</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					跳转至：					<a href="#mw-head">导航</a>、					<a href="#p-search">搜索</a>
+				</div>
+				<div id="mw-content-text" lang="zh" dir="ltr" class="mw-content-ltr"><div id="noteTA-7887952f" class="noteTA">
+<div class="noteTA-title" data-noteta-code="zh-cn:数据结构; zh-tw:資料結構;"></div>
+<div class="noteTA-group">
+<div data-noteta-group-source="module" data-noteta-group="IT"></div>
+</div>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:222px;"><a href="/wiki/File:Binary_tree.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/220px-Binary_tree.svg.png" width="220" height="183" class="thumbimage" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/330px-Binary_tree.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Binary_tree.svg/440px-Binary_tree.svg.png 2x" data-file-width="300" data-file-height="250" /></a>
+<div class="thumbcaption">
+<div class="magnify"><a href="/wiki/File:Binary_tree.svg" class="internal" title="放大"></a></div>
+<a href="/wiki/%E4%BA%8C%E5%8F%89%E6%A0%91" title="二叉树">二叉树</a>是数据结构的一种类型</div>
+</div>
+</div>
+<p>在<a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6" title="计算机科学">计算机科学</a>或<a href="/wiki/%E8%B3%87%E8%A8%8A%E7%A7%91%E5%AD%B8" title="資訊科學" class="mw-disambig">資訊科學</a>中，<b>数据结构</b>（<span class="LangWithName"><a href="/wiki/%E8%8B%B1%E8%AF%AD" title="英语">英语</a>：<span lang="en" xml:lang="en">data structure</span></span>）是计算机中存储、组织<a href="/wiki/%E6%95%B0%E6%8D%AE" title="数据">数据</a>的方式。通常情况下，精心选择的数据结构可以带来<a href="/w/index.php?title=%E6%9C%80%E4%BC%98&amp;action=edit&amp;redlink=1" class="new" title="最优（页面不存在）">最优</a><span class="ilh-all"><span class="ilh-page"><a href="/w/index.php?title=%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87&amp;action=edit&amp;redlink=1" class="new" title="算法效率（页面不存在）">效率</a></span><span class="noprint ilh-comment">（<span class="ilh-lang"><a href="/wiki/%E8%8B%B1%E8%AF%AD" title="英语">英语</a></span><span class="ilh-colon">：</span><span class="ilh-link"><a href="//en.wikipedia.org/wiki/algorithmic_efficiency" class="extiw" title="en:algorithmic efficiency"><span lang="en" dir="auto" xml:lang="en">algorithmic efficiency</span></a></span>）</span></span>的<a href="/wiki/%E7%AE%97%E6%B3%95" title="算法">算法</a>。</p>
+<p>一般而言，数据结构的选择首先会从<a href="/wiki/%E6%8A%BD%E8%B1%A1%E6%95%B8%E6%93%9A%E9%A1%9E%E5%9E%8B" title="抽象數據類型" class="mw-redirect">抽象</a><a href="/wiki/%E6%95%B8%E6%93%9A%E9%A1%9E%E5%9E%8B" title="數據類型" class="mw-redirect">数据类型</a>的选择开始。一个设计良好的数据结构，应该在尽可能使用较少的时间与空间资源的前提下，为各种临界状态下的运行提供支持。数据结构可通过<a href="/wiki/%E7%BC%96%E7%A8%8B" title="编程" class="mw-redirect">编程</a><a href="/wiki/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80" title="编程语言">语言</a>所提供的<a href="/wiki/%E6%95%B8%E6%93%9A%E9%A1%9E%E5%9E%8B" title="數據類型" class="mw-redirect">数据类型</a>、<a href="/wiki/%E5%8F%83%E7%85%A7" title="參照">引用</a>及其他操作加以实现。</p>
+<p>不同种类的数据结构适合于不同种类的应用，而部分甚至专门用于特定的作业任务。例如，当计算机网络依赖于<a href="/wiki/%E8%B7%AF%E7%94%B1%E8%A1%A8" title="路由表">路由表</a>运作时，<a href="/wiki/B%E6%A0%91" title="B树">B树</a>高度适用于数据库的封装。</p>
+<p>在许多类型的<a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A8%8B%E5%BA%8F" title="计算机程序">程序</a>设计中，选择适当的数据结构是一个主要的考虑因素。许多大型系统的构造经验表明，封装的困难程度与最终成果的质量与表现，都取决于是否选择了最优的数据结构。在许多时候，确定了数据结构后便能很容易地得到<a href="/wiki/%E7%AE%97%E6%B3%95" title="算法">算法</a>。而有些时候，思路则会颠倒过来：例如当某个关键作业需要特定数据结构下的算法时，会反过来确定其所使用的数据结构。然而，不管是哪种情况，数据结构的选择都是至关重要的。</p>
+<p>系统构造的关键因素是数据结构而非算法的这一深入理解，导致了多种形式化的设计方法与<a href="/wiki/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80" title="编程语言">编程语言</a>的出现。绝大多数的语言都带有某种程度上的<a href="/wiki/%E6%A8%A1%E5%9D%97_(%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1)" title="模块 (程序设计)" class="mw-redirect">模块化</a>思想，通过将数据结构的具体实现封装隐藏于受限接口之后的方法，来让不同的应用程序能够安全地重用这些数据结构。<a href="/wiki/C%2B%2B" title="C++">C++</a>、<a href="/wiki/Java" title="Java">Java</a>、<a href="/wiki/Python" title="Python">Python</a>等<a href="/wiki/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1" title="面向对象的程序设计" class="mw-redirect">面向对象</a>的编程语言可使用<a href="/wiki/%E7%B1%BB_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)" title="类 (计算机科学)">类</a>来完成这一功能。</p>
+<p>因为数据结构的重要性毋庸置疑，现代编程语言及其<a href="/wiki/API" title="API" class="mw-redirect">运行环境</a>在标准库中都包含了多种数据结构，例如 C++ <a href="/wiki/%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93" title="标准模板库">标准模板库</a>中的容器、<a href="/wiki/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6" title="Java集合框架">Java集合框架</a>以及微软的<a href="/wiki/.NET_Framework" title=".NET Framework" class="mw-redirect">.NET Framework</a>。</p>
+<p>大多数数据结构都由<a href="/wiki/%E6%95%B0%E5%88%97" title="数列">数列</a>、<span class="ilh-all"><span class="ilh-page"><a href="/w/index.php?title=%E8%AE%B0%E5%BD%95_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)&amp;action=edit&amp;redlink=1" class="new" title="记录 (计算机科学)（页面不存在）">记录</a></span><span class="noprint ilh-comment">（<span class="ilh-lang"><a href="/wiki/%E8%8B%B1%E8%AF%AD" title="英语">英语</a></span><span class="ilh-colon">：</span><span class="ilh-link"><a href="//en.wikipedia.org/wiki/record_(computer_science)" class="extiw" title="en:record (computer science)"><span lang="en" dir="auto" xml:lang="en">record (computer science)</span></a></span>）</span></span>、<a href="/wiki/%E6%A0%87%E7%AD%BE%E8%81%94%E5%90%88" title="标签联合">可辨识联合</a>、<a href="/wiki/%E5%8F%83%E7%85%A7" title="參照">引用</a>等基本类型构成。举例而言，可空引用（nullable reference，一种可被置空的引用）是引用与可辨识联合的结合体，而最简单的链式结构<a href="/wiki/%E9%93%BE%E8%A1%A8" title="链表">链表</a>则是由记录与可空引用构成。</p>
+<p>数据结构意味着<a href="/wiki/%E4%BB%8B%E9%9D%A2_(%E9%9B%BB%E8%85%A6%E7%A7%91%E5%AD%B8)" title="介面 (電腦科學)" class="mw-redirect">介面</a>或<a href="/wiki/%E5%B0%81%E8%A3%85_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)" title="封装 (计算机科学)" class="mw-redirect">封装</a>：一个数据结构可被视为两个函数之间的介面，或者是由<a href="/wiki/%E6%95%B8%E6%93%9A%E9%A1%9E%E5%9E%8B" title="數據類型" class="mw-redirect">数据类型</a>联合组成的存储内容的访问方法封装。</p>
+<h2><a href="#.E5.B8.B8.E8.A7.81.E7.9A.84.E6.95.B0.E6.8D.AE.E7.BB.93.E6.9E.84" class="mw-headline-anchor" aria-hidden="true" title="链接到此段落">§</a><span class="mw-headline" id=".E5.B8.B8.E8.A7.81.E7.9A.84.E6.95.B0.E6.8D.AE.E7.BB.93.E6.9E.84">常见的数据结构</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;action=edit&amp;section=1" title="编辑小节：常见的数据结构">编辑</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a href="/wiki/%E9%99%A3%E5%88%97" title="陣列" class="mw-redirect">陣列</a>（Array）</li>
+<li><a href="/wiki/%E5%A0%86%E7%96%8A" title="堆疊" class="mw-redirect">堆疊</a>（Stack）</li>
+<li><a href="/wiki/%E9%9A%8A%E5%88%97" title="隊列" class="mw-redirect">隊列</a>（Queue）</li>
+<li><a href="/wiki/%E9%93%BE%E8%A1%A8" title="链表">鏈錶</a>（Linked List）</li>
+<li><a href="/wiki/%E6%A0%91_(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)" title="树 (数据结构)">樹</a>（Tree）</li>
+<li><a href="/wiki/%E5%9B%BE" title="图">圖</a>（Graph）</li>
+<li><a href="/wiki/%E5%A0%86_(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)" title="堆 (数据结构)">堆</a>（Heap）</li>
+<li><a href="/wiki/%E6%95%A3%E5%88%97%E8%A1%A8" title="散列表" class="mw-redirect">散列表</a>（Hash）</li>
+</ul>
+<h2><a href="#.E5.8F.82.E8.80.83.E6.96.87.E7.8C.AE" class="mw-headline-anchor" aria-hidden="true" title="链接到此段落">§</a><span class="mw-headline" id=".E5.8F.82.E8.80.83.E6.96.87.E7.8C.AE">参考文献</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;action=edit&amp;section=2" title="编辑小节：参考文献">编辑</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="reflist" style="list-style-type: decimal;"></div>
+<h2><a href="#.E5.A4.96.E9.83.A8.E9.93.BE.E6.8E.A5" class="mw-headline-anchor" aria-hidden="true" title="链接到此段落">§</a><span class="mw-headline" id=".E5.A4.96.E9.83.A8.E9.93.BE.E6.8E.A5">外部链接</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;action=edit&amp;section=3" title="编辑小节：外部链接">编辑</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li>《<a href="/wiki/%E7%AE%97%E6%B3%95%E4%B8%8E%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E8%AF%8D%E5%85%B8" title="算法与数据结构词典">算法与数据结构词典</a>》中的<a rel="nofollow" class="external text" href="http://nist.gov/dads/">描述</a></li>
+<li><a rel="nofollow" class="external free" href="http://www.cse.unr.edu/~bebis/CS308/">http://www.cse.unr.edu/~bebis/CS308/</a></li>
+<li>Bruno R. Preiss，面向对象程序设计的数据类型与算法模型：<a rel="nofollow" class="external text" href="http://www.brpreiss.com/books/opus4">C++</a>、<a rel="nofollow" class="external text" href="http://www.brpreiss.com/books/opus5">Java</a>、<a rel="nofollow" class="external text" href="http://www.brpreiss.com/books/opus6">C#</a>、<a rel="nofollow" class="external text" href="http://www.brpreiss.com/books/opus7">Python</a>、<a rel="nofollow" class="external text" href="http://www.brpreiss.com/books/opus8">Ruby</a></li>
+</ul>
+<p><br style="clear: both;" /></p>
+<table cellspacing="0" class="navbox" style="border-spacing:0;">
+<tr>
+<td style="padding:2px;">
+<table cellspacing="0" class="nowraplinks collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Data_structures" title="Template:Data structures"><span title="查看该模板" style=";;background:none transparent;border:none;;">查</span></a></li>
+<li class="nv-talk"><a href="/w/index.php?title=Template_talk:Data_structures&amp;action=edit&amp;redlink=1" class="new" title="Template talk:Data structures（页面不存在）"><span title="讨论该模板" style=";;background:none transparent;border:none;;">论</span></a></li>
+<li class="nv-edit"><a class="external text" href="//zh.wikipedia.org/w/index.php?title=Template:Data_structures&amp;action=edit"><span title="编辑该模板" style=";;background:none transparent;border:none;;">编</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%;"><strong class="selflink">数据结构</strong></div>
+</th>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">类型</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E9%9B%86%E5%90%88_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)" title="集合 (计算机科学)">集合</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=%E5%AE%B9%E5%99%A8_(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)&amp;action=edit&amp;redlink=1" class="new" title="容器 (数据结构)（页面不存在）">容器</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E6%95%B0%E7%BB%84" title="数组">数组</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E5%AD%97%E4%B8%B2" title="字串" class="mw-redirect">字串</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E5%85%B3%E8%81%94%E6%95%B0%E7%BB%84" title="关联数组">关联数组</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/w/index.php?title=%E5%A4%9A%E9%87%8D%E5%85%B3%E8%81%94%E6%95%B0%E7%BB%84&amp;action=edit&amp;redlink=1" class="new" title="多重关联数组（页面不存在）">多重关联数组</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E9%9B%86%E5%90%88_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)" title="集合 (计算机科学)">集合</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E5%A4%9A%E9%87%8D%E9%9B%86" title="多重集">多重集</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E6%95%A3%E5%88%97%E8%A1%A8" title="散列表" class="mw-redirect">散列表</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E5%88%97%E8%A1%A8_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6)" title="列表 (计算机科学)" class="mw-redirect">列表</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E5%8F%8C%E7%AB%AF%E9%98%9F%E5%88%97" title="双端队列">双端队列</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E9%93%BE%E8%A1%A8" title="链表">链表</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E9%98%9F%E5%88%97" title="队列">队列</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E5%A0%86%E6%A0%88" title="堆栈">堆栈</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97" title="循环队列" class="mw-redirect">循环队列</a> <span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E8%B7%B3%E8%B7%83%E5%88%97%E8%A1%A8" title="跳跃列表">跳跃列表</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E6%A0%91_(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)" title="树 (数据结构)">树</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/wiki/B%E6%A0%91" title="B树">B树</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91" title="二叉查找树" class="mw-redirect">二叉查找树</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E5%A0%86_(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)" title="堆 (数据结构)">堆</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E7%BA%BF%E6%AE%B5%E6%A0%91" title="线段树">线段树</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E8%87%AA%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%9F%A5%E6%89%BE%E6%A0%91" title="自平衡二叉查找树" class="mw-redirect">自平衡二叉查找树</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E5%9B%BE_(%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84)" title="图 (数据结构)" class="mw-redirect">图</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E6%9C%89%E5%90%91%E5%9B%BE" title="有向图" class="mw-redirect">有向图</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BE" title="有向无环图">有向无环图</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E4%BA%8C%E5%85%83%E5%86%B3%E7%AD%96%E5%9B%BE" title="二元决策图">二元决策图</a><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <a href="/wiki/%E7%84%A1%E5%90%91%E5%9C%96" title="無向圖" class="mw-redirect">无向图</a></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div><a href="/wiki/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%88%97%E8%A1%A8" title="数据结构列表">数据结构列表</a></div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<table cellspacing="0" class="navbox" style="border-spacing:0;">
+<tr>
+<td style="padding:2px;">
+<table cellspacing="0" class="nowraplinks collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit;">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Computer_Science" title="Template:Computer Science"><span title="查看该模板" style=";;background:none transparent;border:none;;">查</span></a></li>
+<li class="nv-talk"><a href="/w/index.php?title=Template_talk:Computer_Science&amp;action=edit&amp;redlink=1" class="new" title="Template talk:Computer Science（页面不存在）"><span title="讨论该模板" style=";;background:none transparent;border:none;;">论</span></a></li>
+<li class="nv-edit"><a class="external text" href="//zh.wikipedia.org/w/index.php?title=Template:Computer_Science&amp;action=edit"><span title="编辑该模板" style=";;background:none transparent;border:none;;">编</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%;"><a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6" title="计算机科学">计算机科学</a></div>
+</th>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6" title="离散数学">数学基础</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height: 1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E6%95%B0%E7%90%86%E9%80%BB%E8%BE%91" title="数理逻辑">数理逻辑</a> · <span class="nowrap"><a href="/wiki/%E9%9B%86%E5%90%88%E8%AE%BA" title="集合论">集合论</a> ·</span> <span class="nowrap"><a href="/wiki/%E6%95%B0%E8%AE%BA" title="数论">数论</a> ·</span> <span class="nowrap"><a href="/wiki/%E5%9B%BE%E8%AE%BA" title="图论">图论</a> ·</span> <span class="nowrap"><a href="/wiki/%E7%B1%BB%E5%9E%8B%E8%AE%BA" title="类型论">类型论</a> ·</span> <span class="nowrap"><a href="/wiki/%E8%8C%83%E7%95%B4%E8%AE%BA" title="范畴论">范畴论</a> ·</span> <span class="nowrap"><a href="/wiki/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90" title="数值分析">数值分析</a> ·</span> <span class="nowrap"><a href="/wiki/%E4%BF%A1%E6%81%AF%E8%AE%BA" title="信息论">信息论</a></span></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA" title="计算理论">计算理论</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height: 1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E8%87%AA%E5%8A%A8%E6%9C%BA" title="自动机" class="mw-redirect">自动机</a> · <span class="nowrap"><a href="/wiki/%E5%8F%AF%E8%AE%A1%E7%AE%97%E6%80%A7" title="可计算性">可计算性理论</a> ·</span> <span class="nowrap"><a href="/wiki/%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E6%80%A7%E7%90%86%E8%AE%BA" title="计算复杂性理论" class="mw-redirect">计算复杂性理论</a> ·</span> <span class="nowrap"><a href="/wiki/%E9%87%8F%E5%AD%90%E8%AE%A1%E7%AE%97" title="量子计算" class="mw-redirect">量子计算</a> ·</span> <span class="nowrap"><a href="/wiki/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95" title="数值计算方法" class="mw-redirect">数值计算方法</a></span></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E7%AE%97%E6%B3%95" title="算法">算法</a>和<strong class="selflink">数据结构</strong></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height: 1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90" title="算法分析">算法分析</a> · <span class="nowrap"><a href="/wiki/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1" title="算法设计">算法设计</a> ·</span> <span class="nowrap"><a href="/wiki/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95" title="计算几何">计算几何</a></span></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80" title="编程语言">编程语言</a>和<a href="/wiki/%E7%BC%96%E8%AF%91%E5%99%A8" title="编译器" class="mw-redirect">编译器</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height: 1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8" title="语法分析器" class="mw-redirect">语法分析器</a> · <span class="nowrap"><a href="/wiki/%E8%A7%A3%E9%87%8A%E5%99%A8" title="解释器" class="mw-redirect">解释器</a> ·</span> <span class="nowrap"><a href="/wiki/%E7%BC%96%E7%A8%8B%E8%8C%83%E5%9E%8B" title="编程范型">编程范型</a>（<a href="/wiki/%E9%81%8E%E7%A8%8B%E5%8C%96%E7%B7%A8%E7%A8%8B" title="過程化編程" class="mw-redirect">过程化编程</a> ·</span> <span class="nowrap"><a href="/wiki/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1" title="面向对象程序设计">面向对象程序编程</a> ·</span> <span class="nowrap"><a href="/wiki/%E5%87%BD%E6%95%B8%E5%BC%8F%E7%B7%A8%E7%A8%8B" title="函數式編程" class="mw-redirect">函数式编程</a> ·</span> <span class="nowrap"><a href="/wiki/%E9%80%BB%E8%BE%91%E7%BC%96%E7%A8%8B" title="逻辑编程" class="mw-redirect">逻辑编程</a>等）</span></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E5%B9%B6%E5%8F%91" title="并发" class="mw-redirect">并发</a>、<a href="/wiki/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97" title="并行计算">并行</a>和<a href="/wiki/%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%A1%E7%AE%97" title="分布式计算">分布式</a>系统</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height: 1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E5%A4%9A%E8%99%95%E7%90%86%E5%99%A8" title="多處理器" class="mw-redirect">多处理器</a> · <span class="nowrap"><a href="/wiki/%E7%BD%91%E6%A0%BC%E8%AE%A1%E7%AE%97" title="网格计算">网格计算</a> ·</span> <span class="nowrap"><a href="/wiki/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6" title="并发控制">并发控制</a></span></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B" title="软件工程">软件工程</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height: 1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90" title="需求分析">需求分析</a> · <span class="nowrap"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1" title="软件设计">软件设计</a> ·</span> <span class="nowrap"><a href="/wiki/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1" title="程序设计">程序设计</a> ·</span> <span class="nowrap"><a href="/wiki/%E5%BD%A2%E5%BC%8F%E5%8C%96%E6%96%B9%E6%B3%95" title="形式化方法">形式化方法</a> ·</span> <span class="nowrap"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95" title="软件测试">软件测试</a> ·</span> <span class="nowrap"><a href="/wiki/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B" title="软件开发过程">软件开发过程</a></span></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84" title="系统架构" class="mw-redirect">系统架构</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height: 1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84" title="计算机系统结构">计算机系统结构</a> · <span class="nowrap"><a href="/wiki/%E5%BE%AE%E6%9E%B6%E6%A7%8B" title="微架構">微处理器体系结构</a> ·</span> <span class="nowrap"><a href="/wiki/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F" title="操作系统">操作系统</a></span></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E7%94%B5%E4%BF%A1" title="电信">电信</a>与<a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C" title="计算机网络">网络</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height: 1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E8%B7%AF%E7%94%B1" title="路由">路由</a> · <span class="nowrap"><a href="/wiki/%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91" title="网络拓扑">网络拓扑</a> ·</span> <span class="nowrap"><a href="/wiki/%E5%AF%86%E7%A0%81%E5%AD%A6" title="密码学">密码学</a></span></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93" title="数据库">数据库</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height: 1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F" title="数据库管理系统">数据库管理系统</a> · <span class="nowrap"><a href="/wiki/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93" title="关系数据库">关系数据库</a> ·</span> <span class="nowrap"><a href="/wiki/SQL" title="SQL">SQL</a> ·</span> <span class="nowrap"><a href="/wiki/NoSQL" title="NoSQL">NoSQL</a> ·</span> <span class="nowrap"><a href="/w/index.php?title=%E4%BA%8B%E5%8A%A1%E5%A4%84%E7%90%86_(%E6%95%B0%E6%8D%AE%E5%BA%93)&amp;action=edit&amp;redlink=1" class="new" title="事务处理 (数据库)（页面不存在）">事务处理</a> ·</span> <span class="nowrap"><a href="/wiki/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B4%A2%E5%BC%95" title="数据库索引">数据库索引</a> ·</span> <span class="nowrap"><a href="/wiki/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98" title="数据挖掘">数据挖掘</a></span></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD" title="人工智能">人工智能</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height: 1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E8%87%AA%E5%8A%A8%E6%8E%A8%E7%90%86" title="自动推理">自动推理</a> · <span class="nowrap"><a href="/wiki/%E8%AE%A1%E7%AE%97%E8%AF%AD%E8%A8%80%E5%AD%A6" title="计算语言学">计算语言学</a> ·</span> <span class="nowrap"><a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89" title="计算机视觉">计算机视觉</a> ·</span> <span class="nowrap"><a href="/wiki/%E8%BF%9B%E5%8C%96%E8%AE%A1%E7%AE%97" title="进化计算">进化计算</a> ·</span> <span class="nowrap"><a href="/wiki/%E4%B8%93%E5%AE%B6%E7%B3%BB%E7%BB%9F" title="专家系统">专家系统</a> ·</span> <span class="nowrap"><a href="/wiki/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0" title="机器学习">机器学习</a> ·</span> <span class="nowrap"><a href="/wiki/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86" title="自然语言处理">自然语言处理</a> ·</span> <span class="nowrap"><a href="/wiki/%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%AD%A6" title="机器人学">机器人学</a></span></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6" title="计算机图形学">计算机图形学</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height: 1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E5%8F%AF%E8%A7%86%E5%8C%96_(%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6)" title="可视化 (计算机图形学)">可视化</a> · <span class="nowrap"><a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8A%A8%E7%94%BB" title="计算机动画">计算机动画</a> ·</span> <span class="nowrap"><a href="/wiki/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86" title="图像处理">图像处理</a></span></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92" title="人机交互">人机交互</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height: 1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BE%85%E5%8A%A9%E5%8A%9F%E8%83%BD" title="计算机辅助功能">计算机辅助功能</a> · <span class="nowrap"><a href="/wiki/%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2" title="用户界面">用户界面</a> ·</span> <span class="nowrap"><a href="/wiki/%E5%8F%AF%E7%A9%BF%E6%88%B4%E8%AE%A1%E7%AE%97%E6%9C%BA" title="可穿戴计算机" class="mw-redirect">可穿戴计算机</a> ·</span> <span class="nowrap"><a href="/wiki/%E6%99%AE%E9%80%82%E8%AE%A1%E7%AE%97" title="普适计算">普适计算</a> ·</span> <span class="nowrap"><a href="/wiki/%E8%99%9A%E6%8B%9F%E7%8E%B0%E5%AE%9E" title="虚拟现实">虚拟现实</a></span></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/%E8%AE%A1%E7%AE%97%E7%A7%91%E5%AD%A6" title="计算科学">科学计算</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;line-height: 1.5em;;">
+<div style="padding:0em 0.25em;"><a href="/wiki/%E4%BA%BA%E5%B7%A5%E7%94%9F%E5%91%BD" title="人工生命">人工生命</a> · <span class="nowrap"><a href="/wiki/%E7%94%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E5%AD%A6" title="生物信息学">生物信息学</a> ·</span> <span class="nowrap"><a href="/wiki/%E8%AE%A4%E7%9F%A5%E7%A7%91%E5%AD%A6" title="认知科学">认知科学</a> ·</span> <span class="nowrap"><a href="/wiki/%E8%AE%A1%E7%AE%97%E5%8C%96%E5%AD%A6" title="计算化学">计算化学</a> ·</span> <span class="nowrap"><a href="/wiki/%E8%AE%A1%E7%AE%97%E7%A5%9E%E7%BB%8F%E7%A7%91%E5%AD%A6" title="计算神经科学" class="mw-redirect">计算神经科学</a> ·</span> <span class="nowrap"><a href="/wiki/%E8%AE%A1%E7%AE%97%E7%89%A9%E7%90%86%E5%AD%A6" title="计算物理学">计算物理学</a> ·</span> <span class="nowrap"><a href="/wiki/%E6%95%B0%E5%80%BC%E5%88%86%E6%9E%90" title="数值分析">数值算法</a> ·</span> <span class="nowrap"><a href="/w/index.php?title=%E7%AC%A6%E5%8F%B7%E8%AE%A1%E7%AE%97&amp;action=edit&amp;redlink=1" class="new" title="符号计算（页面不存在）">符号计算</a></span></div>
+</td>
+</tr>
+<tr style="height:2px;">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div>注：计算机科学领域也可根据<a rel="nofollow" class="external text" href="http://www.acm.org/about/class/1998">ACM-1998分类系统</a>进行分类。</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1255
+CPU time usage: 0.344 seconds
+Real time usage: 0.465 seconds
+Preprocessor visited node count: 847/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 144529/2097152 bytes
+Template argument size: 571/2097152 bytes
+Highest expansion depth: 17/40
+Expensive parser function count: 1/500
+Lua time usage: 0.044/10.000 seconds
+Lua memory usage: 1.77 MB/50 MB
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  216.542      1 - -total
+ 37.80%   81.844      2 - Template:Link-en
+ 36.33%   78.668      1 - Template:NoteTA
+ 36.26%   78.519      2 - Template:Internal_link_helper
+ 12.21%   26.447      2 - Template:Navbox
+  9.20%   19.921      1 - Template:Lang-en
+  8.56%   18.532      1 - Template:LangWithName
+  7.83%   16.962      1 - Template:Data_structures
+  7.74%   16.754      1 - Template:Lang
+  6.31%   13.663      1 - Template:Computer_Science
+-->
+
+<!-- Saved in parser cache with key zhwiki:pcache:idhash:114-0!*!0!!*!4!zh!* and timestamp 20150307023409 and revision id 26682678
+ -->
+<noscript><img src="//zh.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>									<div class="printfooter">
+						取自“<a dir="ltr" href="http://zh.wikipedia.org/w/index.php?title=数据结构&amp;oldid=26682678">http://zh.wikipedia.org/w/index.php?title=数据结构&amp;oldid=26682678</a>”					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Special:%E9%A1%B5%E9%9D%A2%E5%88%86%E7%B1%BB" title="Special:页面分类">分类</a>：<ul><li><a href="/wiki/Category:%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6" title="Category:计算机科学">计算机科学</a></li><li><a href="/wiki/Category:%E7%90%86%E8%AE%BA%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6" title="Category:理论计算机科学">理论计算机科学</a></li><li><a href="/wiki/Category:%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" title="Category:数据结构">数据结构</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">隐藏分类：<ul><li><a href="/wiki/Category:%E5%90%AB%E6%9C%89%E8%8B%B1%E8%AA%9E%E7%9A%84%E6%A2%9D%E7%9B%AE" title="Category:含有英語的條目">含有英語的條目</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>导航菜单</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">个人工具</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95&amp;returnto=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;returntoquery=amp%253Boldid%3D26682678&amp;type=signup" title="建议您创建一个账户并登录，但这不是强制的">创建账户</a></li><li id="pt-login"><a href="/w/index.php?title=Special:%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95&amp;returnto=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;returntoquery=amp%253Boldid%3D26682678" title="建议你登录，尽管并非必须。[o]" accesskey="o">登录</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">命名空间</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"  title="浏览条目正文[c]" accesskey="c">条目</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Talk:%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"  title="关于此页面的讨论[t]" accesskey="t">讨论</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>不转换</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+																	<li id="ca-varlang-0" class="selected"><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;variant=zh&amp;amp%3Boldid=26682678" lang="zh" hreflang="zh" >不转换</a></li>
+																	<li id="ca-varlang-1"><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;variant=zh-hans&amp;amp%3Boldid=26682678" lang="zh-Hans" hreflang="zh-Hans" >简体</a></li>
+																	<li id="ca-varlang-2"><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;variant=zh-hant&amp;amp%3Boldid=26682678" lang="zh-Hant" hreflang="zh-Hant" >繁體</a></li>
+																	<li id="ca-varlang-3"><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;variant=zh-cn&amp;amp%3Boldid=26682678" lang="zh-CN" hreflang="zh-CN" >大陆简体</a></li>
+																	<li id="ca-varlang-4"><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;variant=zh-hk&amp;amp%3Boldid=26682678" lang="zh-HK" hreflang="zh-HK" >香港繁體</a></li>
+																	<li id="ca-varlang-5"><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;variant=zh-mo&amp;amp%3Boldid=26682678" lang="zh-MO" hreflang="zh-MO" >澳門繁體</a></li>
+																	<li id="ca-varlang-6"><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;variant=zh-sg&amp;amp%3Boldid=26682678" lang="zh-SG" hreflang="zh-SG" >马新简体</a></li>
+																	<li id="ca-varlang-7"><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;variant=zh-tw&amp;amp%3Boldid=26682678" lang="zh-TW" hreflang="zh-TW" >台灣正體</a></li>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">视图</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" >阅读</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;action=edit"  title="你可以编辑本页面。请在保存前使用预览按钮[e]" accesskey="e">编辑</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;action=history"  title="本页面的早前版本。[h]" accesskey="h" rel="archives">查看历史</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>更多</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">搜索</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="搜索" title="搜索维基百科[f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:搜索" name="title" /><input type="submit" name="fulltext" value="搜索" title="搜索含这些文字的页面" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="前往" title="若相同标题存在，则直接前往该页面" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Wikipedia:%E9%A6%96%E9%A1%B5"  title="首页"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>导航</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Wikipedia:%E9%A6%96%E9%A1%B5" title="访问首页[z]" accesskey="z">首页</a></li>
+													<li id="n-indexpage"><a href="/wiki/Wikipedia:%E5%88%86%E7%B1%BB%E7%B4%A2%E5%BC%95" title="以分类索引搜寻中文维基百科">分类索引</a></li>
+													<li id="n-Featured_content"><a href="/wiki/Portal:%E7%89%B9%E8%89%B2%E5%85%A7%E5%AE%B9" title="查看中文维基百科的特色内容">特色内容</a></li>
+													<li id="n-currentevents"><a href="/wiki/Portal:%E6%96%B0%E8%81%9E%E5%8B%95%E6%85%8B" title="提供当前新闻事件的背景资料">新闻动态</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:%E6%9C%80%E8%BF%91%E6%9B%B4%E6%94%B9" title="列出维基百科中的最近修改[r]" accesskey="r">最近更改</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:%E9%9A%8F%E6%9C%BA%E9%A1%B5%E9%9D%A2" title="随机载入一个页面[x]" accesskey="x">随机条目</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-help' aria-labelledby='p-help-label'>
+			<h3 id='p-help-label'>帮助</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-help"><a href="/wiki/Help:%E7%9B%AE%E5%BD%95" title="寻求帮助">帮助</a></li>
+													<li id="n-portal"><a href="/wiki/Wikipedia:%E7%A4%BE%E7%BE%A4%E9%A6%96%E9%A1%B5" title="关于本计划、你可以做什么、应该如何做">维基社群</a></li>
+													<li id="n-policy"><a href="/wiki/Wikipedia:%E6%96%B9%E9%87%9D%E8%88%87%E6%8C%87%E5%BC%95" title="查看维基百科的方针和指引">方针与指引</a></li>
+													<li id="n-villagepump"><a href="/wiki/Wikipedia:%E4%BA%92%E5%8A%A9%E5%AE%A2%E6%A0%88" title="参与维基百科社群的讨论">互助客栈</a></li>
+													<li id="n-Information_desk"><a href="/wiki/Wikipedia:%E7%9F%A5%E8%AF%86%E9%97%AE%E7%AD%94" title="解答任何与维基百科无关的问题的地方">知识问答</a></li>
+													<li id="n-conversion"><a href="/wiki/Wikipedia:%E5%AD%97%E8%AF%8D%E8%BD%AC%E6%8D%A2" title="提出字词转换请求">字词转换</a></li>
+													<li id="n-IRC"><a href="//zh.wikipedia.org/wiki/Wikipedia:IRC聊天频道/IRC?withJS=MediaWiki:Gadget-irc.js">IRC即时聊天</a></li>
+													<li id="n-contact"><a href="/wiki/Wikipedia:%E8%81%94%E7%BB%9C%E6%88%91%E4%BB%AC" title="如何联络维基百科">联络我们</a></li>
+													<li id="n-about"><a href="/wiki/Wikipedia:%E5%85%B3%E4%BA%8E" title="查看维基百科的简介">关于维基百科</a></li>
+													<li id="n-sitesupport"><a href="//donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_zh.wikipedia.org&amp;uselang=zh" title="如果您在維基百科受益良多，您可以考慮資助我們">资助维基百科</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>工具</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:%E9%93%BE%E5%85%A5%E9%A1%B5%E9%9D%A2/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" title="列出所有与本页相链的页面[j]" accesskey="j">链入页面</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:%E9%93%BE%E5%87%BA%E6%9B%B4%E6%94%B9/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84" title="页面链出所有页面的更改[k]" accesskey="k">相关更改</a></li>
+													<li id="t-upload"><a href="/wiki/Project:%E4%B8%8A%E4%BC%A0" title="上传图像或多媒体文件[u]" accesskey="u">上传文件</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:%E7%89%B9%E6%AE%8A%E9%A1%B5%E9%9D%A2" title="全部特殊页面的列表[q]" accesskey="q">特殊页面</a></li>
+													<li id="t-print"><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;amp%3Boldid=26682678&amp;printable=yes" rel="alternate" title="本页面的可打印版本[p]" accesskey="p">打印页面</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;oldid=26682678" title="本页面该版本的固定链接">固定链接</a></li>
+													<li id="t-info"><a href="/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;action=info" title="关于此页面的更多信息">页面信息</a></li>
+													<li id="t-wikibase"><a href="//www.wikidata.org/wiki/Q175263" title="查看连接的数据存储库项[g]" accesskey="g">维基数据项</a></li>
+						<li id="t-cite"><a href="/w/index.php?title=Special:%E5%BC%95%E7%94%A8%E6%AD%A4%E9%A1%B5%E9%9D%A2&amp;page=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;id=26682678" title="关于如何引用本页的信息">引用本页</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+			<h3 id='p-lang-label'>其他语言</h3>
+
+			<div class="body">
+									<ul>
+													<li class="interlanguage-link interwiki-ar"><a href="//ar.wikipedia.org/wiki/%D8%A8%D9%86%D9%8A%D8%A9_%D8%A8%D9%8A%D8%A7%D9%86%D8%A7%D8%AA" title="بنية بيانات – 阿拉伯文" lang="ar" hreflang="ar">العربية</a></li>
+													<li class="interlanguage-link interwiki-ast"><a href="//ast.wikipedia.org/wiki/Estructura_de_datos" title="Estructura de datos – 阿斯图里亚思特文" lang="ast" hreflang="ast">Asturianu</a></li>
+													<li class="interlanguage-link interwiki-be"><a href="//be.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%B4%D0%B0%D0%BD%D1%8B%D1%85" title="Структура даных – 白俄罗斯文" lang="be" hreflang="be">Беларуская</a></li>
+													<li class="interlanguage-link interwiki-bg"><a href="//bg.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%BE%D1%82_%D0%B4%D0%B0%D0%BD%D0%BD%D0%B8" title="Структура от данни – 保加利亚文" lang="bg" hreflang="bg">Български</a></li>
+													<li class="interlanguage-link interwiki-bn"><a href="//bn.wikipedia.org/wiki/%E0%A6%89%E0%A6%AA%E0%A6%BE%E0%A6%A4%E0%A7%8D%E0%A6%A4_%E0%A6%B8%E0%A6%82%E0%A6%97%E0%A6%A0%E0%A6%A8" title="উপাত্ত সংগঠন – 孟加拉文" lang="bn" hreflang="bn">বাংলা</a></li>
+													<li class="interlanguage-link interwiki-bs"><a href="//bs.wikipedia.org/wiki/Struktura_podataka" title="Struktura podataka – 波斯尼亚文" lang="bs" hreflang="bs">Bosanski</a></li>
+													<li class="interlanguage-link interwiki-ca"><a href="//ca.wikipedia.org/wiki/Estructura_de_dades" title="Estructura de dades – 加泰罗尼亚文" lang="ca" hreflang="ca">Català</a></li>
+													<li class="interlanguage-link interwiki-ckb"><a href="//ckb.wikipedia.org/wiki/%D9%BE%DB%8E%DA%A9%DA%BE%D8%A7%D8%AA%DB%95%D8%AF%D8%B1%D8%A7%D9%88%DB%95" title="پێکھاتەدراوە – 索拉尼库尔德文" lang="ckb" hreflang="ckb">کوردی</a></li>
+													<li class="interlanguage-link interwiki-da"><a href="//da.wikipedia.org/wiki/Datastruktur" title="Datastruktur – 丹麦文" lang="da" hreflang="da">Dansk</a></li>
+													<li class="interlanguage-link interwiki-de"><a href="//de.wikipedia.org/wiki/Datenstruktur" title="Datenstruktur – 德文" lang="de" hreflang="de">Deutsch</a></li>
+													<li class="interlanguage-link interwiki-el"><a href="//el.wikipedia.org/wiki/%CE%94%CE%BF%CE%BC%CE%AE_%CE%B4%CE%B5%CE%B4%CE%BF%CE%BC%CE%AD%CE%BD%CF%89%CE%BD" title="Δομή δεδομένων – 希腊文" lang="el" hreflang="el">Ελληνικά</a></li>
+													<li class="interlanguage-link interwiki-en"><a href="//en.wikipedia.org/wiki/Data_structure" title="Data structure – 英文" lang="en" hreflang="en">English</a></li>
+													<li class="interlanguage-link interwiki-es"><a href="//es.wikipedia.org/wiki/Estructura_de_datos" title="Estructura de datos – 西班牙文" lang="es" hreflang="es">Español</a></li>
+													<li class="interlanguage-link interwiki-et"><a href="//et.wikipedia.org/wiki/Andmestruktuur" title="Andmestruktuur – 爱沙尼亚文" lang="et" hreflang="et">Eesti</a></li>
+													<li class="interlanguage-link interwiki-fa"><a href="//fa.wikipedia.org/wiki/%D8%B3%D8%A7%D8%AE%D8%AA%D9%85%D8%A7%D9%86_%D8%AF%D8%A7%D8%AF%D9%87%E2%80%8C%D9%87%D8%A7" title="ساختمان داده‌ها – 波斯文" lang="fa" hreflang="fa">فارسی</a></li>
+													<li class="interlanguage-link interwiki-fi"><a href="//fi.wikipedia.org/wiki/Tietorakenne" title="Tietorakenne – 芬兰文" lang="fi" hreflang="fi">Suomi</a></li>
+													<li class="interlanguage-link interwiki-fr"><a href="//fr.wikipedia.org/wiki/Structure_de_donn%C3%A9es" title="Structure de données – 法文" lang="fr" hreflang="fr">Français</a></li>
+													<li class="interlanguage-link interwiki-he"><a href="//he.wikipedia.org/wiki/%D7%9E%D7%91%D7%A0%D7%94_%D7%A0%D7%AA%D7%95%D7%A0%D7%99%D7%9D" title="מבנה נתונים – 希伯来文" lang="he" hreflang="he">עברית</a></li>
+													<li class="interlanguage-link interwiki-hi"><a href="//hi.wikipedia.org/wiki/%E0%A4%86%E0%A4%82%E0%A4%95%E0%A4%A1%E0%A4%BC%E0%A4%BE_%E0%A4%B8%E0%A4%82%E0%A4%B0%E0%A4%9A%E0%A4%A8%E0%A4%BE" title="आंकड़ा संरचना – 印地文" lang="hi" hreflang="hi">हिन्दी</a></li>
+													<li class="interlanguage-link interwiki-hr"><a href="//hr.wikipedia.org/wiki/Podatkovna_struktura" title="Podatkovna struktura – 克罗地亚文" lang="hr" hreflang="hr">Hrvatski</a></li>
+													<li class="interlanguage-link interwiki-hu"><a href="//hu.wikipedia.org/wiki/Adatszerkezet" title="Adatszerkezet – 匈牙利文" lang="hu" hreflang="hu">Magyar</a></li>
+													<li class="interlanguage-link interwiki-id"><a href="//id.wikipedia.org/wiki/Struktur_data" title="Struktur data – 印度尼西亚文" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+													<li class="interlanguage-link interwiki-is"><a href="//is.wikipedia.org/wiki/Gagnagrind" title="Gagnagrind – 冰岛文" lang="is" hreflang="is">Íslenska</a></li>
+													<li class="interlanguage-link interwiki-it"><a href="//it.wikipedia.org/wiki/Struttura_dati" title="Struttura dati – 意大利文" lang="it" hreflang="it">Italiano</a></li>
+													<li class="interlanguage-link interwiki-ja"><a href="//ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E6%A7%8B%E9%80%A0" title="データ構造 – 日文" lang="ja" hreflang="ja">日本語</a></li>
+													<li class="interlanguage-link interwiki-kk"><a href="//kk.wikipedia.org/wiki/%D0%9C%D3%99%D0%BB%D1%96%D0%BC%D0%B5%D1%82%D1%82%D0%B5%D1%80_%D2%9B%D2%B1%D1%80%D1%8B%D0%BB%D1%8B%D0%BC%D1%8B" title="Мәліметтер құрылымы – 哈萨克文" lang="kk" hreflang="kk">Қазақша</a></li>
+													<li class="interlanguage-link interwiki-ko"><a href="//ko.wikipedia.org/wiki/%EC%9E%90%EB%A3%8C_%EA%B5%AC%EC%A1%B0" title="자료 구조 – 韩文" lang="ko" hreflang="ko">한국어</a></li>
+													<li class="interlanguage-link interwiki-lv"><a href="//lv.wikipedia.org/wiki/Datu_strukt%C5%ABras" title="Datu struktūras – 拉脱维亚文" lang="lv" hreflang="lv">Latviešu</a></li>
+													<li class="interlanguage-link interwiki-ml"><a href="//ml.wikipedia.org/wiki/%E0%B4%A1%E0%B4%BE%E0%B4%B1%E0%B5%8D%E0%B4%B1%E0%B4%BE_%E0%B4%B8%E0%B5%8D%E0%B4%9F%E0%B5%8D%E0%B4%B0%E0%B4%95%E0%B5%8D%E2%80%8C%E0%B4%9A%E0%B5%8D%E0%B4%9A%E0%B5%BC" title="ഡാറ്റാ സ്ട്രക്‌ച്ചർ – 马拉雅拉姆文" lang="ml" hreflang="ml">മലയാളം</a></li>
+													<li class="interlanguage-link interwiki-mn"><a href="//mn.wikipedia.org/wiki/%D3%A8%D0%B3%D3%A9%D0%B3%D0%B4%D0%BB%D0%B8%D0%B9%D0%BD_%D0%B1%D2%AF%D1%82%D1%8D%D1%86" title="Өгөгдлийн бүтэц – 蒙古文" lang="mn" hreflang="mn">Монгол</a></li>
+													<li class="interlanguage-link interwiki-ms"><a href="//ms.wikipedia.org/wiki/Struktur_data" title="Struktur data – 马来文" lang="ms" hreflang="ms">Bahasa Melayu</a></li>
+													<li class="interlanguage-link interwiki-nl"><a href="//nl.wikipedia.org/wiki/Datastructuur" title="Datastructuur – 荷兰文" lang="nl" hreflang="nl">Nederlands</a></li>
+													<li class="interlanguage-link interwiki-no"><a href="//no.wikipedia.org/wiki/Datastruktur" title="Datastruktur – 挪威文" lang="no" hreflang="no">Norsk bokmål</a></li>
+													<li class="interlanguage-link interwiki-pl"><a href="//pl.wikipedia.org/wiki/Struktura_danych" title="Struktura danych – 波兰文" lang="pl" hreflang="pl">Polski</a></li>
+													<li class="interlanguage-link interwiki-pt"><a href="//pt.wikipedia.org/wiki/Estrutura_de_dados" title="Estrutura de dados – 葡萄牙文" lang="pt" hreflang="pt">Português</a></li>
+													<li class="interlanguage-link interwiki-ro"><a href="//ro.wikipedia.org/wiki/Structur%C4%83_de_date" title="Structură de date – 罗马尼亚文" lang="ro" hreflang="ro">Română</a></li>
+													<li class="interlanguage-link interwiki-ru"><a href="//ru.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85" title="Структура данных – 俄文" lang="ru" hreflang="ru">Русский</a></li>
+													<li class="interlanguage-link interwiki-sh"><a href="//sh.wikipedia.org/wiki/Struktura_podataka" title="Struktura podataka – 塞尔维亚-克罗地亚文" lang="sh" hreflang="sh">Srpskohrvatski / српскохрватски</a></li>
+													<li class="interlanguage-link interwiki-simple"><a href="//simple.wikipedia.org/wiki/Data_structure" title="Data structure – Simple English" lang="simple" hreflang="simple">Simple English</a></li>
+													<li class="interlanguage-link interwiki-sk"><a href="//sk.wikipedia.org/wiki/%C3%9Adajov%C3%A1_%C5%A1trukt%C3%BAra" title="Údajová štruktúra – 斯洛伐克文" lang="sk" hreflang="sk">Slovenčina</a></li>
+													<li class="interlanguage-link interwiki-sl"><a href="//sl.wikipedia.org/wiki/Podatkovna_struktura" title="Podatkovna struktura – 斯洛文尼亚文" lang="sl" hreflang="sl">Slovenščina</a></li>
+													<li class="interlanguage-link interwiki-sq"><a href="//sq.wikipedia.org/wiki/Struktura_e_t%C3%AB_dh%C3%ABnave" title="Struktura e të dhënave – 阿尔巴尼亚文" lang="sq" hreflang="sq">Shqip</a></li>
+													<li class="interlanguage-link interwiki-sr"><a href="//sr.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%BF%D0%BE%D0%B4%D0%B0%D1%82%D0%B0%D0%BA%D0%B0" title="Структура података – 塞尔维亚文" lang="sr" hreflang="sr">Српски / srpski</a></li>
+													<li class="interlanguage-link interwiki-sv"><a href="//sv.wikipedia.org/wiki/Datastruktur" title="Datastruktur – 瑞典文" lang="sv" hreflang="sv">Svenska</a></li>
+													<li class="interlanguage-link interwiki-th"><a href="//th.wikipedia.org/wiki/%E0%B9%82%E0%B8%84%E0%B8%A3%E0%B8%87%E0%B8%AA%E0%B8%A3%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%B9%E0%B8%A5" title="โครงสร้างข้อมูล – 泰文" lang="th" hreflang="th">ไทย</a></li>
+													<li class="interlanguage-link interwiki-tr"><a href="//tr.wikipedia.org/wiki/Veri_yap%C4%B1s%C4%B1" title="Veri yapısı – 土耳其文" lang="tr" hreflang="tr">Türkçe</a></li>
+													<li class="interlanguage-link interwiki-uk"><a href="//uk.wikipedia.org/wiki/%D0%A1%D1%82%D1%80%D1%83%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D0%B4%D0%B0%D0%BD%D0%B8%D1%85" title="Структура даних – 乌克兰文" lang="uk" hreflang="uk">Українська</a></li>
+													<li class="interlanguage-link interwiki-vi"><a href="//vi.wikipedia.org/wiki/C%E1%BA%A5u_tr%C3%BAc_d%E1%BB%AF_li%E1%BB%87u" title="Cấu trúc dữ liệu – 越南文" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+													<li class="uls-p-lang-dummy"><a href="#"></a></li>
+											</ul>
+				<div class='after-portlet after-portlet-lang'><span class="wb-langlinks-edit wb-langlinks-link"><a action="edit" href="//www.wikidata.org/wiki/Q175263#sitelinks-wikipedia" text="编辑链接" title="编辑跨语言链接" class="wbc-editpage">编辑链接</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> 本页面最后修订于2013年5月27日 (星期一) 08:54。</li>
+											<li id="footer-info-copyright">本站的全部文字在<a rel="license" href="//zh.wikipedia.org/wiki/Wikipedia:CC-BY-SA-3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" title="Wikipedia:CC-BY-SA-3.0协议文本">知识共享 署名-相同方式共享 3.0协议</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/deed.zh" style="display:none;"></a>之条款下提供，附加条款亦可能应用。（请参阅<a href="//wikimediafoundation.org/wiki/%E4%BD%BF%E7%94%A8%E6%9D%A1%E6%AC%BE">使用条款</a>）<br />
+Wikipedia&reg;和维基百科标志是<a href="//wikimediafoundation.org">维基媒体基金会</a>的注册商标；维基&trade;是维基媒体基金会的商标。<br />
+维基媒体基金会是在美国佛罗里达州登记的501(c)(3)<a href="//wikimediafoundation.org/wiki/%E8%B5%84%E5%8A%A9%E7%9A%84%E5%85%8D%E7%A8%8E%E6%94%BF%E7%AD%96">免税</a>、非营利、慈善机构。<br /></li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="//wikimediafoundation.org/wiki/%E9%9A%90%E7%A7%81%E6%94%BF%E7%AD%96" title="wikimedia:隐私政策">隐私政策</a></li>
+											<li id="footer-places-about"><a href="/wiki/Wikipedia:%E5%85%B3%E4%BA%8E" title="Wikipedia:关于">关于维基百科</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:%E5%85%8D%E8%B4%A3%E5%A3%B0%E6%98%8E" title="Wikipedia:免责声明">免责声明</a></li>
+											<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">开发者</a></li>
+											<li id="footer-places-mobileview"><a href="//zh.m.wikipedia.org/w/index.php?title=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;amp%3Boldid=26682678&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">手机版视图</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="//wikimediafoundation.org/"><img src="//bits.wikimedia.org/images/wikimedia-button.png" srcset="//bits.wikimedia.org/images/wikimedia-button-1.5x.png 1.5x, //bits.wikimedia.org/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="//bits.wikimedia.org/static-1.25wmf19/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="//bits.wikimedia.org/static-1.25wmf19/resources/assets/poweredby_mediawiki_132x47.png 1.5x, //bits.wikimedia.org/static-1.25wmf19/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"ext.globalCssJs.site":"ready","ext.globalCssJs.user":"ready","site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.gadget.edit0","ext.gadget.WikiMiniAtlas","ext.gadget.ReferenceTooltips","ext.gadget.UnihanTooltips","ext.gadget.FixedTopBottomLink","ext.gadget.AdvancedSiteNotices","ext.gadget.hideConversionTab","ext.gadget.internalLinkHelper-altcolor","ext.gadget.noteTA","ext.gadget.noteTAvector","ext.gadget.NavFrame","ext.gadget.collapsibleTables","mmv.bootstrap.autostart","ext.imageMetrics.loader","ext.eventLogging.subscriber","ext.wikimediaEvents.statsd","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","ext.uls.interlanguage"],null,true);
+}</script>
+<script src="/w/index.php?title=MediaWiki:Gadget-ReferenceTooltips.js&amp;action=raw&amp;ctype=text/javascript&amp;33953681"></script>
+<script src="/w/index.php?title=MediaWiki:Gadget-UnihanTooltips.js&amp;action=raw&amp;ctype=text/javascript&amp;31819151"></script>
+<script src="/w/index.php?title=MediaWiki:Gadget-FixedTopBottomLinkLeftSide.js&amp;action=raw&amp;ctype=text/javascript&amp;31720837"></script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"//bits.wikimedia.org/zh.wikipedia.org/load.php?debug=false\u0026amp;lang=zh\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":174,"wgHostname":"mw1169"});
+}</script>
+	</body>
+</html>

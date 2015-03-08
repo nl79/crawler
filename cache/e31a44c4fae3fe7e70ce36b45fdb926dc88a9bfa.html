@@ -1,0 +1,1415 @@
+undefined<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR"
+ content="Mozilla/4.08 [en] (X11; I; Linux 2.4.2 i386) [Netscape]">
+  <title>Web Data Structures and Algorithms</title>
+</head>
+<body style="color: rgb(0, 0, 0); background-color: rgb(204, 255, 255);"
+ alink="#ee0000" link="#0000ff" vlink="#551a8b">
+<center style="color: rgb(0, 0, 153);"><br>
+<p><img src="algorithms.banner.gif" height="40" width="435"></p>
+<p><b><i>"Computer science is no more about computers than astronomy is
+about telescopes."</i></b>
+</p>
+<p><b>E. W. Dijkstra</b>
+</p>
+<p><img style="width: 100%; height: 1px;" alt="" src="redline.gif"></p>
+</center>
+<b style="color: rgb(0, 0, 153);"><font size="+1">Useful General Links</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1"><a href="algorithms-web.html#index"><b>251
+- </b>Godfried Toussaint's Course Topics on the Web</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.cs.mcgill.ca/%7Ehallett/251B.html">251-Mike
+Hallet's web page</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.softpanorama.org/Algorithms/algorithms.shtml">Virtual
+Library of Algorithms and Data Structures</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.csse.monash.edu.au/%7Elloyd/tildeAlgDS/">Algorithms
+and Data Structures Research &amp; Reference Material</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.cs.pitt.edu/%7Ekirk/algorithmcourses/index.html">Algorithms
+Courses on the WEB</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.utc.edu/%7Ecpmawata/petersen/">Graph
+Theory Lessons</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.ics.uci.edu/%7Eeppstein/161/syl.html">David
+Eppstein's course on algorithms</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.maths.abdn.ac.uk/%7Eigc/tch/mx4002/notes/notes.html">Algorithms
+Course at the University of Aberdeen</a></font></li>
+</ol>
+<center style="color: rgb(0, 0, 153);"><img
+ style="width: 100%; height: 1px;" alt="" src="redline.gif"><small>
+<br>
+<b><font size="+2"><small><br>
+Specific
+Course Material for
+COMP-251</small></font></b>
+<br>
+<b><font size="+2"><small>as taught by
+Godfried
+Toussaint</small></font></b></small>
+<br>
+<br>
+<img style="width: 100%; height: 1px;" alt="" src="redline.gif"><br>
+<br>
+</center>
+<a style="color: rgb(0, 0, 153);" name="index"></a><b
+ style="color: rgb(0, 0, 153);"><font size="+2">Chapter
+Index:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1"><a href="#complexity">The
+Complexity
+of Algorithms</a></font></li>
+  <li> <font size="+1"><a href="#correctness">The
+Correctness
+of Algorithms</a></font></li>
+  <li> <font size="+1"><a href="#lineardatastructures">Linear
+Data Structures</a></font></li>
+  <li> <font size="+1"><a href="#graphs">Graphs</a></font></li>
+  <li> <font size="+1"><a href="#trees">Trees</a></font></li>
+  <li> <font size="+1"><a href="#searching">Searching
+Algorithms</a></font></li>
+  <li> <font size="+1"><a href="#planesweep">Plane-Sweep
+Algorithms</a></font></li>
+  <li> <font size="+1"><a href="#greedy">Greedy
+Algorithms</a></font></li>
+  <li> <font size="+1"><a href="#divideandconquer">Divide-and-Conquer
+Algorithms</a></font></li>
+  <li> <font size="+1"><a href="#online">On-Line
+Algorithms</a></font></li>
+  <li> <font size="+1"><a href="realtime">Real-Time
+Algorithms</a></font></li>
+  <li> <font size="+1"><a href="#elimination">Elimination
+Algorithms</a></font></li>
+  <li> <font size="+1"><a href="#distributive">Distributive
+Algorithms</a></font></li>
+  <li> <font size="+1"><a href="#pruneandsearch">Prune-and-Search
+Methods</a></font></li>
+  <li> <font size="+1"><a href="#lp">Linear
+Programming</a></font></li>
+  <li> <font size="+1"><a href="#probabilistic">Probabilistic
+Algorithms</a></font></li>
+  <li> <font size="+1"><a href="#approximate">Approximation
+Algorithms</a></font></li>
+  <li> <font size="+1"><a href="#parallel">Parallel
+Algorithms</a></font></li>
+  <li> <font size="+1"><a href="#numerical">Numerical
+Algorithms</a></font></li>
+  <li> <font size="+1"><a href="#geometric">Geometric
+Algorithms</a></font></li>
+  <li> <font size="+1"><a href="#sequence">Sequence
+Comparison</a></font></li>
+</ol>
+<center style="color: rgb(0, 0, 153);"><img
+ style="width: 100%; height: 1px;" alt="" src="redline.gif"></center>
+<h3 style="color: rgb(0, 0, 153);">
+<a name="complexity"></a><font size="+1">1. The
+Complexity
+of Algorithms:</font></h3>
+<ul style="color: rgb(0, 0, 153);">
+  <h2> <font size="+1">Models of Computation
+(Old and
+New)</font></h2>
+  <h2> <font size="+1">(1) Knotted Strings, the
+Abacus
+and
+other Models of Computation</font></h2>
+  <ol>
+    <li> <b><font size="+1">Gravity as a Computer:</font></b></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://www.evansville.edu/%7Eck6/tcenters/class/centroid.html">Computing
+the Centroid of a Polygon with a Plumbline</a></font></li>
+      <li> <font size="+1"><a
+ href="http://jwilson.coe.uga.edu/EMT668/EMAT4680.2000/Miles.MaryBeth/Assignment%20%231%0A1/Polygon%20Cntr%20of%20Grav.html">Centers
+of Gravity of Polygons</a></font></li>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www.mathsnet.net/courses/dome/greece.html">The
+Knotted String Computer</a></font></li>
+    <li> <b><font size="+1">Pythagoras' Theorem:</font></b></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://www.epm.ornl.gov/java/book/applets/Pythagoras/">Pythagoras'
+Theorem </a>(An award winning proof and interactive Java applet demo)</font></li>
+      <li> <font size="+1"><a
+ href="http://www.nadn.navy.mil/MathDept/mdm/pyth.html">Animated
+Proof of the Pythagoream Theorem by M. D. Meyerson</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.cs.purdue.edu/homes/gnf/geometry/hinge.html">A
+Hinged Dissection Proof of the Pythagorean Theorem</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.ies.co.jp/math/java/geo/pythagoras.html">Other
+Dissection Proof</a><a
+ href="http://www.ies.co.jp/math/java/pythagoras.html">
+s</a> (with interactive Java applets)</font></li>
+      <li> <font size="+1"><a
+ href="http://www.cut-the-knot.org/pythagoras/index.shtml">More
+than forty other proofs of the Pythagorean theorem</a></font></li>
+      <li> <font size="+1"><a
+ href="http://aleph0.clarku.edu/%7Edjoyce/java/elements/bookI/propI48.html">The
+Converse of Pythagoras' Theorem</a></font></li>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www.ee.ryerson.ca:8080/%7Eelf/abacus/">The
+Abacus</a></font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://www.cut-the-knot.org/blue/Abacus.shtml">The
+Abacus in various number systems</a></font></li>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www.cut-the-knot.org/blue/Napier.shtml">Napier's
+Bones in Various Bases</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.comlab.ox.ac.uk/archive/other/museums/computing.html">The
+Virtual Museum of Computing</a></font></li>
+    <li> <font size="+1"><a
+ href="http://ei.cs.vt.edu/%7Ehistory/index.html">Links
+to History of Computing</a></font></li>
+  </ol>
+  <h2> <font size="+1">(2) The Straight Edge and
+Compass</font></h2>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.cs.mcgill.ca/%7Esqrt/cons/constructions.html">Francois
+Labelle's Tutorial on the Complexity of Ruler and Compass Constructions</a>
+(with interactive Java applet)</font></li>
+    <li> <font size="+1"><a
+ href="http://www.cs.rice.edu/%7Ejwarren/grace/">GRACE</a>
+(A graphical ruler and compass editor)</font></li>
+    <li> <font size="+1"><a href="../research/compass.html">The
+straight-edge and
+compass</a></font></li>
+    <li> <font size="+1"><a
+ href="http://aleph0.clarku.edu/%7Edjoyce/mathhist/greece.html">Constructive
+geometry of the Greeks</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.astro.virginia.edu/%7Eeww6n/math/GeometricConstruction.html">Geometric
+constructions</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.astro.virginia.edu/%7Eeww6n/math/Geometrography.html">Geometrography
+and the Lemoine simplicity of geometric constructions</a></font></li>
+    <li> <font size="+1"><a
+ href="http://aleph0.clarku.edu/%7Edjoyce/java/elements/elements.html">Euclid's
+Elements</a></font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://aleph0.clarku.edu/%7Edjoyce/java/elements/bookI/propI2.html">Second
+Proposition (Java applet)</a></font></li>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www-groups.dcs.st-and.ac.uk/%7Ehistory/Mathematicians/Euclid.html">Euclid
+of Alexandria</a></font></li>
+    <li> <font size="+1"><a
+ href="http://aleph0.clarku.edu/%7Edjoyce/java/elements/web.html">More
+Euclid on the Web</a></font></li>
+    <li> <b><font size="+1">Relative computing power of models of
+computation:</font></b></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://aleph0.clarku.edu/%7Edjoyce/java/elements/bookI/propI2.html">The
+Collapsing Compass</a></font></li>
+      <li> <font size="+1">A New Look at Euclid's Second Proposition (<a
+ href="../publications/euclid.ps">PostScript</a>)
+(<a href="../publications/euclid.pdf">PDF</a>)</font></li>
+      <li> <font size="+1"><a
+ href="http://www-groups.dcs.st-and.ac.uk/%7Ehistory/Mathematicians/Mohr.html">The
+Compass without straight edge (Mohr-Mascheroni)</a></font></li>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www.ies.co.jp/math/java/pythaprob/pythaprob.html">Heron's
+Shortest Path via a Line</a> (with interactive Java applet)</font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://members.xoom.com/dpscher/river.html">More
+on Heron's problem and other constrained shortest path problems</a>
+(with
+interactive Java applets)</font></li>
+      <li> <font size="+1"><a
+ href="http://www-groups.dcs.st-and.ac.uk/%7Ehistory/Mathematicians/Heron.html">More
+about Heron of Alexandria</a></font></li>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www.ies.co.jp/math/java/hypo/hypo.html">The
+Lunes of Hippocrates</a></font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://www-groups.dcs.st-and.ac.uk/%7Ehistory/Mathematicians/Hippocrates.html">More
+about Hippocrates of Chios</a></font></li>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www.perseus.tufts.edu/GreekScience/Students/Tim/Contents.html">Wonders
+of Ancient Greek Geometry</a></font></li>
+  </ol>
+  <h2> <font size="+1">(3) Modern Models of
+Computation</font></h2>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://obiwan.uvi.edu/computing/turing/ture.htm">Introduction
+to Turing machines</a></font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://sunsite.utk.edu/winners_circle/education/EDUHM01H/applet.html">Fantastic
+Turing machine applet!</a></font></li>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic2/">The
+Turing Machine and Random Access Machine</a> (Luc Devroye's class notes)</font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://www.wadham.ox.ac.uk/%7Eahodges/origins.html">More
+about Alan Turing</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.treasure-troves.com/math/FloorFunction.html">Ceiling
+and Floor Functions</a></font></li>
+      <li> <font size="+1"><a
+ href="http://albert.math.uiuc.edu/logfuncs/logfuncs.htm">Logarithmic
+functions</a></font></li>
+      <li> <font size="+1"><a
+ href="http://plus.maths.org/issue12/features/harmonic/index-gifd.html">The
+harmonic series</a></font></li>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic3/">Big
+"Oh" Notation</a> (Luc Devroye's class notes)</font></li>
+    <li> <font size="+1"><a
+ href="http://pentagon.cs.jhu.edu/%7Egoodrich/dsa/02analysistools/">Basic
+analysis tools (Goodrich &amp; Tamassia text)</a></font></li>
+    <li> <font size="+1">Computability theory</font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://pass.maths.org.uk/issue5/turing/index.html">What
+computers can't do (Turing and the Halting Problem)</a></font></li>
+    </ol>
+  </ol>
+  <b><font size="+1">(4) The Complexity of
+Algorithms
+and Problems:</font></b>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic4/">Recursion</a>
+(Luc Devroye's class notes)</font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://www.ics.uci.edu/%7Eeppstein/161/960109.html">Algorithms
+for computing the Fibonacci function (David Eppstein)</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.treasure-troves.com/math/FibonacciNumber.html">Fibonacci
+numbers (mathematical properties)</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.mcs.surrey.ac.uk/Personal/R.Knott/Fibonacci/fibnat.html">Fibonacci
+numbers and nature</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.mcs.surrey.ac.uk/Personal/R.Knott/Fibonacci/fib.html">Fibonacci
+Home Page</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.mcs.surrey.ac.uk/Personal/R.Knott/Fibonacci/fibBio.html">Biography
+of Leonardo Fibonacci from Pisa</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.prairienet.org/%7Epops/fibboard.html">Fibonacci
+numbers and domino tilings</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.amsci.org/amsci/issues/comsci99/compsci1999-07.html">Vibonacci
+numbers</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.ies.co.jp/math/java/comzen/comzen.html">Recursion
+solving applet</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.mcs.surrey.ac.uk/Personal/R.Knott/Fibonacci/fibformproof.html">Proofs
+of Binet's formula</a></font></li>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic31/">Lower
+Bounds</a> (Luc Devroye's class notes)</font></li>
+  </ol>
+</ul>
+<h3 style="color: rgb(0, 0, 153);">
+<font size="+1">2.&nbsp;<a name="correctness"></a>
+The Correctness of Algorithms (Proof Techniques):</font></h3>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1"><a
+ href="http://www.math.csusb.edu/notes/proofs/pfnot/pfnot.html">Notes
+on methods of proof</a></font></li>
+  <li> <font size="+1">Notes on how to do proofs</font></li>
+  <li> <font size="+1"><a
+ href="http://www.cc.gatech.edu/people/home/idris/AlgorithmsProject/ProofMethods/index.html">More
+on proof methods</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.math.toronto.edu/mathnet/falseProofs/fallacies.html">Classic
+fallacies</a></font></li>
+  <li> <b><font size="+1">Constructive Proofs:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.cut-the-knot.com/proofs/two_color.html">3-coloring
+all the points in the plane</a></font></li>
+  </ol>
+  <li> <b><font size="+1">Proofs by Contradiction:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://public.logica.com/%7Estepneys/cyc/p/primeprf.htm">Euclid's
+Proof of the infinitude of prime numbers</a></font></li>
+  </ol>
+  <li> <b><font size="+1">Induction Proofs:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://bigcheese.math.sc.edu/%7Esumner/numbertheory/induction/Induction.html">The
+Technique of Proof by Induction</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.earlham.edu/%7Epeters/courses/logsys/math-ind.htm">More
+on induction</a></font></li>
+  </ol>
+  <li> <b><font size="+1">Induction Algorithm Design:</font></b></li>
+  <ol>
+    <li> <font size="+1">Polynomial evaluation</font></li>
+  </ol>
+  <li> <font size="+1"><a
+ href="http://www.mcn.net/%7Ejimloy/proof.html">Many
+nice
+examples of different types of proofs</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.cut-the-knot.com/proofs/index.html">On
+Proofs in Mathematics</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.earlham.edu/%7Epeters/courses/logsys/howread.htm">How
+to read proofs</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.research.digital.com/SRC/personal/lamport/proofs/proofs.html">Writing
+Down Proofs</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.amazon.com/exec/obidos/ISBN=0534103200/6222-9394066-240890">The
+Nuts and Bolts of Proofs</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.earlham.edu/%7Epeters/courses/logsys/lshome.htm">Logical
+systems</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.math.vanderbilt.edu/%7Eschectex/commerrs/">Common
+errors in mathematics</a></font></li>
+  <li> <font size="+1"><a
+ href="http://zimmer.csufresno.edu/%7Elarryc/proofs/proofs.html">Proofs
+and proof strategies</a></font></li>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">3.&nbsp;<a
+ name="lineardatastructures"></a>
+Linear Data Structures:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic6/">Linear
+Data Structures (Luc Devroye's class notes)</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.maths.abdn.ac.uk/%7Eigc/tch/mx4002/notes/notes.html">University
+of Aberdeen Notes</a></font></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.maths.abdn.ac.uk/%7Eigc/tch/mx4002/notes/node48.html">Stack</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.maths.abdn.ac.uk/%7Eigc/tch/mx4002/notes/node48.html">Queue</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.maths.abdn.ac.uk/%7Eigc/tch/mx4002/notes/node48.html">Array</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.maths.abdn.ac.uk/%7Eigc/tch/mx4002/notes/node48.html">Linked
+list</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.maths.abdn.ac.uk/%7Eigc/tch/mx4002/notes/node48.html">Priority
+Queue</a></font></li>
+    <li> <font size="+1">Deque</font></li>
+  </ol>
+  <li> <font size="+1"><a
+ href="http://www.cs.hope.edu/%7Ealganim/ccaa/data.html">Data
+Structure Animations</a></font></li>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">4.&nbsp;<a
+ name="graphs"></a>Graphs:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1"><a
+ href="http://www.utm.edu/cgi-bin/caldwell/tutor/departments/math/graph/intro">Interactive
+Introduction to Graph Theory</a></font></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://artemis.simmons.edu/%7Ewoo/graphtheory/">Graph
+Theory Tutorials (Euler and Hamilton circuits, Coloring, Spanning and
+Steiner
+Trees)</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www-math.cudenver.edu/%7Ewcherowi/courses/m4408/m4408.html">Applied
+Graph Theory Course</a></font></li>
+  </ol>
+  <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic25/">Introduction
+to Graphs (Luc Devroye's Notes)</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.utc.edu/%7Ecpmawata/petersen/lesson3.htm">Graph
+isomorphism</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.utc.edu/%7Ecpmawata/petersen/lesson21.htm">Graph
+planarity</a></font></li>
+  <li> <b><font size="+1">Graph data structures:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.cs.mu.oz.au/%7Erwebber/research/thesis/geometry.shtml#data">Adjacency
+lists</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.utc.edu/%7Ecpmawata/petersen/lesson7.htm">Adjacency
+matrices</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.cs.mu.oz.au/%7Erwebber/research/thesis/geometry.shtml#data">Doubly-Connected-Edge-List
+(DCEL)</a></font></li>
+  </ol>
+  <li> <font size="+1"><a
+ href="http://www.cs.hope.edu/%7Ealganim/ccaa/graph.html">Graph
+Algorithm Animations</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.utm.edu/departments/math/graph/">Graph
+Theory Web Tutorials</a></font></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.utm.edu/cgi-bin/caldwell/tutor/departments/math/graph/intro">Introduction
+to graph theory</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.utm.edu/cgi-bin/caldwell/tutor/departments/math/graph/euler">Euler
+and Hamiltonian circuits</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.math.fau.edu/locke/graphthe.htm">Graph
+theory</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.math.lsa.umich.edu/%7Emathsch/summ97/graph/index.html">Graph
+Theory and Enumeration</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.math.lsa.umich.edu/%7Emathsch/summ97/graph/graph3/">Paths
+and Circuits</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.lehigh.edu/%7Einmath/euler3.html">Algorithm
+for Constructing an Eulerian Circuit</a></font></li>
+    <li> <font size="+1"><a
+ href="http://campus.northpark.edu/wicksBook/GraphTheory/Euler/index.html">Euler
+Tours: Fleury's Algorithm</a></font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://www.math.okstate.edu/%7Ewrightd/1493/euler/index.html">Applet
+for Euler tours</a></font></li>
+      <li><font size="+1"><a
+ href="http://www.cs.mcgill.ca/%7Eethan/teaching.html">Ethan's notes</a><br>
+        </font></li>
+    </ol>
+    <li> <font size="+1"><a href="../publications/fleury.ps">More on
+Fleury's algorithm</a>
+(postscript)</font></li>
+    <li> <font size="+1"><a
+ href="http://www.ctl.ua.edu/math103/euler/euler.htm">Great
+tutorial on Euler tours and Fleury's algorithm</a></font></li>
+  </ol>
+  <li> <font size="+1"><a
+ href="http://csr.uvic.ca/%7Emmania/graphs/glossary.htm">Graph
+Glossary</a></font></li>
+  <li> <b><font size="+1">Proximity graphs:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic28/">Minimal
+spanning trees (Luc Devroye's class notes)</a></font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://www.ics.uci.edu/%7Eeppstein/161/960206.html">David
+Eppstein's class notes</a></font></li>
+      <li> <font size="+1"><a
+ href="http://ganley.org/software/tree.html">Java
+applet
+of Euclidean minimal spanning tree</a></font></li>
+    </ol>
+    <li> <font size="+1"><a href="../publications/relng.ps">The
+Relative
+Neighborhood
+Graph</a></font></li>
+  </ol>
+  <li> <b><font size="+1">Hamiltonian Tours:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www-math.cudenver.edu/%7Ewcherowi/courses/m4408/gtln12.html">Hamiltonian
+paths in tournaments</a></font></li>
+    <li> <font size="+1">Hamiltonian cycles in dense graphs:</font></li>
+    <ol>
+      <li> <font size="+1">Ore's Theorem</font></li>
+      <ol>
+        <li> <font size="+1">Backward induction proof</font></li>
+      </ol>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www.math.fau.edu/locke/Dirac.htm">Dirac's
+Theorem</a></font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://www.math.uwaterloo.ca/navigation/ideas/articles/honsberger/index.shtml">Posa's
+proof of Dirac's theorem by contradiction</a></font></li>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www.ing.unlp.edu.ar/cetad/mos/Hamilton.html">The
+Hamiltonian Page</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.ctl.ua.edu/math103/hamilton/hamilton.htm">Great
+tutorial on Hamilton circuits</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.rose-hulman.edu/mathjournal/2000/vol1-n1/paper4/v1n1-4pd.PDF">Sufficient
+conditions for Hamiltonian cycles</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ektulu/507/">Hamiltonian
+circuits of point sets with specific properties (polygonizations)</a></font></li>
+  </ol>
+  <li> <b><font size="+1">Minimum Spanning Trees:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic28/">Minimum
+spanning trees (Luc Devroye's class notes)</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.ics.uci.edu/%7Eeppstein/161/960206.html">Minimum
+spanning tree algorithms: Kruskal, Prim &amp; Baruvka (David Eppstein's
+class notes)</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.tcs.mu-luebeck.de/AlgoDesignMan/BOOK/BOOK4/NODE161.HTM#SECTION03143000000000000000">Minimum
+Spanning Trees (Steve Skiena)</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.ee.uwa.edu.au/%7Eplsd210/ds/mst.html">Kruskal's
+Algorithm with applet</a></font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://campus.northpark.edu/wicksBook/GraphTheory/Kruskal/index.html">Least
+Cost Networks: Kruskal's Algorithm</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.cs.man.ac.uk/%7Egraham/cs2022/greedy/index.html">Another
+applet for Kruskal's algorithm</a></font></li>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://students.ceid.upatras.gr/%7Epapagel/project/prim.htm">Prim's
+algorithm with pointers and appl</a><a
+ href="http://www.ics.uci.edu/%7Eeppstein/161/960206.html">et</a></font></li>
+    <li> <font size="+1"><a
+ href="http://students.ceid.upatras.gr/%7Epapagel/project/prim.htm">Prim's
+algorithm with adjacency matrices and applet</a></font></li>
+    <li> <font size="+1"><a href="../publications/baruvka.ps">Baruvka's
+Algorithm (David Mount's notes) PostScript file</a></font></li>
+  </ol>
+  <li> <font size="+1"><a
+ href="http://www.ics.uci.edu/%7Eeppstein/junkyard/euler/">19
+Proofs of Euler's Theorem</a></font></li>
+  <li> <b><font size="+1">Graph and Map Coloring:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.geom.umn.edu/%7Ezarembe/grapht1.html">Graph
+and map coloring</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.utc.edu/%7Ecpmawata/petersen/lesson22.htm">Dual
+Graphs</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.utc.edu/%7Ecpmawata/petersen/lesson8.htm">Graph
+Coloring</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.utm.edu/cgi-bin/caldwell/tutor/departments/math/graph/color">Map
+coloring WEB tutorial</a></font></li>
+    <li> <font size="+1"><a
+ href="http://csr.uvic.ca/%7Emmania/graphs/apps.htm">The
+scheduling problem</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.c3.lanl.gov/mega-math/workbk/map/mptwo.html">Two-Colorable
+Maps</a></font></li>
+    <li> <font size="+1"><a
+ href="http://mat.gsia.cmu.edu/COLOR/color.html">Applications
+of graph coloring</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.math.gatech.edu/%7Ethomas/FC/fourcolor.html">The
+four-color theorem</a></font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://www-groups.dcs.st-and.ac.uk/%7Ehistory/HistTopics/The_four_colour_theorem.html">History
+of the problem</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.ams.org:80/eraprcgi/jour-prprocess/era-file?pg1=PI&amp;op1=AND&amp;co1=AND&amp;d=JRNL&amp;l=1&amp;p=1&amp;r=1&amp;f=G&amp;u=%2Fera%2F1996%2D02%2D01%2F&amp;s1=S1079%2D6762%2D96%2D00003%2D0&amp;fn=140&amp;arg1=%2Fera%2F1996%2D02%2D01%2FS1079%2D6762%2D96%2D00003%2D0%2Fhtml%2Fnode1%2Ehtml&amp;PORT=80&amp;refl=">A
+new proof of the 4-color theorem</a></font></li>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www.cs.ualberta.ca/%7Ejoe/Coloring/index.html">The
+Graph Coloring Page</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.ics.uci.edu/%7Eeppstein/junkyard/color.html">David
+Eppstein's Coloring Page</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.caam.rice.edu/%7Enated/caam470/notes/coloring3/">The
+Five-Color Theorem for planar graphs</a></font></li>
+  </ol>
+  <li> <font size="+1"><a
+ href="http://forum.swarthmore.edu/%7Eisaac/problems/bridges1.html">The
+Konigsberg Bridge Problem</a></font></li>
+  <li> <font size="+1">Planarity and the Torus</font></li>
+  <li> <font size="+1"><a
+ href="http://www.ics.uci.edu/%7Eeppstein/junkyard/rcg.html">The
+rotating-caliper graph</a></font></li>
+  <li> <b><font size="+1">The Travelling
+Salesman
+Problem:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.pcug.org.au/%7Edakin/tsp.htm">An
+introduction
+to the TSP problem</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.caam.rice.edu/%7Ekeck/tsp/history.html">A
+pictorial history of the TSP problem</a></font></li>
+    <li> <font size="+1"><a
+ href="http://nuweb.jinr.dubna.su/%7Efilipova/tsp.html">An
+elastic-band approach to the TSP problem (JAVA applet)</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.geom.umn.edu/%7Eburgiel/Java/Ngons/ngons.html">The
+Polygon Counting Applet</a></font></li>
+    <li> <font size="+1"><a href="http://www.keck.caam.rice.edu/tsp/">The
+Travelling
+Salesman Home Page</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.wiwi.uni-frankfurt.de/%7Estockhei/touropt.html">Different
+heuristics for the TSP problem</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic28/">Approximate
+TSP algorithm via MST yields twice optimal tour</a></font></li>
+  </ol>
+  <li> <font size="+1"><a
+ href="http://catt.okstate.edu/jones98/drawing.htm">Graph
+drawing</a></font></li>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">5.&nbsp;<a
+ name="trees"></a>Trees:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1">Introduction to Trees:</font></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic8/">Luc
+Devroye's class notes with tree traversal (applet)</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.maths.abdn.ac.uk/%7Eigc/tch/mx4002/notes/node56.html">Tree
+traversals (preorder, inorder and postorder)</a></font></li>
+    <li> <font size="+1"><a
+ href="http://pentagon.cs.jhu.edu/%7Egoodrich/dsa/05trees/">Introduction
+to trees (Goodrich &amp; Tamassia text)</a></font></li>
+  </ol>
+  <li> <font size="+1"><a
+ href="http://www.cs.hope.edu/%7Ealganim/ccaa/tree.html">Tree
+Algorithm Animations</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.astro.virginia.edu/%7Eeww6n/math/BinaryTree.html">Binary
+trees.</a></font></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://sue.csc.uvic.ca/%7Ecos/inf/tree/BinaryTrees.html">More
+information on binary trees.</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.astro.virginia.edu/%7Eeww6n/math/Logarithm.html">Logarithms</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic9/">Binary
+search trees (Luc Devroye's class notes)</a></font></li>
+  </ol>
+  <li> <font size="+1">Quad trees</font></li>
+  <li> <b><font size="+1">Balanced trees:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.cs.mcgill.ca/%7Ecs251/ClosestPair/2-4trees.html">Tutorial
+on 2-4 trees</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.cs.nwu.edu/academics/courses/c11/notes/balanced-trees.html">2-4
+Trees</a> (also AVL and Red-Black trees)</font></li>
+  </ol>
+  <li> <b><font size="+1">Heaps:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.ee.uwa.edu.au/%7Eplsd210/ds/heaps.html">Tutorial
+on heaps with applet</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic16/">Heaps
+(Luc Devroye's class notes)</a></font></li>
+  </ol>
+  <li> <b><font size="+1">Huffman trees and data compression:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.ics.uci.edu./%7Edan/pubs/DataCompression.html">Data
+compression</a></font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://www.ifi.uio.no/%7Ein383/introduction.shtml">Introduction
+to Data Compression</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.ics.uci.edu./%7Edan/pubs/DC-Sec1.html#Sec_1">Fundamental
+Concepts</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.ics.uci.edu./%7Edan/pubs/DC-Sec3.html#Sec_3.1">Shannon-Fano
+Coding</a></font></li>
+      <ol>
+        <li> <font size="+1">More about <a
+ href="http://www.nightgarden.com/infosci.htm">Claude
+Shannon</a></font></li>
+        <li> <font size="+1"><a
+ href="http://cm.bell-labs.com/cm/ms/what/shannonday/work.html">The
+Significance of Claude Shannon's Work</a></font></li>
+        <li> <font size="+1"><a
+ href="http://www.ece.gatech.edu/users/causey/shannon.html">Pictures
+of Shannon</a></font></li>
+        <li> <font size="+1">More about Robert Fano</font></li>
+      </ol>
+      <li> <font size="+1"><a
+ href="http://www.ics.uci.edu./%7Edan/pubs/DC-Sec3.html#Sec_3.2">Huffman
+coding</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.maths.abdn.ac.uk/%7Eigc/tch/mx4002/notes/node58.html">Optimality
+of Huffman codes</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.cs.mcgill.ca/%7Ecs251/OldCourses/1997/topic22/">Huffman
+trees and applications (Luc Devroye's course notes)</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www4.cs.uni-dortmund.de/MA/misch/applets/AAP/huffman.html">Huffman
+coding applet</a></font></li>
+      <li> <font size="+1"><a
+ href="http://swww.ee.uwa.edu.au/%7Eplsd210/ds/huffman.html">Huffman
+coding tutorial and another applet</a></font></li>
+      <li> <font size="+1">More About <a
+ href="http://www.cse.ucsc.edu/personnel/faculty/huffman.html">David
+Huffman</a></font></li>
+      <ol>
+        <li> <font size="+1"><a
+ href="http://www.ucsc.edu/currents/99-00/10-11/huffman.html">David
+Huffman dies at 74</a></font></li>
+        <li> <font size="+1"><a
+ href="http://www.sgi.com/grafica/huffman/">Geometric
+paper
+folding</a></font></li>
+      </ol>
+      <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic23/">Lempel-Ziv
+Compression (Luc Devroye's notes)</a></font></li>
+      <li> <font size="+1"><a
+ href="http://pauillac.inria.fr/algo/seminars/sem96-97/szpankowski.html">Lempel-Ziv
+Data Compression Schemes</a></font></li>
+      <ol>
+        <li> <font size="+1"><a
+ href="http://www.cs.technion.ac.il/users/wwwb/cgi-bin/facultynew.cgi?Lempel.Abraham">More
+about Abraham Lempel</a></font></li>
+        <li> <font size="+1"><a
+ href="http://www.data-compression.com/lossless.html">Animation
+of Welch variant of Lempel-Ziv compression</a></font></li>
+      </ol>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www.tcs.mu-luebeck.de/AlgoDesignMan/BOOK/BOOK5/NODE205.HTM#SECTION03175000000000000000">Text
+compression (Steve Skiena)</a></font></li>
+    <li> <font size="+1">Morse Code</font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://members.home.net/ac3l/morsemnu.htm">Morse
+Code basics</a></font></li>
+      <li> <font size="+1"><a
+ href="http://www.inforamp.net/%7Epfletche/morse.htm">The
+International Morse Code</a></font></li>
+      <li> <font size="+1"><a
+ href="http://web.mit.edu/invent/www/inventorsI-Q/morse.html">More
+about Samuel Morse</a></font></li>
+    </ol>
+    <li> <font size="+1">Introduction to probability and information
+theory</font></li>
+    <li> <font size="+1"><a
+ href="http://www.math.washington.edu/%7Ehillman/entropy.html">Entropy</a></font></li>
+    <li> <font size="+1">Markov models of natural language (monkeys
+and
+typewriters)</font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://www.nightgarden.com/shannon.htm">The
+Shannonizer</a></font></li>
+    </ol>
+    <li> <font size="+1">Spelling correction programs.</font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://www.english.cup.edu/%7Efred/spelchkr.html">Spell
+checkers are wonderful but</a> .....</font></li>
+    </ol>
+  </ol>
+  <li> <font size="+1">Decision trees</font></li>
+  <li> <b><font size="+1">Game trees:</font></b></li>
+  <ol>
+    <li> <font size="+1">Play <b>Checkers</b>
+with <b><a href="http://www.cs.ualberta.ca/%7Echinook/">Chinook</a></b>
+(The World Champion)</font></li>
+    <li> <font size="+1">Play <b>Othello</b>
+with <b><a
+ href="http://forum.swarthmore.edu/%7Ejay/learn-game/systems/othello.html">Keyano
+and other programs</a></b></font></li>
+    <li> <font size="+1">Play <b>Chess</b>
+with <b><a href="http://www.cs.ualberta.ca/%7Egames/TheTurk/index.cgi">The
+Turk</a></b></font></li>
+    <li> <font size="+1">Game trees</font></li>
+    <li> <font size="+1"><a
+ href="http://www.cs.duke.edu/%7Ejeffe/mathgames.html">Other
+Games, Toys and Puzzles</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.cs.uidaho.edu/%7Ecasey931/conway/games.html">Clever
+games for clever people</a></font></li>
+    <ol>
+      <li> <font size="+1"><a href="http://www.bitstorm.org/tetris/">Tetris</a></font></li>
+    </ol>
+  </ol>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">6.<a name="searching"></a>
+Searching
+Algorithms:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1">Sequential search</font></li>
+  <li> <b><font size="+1">Binary search:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://acssun.pstcc.cc.tn.us/%7Eajw/cst2650/project/TreeDemo/TreeDemo.html">Creating
+Binary Search Trees</a> (Java applet)</font></li>
+    <li> <font size="+1"><a
+ href="http://www.dgp.toronto.edu/people/JamesStewart/378/notes/bst-searching.html">Searching
+in a Binary Search Tree</a> (Java applet demo)</font></li>
+    <li> <font size="+1"><a
+ href="http://www.cut-the-knot.com/blue/Cards.html">The
+Number-Guessing Game</a></font></li>
+  </ol>
+  <li> <b><font size="+1">Maze searching:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic26/">Depth-first
+search (Luc Devroye's class notes)</a></font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://www.cs.duke.edu/%7Ewcp/DFSanim.html">DFS
+applet</a></font></li>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www.hooked.net/users/rpaymer/index.html">A
+Maze Game (interactive Java applet)</a></font></li>
+    <li> <font size="+1"><a href="http://members.cox.net/jdean284">3D
+Mazes in Java</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.math.sunysb.edu/%7Etony/mazes/">The mathematics
+of mazes</a></font></li>
+    <li> <font size="+1"><a
+ href="http://labyrinth.net.au/labyrinth/myths/theseus.html">Theseus
+and the Minotaur</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.dujour.com/labyrinth/ariadne.shtml">The
+Minotaur Legend</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.iit.edu/%7Emaxiori/apps/Theseus.html">The
+mad maze of Theseus and the Minotaur</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.minotaur-websites.com/minomyth.htm">THE
+MYTH OF THE MINOTAUR</a></font></li>
+  </ol>
+  <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic27/">Breadth-first
+search (Luc Devroye's class notes)</a></font></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.cs.duke.edu/%7Ewcp/BFSanim.html">BSF
+applet</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.ics.uci.edu/%7Eeppstein/161/960215.html">BSF
+and DFS (David Eppstein's class notes)</a></font></li>
+    <li> <font size="+1"><a
+ href="http://pentagon.cs.jhu.edu/%7Egoodrich/dsa/09graphs/">Graph
+traversal (Goodrich &amp; Tamassia text)</a></font></li>
+  </ol>
+  <li> <font size="+1">Interpolation search</font></li>
+  <li> <font size="+1"><a
+ href="http://www.cs.wustl.edu/%7Epless/506/l11w.html">Orthogonal
+range searching</a></font></li>
+  <li> <b><font size="+1">Nearest Neighbor Search:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://cgm.cs.mcgill.ca/%7Esoss/cs644/projects/perrier/">Projection
+methods</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www-db.stanford.edu/%7Esergey/near.html">Access
+Trees</a></font></li>
+    <li> <font size="+1">Voronoi diagram methods</font></li>
+  </ol>
+  <li> <font size="+1">Closest-pair searching in the plane</font></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.cs.mcgill.ca/%7Ecs251/ClosestPair/">Tutorial
+with applets</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.research.digital.com/SRC/JCAT/jdk10/closestpair/">Animation
+applet of divide-and-conquer algorithm<b>!</b></a></font></li>
+    <li> <font size="+1"><a
+ href="http://pentagon.cs.jhu.edu/%7Egoodrich/dsa/15geometry/">Closest
+pairs (Goodrich &amp; Tamassia text)</a></font></li>
+  </ol>
+  <li> <font size="+1">Branch-and-bound</font></li>
+  <li> <font size="+1">The A* algorithm</font></li>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">7.&nbsp;<a
+ name="planesweep"></a>
+Plane-Sweep Algorithms:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1">Closest pair problem</font></li>
+  <li> <font size="+1">Line segment intersections</font></li>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">8.&nbsp;<a
+ name="greedy"></a>Greedy
+Algorithms, Hill-Climbing, and Diameter Algorithms:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1"><a
+ href="http://www.c3.lanl.gov/mega-math/gloss/compute/greedy.html">Greedy
+algorithms</a></font></li>
+  <li><font size="+1"><a
+ href="http://cgm.cs.mcgill.ca/%7Egodfried/research/calipers.html">The
+Rotating Calipers</a><br>
+&nbsp;&nbsp; 1. <a href="http://cgm.cs.mcgill.ca/%7Eorm/rotcal.html">The
+Rotating Caliper Page of Hormoz Pirzadeh (with an awsome Java applet!)</a><br>
+&nbsp;&nbsp; 2.<a
+ href="http://mathworld.wolfram.com/ReuleauxTriangle.html"> The
+Reuleaux triangle (Eric's Treasure Trove)</a><br>
+&nbsp;&nbsp; 3. <a
+ href="http://www.ics.uci.edu/%7Eeppstein/junkyard/reuleaux.html">The
+Reuleaux triangle (The Geometry Junkyard</a><br>
+    </font></li>
+  <li> <font size="+1">Complexity, convexity and unimodality</font></li>
+  <li> <font size="+1">Hill climbing algorithms</font></li>
+  <li> <font size="+1">Quick sort</font></li>
+  <li> <font size="+1">Quick hull</font></li>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">9.&nbsp;<a
+ name="divideandconquer"></a>
+Divide &amp; Conquer Algorithms:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1">Sorting</font></li>
+  <li> <font size="+1">Finding closest pair</font></li>
+  <li> <font size="+1">Convex hulls</font></li>
+</ol>
+<dt style="color: rgb(0, 0, 153);"> <b><font size="+1">10.<a
+ name="online"></a>
+On-Line
+Algorithms:</font></b></dt>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1">Convex hulls of polygons</font></li>
+  <li> <font size="+1">Convex hulls of points</font></li>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">11.&nbsp;<a
+ name="realtime"></a>
+Real-Time Algorithms:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1">Convex hulls of polygons</font></li>
+  <li> <font size="+1">Convex hulls of points</font></li>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">12.<a
+ name="elimination"></a>
+Elimination
+Methods:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1">Convex hulls of point sets</font></li>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">13.&nbsp;<a
+ name="distributive"></a>
+Distributive Methods:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1">Distributive sorting</font></li>
+  <li> <font size="+1">Bucketing methods</font></li>
+  <ol>
+    <li> <font size="+1">Bucket sort</font></li>
+    <li> <font size="+1">Radix sort</font></li>
+  </ol>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">14.&nbsp;<a
+ name="pruneandsearch"></a>
+Prune &amp; Search Methods:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1"><a
+ href="http://www.treasure-troves.com/math/GeometricSeries.html">The
+geometric series</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www-cgrl.cs.mcgill.ca/%7Egodfried/teaching/cg-projects/97/Ian/algorithm2.html">Ear-cutting
+and polygon triangulation</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.cs.McGill.CA/%7Ecs251/OldCourses/1997/topic5/">Linear
+time median finding and selection (Luc Devroye's course notes)</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.ics.uci.edu/%7Eeppstein/161/960130.html">Linear
+time median finding and selection (David Eppstein's course notes)</a></font></li>
+  <li> <font size="+1">Convex hulls</font></li>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">15.&nbsp;<a name="lp"></a>Linear
+Programming:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1"><a
+ href="http://www.isye.gatech.edu/%7Espyros/LP/LP.html">Introduction
+to Linear Programming and the Simplex Algorithm</a></font></li>
+  <li> <font size="+1">Megiddo's linear time algorithm</font></li>
+  <li> <font size="+1"><a
+ href="http://weber.u.washington.edu/%7Ecvj/animalp.html">Linear
+programming and optimization problems</a> (with Java applet)</font></li>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">16.&nbsp;<a
+ name="probabilistic"></a>
+Probabilistic Algorithms:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1">Randomization</font></li>
+  <li> <font size="+1">Monte-Carlo Algorithms</font></li>
+  <li> <font size="+1">Las-Vegas Algorithms</font></li>
+  <li> <font size="+1">Randomized convex hull</font></li>
+  <li> <font size="+1"><a
+ href="http://www.cut-the-knot.org/probability.shtml">Probability
+and Random Number Generation</a></font></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.che.ufl.edu/visualize/Random/random.html">Visualizing
+randomness</a></font></li>
+    <li> <font size="+1"><a
+ href="http://compsci.cas.vanderbilt.edu/csep/RN/RN.html">More
+on generating random numbers</a></font></li>
+  </ol>
+  <li> <b><font size="+1">Monte Carlo Simulation:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.amsci.org/amsci/issues/comsci97/compsci9711.html">Simulating
+random knots in a lattice</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.amsci.org/amsci/issues/comsci98/compsci1998-07.html">Self-avoiding
+walks in polymer physics and molecular biology</a></font></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="http://polymer.bu.edu/%7Etrunfio/java/polymer/polymer.html">Polymer
+Java applet</a></font></li>
+    </ol>
+    <li> <font size="+1"><a
+ href="http://www.amsci.org/amsci/issues/Comsci98/compsci1998-05.html">Protein
+folding</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.amsci.org/amsci/issues/Comsci96/compsci96-07.html">Bouncing
+balls</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.mste.uiuc.edu/reese/buffon/buffon.html">Buffon's
+Needle</a></font></li>
+    <li> <font size="+1"><a
+ href="http://neptune.math.uah.edu/%7Estat/dice/index.html">Rolling
+Dice</a></font></li>
+  </ol>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">17.&nbsp;<a
+ name="approximate"></a>
+Approximation Algorithms:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1"><a
+ href="http://www.itheoi.mu-luebeck.de/AlgoDesignMan/BOOK/BOOK3/NODE119.HTM#SECTION02680000000000000000">Approximation
+algorithms</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.itheoi.mu-luebeck.de/AlgoDesignMan/BOOK/BOOK4/NODE174.HTM">The
+vertex-cover problem</a></font></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.itheoi.mu-luebeck.de/AlgoDesignMan/BOOK/BOOK3/NODE120.HTM">Approximation
+algorithm</a></font></li>
+  </ol>
+  <li> <font size="+1"><a href="http://www.CS.McGill.CA/%7Esumiki/">The
+bin-packing
+problem</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic28/">The
+travelling salesman problem</a></font></li>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">18.&nbsp;<a
+ name="parallel"></a>
+Parallel Algorithms:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1">Parallel
+Algorithm Animations</font></li>
+  <li> <font size="+1">Real
+and Artificial
+Neurons</font></li>
+  <li> <font size="+1"><a
+ href="http://www.cs.bham.ac.uk/%7Ejlw/sem2a2/Web/TLU.htm">Threshold
+logic units.</a></font></li>
+  <li> <font size="+1">Dr.
+Gurney's course on neural networks.</font></li>
+  <li> <font size="+1"><a
+ href="http://ei.cs.vt.edu/%7Ehistory/Perceptrons.Estebon.html">Perceptrons
+&amp; neural network</a>s (learning machines).</font></li>
+  <li> <font size="+1"><a href="pr-notes/sharpening.pdf">Sharpening,
+the
+Laplacian
+and lateral inhibition in neural networks </a>(PDF)</font></li>
+</ol>
+<h3 style="color: rgb(0, 0, 153);">
+<a name="numerical"></a><font size="+1">19.
+Numerical
+Algorithms:</font></h3>
+<h2 style="color: rgb(0, 0, 153);">
+<font size="+1">19.1 Numbers</font></h2>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1"><a
+ href="http://www.cut-the-knot.com/do_you_know/numbers.html">What
+is a Number?</a></font></li>
+  <ul>
+    <li> <font size="+1"><a
+ href="http://www.astro.virginia.edu/%7Eeww6n/math/IrrationalNumber.html">More
+on irrational numbers</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.mathsoft.com/asolve/constant/pythag/pythag.html">Two
+proofs of the irrationality of the diagonal of the unit cube</a></font></li>
+  </ul>
+  <li> <font size="+1"><a
+ href="http://raphael.math.uic.edu/%7Ejeremy/crypt/math.html">Elementary
+number theory</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.dgp.utoronto.ca/people/mooncake/thesis/node15.html#SECTION00400000000000000000">Numbers:
+Real, rational, integer and binary numbers (bits and bytes)</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.cs.utah.edu/%7Ezachary/isp/applets/FP/FP.html">Floating
+Point Numbers</a></font></li>
+  <li> <b><font size="+1">Newton's Method:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://aleph0.clarku.edu/%7Edjoyce/newton/method.html">Introduction
+to Newton's method</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.cobleskill.edu/faculty/motylw/math/newton/">Computing
+approximate square roots with Newton's Method</a></font></li>
+  </ol>
+  <li> <font size="+1"><a
+ href="http://www.math.umn.edu/%7Egarrett/js/gcd.html">The
+Euclidean factorization algorithm</a></font></li>
+  <li> <b><font size="+1">Prime Numbers:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.utm.edu/research/primes/notes/faq.html">Prime
+numbers (FAQ's)</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www-groups.dcs.st-and.ac.uk/%7Ehistory/HistTopics/Prime_numbers.html">Historical
+introduction to primes</a></font></li>
+    <li> <font size="+1"><a href="http://www.utm.edu/research/primes/">The
+Prime Number
+Home Page</a></font></li>
+    <li> <font size="+1"><a
+ href="http://public.logica.com/%7Estepneys/cyc/p/primeprf.htm">Euclid's
+Proof of the Infinitude of Primes</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.alumni.caltech.edu/%7Echamness/prime.html">Prime
+Number Generator</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.utm.edu/research/primes/curios/index.html">Prime
+Curios!</a></font></li>
+  </ol>
+</ol>
+<dt style="color: rgb(0, 0, 153);"> <b><font size="+2">19.2 Sorting
+Algorithms</font></b></dt>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <b><font size="+1">Sorting Numbers:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.cs.hope.edu/%7Ealganim/ccaa/sorts.html">Sorting
+Algorithm Animations</a></font></li>
+    <li> <font size="+1"><a
+ href="http://ccadfa.cc.adfa.oz.au/CS/student-info/ada/Searching/selection_sort.html">Selection
+sort tutorial</a></font></li>
+    <li> <font size="+1"><a
+ href="http://ccadfa.cc.adfa.oz.au/CS/student-info/ada/Searching/bubble_sort.html">Bubble
+sort tutorial</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.maths.abdn.ac.uk/%7Eigc/tch/mx4002/notes/node60.html">Heap
+sort tutorial</a></font></li>
+    <li> <font size="+1"><a
+ href="http://ccadfa.cc.adfa.oz.au/CS/student-info/ada/Recursion/merge_sort.html">Merge
+sort tutorial (Divide and Conquer)</a></font></li>
+    <li> <font size="+1">Bucket-Sorting and
+Floor
+Functions
+(<a href="../publications/bucket.sort.ps">PostScript file</a>), (<a
+ href="../publications/bucket.sort.pdf">PDF
+file</a>)</font></li>
+    <li> <font size="+1"><a
+ href="http://ciips.ee.uwa.edu.au/%7Emorris/Year2/PLDS210/qsort.html">Quicksort
+with nice applet!</a> (in place version and comparison to heapsort)</font></li>
+    <li> <font size="+1"><a
+ href="http://www.cs.duke.edu/education/courses/cps130/fall98/lectures/lect06/lect06.html">Expected
+analysis of randomized quicksort</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.CS.McGill.CA/%7Ecs251/OldCourses/1997/topic10/">Random
+binary search trees and Quicksort</a></font></li>
+  </ol>
+  <li> <font size="+1"><a
+ href="http://www.ics.uci.edu/%7Eeppstein/161/960125.html">Selection
+and order statistics</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.cs.brockport.edu/cs/javasort.html">More
+Sorting Algorithm Animations</a> (Applets also sort your own set of
+numbers!)</font></li>
+  <li> <font size="+1"><a
+ href="http://www.dcc.uchile.cl/%7Eoalonso/handbook/sort_a.html">Sorting
+Code</a></font></li>
+</ol>
+<a style="color: rgb(0, 0, 153);" name="geometric"></a><b
+ style="color: rgb(0, 0, 153);"><font size="+1">20.
+Geometric
+Algorithms:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <b><font size="+1">Polygon Triangulation:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="cg-projects/97/Thierry/thierry507webprj/complexity.html">History
+of Triangulation Algorithms</a></font></li>
+    <li> <b><font size="+1">Ears and Mouths of
+Polygons:</font></b></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="cg-projects/97/Ian//cutting_ears.html">Ian
+Garton's
+Tutorial on cutting ears and stuffing mouths</a> (with interactive Java
+applets)</font></li>
+      <li> <font size="+1"><a
+ href="http://www.astro.virginia.edu/%7Eeww6n/math/SimplePolygon.html">Simple
+polygons</a> have <a
+ href="http://www.astro.virginia.edu/%7Eeww6n/math/Ear.html">ears</a>
+and <a href="http://www.astro.virginia.edu/%7Eeww6n/math/Mouth.html">mouths</a></font></li>
+      <li> <font size="+1"><a href="cg-projects/97/Ian/twoears.html">Meisters'
+Two-Ears
+Theorem</a></font></li>
+      <ol>
+        <li> <font size="+1"><a
+ href="http://www.math.unl.edu/%7Egmeister/">More
+about
+Gary Meisters</a></font></li>
+      </ol>
+      <li> <b><font size="+1">The one-mouth theorem:</font></b></li>
+      <ol>
+        <li> <font size="+1"><a href="cg-projects/97/Ian/onemouth.html">Ian
+Garton's Tutorial</a></font></li>
+        <li> <font size="+1"><a href="../publications/mouth.ps.gz">PostScript
+file</a></font></li>
+      </ol>
+    </ol>
+    <li> <font size="+1">Diagonal insertion</font></li>
+    <li> <b><font size="+1">Prune-and-Search:</font></b></li>
+    <ol>
+      <li> <font size="+1"><a href="../publications/ear.ps.gz">Finding
+an
+ear in linear
+time (PostScript)</a></font></li>
+      <li> <font size="+1"><a href="cg-projects/97/Ian/algorithm2.html">Finding
+an ear
+in linear time (HTML)</a></font></li>
+    </ol>
+    <li> <font size="+1"><a href="../publications/tri.scan.ps.gz">The
+Graham Scan
+triangulates simple polygons</a> (PostScript)</font></li>
+    <li> <b><font size="+1"><a
+ href="http://www.cosy.sbg.ac.at/%7Eheld/projects/triang/triang.html">Fast
+Polygon Triangulation in Practice:</a></font></b></li>
+    <ol>
+      <li> <font size="+1"><a
+ href="../publications/triangulation.ps.gz">Efficient
+polygon
+triangulation algorithms.</a> Includes counter-examples
+to many published algorithms. (PostScript)</font></li>
+    </ol>
+  </ol>
+  <li> <font size="+1"><a
+ href="http://www.cs.mcgill.ca/%7Ethierry/artgallery.html">The
+Art-Gallery Theorem (with interactive applet)</a></font></li>
+  <li> <font size="+1"><a href="http://ganley.org/software/tree.html">The
+Minimal
+Spanning Tree applet</a></font></li>
+  <li> <font size="+1"><a
+ href="http://www.cs.hope.edu/%7Ealganim/ccaa/geometric.html">Geometric
+Algorithm Animations</a></font></li>
+  <li> <font size="+1">Polygons: crossing, simple and convex.</font></li>
+  <li> <font size="+1"><a href="http://www.cs.mcgill.ca/%7Ektulu/507"><b>Polygonizing
+Sets of Points</b>:</a></font></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.ai.polymtl.ca/fatima/index.html">Uniqueness
+of orthogonal connect-the-dots</a></font></li>
+  </ol>
+  <li> <font size="+1">The area of a polygon.</font></li>
+  <li> <font size="+1"><a
+ href="http://www.ics.uci.edu/%7Eeppstein/161/960307.html">Determining
+if a point is inside a polygon.</a></font></li>
+  <li> <font size="+1"><a
+ href="projects97/ziad/project/frames_main.html">Smoothing
+polygons and polygonal waveforms.</a></font></li>
+  <li> <b><font size="+1">Convex Hulls:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.pms.informatik.uni-muenchen.de/lehre/compgeometry/Gosper/convex_hull/convex_hull.html">Rosenberg
+&amp; Landgridge algorithm (extreme edges)</a></font></li>
+    <li> <font size="+1"><a
+ href="http://pentagon.cs.jhu.edu/%7Egoodrich/dsa/15geometry/">Convex
+hulls, segment intersections and closest pairs (Goodrich &amp; Tamassia
+text)</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.cse.unsw.edu.au/%7Elambert/java/3d/hull.html">Convex
+hulls in 2 and 3 dimensions</a> (interactive Java demos)</font></li>
+    <li> <font size="+1"><a
+ href="http://www.cs.princeton.edu/%7Eah/alg_anim/version1/JarvisMarch.html">The
+Gift-Wrapping Algorithm</a> (Jarvis' March)</font></li>
+    <li> <font size="+1"><a
+ href="http://www.cs.princeton.edu/%7Eah/alg_anim/version1/QuickHull.html">The
+Quick-Hull Algorithm</a> (stretching an elastic band)</font></li>
+    <li> <font size="+1"><a
+ href="http://www.cs.oberlin.edu/classes/dragn/labs/compgeom/compgeom.html#@c10">Divide
+&amp; Conquer (nice tutorial) and other methods</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.cse.unsw.edu.au/%7Elambert/java/3d/hull.html">Divide
+&amp; Conquer (applet)</a></font></li>
+    <li> <font size="+1"><a
+ href="http://www.cs.princeton.edu/%7Eah/alg_anim/version1/GrahamScan.html">The
+Graham Scan Algorithm</a></font></li>
+    <li> <font size="+1"><a
+ href="http://cgm.cs.mcgill.ca/%7Ebeezer/cs507/3coins.html">3-Coins
+Algorithm Tutorial (Greg Aloupis and Bohdan Kaluzny)</a></font></li>
+    <li> <font size="+1"><a
+ href="http://research.compaq.com/SRC/JCAT/jdk10/hull/">More
+convex hull animations</a></font></li>
+  </ol>
+  <li> <b><font size="+1">Voronoi Diagrams:</font></b></li>
+  <ol>
+    <li> <font size="+1"><a
+ href="http://www.cip.informatik.uni-muenchen.de/%7Eviermetz/cg/Voronoi_Diagram.html">Introduction
+to Voronoi diagrams</a></font></li>
+    <li> <font size="+1"><a
+ href="http://wwwpi6.fernuni-hagen.de/GeomLab/VoroGlide/">Great
+Voronoi diagram applet</a></font></li>
+  </ol>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">21.&nbsp;<a
+ name="sequence"></a>
+Sequence Comparison:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1"><a
+ href="http://www.csse.monash.edu.au/%7Elloyd/tildeAlgDS/Dynamic/Edit/">Edit
+distance with dynamic programming (with applet)</a></font></li>
+  <li><font size="+1"><a href="../publications/Arith_operations.pdf">Fast
+Fourier Transforms</a><br>
+    </font></li>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">22.&nbsp;<a
+ name="sequence"></a>
+Computational Aspects of Musical Rhythm:</font></b>
+<ol style="color: rgb(0, 0, 153);">
+  <li> <font size="+1"><a
+ href="../publications/COMP-251-homometric-rhythms.pdf">Neclaces,
+Bracelets, Homometric Rhythms, Flat Rhythms, Deep Rhythms, The
+Hexachordal
+Theorem and Patterson's Theorems (more proofs by induction).</a></font></li>
+</ol>
+<b style="color: rgb(0, 0, 153);"><font size="+1">21.&nbsp;<a
+ name="sequence"></a>
+Arithmetic Operations:</font></b><br style="color: rgb(0, 0, 153);">
+<ol style="color: rgb(0, 0, 153);">
+  <li><font size="+1"><a href="../publications/Arith_operations.pdf">Addition,
+Multiplication and Fast Fourier Transforms</a></font><br>
+  </li>
+</ol>
+<center>
+<p><img style="width: 100%; height: 1px;" alt="" src="redline.gif"></p>
+</center>
+</body>
+</html>

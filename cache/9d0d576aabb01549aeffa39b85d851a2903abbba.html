@@ -1,0 +1,1381 @@
+undefined<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Ask.com - What&#39;s Your Question?</title>
+<link REL="shortcut icon" HREF="http://sp.ask.com/sh/i/a14/favicon/favicon.ico">
+<meta name="robots" content="noindex, nofollow"> <script type="text/javascript">
+var ss=function(){},cs=function(){};
+var _docReadyFns = [];
+$j = function(){return {ready:function(fn){_docReadyFns.push(fn);}};};
+window.onload = function() {
+for (var i = 0; i < _docReadyFns.length; i++) {
+var fn = _docReadyFns[i];
+if (typeof fn === 'function') fn.call(document, jQuery);
+}
+};
+var JASK = JASK || {};
+JASK.cfg = (function() {
+return {
+"ldomain":"http://www.ask.com" ,
+"_ldomain":"www.ask.com",
+"disableSearchBoxFocus":true,
+"appendSearchQuery":true,
+"fixedRR":false,
+"landingPageVersion":"v1",
+"fixedHeaderScroll":false
+};
+})();
+</script>
+<script type="text/javascript">
+</script> 
+<script type="text/javascript" charset="utf-8">
+(function(G,o,O,g,L,e){G[g]=G[g]||function(){(G[g]['q']=G[g]['q']||[]).push( arguments)},G[g]['t']=1*new Date;L=o.createElement(O),e=o.getElementsByTagName( O)[0];L.async=1;L.src='//www.google.com/adsense/search/async-ads.js'; e.parentNode.insertBefore(L,e)})(window,document,'script','_googCsa');
+</script>
+<script type="text/javascript" charset="utf-8">
+var ask = (typeof ask === 'undefined') ? {} : ask;
+ask.CSA = {};
+(function(){
+var _logInConsole = false,
+_csaStartTime = new Date(), _csaResponseTime = null,
+_domReady = false,
+_showSerpTimeoutCleared = false,
+_showSerpTimeoutLength = 2000,
+_showSerpTimer = null,
+_log = function(){
+if(('false' === 'true') && window.console && console.log) {
+console.log(Array.prototype.slice.call(arguments));
+}
+},
+_domCallbacks = [],
+_csaCallbacksObjects = [];
+ask.CSA.startTime = _csaStartTime;
+ask.CSA.responseReceived = false;
+ask.CSA.adsShown = false;
+ask.CSA.responseTime = null; ask.CSA.adsShownTime = null; ask.CSA.domReadyTime = null; ask.CSA.serpShownTime = null; ask.CSA.serpVisible = false;
+ask.CSA.showSerpTimeoutFired = false;
+ask.CSA.showSerpTimeoutLength = _showSerpTimeoutLength;
+ask.CSA.showSerpStartTime = null;
+ask.CSA.numTopAds = null;
+ask.CSA.numBottomAds = null;
+ask.CSA.adDepth = null;
+ask.CSA.serpHiddenPreAds = null;
+ask.CSA.serpShownPostAds = null;
+ask.CSA.viewportHeight = null;
+ask.CSA.viewportWidth = null;
+ask.CSA.centerRailHeight = null;
+ask.CSA.centerRailWidth = null;
+ask.CSA.rightRailHeight = null;
+ask.CSA.rightRailWidth = null;
+ask.CSA.csaHeight = null;
+ask.CSA.csaWidth = null;
+ask.CSA.adContentRatio = null;
+ask.CSA.optimizeAdRequest = null;
+ask.CSA.calculateAdContentMetrics = null;
+ask.CSA.gslExtensions = null;
+ask.CSA.addCSALoadCallback = function(adsCb, timeoutCb, timeoutValue){
+_log("addCSALoadCallback", adsCb, timeoutCb, timeoutValue);
+var callbackObj = null;
+if(typeof adsCb !== "function") {
+return;
+}
+callbackObj = { adsCb: adsCb, timeoutCb: timeoutCb, timeoutValue: timeoutValue, timeout: null };
+if(ask.CSA.adsShown) {
+adsCb();
+} else {
+if(typeof timeoutCb === "function" && timeoutValue > 0) {
+callbackObj.timeout = setTimeout(function(){
+var idx = ask.CSA.indexOf(_csaCallbacksObjects, callbackObj);
+if(idx > -1) {
+handleCallbackTimeout(callbackObj);
+}
+}, timeoutValue);
+}
+_csaCallbacksObjects.push(callbackObj);
+}
+};
+ask.CSA.startShowSerpTimeout = function(){
+_log("startShowSerpTimeout", _showSerpTimeoutLength);
+_showSerpTimer = setTimeout(handleSerpTimeout, _showSerpTimeoutLength);
+ask.CSA.showSerpStartTime = new Date() - _csaStartTime;
+};
+ask.CSA.domReady = function(){
+_log("domReady");
+_domReady = true;
+ask.CSA.domReadyTime = new Date() - _csaStartTime;
+invokeCallbacks(_domCallbacks);
+};
+ask.CSA.showSerp = makeSerpVisible;
+ask.CSA.handleTopAdsLoaded = function(containerName, adsLoaded){
+_log("handleTopAdsLoaded " + adsLoaded);
+addBackgroundColor(adsLoaded, containerName, ask.CSA.adblock1["colorBackground"]);
+ask.CSA.adsShown = true;
+ask.CSA.adsShownTime = new Date() - _csaStartTime;
+makeSerpVisible();
+fireCSACallbacks();
+};
+ask.CSA.handleNoTopAdsLoaded = noAdLoadedCallback;
+ask.CSA.handleBottomAdsLoaded = function(containerName, adsLoaded){
+_log("handleBottomAdsLoaded " + adsLoaded);
+addBackgroundColor(adsLoaded, containerName, ask.CSA.adblock2["colorBackground"]);
+};
+ask.CSA.handleNoBottomAdsLoaded = noAdLoadedCallback;
+ask.CSA.handleCSAResponse = function(numAdsMap) {
+_log("handleCSAResponse " + numAdsMap);
+ask.CSA.responseTime = new Date() - _csaStartTime;
+if (numAdsMap["magic1"] != undefined) {
+ask.CSA.numTopAds = numAdsMap["magic1"];
+ask.CSA.adDepth = ask.CSA.numTopAds;
+}
+if (numAdsMap["magic2"] != undefined) {
+ask.CSA.numBottomAds = numAdsMap["magic2"];
+}
+if (ask.CSA.adDepth < ask.CSA.numBottomAds) {
+ask.CSA.adDepth = ask.CSA.numBottomAds;
+}
+if(_domReady) {
+processAdResponse();
+} else {
+_domCallbacks.push(processAdResponse);
+}
+};
+function processAdResponse(){
+_log("processAdResponse");
+ask.CSA.responseReceived = true;
+setCSAMetaDataCookie();
+}
+function isSerpVisible() {
+var visible = false,
+selectors = ["#midblock", "#rightblock", "#mobile-footer", ".mobile-web-results", ".hcsa", ".footer"],
+elems = null;
+for(var i = 0; i < selectors.length; i++) {
+if(visible) continue;
+try{
+elems = document.querySelectorAll(selectors[i]);
+} catch(e) {
+_log("Error fetching serp elements: " + e);
+}
+if(elems) {
+for(var j = 0; j < elems.length; j++) {
+visible=(visible || isVisible(elems[j]));
+}
+}
+}
+return visible;
+}
+function isVisible(elem) {
+var outOfFlow = (elem.offsetWidth !== 0 || elem.offsetHeight !== 0),
+invisible = false;
+try {
+invisible = (window.getComputedStyle(elem).getPropertyValue("visibility") === "hidden");
+} catch(e) {
+_log("Error getting style of elem: " + e);
+}
+return outOfFlow || invisible;
+}
+function makeSerpVisible() {
+if(ask.CSA.serpVisible) return;
+_log("makeSerpVisible");
+var css = '#midblock,#rightblock,#mobile-footer,.mobile-web-results,.hcsa,.footer { visibility:visible;}';
+var head = document.getElementsByTagName('head')[0];
+var style = document.createElement('style');
+style.type = 'text/css';
+if (style.styleSheet){
+style.styleSheet.cssText = css;
+} else {
+style.appendChild(document.createTextNode(css));
+}
+head.appendChild(style);
+if (!_showSerpTimeoutCleared) {
+clearTimeout(_showSerpTimer);
+_showSerpTimeoutCleared = true;
+}
+ask.CSA.serpVisible = true;
+ask.CSA.serpShownTime = new Date() - _csaStartTime;
+}
+function setCSAMetaDataCookie(){
+document.cookie = 'adDepth=' + ask.CSA.adDepth + ";path=/;domain=.ask.com";
+document.cookie = 'ad_cnt=' + (ask.CSA.numTopAds + ask.CSA.numBottomAds) + ";path=/;domain=.ask.com";
+}
+function updateMonitoringHash(){
+_log("updateMonitoringHash");
+var topAds = ask.CSA.numTopAds || 0,
+bottomAds = ask.CSA.numBottomAds || 0,
+hash = "num_ads_top=" + topAds +
+"&num_ads_bottom=" + bottomAds +
+"&total_num_ads=" + (topAds + bottomAds) +
+"&content_hidden_pre_ads=" + (ask.CSA.serpHiddenPreAds ? 1 : 0) +
+"&content_shown_post_ads=" + (ask.CSA.serpShownPostAds ? 1 : 0) +
+"&ads_response_time_ms=" + ask.CSA.responseTime;
+window.location.hash = hash;
+}
+function updateMonitoringElement(){
+_log("updateMonitoringElement");
+var topAds = ask.CSA.numTopAds || 0,
+bottomAds = ask.CSA.numBottomAds || 0,
+body = document.getElementsByTagName("body")[0],
+elem = document.createElement("div");
+elem.setAttribute("id", "csa-monitor-data");
+elem.setAttribute("style", "visibility: hidden;");
+elem.setAttribute("data-num_ads_top", topAds);
+elem.setAttribute("data-num_ads_bottom", bottomAds);
+elem.setAttribute("data-total_num_ads", topAds + bottomAds);
+elem.setAttribute("data-content_hidden_pre_ads", ask.CSA.serpHiddenPreAds ? 1 : 0);
+elem.setAttribute("data-content_shown_post_ads", ask.CSA.serpShownPostAds ? 1 : 0);
+elem.setAttribute("data-ads_response_time_ms", ask.CSA.responseTime);
+body.appendChild(elem);
+}
+function noAdLoadedCallback(containerName, adsLoaded) {
+_log("noAdLoadedCallback");
+function process(){
+var adContainer = document.getElementById(containerName);
+var csaBackfillRS = document.getElementById('top-csa-bkfil');
+if(adContainer) {
+adContainer.style.display = "none";
+}
+if(csaBackfillRS){
+csaBackfillRS.style.display = "block";
+}
+makeSerpVisible();
+}
+if(_domReady) {
+process();
+} else {
+_domCallbacks.push(process);
+}
+}
+function addBackgroundColor(adsLoaded, containerName, shadeSelector) {
+var adElement = document.getElementById(containerName);
+if (adElement) {
+adElement.style.backgroundColor = shadeSelector;
+}
+}
+function handleCallbackTimeout(callbackObj) {
+_log("handleCallbackTimeout", callbackObj);
+clearTimeout(callbackObj.timeout);
+callbackObj.timeoutCb();
+}
+function handleSerpTimeout() {
+_log("handleSerpTimeout");
+makeSerpVisible();
+ask.CSA.showSerpTimeoutFired = true;
+_showSerpTimeoutCleared = true;
+}
+function fireCSACallbacks(){
+_log("fireCSACallbacks");
+var csaCallbacks = [];
+for(var i = 0; i < _csaCallbacksObjects.length; i++) {
+csaCallbacks.push(_csaCallbacksObjects[i].adsCb);
+clearTimeout(_csaCallbacksObjects[i].timeout);
+}
+_csaCallbacksObjects = [];
+_log("csaCallbacks: ", csaCallbacks);
+invokeCallbacks(csaCallbacks);
+}
+function invokeCallbacks(callbacks) {
+if(callbacks.length) {
+for(var i = 0; i < callbacks.length; i++) {
+if(typeof callbacks[i] == "function") {
+_log("invoking callback " + i);
+try{
+callbacks[i].call(null);
+} catch(e){
+}
+}
+}
+callbacks.splice(0, callbacks.length);
+}
+}
+ask.CSA.optimizeAdRequest = function optimizeAdRequest(adblock) {
+var h = (Math.max(document.documentElement.clientHeight, window.innerHeight || 0));
+var w = (Math.max(document.documentElement.clientWidth, window.innerWidth || 0));
+var enabledForOrientation = "" === "true" ? true : h > w;
+var enabled = "";
+if(enabled === "true" && 800 > h && enabledForOrientation) {
+if(adblock && typeof adblock.maxTop !== "undefined") {
+adblock.maxTop -= 1;
+}
+}
+}
+})();
+_googCsa('jsLoadedCallback', function () {
+var pageOptions = ask.CSA.pageOptions = {"instantPreviews":false,"adPage":"1","sellerRatings":true,"attributionSpacingBelow":7,"location":false,"plusOnes":true,"query":"algorithms","numRepeated":"5","domainLinkAboveDescription":true,"adtest":"off","rightHandAttribution":false,"offerExtension":false,"hl":"","heightConstrained":false,"oe":"utf-8","adsafe":"medium","pubId":"aj-cat-sp14","isAndroidTablet":false,"ie":"utf-8","siteLinks":true,"linkTarget":"_blank","channel":"computers-science,ud_desktop","clickToCall":false};
+if (pageOptions) {
+pageOptions['adsResponseCallback'] = ask.CSA.handleCSAResponse;
+}
+var adblock1 = ask.CSA.adblock1 = {"lineHeightDomainLink":"19","colorAttribution":"#333333","colorBackground":"#FFFFFF","colorDomainLink":"#0E7744","colorTitleLink":"#3300B5","width":"99.5%","detailedAttribution":true,"clicktrackUrl":"http://www.ask.com/clk?pos=top&q=algorithms&qid=23A002CD51E76D7289138831F04A24A6&ip=ad468d3b&o=0&l=dir&qsrc=121&page=1&cl=aj-cat-sp14&ch=computers-science%2Cud_desktop&c=a&p_uid=&p_clk_id=&lpurl=http%3A%2F%2Fwww.ask.com%2Fweb%3Fq%3Dalgorithms&lp_ref_url=&anxu=http%3A%2F%2Fwww.ask.com%2Fweb&pl=3957oJ%3Dz33bi8Thx4%2683P%3DEDKLDTNDl_CM8_XE8DQrpanMgatC9iOqLcq%26Ip%3D2Iy3B%26Xt%3DGQMAn88GRd8sVPcwE%25ow2NmkA%2BZACALB%26o2%3Di9m79uY%265g%3D%26p5FZ%3Dd9-%25sf-TLtp%26YOB%3D115eyFTqD-UD7nIgv6U%25TO_i6Dppp2%26PG%3DtYL55L%262K3%3D%26hX%3DokoFrX8y5Zg%26AR%3DXuMsL%268Rr%3DWz%26AX%3Dylk%26%25R%3DM%268H%3D%26Xnr%3D%26f%3DT&up=e66aC%3DK%25e%2BV4%269r%3DWrH%26jY%3DciG%26Fc.nZzyOU%3DgrC%26JO.QFLyjv%3Dvx-7Nk-pV27%262i.tegWLTRyuXJLr%3DAIM%25kAbEq-cmP0DdW%2CGO_LWL6aWs%26%25%3DPHOwqa","fontSizeDomainLink":"13","colorAdSeparator":"#FFFFFF","clickableBackgrounds":true,"colorText":"#333333","fontSizeDescription":"13","lineHeightDescription":"17","fontSizeTitle":"15","fontSizeAttribution":"13","maxTop":"5","container":"magic1","lines":"3","verticalSpacing":"9","lineHeightTitle":"18","longerHeadlines":true};
+if (adblock1) {
+adblock1['noAdLoadedCallback'] = ask.CSA.handleNoTopAdsLoaded;
+adblock1['adLoadedCallback'] = ask.CSA.handleTopAdsLoaded;
+}
+var adblock2 = ask.CSA.adblock2 = {"lineHeightDomainLink":"19","colorAttribution":"#333333","colorBackground":"#FFFFFF","colorDomainLink":"#0E7744","colorTitleLink":"#3300B5","width":"99.5%","detailedAttribution":true,"number":"5","clicktrackUrl":"http://www.ask.com/clk?pos=bottom&q=algorithms&qid=23A002CD51E76D7289138831F04A24A6&ip=ad468d3b&o=0&l=dir&qsrc=121&page=1&cl=aj-cat-sp14&ch=computers-science%2Cud_desktop&c=a&p_uid=&p_clk_id=&lpurl=http%3A%2F%2Fwww.ask.com%2Fweb%3Fq%3Dalgorithms&lp_ref_url=&anxu=http%3A%2F%2Fwww.ask.com%2Fweb&pl=c60aXP%3DluvipG6ANU%26SI1%3DYK0JB%2BNa%2B_SH3_NHaLV7NjSQ%2B9yWIUFNcgf%26VW%3DkHqO0%26hQ%3DT8Edd6JrvID9zEOWv7hteHJDmQ04%2BPD5%26TE%3DcnZWelU%26VO%3D%26Huk7%3DJe-rmO-TvmP%262PE%3D6j%25C8qSlu-gjKkUs4Y7Fxp_HKzza1q%26k2%3DR2r%2B2F%26GLm%3D%26do%3DySzJVuH24kr%26iw%3DXrx1d%263s4%3DEE%26SO%3DlN7%26rx%3DK%26%2BD%3D%26j6C%3D%261%3DM&up=cba7d%3DPUtRJ1%26uq%3DhL1%26MF%3D6nN%26xR.2Xr9QU%3DW%25R%26W5.SVneQA%3DJr-iuk-m1a6%26Qs.UnLkelPpTY0dx%3Dj54KZSuza-dRT2b6W%2CaJ_bIVamhs%26c%3DWqQ7Gafc7","fontSizeDomainLink":"13","colorAdSeparator":"#FFFFFF","clickableBackgrounds":true,"colorText":"#333333","fontSizeDescription":"13","lineHeightDescription":"17","fontSizeTitle":"15","fontSizeAttribution":"13","container":"magic2","lines":"3","verticalSpacing":"9","lineHeightTitle":"18","longerHeadlines":true};
+if (adblock2) {
+adblock2['noAdLoadedCallback'] = ask.CSA.handleNoBottomAdsLoaded;
+adblock2['adLoadedCallback'] = ask.CSA.handleBottomAdsLoaded;
+}
+/* ********* if android, modify the ad request here ************** */
+if(typeof ask.CSA.optimizeAdRequest === "function" && pageOptions.isAndroidTablet === true) {
+ask.CSA.optimizeAdRequest(adblock1);
+}
+function calculateSurplus(rr,ad,offset,win) {
+/*
+the formula : ( (window height + rr width - ad offset) - (ad height * 2) ) / 2
+we only calculate surplus if the window height is greater than 710. assumes the right rail content is roughly
+equivalent to another main rail module laid on its side. we add the rr width to the window height since
+its content increases the effective height of the window. also assumes a ~50% target ratio
+and that therefore ad block and main content will be the same height. so we double the ad
+block size and subtract from it from the adjusted window height. the resulting surplus height is
+divided by two since it will need to be shared by content & ads to maintain the 50/50 ratio.
+*/
+return win > 0 ? ((win+rr-offset) - (ad*2))/2 : -1;
+}
+function applyRules(surplus,breakpoints) {
+if(surplus > 0) {
+for(var i=0;i<breakpoints.length;i++) {
+var min = breakpoints[i].pixels;
+var max = breakpoints[i+1] ? breakpoints[i+1].pixels : 10000;
+if(surplus > min && surplus <= max) {
+return breakpoints[i].extensions || [];
+} else if(surplus < min) {
+return [];
+}
+}
+return breakpoints[i-1].extensions || [];
+} else {
+return [];
+}
+}
+function enableExtensions(extensions,csaCfg,pageCfg) {
+for(var i=0;i<extensions.length;i++) {
+var value = extensions[i].indexOf(':') != -1 ? extensions[i].substring(extensions[i].indexOf(':')+1) : true;
+var ext = extensions[i].indexOf(':') != -1 ? extensions[i].substring(0,extensions[i].indexOf(':')) : extensions[i];
+csaCfg[ext]=value;
+pageCfg[ext]=value;
+}
+var loggingParams = extensions.join(";").replace(/heightConstrained\:false/,"multiLineSiteLinks").replace(/siteLinks\;/,"");
+ask.CSA.gslExtensions = loggingParams;
+}
+window['backfillParam'] = window.backfillParam || {};
+window['backfillParam']['pl_hex'] = adblock1.colorBackground ? adblock1.colorBackground : "#FFFFFF";
+window['backfillParam']['pl_cl'] = pageOptions.pubId,
+window['backfillParam']['pl_ch'] = pageOptions.channel,
+window['backfillParam']['pl_type'] = 'csa';
+window['backfillParam']['pl_rp'] = (pageOptions.numRepeated) ? true : false;
+window['backfillParam']['pl_clksp'] = adblock1.clickableBackgrounds;
+window['backfillParam']['pl_rqnum'] = parseInt(adblock1.maxTop) + parseInt(adblock2.number);
+window['backfillParam']['pl_timeout'] = ask.CSA.showSerpTimeoutLength ? ask.CSA.showSerpTimeoutLength : 0;
+try {
+_googCsa('ads', pageOptions, adblock1, adblock2);
+} catch (err) {
+ask.CSA.showSerp();
+}
+});
+ask.CSA.indexOf = function indexOf(inputObj, findObj) {
+for (var index = 0, length = inputObj.length; index < length; index++) {
+if (this[index] === findObj) { return index; }
+}
+return -1;
+}
+</script>
+<style type="text/css">
+#magic1 {
+border-bottom: 1px solid #D7D7D7;
+}
+#magic2 {
+border-top: 1px solid #D7D7D7;
+}
+</style>
+<noscript>
+<style type="text/css">
+#midblock,#rightblock,#mobile-footer,.mobile-web-results,.hcsa,.footer {
+visibility:visible !important;
+}
+</style>
+</noscript>
+<link href="http://saservice.ask.com/c/css/sas-439ad5d61bbb5afaf8023c0e0aa9712e22b99259.css" rel="stylesheet" type="text/css"/>
+<link type="text/css" rel="stylesheet" href="/st/c/css/ask_web.min.3dfe516d.css">
+<style>
+.ssp, #sbut{
+background-image: url(http://sp.ask.com/sh/i/a16/serp/SERP_sprite_19.png);
+}
+.hcsa {
+visibility:hidden;
+}
+.speech {
+background-position: 52px 0;
+}
+.sa_headline {
+font-size: 15px;
+}
+.sa {
+min-width: 546px;
+min-width: 540px \0/; 
+}
+.avtsp {
+background-image:url('http://sp.ask.com/sh/i/a16/avatarblock_sprite_02.png');
+width:160px;
+height:16px;
+}
+.txt1 {
+line-height:14px;
+}
+.txt2 {
+line-height:15px;
+}
+.txt3 {
+line-height: 17px;
+}
+.txt4 {
+line-height: 17px;
+}
+.txt_lg {
+line-height:19px;
+}
+.spl_ad_plus .lindp {
+line-height: 17px;
+}
+.spl_ad_plus {
+line-height: 17px;
+}
+.lindp .splTitle{
+line-height: 19px;
+}
+.grey_bb{
+border-bottom: 1px solid #D7D7D7;
+}
+.grey_bt{
+border-top: 1px solid #D7D7D7;
+}
+.greypt5{
+padding-top: 5px;
+}
+.arw_btn{
+background-image: url(http://sp.ask.com/sh/i/a10f/btn_play.png);
+}
+</style> 
+</head>
+<body class="a16">
+<style type="text/css">
+.a16 .c2n {
+height: 103px;
+}
+</style>
+<div id="nav">
+<div id="a16Cnb">
+<div class="a16nb">
+<div class="lm ur">
+<div class="mi smi">
+<div style="float:left;">Answers</div>
+<div style="clear:both;"></div>
+</div>
+<div class="mi ">
+<a onmousedown="uaction(this,{up:'bebas=hYy2gQ&L=9XTosO&Xp=e&iI=56JNtpTHZB&Sq=+3Qu7lwm9v&0Z=t&Vv=eltwnNiJB'});" style="display:block;" href="http://www.ask.com/answers/browse?qsrc=167&amp;q=algorithms&amp;qo=channelNavigation&amp;o=0&amp;l=dir">
+<div class="tu" style="float:left;">Q&A Community</div>
+<div style="clear:both;"></div>
+</a>
+</div>
+</div>
+<div class="rm">
+<div class="mi" style="padding-left:0;">
+<div id="signin" style="visibility:hidden;">
+<img style="width:16px;height:16px;margin-top:1px;" alt=""
+src="http://sp.ask.com/sh/i/a14/c/generic.png">
+<a onmousedown="uaction(this,{up:'24178=TvOK%w&G=8TWOSD&w7=g&Q1=SXL1bge1qE&l1=+thyskK6Ee&Mx=Z&BG=REhUcHq7P'});" href="http://www.ask.com/answers/browse?qsrc=167&q=algorithms&o=0&l=dir#opensignin"
+style="margin-left:12px;display:inline-block;vertical-align:top;">Sign In</a>
+</div>
+<div id="signedin" style="display:none;">
+<a id="avatar" href='http://www.ask.com/answers/profile?qsrc=3099'
+style="display:inline-block;height:16px;width:16px;vertical-align:top;margin-top:2px;"></a>
+<a id="profile" href="http://www.ask.com/answers/profile?qsrc=3099"
+style="vertical-align:top;margin-left:8px;"></a>
+<a id="signout" href="javascript:void(0);"
+style="vertical-align:top;margin-left:10px;">Sign Out</a>
+</div>
+</div>
+<div style="float:right;height:21px;border-left:1px solid #898F91;border-right:1px solid #B8BFC1;margin:5px 5px 0 5px;width:0;"></div>
+<div class="mi"><a onmousedown="uaction(this,{up:'5f8ar=wJDisn&h=I5dnjU&6R=o&lE=YxJwPaQdMF&LL=poHCO0khhr&KH=6&%d=Lq2bHi%kI'});" href="http://www.ask.com/advancedsearch?qsrc=167&amp;q=algorithms&amp;qo=channelNavigation&amp;o=0&amp;l=dir">Advanced Search</a></div>
+</div>
+</div>
+</div>
+<div style="clear:both;"></div>
+</div>
+<div id="top_search">
+<div id="top_navbar_logo" class="ssp">
+<a id="logo" onmousedown="uaction(this,{up:'40476=26Iaz4&n=0BoibE&Yo=5&+o=Yank7Y+i8O&zf=E5NKKnxeJL&SE=R&y6=UjHBd+i7N'});" title="Ask.com" href="http://www.ask.com/?o=0&l=dir&qsrc=14137"><span style="display:none">askLogo</span></a>
+</div>
+<div id="searchBox" class="ur" name="searchBoxContainer" style="margin-left: 10px;">
+<form id="topform" action="/web">
+<div id="sb" class="sb-wr" style="border-color: rgb(211, 211, 211);">
+<input id="qsrc_top" type="hidden" value="1" name="qsrc">
+<input id="origin" type="hidden" value="0" name="o">
+<input id="partnerID" type="hidden" value="dir" name="l">
+<input id="top_q_comm" data-ordinal="0" class="ac_input" type="text" value="algorithms" name="q" autocomplete="off" maxlength="2048">
+<input id="qo" type="hidden" value="serpSearchTopBox" name="qo">
+</div>
+<input id="sbut" class="" type="submit" value="">
+</form>
+</div>
+</div>
+<div class="c2c fh">
+<div class="main">
+<div class="c3">
+<div class="leftNav ur">
+<ul>
+<li>
+<span class="b">Everything</span><span class="arrow ssp"></span>
+</li>
+<li>
+<a class="txt4" onmousedown="uaction(this,{up:'565aI=Q1xe5O5&R=p+ec&qm=d&hv=3u97gpwHon&xh=3OmqefJykM&FB=A&It=v+0Cs7KJF'});" href="http://www.ask.com/pictures?q=algorithms&amp;qsrc=167&amp;qo=channelNavigation&amp;o=0&amp;l=dir">Images</a>
+</li>
+<li>
+<a class="txt4" onmousedown="uaction(this,{up:'37eaL=pe5oNEd&8=gC4B&qp=G&NE=IzJny%d8hL&lR=xOh9lVMo44&PA=V&DK=D7zZJEXb5'});" href="http://www.ask.com/news?q=algorithms&amp;qsrc=167&amp;qo=channelNavigation&amp;o=0&amp;l=dir">News</a>
+</li>
+<li>
+<a class="txt4" onmousedown="uaction(this,{up:'9f7aV=fPC+hkV&u=oqSz&bk=E&n5=JGWqGn3Ow%&Mb=Tkj7Pzo1DS&5R=A&AB=wTErfxagf'});" href="http://www.ask.com/youtube?q=algorithms&amp;qsrc=167&amp;qo=channelNavigation&amp;o=0&amp;l=dir">Videos</a>
+</li>
+<li>
+<a class="txt4" onmousedown="uaction(this,{up:'cd0aV=DvqgODm&J=4jZV&0R=n&P1=R4tvppH2SO&xy=QEcBmwoEOr&+D=m&PO=rgwLjxGHs'});" href="http://www.ask.com/shopping?q=algorithms&amp;qsrc=167&amp;qo=channelNavigation&amp;o=0&amp;l=dir">Shopping</a>
+</li>
+<li>
+<a class="txt4" id="more" href="javascript:void(0);"><span style="float: left;">More</span> <span class="lnavMore ssp"></span></a>
+</li>
+</ul>
+<ul class="moreLinks" style="display: none;">
+<li>
+<a class="txt4" onmousedown="uaction(this,{up:'009aw=N4MuAhR&y=t6Bl&5I=%&SI=PY9RusY240&pa=%YGSN0uzj4&Sa=0&y8=D1pG+nIdW'});" href="http://www.ask.com/maps?q=algorithms&amp;qsrc=167&amp;qo=channelNavigation&amp;o=0&amp;l=dir">Maps</a>
+</li>
+<li>
+<a class="txt4" id="less" href="javascript:void(0);"><span style="float: left;">Less</span> <span class="lnavLess ssp"></span></a>
+</li>
+</ul>
+</div> </div>
+<div id="midblock" class="c2 hcsa" style="padding-left: 10px;">
+<div id="csaTop" class="ad-top"><div id="magic1"></div></div>
+<script>
+window['backfillParam'] = window['backfillParam'] || {};
+window['backfillParam']['pl_tmodn'] = 1;
+ask.CSA.startShowSerpTimeout();
+</script>
+<div class="relmod rrItem content-mid" id="mrRSM">
+<h2 id="rlTitle_0" class="sectionheader">Explore Answers About</h2>
+<ul class="fl relwid rl1block">
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'7a2au=1eJ092m2PnamD4t3&x=dIvUE3&o9=s&1c=joKbkMgPXJ0LF&Dm=mhXs&5E=y',tp:'rst',ec:'12'})" href="http://www.ask.com/web?q=Math+Algorithms+for+Elementary+Students&amp;qsrc=466&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">Math <b>Algorithms</b> for Elementary Students</a>
+</li>
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'8b07v=JIwbZLIBCBTwbWlX&F=XylppG&nR=s&fu=4NpZULai9uX8i&m+=NbRW&LC=O',tp:'rst',io:'2',ec:'12'})" href="http://www.ask.com/web?q=New+ACLS+Algorithm&amp;qsrc=466&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">New ACLS <b>Algorithm</b></a>
+</li>
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'ca3ar=QAiqIkcYaGhNLkRX&p=ulUyUX&gx=K&ay=uDa3hZZ%EVYz9&OB=Fx7Y&RE=H',tp:'rst',io:'4',ec:'12'})" href="http://www.ask.com/web?q=Examples+of+Simple+Algorithms&amp;qsrc=466&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">Examples of Simple <b>Algorithms</b></a>
+</li>
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'aff7g=ZtFdIiPURUZ6V0qM&S=NCr71J&K1=S&i8=HWqS3EasL+Wxp&O9=tN3T&IH=M',tp:'rst',io:'6',ec:'12'})" href="http://www.ask.com/web?q=Definition+of+Algorithms&amp;qsrc=466&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">Definition of <b>Algorithms</b></a>
+</li>
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'c04ao=493mbnHSWcyGMlTP&H=09L7Tv&8l=d&vo=zzfRDpQXfQAl1&cZ=qG08&B4=5',tp:'rst',io:'8',ec:'12'})" href="http://www.ask.com/web?q=Introduction+to+Computing+Algorithms&amp;qsrc=466&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">Introduction to Computing <b>Algorithms</b></a>
+</li>
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r2',b:'rlt',up:'0ee7a=J%vUre+ly7OhBsKK&x=wpbL11&eE=+&4n=ksFVErVfld%70&9Q=PlD5&Oe=D',tp:'rst',io:'10',ec:'12'})" href="http://www.ask.com/web?q=ACLS+Cheat+Sheet&amp;qsrc=466&amp;o=0&amp;l=dir&qo=relatedSearchExpand">ACLS Cheat Sheet</a>
+</li>
+</ul>
+<ul class="fl relwid">
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'9c5a4=WG+vQU6vjIcOXQOq&D=sjRNkY&HP=I&dr=O1eoCP6Z2d7Sx&AL=qYl+&68=p',tp:'rst',io:'1',ec:'12'})" href="http://www.ask.com/web?q=Write+Me+an+Algorithm&amp;qsrc=466&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">Write Me an <b>Algorithm</b></a>
+</li>
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'67d7u=GZRtTPtbus7o2A28&r=oGQ%Ff&%w=B&iy=GDUluo8YGWk5O&B1=4ETd&i2=D',tp:'rst',io:'3',ec:'12'})" href="http://www.ask.com/web?q=Introduction+to+Algorithms&amp;qsrc=466&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">Introduction to <b>Algorithms</b></a>
+</li>
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'9e6ab=HWWESDDCCXvUvySv&s=F+VT2y&Ka=U&Bu=qEnpvYZZaRMRY&Hb=oEXl&35=u',tp:'rst',io:'5',ec:'12'})" href="http://www.ask.com/web?q=Examples+of+Algorithms&amp;qsrc=466&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">Examples of <b>Algorithms</b></a>
+</li>
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'7ac7s=DbocPiwGocDFVB3%&j=GaC1ce&Im=ii&Ry=VJB1Zza7B0Wvl&mj=A2%s&Lo=d',tp:'rst',io:'7',ec:'12'})" href="http://www.ask.com/web?q=ACLS+Algorithms+2010+Printable&amp;qsrc=466&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">ACLS <b>Algorithms</b> 2010 Printable</a>
+</li>
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'36e7w=TuFeBAjHIrYDLOU6&H=SzxVl+&AO=qM&Hw=1Iqv26Y9D3G5l&X4=GZf%&nk=S',tp:'rst',io:'9',ec:'12'})" href="http://www.ask.com/web?q=Give+Me+an+Example+of+an+Algorithm&amp;qsrc=466&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">Give Me an Example of an <b>Algorithm</b></a>
+</li>
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r2',b:'rlt',up:'db07b=3oQThr2hWhbcvCFD&Z=DS3J70&5+=9%&%o=GCQVGvl5e03xW&qm=Gxgr&VR=p',tp:'rst',io:'11',ec:'12'})" href="http://www.ask.com/web?q=ACLS+Pretest+2010&amp;qsrc=466&amp;o=0&amp;l=dir&qo=relatedSearchExpand">ACLS Pretest 2010</a>
+</li>
+</ul>
+</div>
+<div id="teoma-results" class="rmwi cardBorder content-mid" style="clear:both;">
+<div id="lindm" class="stm">
+<div class="ptb5 sectionheader">More Answers</div>
+<div class="wresult tsrc_SAS">
+<div class="ptbs sasr sa_wide sa-cont ur" data-zen="true" data-en="dicp" data-block="a001" data-extended="da_sn=00090&da_origin=raw&da_sro=2055454&da_lhs=2055412&da_lhx=Dictionary.com%3A+Simple&da_cat=11&da_lhp=1&da_partner=17" onmousedown="pk(this,{en:'dicp',b:'a001',up:'6727r=aTLME9UZh0&s=m8CvM3&7d=M&pF=KbbSSj6ZHKu&R4=yd5VZc9C5&nF=Q&br=P%973X96+t&Un.Si6ItqIWcaQ5=n7RDz&4V.KFkQs04=HN6v90C&bS.1tSC=tm&HV.MRREJ=v&Qk.9sl5l3oYSF=Y&eF.4EbIbT3=0X&ZQ.BTr5JOyL=aZ&oZ.1KxV4TST=gGeiC',ex:'da_sn%3D00090%26da_origin%3Draw%26da_sro%3D2055454%26da_lhs%3D2055412%26da_lhx%3DDictionary.com%253A%2BSimple%26da_cat%3D11%26da_lhp%3D1%26da_partner%3D17'})" data-partner="17" data-area="95">
+<div class="sa" data-origin="raw" data-sn="00090" data-sro="2055454" data-lhs="2055412" data-desc="Dictionary.com: Simple">
+<div class="sa_dictionary">
+<div class="sa_dictionary_syllable_spell">
+al·go·rithm
+</div>
+<div class="sa_dictionary_pronounciation">
+<div class="sa_dictionary_pronounciation_spell">[<span class="dbus_pron_b">al</span>-g<span class="dbus_pron_i">uh</span>-ri<span class="dbus_pron_i">th</span>-<span class="dbus_pron_i">uh</span>m]</div>
+<div class="sa_dictionary_pronounciation_speech">
+<input alt="" src="http://static.ask.com/sh/i/sa/speech_transparent.png" type="image" class="sa_dictionary_speech_button_image" onclick="document.getElementById('sa_dictionary_pronounciation_speech_audio').play();" />
+<audio id="sa_dictionary_pronounciation_speech_audio" onloadstart="dictionarySA.ShowPlayButton(this);" >
+<source src="http://static.sfdict.com/staticrep/dictaudio/lunawav/A03/A0303800.ogg" type="audio/ogg"/>
+<source src="http://static.sfdict.com/staticrep/dictaudio/A03/A0303800.mp3" type="audio/mpeg"/>
+</audio>
+</div>
+</div>
+<div class="sa_dictionary_definitions">
+<div class="sa_dictionary_definitions_per_pos">
+<div class="sa_dictionary_pos">
+<span class="sa_dictionary_pos_tag">NOUN</span>
+</div>
+<div class="sa_dictionary_definition_entry">
+<div class="sa_dictionary_nr"><div class="sa_dictionary_nr_right">1.</div></div>
+<div class="sa_dictionary_definition"> a set of rules for solving a problem in a finite number of steps, as for finding the greatest common divisor.</div>
+</div>
+</div>
+</div>
+<div class="sa_dictionary_related_question">
+<span class="sa_attr">Related Question:</span>
+<span class=""><a href="http://www.ask.com/web?q=synonyms%3A+algorithm" class="sa_clt" >What are the synonyms for algorithm?</a></span>
+</div>
+<div>
+<span class="sa_attr">Source:</span>
+<span class="sa_site_attr">Dictionary.com</span>
+</div>
+</div>
+<script>
+var dictionarySA = {};
+dictionarySA.ShowPlayButton = function (audioElement) {
+var sourceElements = audioElement.getElementsByTagName("source");
+for (var i = 0; i < sourceElements.length; i++) {
+var audioType = sourceElements[i].getAttribute("type");
+if ( audioElement.canPlayType(audioType) != "" ) {
+audioElement.parentNode.style.display='block';
+return;
+}
+}
+};
+dictionarySA.showFewerDefinitions = function(jq) {
+var options = {duration:400, easing:"linear"};
+options.complete = function() {
+jq("#sa_dictionary_less_button").toggleClass("sa_dictionary_button_disabled sa_dictionary_less_definitions");
+jq("#sa_dictionary_more_button").toggleClass("sa_dictionary_more_definitions sa_dictionary_button_disabled");
+}
+jq("#sa_dictionary_more_definitions_rest").slideUp(options);
+};
+dictionarySA.showMoreDefinitions = function(jq) {
+var moreDiv = jq("#sa_dictionary_more_definitions_rest");
+var preWidth = moreDiv.prev().width();
+var options = {duration:400, easing:"linear"};
+options.complete = function(){
+jq("#sa_dictionary_more_button").toggleClass("sa_dictionary_button_disabled sa_dictionary_more_definitions");
+jq("#sa_dictionary_less_button").toggleClass("sa_dictionary_less_definitions sa_dictionary_button_disabled");
+};
+moreDiv.width(preWidth);
+moreDiv.slideDown(options);
+};
+dictionarySA.showMoreDefinitionsNoJQ = function() {
+if (document.getElementById("sa_dictionary_more_definitions_rest") != null) {
+document.getElementById("sa_dictionary_more_definitions_rest").style.display = "block";
+document.getElementById("sa_dictionary_more_button").className = "sa_dictionary_button_disabled";
+document.getElementById("sa_dictionary_less_button").className = "sa_dictionary_less_definitions";
+}
+};
+dictionarySA.showFewerDefinitionsNoJQ = function() {
+if (document.getElementById("sa_dictionary_more_definitions_rest") != null) {
+document.getElementById("sa_dictionary_more_definitions_rest").style.display = "none";
+document.getElementById("sa_dictionary_less_button").className = "sa_dictionary_button_disabled";
+document.getElementById("sa_dictionary_more_button").className = "sa_dictionary_more_definitions";
+}
+};
+dictionarySA.setupNoJQHandlers = function() {
+if (document.getElementById("sa_dictionary_more_button") != null) {
+document.getElementById("sa_dictionary_more_button").onclick = function() {dictionarySA.showMoreDefinitionsNoJQ();};
+}
+if (document.getElementById("sa_dictionary_less_button") != null) {
+document.getElementById("sa_dictionary_less_button").onclick = function() {dictionarySA.showFewerDefinitionsNoJQ();};
+}
+};
+dictionarySA.setupJQHandlers = function(jq) {
+jq(document).ready(function(jq) {
+jq("#sa_dictionary_more_button").click(function() {dictionarySA.showMoreDefinitions(jq);});
+jq("#sa_dictionary_less_button").click(function() {dictionarySA.showFewerDefinitions(jq);});
+});
+};
+if (typeof $ != "undefined" && typeof $(document).ready != "undefined") {
+dictionarySA.setupJQHandlers($);
+} else if (typeof $j != "undefined" && typeof $j(document).ready != "undefined") {
+dictionarySA.setupJQHandlers($j);
+} else {
+dictionarySA.setupNoJQHandlers();
+}
+</script> </div>
+</div>
+<div style="clear: both;"></div>
+</div>
+<div class="wresult tsrc_NEWS">
+<div style="padding-top: 8px;" data-zen="true" class="ur">
+<a class="title url txt_lg" href="http://www.ask.com/news?qsrc=2431&amp;q=algorithms&amp;o=0&amp;l=dir" onmousedown="pk(this,{en:'alcl',b:'a002',up:'a177Z=b1Pd0FMlYY&+=F8131m&UB=W&5U=S9wx&Qb=b0o&M5=Z',ex:'tsrc%3DNEWS'})">News for algorithms</a>
+<div>
+<div style="padding-bottom: 5px;">
+<div class="fl" style="margin-right: 10px;padding-top: 5px;">
+<a href="http://ct.moreover.com/?a=20649128701&amp;p=1cb&amp;v=1&amp;x=N0f5XqnqfziuMxF8uNTqgw" onmousedown="pk(this,{en:'ni',b:'a002',up:'f14aD=rfj2xsF7Z7&C=aNke6U&cK=o&D0=9Ohe&pS=n8u&hR=j',ex:'tsrc%3DNEWS'})" target="_blank"
+>
+<img height="50" border="0" style="border:1px solid #CCCCCC;" src="http://media.mysearchsolution.com/e?t=5808476197882947006"/>
+</a>
+<div style="text-align: center;">
+<a href="http://ct.moreover.com/?a=20649128701&amp;p=1cb&amp;v=1&amp;x=N0f5XqnqfziuMxF8uNTqgw" class="txt1 title" onmousedown="pk(this,{en:'ni',b:'a002',up:'4b67p=BPJG91VPQO&x=%JmEuI&Nq=r&%h=WFkr&9J=KqX&kl=V',ex:'tsrc%3DNEWS'})" target="_blank"
+>Source</a>
+</div>
+</div>
+<div class="ofh" style="padding-top: 2px;">
+<div>
+<a class="title" href="http://ct.moreover.com/?a=20649128701&amp;p=1cb&amp;v=1&amp;x=N0f5XqnqfziuMxF8uNTqgw" onmousedown="pk(this,{en:'ns',b:'a002',up:'e25ap=2gM38cDkAA&7=EpyeNw&+f=l&hG=+0YF&Yh=4gy&Wy=c',ex:'tsrc%3DNEWS'})" target="_blank"
+>IDG Contributor Network: Recent trends in artificial intelligence ...</a>
+<div>
+<span class="durl">Computerworld</span>
+<span>&middot;</span>
+<span class="info">46 hours ago</span>
+</div>
+</div>
+</div>
+<div class="ofh" style="padding-top: 2px;">
+<div>
+<a class="title" href="http://ct.moreover.com/?a=20631168178&amp;p=1cb&amp;v=1&amp;x=1a5BDiF1RxFC2PhpZWSerQ" onmousedown="pk(this,{en:'ns',b:'a002',up:'2f570=txkNeJgqay&D=gj9t%x&y0=B&c6=dkCf&+W=ffI&37=L',ex:'tsrc%3DNEWS'})" target="_blank"
+>Chronicles of the Hieroglyph - Using STL <KW>Algorithms</KW></a>
+<div>
+<span class="durl">GameDev.net</span>
+<span>&middot;</span>
+<span class="info">March 4 7:55 PM</span>
+</div>
+</div>
+</div>
+<div class="ofh" style="padding-top: 2px;">
+<div>
+<a class="title" href="http://ct.moreover.com/?a=20618878385&amp;p=1cb&amp;v=1&amp;x=P8Fe5mOlAlFDarbfAJEGWg" onmousedown="pk(this,{en:'ns',b:'a002',up:'b96aV=egDgSrviQ4&0=lae%dP&6a=w&6Q=7Ug5&VW=UVw&iU=6',ex:'tsrc%3DNEWS'})" target="_blank"
+>It's the <KW>algorithms</KW> JohnBB.Some stocks are almost untradeable in ...</a>
+<div>
+<span class="durl">Brisbane Times</span>
+<span>&middot;</span>
+<span class="info">March 3 4:33 PM</span>
+</div>
+</div>
+</div>
+<div class="cl"></div>
+</div>
+</div>
+</div> </div>
+<div class="wresult tsrc_Wiki-SA">
+<div class="ptbs ur" data-zen="true">
+<div id="r_t2">
+<a id="r2_t" href="http://www.ask.com/wiki/Algorithm?lang=en" onmousedown="pk(this,{en:'nwsa',b:'a003',up:'0d47Z=AorM68BrLr&b=iDxgaA&u3=G&0w=ApNbtQaywg4a&Wi=geY4igR26+5&t+=L&g0U=x3ecg',ex:'tsrc%3DWiki-SA'})" class="title url" ><KW>Algorithm</KW> </a>
+</div>
+<div style="overflow: hidden;padding-top: 3px;">
+<div class="mgr10 fl" style="text-align: center;">
+<a href="http://www.ask.com/wiki/Algorithm?lang=en" onmousedown="pk(this,{en:'nwsa',b:'a003',up:'cebao=uYiWaPK9e7&O=mFYypm&t%=T&JU=JpEMRrm%ihKB&iz=Di9myMZaoWl&iJ=B&ViV=gcQRI',ex:'tsrc%3DWiki-SA'})" style="display: block;">
+<img id="wiki2" style="border:1px solid #666666;max-height:90px;max-width:90px;padding: 2px;" src="http://rpmedia.ask.com/ts?u=/wikipedia/commons/thumb/d/d3/Euclid_flowchart_1.png/37px-Euclid_flowchart_1.png" alt="" border="0"/>
+</a>
+<a class="txt1 title" href="http://en.wikipedia.org/wiki/File:Euclid_flowchart_1.png" onmousedown="pk(this,{en:'nwsa',b:'a003',up:'3cb7h=cpeKPg13BK&c=xzZU5D&5f=b&%e=qz44WEzyAIyj&Bn=SweN1HJnUJz&t6=s&nEX=nLwmf',io:'1',ex:'tsrc%3DWiki-SA'})" target="_blank"
+>Source</a>
+<script type="text/javascript">
+var wikiImage = new Image();
+wikiImage.onload = function() {
+if (this.height < 45) {
+document.getElementById('wiki2').height = this.height;
+}
+}
+wikiImage.src = "http://rpmedia.ask.com/ts?u=/wikipedia/commons/thumb/d/d3/Euclid_flowchart_1.png/37px-Euclid_flowchart_1.png";
+</script>
+</div>
+<div style="overflow:hidden;">
+<span class="txt3 abstract more-link" id="r2_a" data-module="webResults">
+In <a title="mathematics" class="title tdn" href="http://www.ask.com/allabout?q=Mathematics&qsrc=470" onmousedown="pk(this, {en:'nwsa',b:'a001',io:'1',ec:'1'});triggerActionLog(this.parentNode.getAttribute('data-module'), '','center', 'click', 'searchResult', 'wikiService','','')">mathematics</a> and <a title="computer science" class="title tdn" href="http://www.ask.com/allabout?q=Computer+science&qsrc=470" onmousedown="pk(this, {en:'nwsa',b:'a001',io:'1',ec:'1'});triggerActionLog(this.parentNode.getAttribute('data-module'), '','center', 'click', 'searchResult', 'wikiService','','')">computer science</a>, an <b>algorithm</b> is a step-by-step procedure for calculations. <b>Algorithms</b> are used for <a title="calculation" class="title tdn" href="http://www.ask.com/allabout?q=Calculation&qsrc=470" onmousedown="pk(this, {en:'nwsa',b:'a001',io:'1',ec:'1'});triggerActionLog(this.parentNode.getAttribute('data-module'), '','center', 'click', 'searchResult', 'wikiService','','')">calculation</a>, <a title="data processing" class="title tdn" href="http://www.ask.com/allabout?q=Data+processing&qsrc=470" onmousedown="pk(this, {en:'nwsa',b:'a001',io:'1',ec:'1'});triggerActionLog(this.parentNode.getAttribute('data-module'), '','center', 'click', 'searchResult', 'wikiService','','')">data processing</a>, and <a title="automated reasoning" class="title tdn" href="http://www.ask.com/allabout?q=Automated+reasoning&qsrc=470" onmousedown="pk(this, {en:'nwsa',b:'a001',io:'1',ec:'1'});triggerActionLog(this.parentNode.getAttribute('data-module'), '','center', 'click', 'searchResult', 'wikiService','','')">automated reasoning</a>.
+An <b>algorithm</b> is an <a title="effective method" class="title tdn" href="http://www.ask.com/allabout?q=Effective+method&qsrc=470" onmousedown="pk(this, {en:'nwsa',b:'a001',io:'1',ec:'1'});triggerActionLog(this.parentNode.getAttribute('data-module'), '','center', 'click', 'searchResult', 'wikiService','','')">effective method</a> expressed as a list of well-defined instructions for calculating a <a title="Function (mathematics)" class="title tdn" href="http://www.ask.com/allabout?q=Function+%28mathematics%29&qsrc=470" onmousedown="pk(this, {en:'nwsa',b:'a001',io:'1',ec:'1'});triggerActionLog(this.parentNode.getAttribute('data-module'), '','center', 'click', 'searchResult', 'wikiService','','')">function</a>. Starting from an initial state and initial input (perhaps <a title="null string" class="title tdn" href="http://www.ask.com/allabout?q=Null+string&qsrc=470" onmousedown="pk(this, {en:'nwsa',b:'a001',io:'1',ec:'1'});triggerActionLog(this.parentNode.getAttribute('data-module'), '','center', 'click', 'searchResult', 'wikiService','','')">empty</a>), the instructions describe a <a title="computation" class="title tdn" href="http://www.ask.com/allabout?q=Computation&qsrc=470" onmousedown="pk(this, {en:'nwsa',b:'a001',io:'1',ec:'1'});triggerActionLog(this.parentNode.getAttribute('data-module'), '','center', 'click', 'searchResult', 'wikiService','','')">computation</a> that, when <a title="Execution (computing)" class="title tdn" href="http://www.ask.com/allabout?q=Execution+%28computing%29&qsrc=470" onmousedown="pk(this, {en:'nwsa',b:'a001',io:'1',ec:'1'});triggerActionLog(this.parentNode.getAttribute('data-module'), '','center', 'click', 'searchResult', 'wikiService','','')">executed</a>, proceeds through a finite number of well-defined successive states, eventually pr...
+<a href="http://www.ask.com/wiki/Algorithm?lang=en" class="title" style="white-space:nowrap" onmousedown="pk(this,{en:'nwsa',b:'a003',up:'ca4aJ=pdpSLa1Grz&c=vwx6aS&+Q=f&RI=yoqHO3M+puNJ&ym=kxwNT8vcmo2&Xl=a&Jy+=X+HKu',ex:'tsrc%3DWiki-SA'})">Read More &raquo;</a>
+</span>
+<div style="padding-top:4px;">
+<span class="txt3 info b">Go to:</span>
+<span class="more-link">
+<a style="display:inline-block;" class="title txt3 pl2 tdn" href="http://www.ask.com/wiki/Algorithm?lang=en" onmousedown="pk(this,{en:'nwsa',b:'a003',up:'0627n=FY9ZUr1phy&k=4Sr9Jx&+B=0&FZ=SvartJhzeWUZ&mK=PQ9hzDJ25iF&fS=H&Azj=e5AmL'})">Ask Encyclopedia</a>
+&middot;
+<a class="title txt3 tdn" href="http://www.ask.com/pictures?q=algorithms&amp;qsrc=1582&amp;o=0&amp;l=dir" onmousedown="pk(this,{en:'nwsa',b:'a003',up:'4bda%=CQzp7oNkWo&D=g9Z+3D&cx=d&Ll=VtsYOdY33O8c&QN=NDqiuP4Q8Hd&Ge=7&yob=tDFVD',io:'3'})">Images</a>
+&middot;
+<a class="title txt3 tdn" href="http://www.ask.com/videos?q=algorithms&amp;qsrc=1582&amp;o=0&amp;l=dir" onmousedown="pk(this,{en:'nwsa',b:'a003',up:'2997v=KgTJ5UmOz%&h=7faIo3&3N=i&h0=FtVBTj9Sf+Qp&0D=SplOJlzak+8&5f=H&E1P=nKFY3',io:'4'})">Videos</a>
+</span>
+</div>
+<div style="padding-top: 6px;">
+<div class="fl">
+<span class="txt3 info b">Browse Article:</span>
+<span class="more-link">
+<a class="title" href="http://www.ask.com/wiki/Algorithm#Word_origin" onmousedown="pk(this,{en:'nwsa',b:'a003',up:'936aq=lx0hsclQWj&k=nN21LV&mw=y&GC=2p3j5M+vrXZN&my=hj8GCDTPUCa&gE=8&FBe=BTsCS',ec:'5'})">Word origin</a>
+</span>&middot;
+<span class="more-link">
+<a class="title" href="http://www.ask.com/wiki/Algorithm#Informal_definition" onmousedown="pk(this,{en:'nwsa',b:'a003',up:'6707U=+Bdf7SQtcM&S=VvqnlU&Wz=o&Kx=yI0MTHPGnG9T&dh=MvHBe618syF&%Z=I&id+=3v2Vl',io:'1',ec:'5'})">Informal definition</a>
+</span>&middot;
+<span class="more-link">
+<a class="title" href="http://www.ask.com/wiki/Algorithm#Formalization" onmousedown="pk(this,{en:'nwsa',b:'a003',up:'e0faj=R7Wh7nWWI7&z=AIoS5Z&m2=Z&Td=aYnxRqEkSIAd&rp=4mPEwgeUWTa&sQ=0&hVz=6+T5Y',io:'2',ec:'5'})">Formalization</a>
+</span>&middot;
+<span class="more-link">
+<a class="title" href="http://www.ask.com/wiki/Algorithm#Implementation" onmousedown="pk(this,{en:'nwsa',b:'a003',up:'7e77O=GcWOJC9GXF&N=KlsVPS&7I=w&PR=is+de67gkJwC&OY=gnTVS7O6bI5&KP=1&js7=t9VYW',io:'3',ec:'5'})">Implementation</a>
+</span>&middot;
+<span class="more-link">
+<a class="title" href="http://www.ask.com/wiki/Algorithm#Computer_algorithms" onmousedown="pk(this,{en:'nwsa',b:'a003',up:'748ax=mfE9fENnwu&z=E%U1K4&Yi=f&CW=BQKlpWEfzPeg&h9=kwOZrxlQver&13=s&H4q=FHEzE',io:'4',ec:'5'})">Computer algorithms</a>
+</span>&middot;
+</div>
+<div class="cl"></div>
+</div>
+<div style="padding-top: 4px">
+<span class="txt3 info b">Source:</span>
+<span class="more-link">
+<a class="title txt3 pr2 tdn" href="http://en.wikipedia.org/wiki/Algorithm" target="_blank" target="_blank"
+>Wikipedia</a>
+</span>
+</div>
+<div id="rq" class="more-link pt10 ur">
+<div class="txt3 info b">Related Questions:</div>
+<ul>
+<li class="pt5">
+<div class="fl">&#8226; </div>
+<div class="ofh pl5 wiki-rq"><a class="title" href="http://www.ask.com/web?q=Why+Complicated+Mathematical+Algorithm+Based+Systems+Lose&amp;qsrc=469&amp;o=0&amp;l=dir&qo=relatedQuestions" onmousedown="pk(this,{en:'wkrq',b:'a003',up:'2fe7u=4kKDIo4Dx5&O=Ryv35F&OX=W&ea=D0mWZI8gRqUDrW&2q=R1NI84pa9Ym&%s=z&ibq=mOXZ8',ec:'3'})"> Why Complicated Mathematical Algorithm Based Systems Lose </a></div>
+</li>
+<li class="pt5">
+<div class="fl">&#8226; </div>
+<div class="ofh pl5 wiki-rq"><a class="title" href="http://www.ask.com/web?q=A+Computer+Science%2FMath+Algorithm+Question%3F&amp;qsrc=469&amp;o=0&amp;l=dir&qo=relatedQuestions" onmousedown="pk(this,{en:'wkrq',b:'a003',up:'a5caU=IY%+W3C7uy&H=5qErRF&p5=5&w5=Ej9V43z%cycdfH&ny=icoapuqOrs0&KY=X&Kyk=pdUsF',io:'1',ec:'3'})"> A Computer Science/Math Algorithm Question? </a></div>
+</li>
+<li class="pt5">
+<div class="fl">&#8226; </div>
+<div class="ofh pl5 wiki-rq"><a class="title" href="http://www.ask.com/web?q=How+are+pi-calculating+algorithms+developed%3F&amp;qsrc=469&amp;o=0&amp;l=dir&qo=relatedQuestions" onmousedown="pk(this,{en:'wkrq',b:'a003',up:'33f7v=5c29ufBC7V&C=jTk82L&Ch=l&6Z=eVZJR8u30i4nRi&Xa=wStq4nRTkNz&RW=T&gS+=%yBZo',io:'2',ec:'3'})"> How are pi-calculating algorithms developed? </a></div>
+</li>
+</ul>
+<div class="pt10 pl10">
+<a class="title" href="http://www.ask.com/web?q=algorithms&amp;qsrc=3060&amp;o=0&amp;l=dir">View more Q&A &raquo;</a>
+</div>
+</div>
+</div>
+<div class="cl"></div>
+</div>
+</div>
+</div>
+<div class="wresult tsrc_tled">
+<div class="ptbs ur" data-zen="true">
+<h3 id="r_t3"><a id="r3_t" class="url txt_lg" href="https://www.khanacademy.org/computing/computer-science/algorithms" onmousedown="pk(this,{en:'te',b:'a004',up:'ecbap=mdVryzR%7l&q=S3IFpe&KL=p&6F=Rqw3sYJUpiBR&W5=I0fxJ&+w=c',ex:'tsrc%3Dtled'})" target="_blank"
+><KW>Algorithms</KW> | Computer science | Khan Academy</a></h3>
+<p class="durl txt3" id="r_b3">www.khanacademy.org/computing/computer-science/algorithms</p>
+<p class="abstract txt3" id="r3_a}">We&#39;ve partnered with Dartmouth college professors Tom Cormen and Devin 
+Balkcom to teach introductory computer science <KW>algorithms</KW>, including searching,
+&nbsp;...</p>
+</div>
+</div>
+<div class="wresult tsrc_abti">
+<div class="ptbs ur" data-zen="true">
+<div id="r_t4">
+<a id="r4_t" class="url txt_lg" href="http://clk.about.com?zi=13/1tO&ity=boostOrg&o=0&eng=boost&zu=http://delphi.about.com/library/glossary/bldefalgorithm.htm" onmousedown="pk(this,{en:'abt',b:'a005',up:'2f87P=1t%55CS+in&2=sJWFNe&iZ=L&cN=6TAUxLxG+CZL&96=o%NtX&Q7=c&Kh+=o%rQzttT4A',ex:'tsrc%3Dabti'})" target="_blank"
+><KW>Algorithm</KW></a>
+</div>
+<div>
+<div class="ofh">
+<div class="durl" id="r_b4">
+<span id="r4_u" class="txt3">delphi.about.com/library/glossary/bldefalgorithm.htm</span>
+</div>
+<div class="abstract txt3" id="r4_a">
+&#160; Definition: An <KW>algorithm</KW> is a set of precisely defined steps guaranteed to arrive at an answer to a problem or set of problems. As this implies, a set of steps that might never end is not an <KW>algorithm</KW>. In mathematics and computer science, an <KW>algorithm</KW> usually means ...<a id="r4_t" class="tdn title dsib" href="http://clk.about.com?zi=13/1tO&ity=boostOrg&o=0&eng=boost&zu=http://delphi.about.com/library/glossary/bldefalgorithm.htm" onmousedown="pk(this,{en:'abt',b:'a005',up:'0d97m=9DMAsffFYv&a=YExBfq&oG=c&Gl=ykiYMawd%2dM&Tu=VFiRJ&Qo=z&NLd=KspFU4Wsmq',ex:'tsrc%3Dabti'})" target="_blank"
+> More &raquo;</a>
+</div>
+</div>
+<div style="clear: left;"></div>
+</div>
+</div>
+</div>
+<div class="wresult tsrc_tled">
+<div class="ptbs ur" data-zen="true">
+<h3 id="r_t5"><a id="r5_t" class="url txt_lg" href="http://algs4.cs.princeton.edu/" onmousedown="pk(this,{en:'te',b:'a006',up:'e5a7h=tWT1zxDzRM&P=kiNv9R&DR=A&Rz=0+e+tvdp8QHY&8M=cSLCr&Z+=Q',ex:'tsrc%3Dtled'})" target="_blank"
+><KW>Algorithms</KW>, 4th Edition by Robert Sedgewick and Kevin Wayne</a></h3>
+<p class="durl txt3" id="r_b5">algs4.cs.princeton.edu/</p>
+<p class="abstract txt3" id="r5_a}">Chapter 1: Fundamentals introduces a scientific and engineering basis for 
+comparing <KW>algorithms</KW> and making predictions. It also includes our programming
+&nbsp;...</p>
+</div>
+</div>
+<div class="wresult tsrc_tled">
+<div class="ptbs ur" data-zen="true">
+<h3 id="r_t6"><a id="r6_t" class="url txt_lg" href="http://whatis.techtarget.com/definition/algorithm" onmousedown="pk(this,{en:'te',b:'a007',up:'ce8az=Z3uEmW%o8f&p=+f+mMF&J+=S&Ic=XSl9grLxWQQ3&9E=%Jaam&q%=U',ex:'tsrc%3Dtled'})" target="_blank"
+>What is <KW>algorithm</KW>? - Definition from WhatIs.com</a></h3>
+<p class="durl txt3" id="r_b6">whatis.techtarget.com/definition/algorithm</p>
+<p class="abstract txt3" id="r6_a}">An <KW>algorithm</KW> (pronounced AL-go-rith-um) is a procedure or formula for solving a 
+problem. The word derives from the name of the mathematician, Mohammed&nbsp;...</p>
+</div>
+</div>
+<div class="wresult tsrc_tled">
+<div class="ptbs ur" data-zen="true">
+<h3 id="r_t7"><a id="r7_t" class="url txt_lg" href="https://www.coursera.org/course/algs4partI" onmousedown="pk(this,{en:'te',b:'a008',up:'dcb7F=QNS8rEDpd8&Q=Vblwrf&rT=F&MC=4XGqy2bWc6aH&dL=bQTkX&bh=h',ex:'tsrc%3Dtled'})" target="_blank"
+><KW>Algorithms</KW>, Part I - Princeton University | Coursera</a></h3>
+<p class="durl txt3" id="r_b7">www.coursera.org/course/algs4partI</p>
+<p class="abstract txt3" id="r7_a}">This course covers the essential information that every serious programmer 
+needs to know about <KW>algorithms</KW> and data structures, with emphasis on 
+applications&nbsp;...</p>
+</div>
+</div>
+<div class="wresult tsrc_tled">
+<div class="ptbs ur" data-zen="true">
+<h3 id="r_t8"><a id="r8_t" class="url txt_lg" href="http://www.mdpi.com/journal/algorithms" onmousedown="pk(this,{en:'te',b:'a009',up:'427aA=pbGa375s3r&5=KomKR3&Xh=lT&oP=bf770gp3Xibf&gW=1Sdry&FW=m',ex:'tsrc%3Dtled'})" target="_blank"
+><KW>Algorithms</KW> | An Open Access Journal from MDPI - MDPI.com</a></h3>
+<p class="durl txt3" id="r_b8">www.mdpi.com/journal/algorithms</p>
+<p class="abstract txt3" id="r8_a}"><KW>Algorithms</KW> (ISSN 1999-4893; CODEN: ALGOCH) is an open access journal 
+which provides an advanced forum for studies related to <KW>algorithms</KW>, and is&nbsp;...</p>
+</div>
+</div>
+<div class="wresult tsrc_tled">
+<div class="ptbs ur" data-zen="true">
+<h3 id="r_t9"><a id="r9_t" class="url txt_lg" href="https://www.udacity.com/course/cs215" onmousedown="pk(this,{en:'te',b:'a010',up:'554a0=k8Inqj4sSY&1=xGbDrN&59=K6&PC=nUPQZnpKKRuV&RW=CsBVs&d7=g',ex:'tsrc%3Dtled'})" target="_blank"
+>Introduction to <KW>Algorithms</KW> Course Online - Udacity</a></h3>
+<p class="durl txt3" id="r_b9">www.udacity.com/course/cs215</p>
+<p class="abstract txt3" id="r9_a}">Introductory class on <KW>algorithms</KW> and data structures concepts. Learn the 
+fundamentals of design and analysis of <KW>algorithms</KW>. Start learning!</p>
+</div>
+</div>
+</div>
+</div>
+<div id="csaBottom"><div id="magic2"></div></div>
+<script>
+window['backfillParam'] = window['backfillParam'] || {};
+window['backfillParam']['pl_bmodn'] = 4;
+</script>
+<div class="relmod rrItem content-mid" id="mrRSM">
+<h2 id="rlTitle_1" class="sectionheader">Explore More Answers About</h2>
+<ul class="fl relwid rl1block">
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'3e1ab=M6dc8SBL4e%C7Mg49jg&0=zz%n9Q&Mr=g&yv=hKQBMOLwEEFYt&E2=e1dW&O5=k',tp:'rsb',ec:'7'})" href="http://www.ask.com/web?q=Types+of+Algorithms&amp;qsrc=467&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">Types of <b>Algorithms</b></a>
+</li>
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'47aaA=vFVI04Vm537lf+TUqkv&W=1b2qI5&iB=1&oF=yBhp+OOZ%Nk35&Wi=ZIEP&aT=U',tp:'rsb',io:'2',ec:'7'})" href="http://www.ask.com/web?q=Flowchart+Algorithm+Example&amp;qsrc=467&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">Flowchart <b>Algorithm</b> Example</a>
+</li>
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'d73a6=vACPE7L6lb6Gaq1Q1HM&t=cFqAyE&Rm=w&6l=WJ7d9zJXKcl%g&Zq=cwk4&zi=e',tp:'rsb',io:'4',ec:'7'})" href="http://www.ask.com/web?q=Basic+Algorithm&amp;qsrc=467&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">Basic <b>Algorithm</b></a>
+</li>
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r2',b:'rlt',up:'2ccaq=3CAhiJmF+rll9hUC6+i&m=rKCAWk&Ft=4&nO=+n0ktmeGa%twP&4+=eayo&d5=B',tp:'rsb',io:'6',ec:'7'})" href="http://www.ask.com/web?q=ACLS+Drugs&amp;qsrc=467&amp;o=0&amp;l=dir&qo=relatedSearchExpand">ACLS Drugs</a>
+</li>
+</ul>
+<ul class="fl relwid">
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'885an=lv6QfJ1QKx99muP1Ytm&m=X+Pb6T&1H=R&3h=0OLYVr7rdRrqt&oe=hryA&pX=d',tp:'rsb',io:'1',ec:'7'})" href="http://www.ask.com/web?q=Introduction+to+Algorithms+Lecture&amp;qsrc=467&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">Introduction to <b>Algorithms</b> Lecture</a>
+</li>
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'29eaH=FZlfJPWlleGL7O1KRoc&c=ZHh+e1&8M=a&N4=+f8lb25tCA28Z&gq=B4zn&mG=n',tp:'rsb',io:'3',ec:'7'})" href="http://www.ask.com/web?q=Review+of+Advanced+Cardiac+Life+Support+Algorithms&amp;qsrc=467&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">Review of Advanced Cardiac Life Support <b>Algorithms</b></a>
+</li>
+<li class="relItem ur">
+<a class="txt4 title" onmousedown="pk(this,{en:'r1',b:'rlt',up:'517a6=gPEgYLmZdhf0DYJA1F5&F=N6hcHv&fr=g&nk=r0PM6oT38AXP6&Wt=rMRx&l1=i',tp:'rsb',io:'5',ec:'7'})" href="http://www.ask.com/web?q=Computer+Algorithm&amp;qsrc=467&amp;o=0&amp;l=dir&qo=relatedSearchNarrow">Computer <b>Algorithm</b></a>
+</li>
+</ul>
+</div>
+<div id="paging" class="p20">
+<div style="margin: 0 10px 0 0" class="dsi">
+<div class="pgc pgcsel"><div class="pg">1</div></div>
+<div class="pgc"><a href="http://www.ask.com/web?q=algorithms&page=2&amp;qid=23A002CD51E76D7289138831F04A24A6&amp;o=0&amp;l=dir&qsrc=998&qo=pagination" class="pg title">2</a></div>
+<div class="pgc"><a href="http://www.ask.com/web?q=algorithms&page=3&amp;qid=23A002CD51E76D7289138831F04A24A6&amp;o=0&amp;l=dir&qsrc=998&qo=pagination" class="pg title">3</a></div>
+<div class="pgc"><a href="http://www.ask.com/web?q=algorithms&page=4&amp;qid=23A002CD51E76D7289138831F04A24A6&amp;o=0&amp;l=dir&qsrc=998&qo=pagination" class="pg title">4</a></div>
+<div class="pgc"><a href="http://www.ask.com/web?q=algorithms&page=5&amp;qid=23A002CD51E76D7289138831F04A24A6&amp;o=0&amp;l=dir&qsrc=998&qo=pagination" class="pg title">5</a></div>
+<div class="pgc"><a href="http://www.ask.com/web?q=algorithms&page=6&amp;qid=23A002CD51E76D7289138831F04A24A6&amp;o=0&amp;l=dir&qsrc=998&qo=pagination" class="pg title">6</a></div>
+<div class="pgc"><a href="http://www.ask.com/web?q=algorithms&page=7&amp;qid=23A002CD51E76D7289138831F04A24A6&amp;o=0&amp;l=dir&qsrc=998&qo=pagination" class="pg title">7</a></div>
+<div class="pgc"><a href="http://www.ask.com/web?q=algorithms&page=8&amp;qid=23A002CD51E76D7289138831F04A24A6&amp;o=0&amp;l=dir&qsrc=998&qo=pagination" class="pg title">8</a></div>
+<div class="pgc"><a href="http://www.ask.com/web?q=algorithms&page=9&amp;qid=23A002CD51E76D7289138831F04A24A6&amp;o=0&amp;l=dir&qsrc=998&qo=pagination" class="pg title">9</a></div>
+<div class="pgc"><a href="http://www.ask.com/web?q=algorithms&page=10&amp;qid=23A002CD51E76D7289138831F04A24A6&amp;o=0&amp;l=dir&qsrc=998&qo=pagination" class="pg title">10</a></div>
+</div>
+<div class="np" style="padding:1px 0 0 8px;float:left">
+<a id="nextPageLink" class="txt3 title l_nu" href="http://www.ask.com/web?q=algorithms&page=2&amp;qid=23A002CD51E76D7289138831F04A24A6&amp;o=0&amp;l=dir&qsrc=998&qo=pagination">Next&#160;&#187;</a>
+</div>
+<div class="cl"></div>
+</div>
+</div>
+</div>
+<div id="rightblock" class="c1 hcsa">
+<div class="rrmod content-right">
+<div class="sectionheader" id="rr_answers">Answer</div>
+<div class="sasr sa_narrow sa-cont ur" data-zen="true" data-en="dip" data-block="SA"
+data-extended="da_sn=00090&da_origin=raw&da_sro=2253293&da_lhs=2253290&da_lhx=Blend%3A+SA+Pin%3A+Dictionary.com%3A+Simple&da_cat=11&da_lhp=1&da_partner=44" onmousedown="pk(this,{en:'dip',b:'SA',up:'3f0al=tL5i0wQWSJ&d=Obo8g&w3=Q&lS=g3QS9YrKF%z&oK=K2pjYJeKP&Dy=E&Zu.zNqzqFhxp+Fq=QQWJg&xe.ADyp5b2=waxcadi&Gb.Sq7b=5z&GK.8jzKQ=7P&Ca.tpijtiJqX3=R&JT.mfwffq3=7v&Ch.mTnOo00A=W%&vH.2JvlwuUR=nIuCy',ex:'da_sn%3D00090%26da_origin%3Draw%26da_sro%3D2253293%26da_lhs%3D2253290%26da_lhx%3DBlend%253A%2BSA%2BPin%253A%2BDictionary.com%253A%2BSimple%26da_cat%3D11%26da_lhp%3D1%26da_partner%3D44'})" data-partner="44" data-area="95">
+<div class="sa sa_blended" data-origin="raw" data-sn="00090" data-sro="2253293" data-lhs="2253290" data-desc="Blend: SA Pin: Dictionary.com: Simple">
+<a href="http://dictionary.reference.com/browse/algorithm" class="sa_headline sa_ext" target="_blank">algorithm | Define algorithm at Dictionary.com</a><br/>
+<span class="sa_site_attr">dictionary.reference.com/browse/algorithm</span>
+<div class="sa_pin_abstract">
+The world's most popular free online dictionary with definitions, spell check, word origins, example sentences, audio pronunciations, Word of the Day and more!
+</div>
+</div>
+</div>
+<div style="clear: both;"></div>
+</div>
+<div class="rrmod content-right" id="rrQnA">
+<h2 class="sectionheader">Popular Q&A</h2>
+<div id="r_t0" class="rrQItem ptbs txt3 rr-div tsrc_answ">
+<h2 class="ur">
+<span class="grey b valign">Q: </span>
+<span class="qna-txt b">What is an <KW>algorithm</KW>?</span>
+</h2>
+<p class="ur">
+<span class="grey b valign">A:</span>
+<span class="qna-txt">
+Very simply put, an <KW>algorithm</KW> is just a list of well defined instructions to carry out a fixed task. For example, if you want to boil an egg, you could follow t...
+<a id="r0_t" class="title" style="display:inline-block;text-decoration:none;" href="http://www.quora.com/What-is-an-algorithm" target="_blank" onmousedown="pk(this,{en:'pqa',b:'qai',up:'939af=MCM&i=uXJv4&1y=n&oU=%xmnu5M6N&9C=IPYr8OAHju&mk=y',ec:'5'})">Read More &raquo;</a>
+</span>
+</p>
+<p class="pl16">
+<span class="b pr5 grey">Source:</span>
+<span class="attrib">www.quora.com</span>
+</p>
+</div>
+<div id="r_t1" class="rrQItem ptbs txt3 rr-div tsrc_answ">
+<h2 class="ur">
+<span class="grey b valign">Q: </span>
+<span class="qna-txt b">What is an <KW>algorithm</KW>?</span>
+</h2>
+<p class="ur">
+<span class="grey b valign">A:</span>
+<span class="qna-txt">
+An <KW>algorithm</KW> is a sequence of unambiguous instructions for solving a problem, i.e. for obtaining the required output for any legitimate input in a finite amount...
+<a id="r1_t" class="title" style="display:inline-block;text-decoration:none;" href="http://wiki.answers.com/Q/What_is_an_algorithm" target="_blank" onmousedown="pk(this,{en:'pqa',b:'qai',up:'8ab78=+D2&M=zG6OE&ER=I&jE=+2qp4XNzI&zo=SU9N8SIqmm&Cg=P',io:'1',ec:'5'})">Read More &raquo;</a>
+</span>
+</p>
+<p class="pl16">
+<span class="b pr5 grey">Source:</span>
+<span class="attrib">wiki.answers.com</span>
+</p>
+</div>
+<div id="r_t2" class="rrQItem ptbs txt3 rr-div tsrc_answ">
+<h2 class="ur">
+<span class="grey b valign">Q: </span>
+<span class="qna-txt b">What is an <KW>algorithm</KW>?</span>
+</h2>
+<p class="ur">
+<span class="grey b valign">A:</span>
+<span class="qna-txt">
+An <KW>algorithm</KW> is a sequence of unambiguous instructions for solving a problem, i.e., for obtaining the required output for any legitimate input in a finite amoun...
+<a id="r2_t" class="title" style="display:inline-block;text-decoration:none;" href="http://wiki.answers.com/Q/What_is_the_defination_of_algorithm" target="_blank" onmousedown="pk(this,{en:'pqa',b:'qai',up:'cd6aA=JAH&F=EsmVp&5U=U&Yv=a39xeDKMe&KN=YYBPVFggF4&78=r',io:'2',ec:'5'})">Read More &raquo;</a>
+</span>
+</p>
+<p class="pl16">
+<span class="b pr5 grey">Source:</span>
+<span class="attrib">wiki.answers.com</span>
+</p>
+</div>
+<div id="r_t3" class="rrQItem ptbs txt3 rr-div tsrc_answ">
+<h2 class="ur">
+<span class="grey b valign">Q: </span>
+<span class="qna-txt b">How to Understand <KW>Algorithms</KW>.</span>
+</h2>
+<p class="ur">
+<span class="grey b valign">A:</span>
+<span class="qna-txt">
+The defining point of an <KW>algorithm</KW> is that it leaves no room for subjectivity or judgment. An <KW>algorithm</KW> handles data and takes resulting action in a fixed manne...
+<a id="r3_t" class="title" style="display:inline-block;text-decoration:none;" href="http://www.ehow.com/how_4524483_understand-algorithms.html" target="_blank" onmousedown="pk(this,{en:'pqa',b:'qai',up:'6de7m=XCs&K=oS5sx&3m=9&fe=e7ocGIOzT&3s=5CjUw9ABY+&bu=D',io:'3',ec:'5'})">Read More &raquo;</a>
+</span>
+</p>
+<p class="pl16">
+<span class="b pr5 grey">Source:</span>
+<span class="attrib">www.ehow.com</span>
+</p>
+</div>
+<div id="r_t4" class="rrQItem ptbs txt3 rr-div tsrc_answ">
+<h2 class="ur">
+<span class="grey b valign">Q: </span>
+<span class="qna-txt b">How to Patent an <KW>Algorithm</KW>.</span>
+</h2>
+<p class="ur">
+<span class="grey b valign">A:</span>
+<span class="qna-txt">
+1. Search the United States Patent and Trademark Office database to determine whether your <KW>algorithm</KW> has already been patented. 2. Determine whether you need in...
+<a id="r4_t" class="title" style="display:inline-block;text-decoration:none;" href="http://www.ehow.com/how_7410172_patent-algorithm.html" target="_blank" onmousedown="pk(this,{en:'pqa',b:'qai',up:'9d3aX=2QI&z=DLzm7&pj=PV&SR=DqzgDty5o&fM=0IYMUNF2Mn&Jt=S',io:'4',ec:'5'})">Read More &raquo;</a>
+</span>
+</p>
+<p class="pl16">
+<span class="b pr5 grey">Source:</span>
+<span class="attrib">www.ehow.com</span>
+</p>
+</div>
+</div>
+<script>
+window.Krux||((Krux=function(){Krux.q.push(arguments);}).q=[]);
+(function(){
+function retrieve(n){
+var m, k='kx'+n;
+if (window.localStorage) {
+return window.localStorage[k] || "";
+} else if (navigator.cookieEnabled) {
+m = document.cookie.match(k+'=([^;]*)');
+return (m && unescape(m[1])) || "";
+} else {
+return '';
+}
+}
+Krux.user = retrieve('user');
+Krux.segments = retrieve('segs') && retrieve('segs').split(',') || [];
+})();
+</script>
+</div>
+</div>
+<div class="clr"></div>
+<div class="footer" style="margin-left: 15px;">
+<div id="serp_ftr" class="txt2">
+<div class="pb5">
+<a href="#" class="mobileViewFooter" class="link red" style="display:none;" target="_top">Mobile Site</a>
+<span class="separator mobileViewFooter" style="display: none;">&middot;</span>
+<a onmousedown="uaction(this,{up:'dafaI=WaJW04UmQ&m=JGA%CG&5B=8&hE=MSCJvivQ%M&2W=hGmy0EdbAE&FK=j&6Z=9oTBBQ8ci'});" href="http://about.ask.com" class="link grey" target="_top">About</a>
+<span class="separator">&middot;</span>
+<a onmousedown="uaction(this,{up:'d9ea1=hdb0kmSb+&X=afU0x2&mI=x&oW=%Mv0%G+64E&r+=s3xMqt+ohZ&mW=h&Ur=jD+RLkUdr'});" href="http://about.ask.com/privacy-policy" class="link grey" target="_top">Privacy</a>
+<span class="separator">&middot;</span>
+<a onmousedown="uaction(this,{up:'fedaM=y1k25UZuo&e=gPC4DR&zy=B&uC=LPS+wJNKaF&ki=l3Ho6tAvJX&4w=u&Rp=nB85j5PIu'});" href="http://about.ask.com/terms-of-service/" class="link grey" target="_top">Terms</a>
+<span class="separator">&middot;</span>
+<a onmousedown="uaction(this,{up:'09caf=sLRgZV0vg&w=MCtBBp&pm=5&Pr=QMXZS%DxNA&X6=dr6+dlKf9j&Zf=+&I6=7xrv2gEVa'});" href="http://about.ask.com/jobs" class="link grey" target="_top">Careers</a>
+<span class="separator">&middot;</span>
+<a onmousedown="uaction(this,{up:'babaJ=MJx1LFEvy&3=pTeTeX&Eo=G&Ca=Dm1bqKYe9%&xg=k0XQ7USpLQ&mU=y&cK=dHXqDc87g'});" href="http://blog.ask.com" class="link grey" target="_top">Ask Blog</a>
+<span class="separator">&middot;</span>
+<a onmousedown="uaction(this,{up:'d1aaq=db7tcnIKZ&2=YSE9fH&4V=b&9y=pmiytc2Ar8&mB=Vrw%XPcISf&ta=W&8D=ukj6T80wv'});" href="http://www.ask.com/questions-about" class="link grey" target="_top">Q&amp;A</a>
+<span class="separator">&middot;</span>
+<a onmousedown="uaction(this,{up:'0e9aB=AmjV3jVri&J=%QsBrW&k+=l&Dk=qv5Pfl4jZd&FQ=cx6S1V3VIj&zS=x&+0=FImIxe1pE'});" href="http://www.ask.com/mobile?&amp;o=0&amp;l=dir&amp;qsrc=121" class="link grey" target="_top">Mobile</a>
+<span class="separator">&middot;</span>
+<a onmousedown="uaction(this,{up:'318au=AwXz3K2Tg&p=K3pzvU&hn=V&mf=VyyJ1Sid0e&GI=u3TJyTBLwN&UH=C&85=t4NykRW2q'});" href="http://help.ask.com" class="link grey" target="_top">Help</a>
+<span class="separator">&middot;</span>
+<a onmousedown="uaction(this,{up:'fa7am=0VIIVUMhE&k=tIgedQ&CP=C&z6=8e23Zy31KU&G0=1G%uQw90yo&Hq=p&I9=HCnT3buCC'});" href="http://feedback.ask.com" class="link grey" target="_top">Feedback</a>
+<span class="pl30">&#169; 2015 Ask.com</span>
+</div>
+</div>
+</div>
+<script src="/st/c/js/ask_web.min.8caa8d9f.js" type="text/javascript"></script>
+<script type="text/javascript">
+JASK.ssCfg = (function(){
+return {
+"appendTo":"#sb,.qbox",
+"channel":"web",
+"path":"web",
+"disableTurnOffLink":"'false'",
+"disableSS": false,
+"server":"ss.ask.com",
+"ldomain":"http://www.ask.com/",
+"ssBold":"'false'",
+"clearSearchHistory":"Clear search history",
+"max":"",
+"ssFromQueryHistory":"true",
+"queryHistory":"algorithms",
+"queryHistoryContentColor":"#663399",
+"ssContentColor":"'false'",
+"ssContentColorCode": "",
+"matchingTextUnBold": "",
+"suggestionTextUnBold": "",
+"ssItems":"",
+"appendParams":[]
+};
+})();
+</script>
+<script type="text/javascript">
+var UInfo = window.UInfo || {};
+UInfo.pl = "296axD=Mdfs0L06wj&VyU=JXaLIxjmC_ozo_Anog4Xl0lQ4Yn5YTQ6OoM&nR=Cy46r&uC=vJb+aRBwPDSmdInkujb3A60l4nBWawz6&fv=vyHWTGY&5M=&bUEq=n0-W3C-Z%mN&sC1=b77jnyYoW-Kz9WITNIfeCj_bt0C2Ub&xc=T9PHc8&cDJ=b5F.lErh-REuXma1lUdsDolzmUcebMbRufwcQc4R5Ky&fN=Bbl3Ck3sdU+&2Z=okKyK&Wlu=rl&CY=B7V&9q=v&cE=&465=&b=w";
+</script>
+<script type="text/javascript">
+var _AnemoneParams2 = {
+appId: 'T2_AskUS',
+appVersion: '12d35bc',
+appDate: '2015-03-05T19:05:00Z',
+serverName: 'askus002iad.io.askjeeves.info',
+uniqueUser: '949ED297-3CC5-49ED-9A1D-4F99009EEFFF',
+backFillRequired: true,
+suppressCookies: false,
+eventId: '40131234-CE6E-49B4-AB5A-A994845CA2A5',
+browserLanguage: '',
+maxSession: 30,
+domain: '.ask.com',
+url: '/ulog',
+logPageView: false
+};
+</script>
+<script type="text/javascript" src="/st/c/js/ask_unified.min.c7f61e55.js"></script>
+<script type="text/javascript">
+var ask = (typeof ask === 'undefined') ? {} : ask;
+(function(){
+var _timedOut = false,
+_fullPayload = window.backfillParam || {}, _timeFromSerpStart = null,
+_adsLoggingTimeout = null,
+_dynamicLoggingTimeout = null;
+try{
+_timeFromSerpStart = ((new Date() - ask.CSA.startTime) - ask.CSA.showSerpStartTime);
+_adsLoggingTimeout = parseInt('2000') - _timeFromSerpStart;
+_dynamicLoggingTimeout = Math.max(_adsLoggingTimeout, 1);
+}catch(e){
+_dynamicLoggingTimeout = 2000;
+}
+function mixinCSAAdData(payload){
+var externalData = {
+csaInfo: {
+domTime: ask.CSA.domReadyTime ? ask.CSA.domReadyTime : 0,
+adsResponseTime: ask.CSA.responseTime ? ask.CSA.responseTime : 0,
+adsShownTime: ask.CSA.adsShownTime ? ask.CSA.adsShownTime : 0,
+serpShownTime: ask.CSA.serpShownTime ? ask.CSA.serpShownTime : 0,
+supplement: _timedOut,
+serpTimedOut: !!ask.CSA.showSerpTimeoutFired,
+serpTimeoutStartTime: ask.CSA.showSerpStartTime ? ask.CSA.showSerpStartTime : 0,
+dynamicTimeout: _dynamicLoggingTimeout,
+viewportHeight: ask.CSA.viewportHeight ? ask.CSA.viewportHeight : 0,
+viewportWidth: ask.CSA.viewportWidth ? ask.CSA.viewportWidth : 0,
+adContentRatio: ask.CSA.adContentRatio ? ask.CSA.adContentRatio : 0,
+csaHeight: ask.CSA.csaHeight ? ask.CSA.csaHeight : 0,
+csaWidth: ask.CSA.csaWidth ? ask.CSA.csaWidth : 0,
+centerRailHeight: ask.CSA.centerRailHeight ? ask.CSA.centerRailHeight : 0,
+centerRailWidth: ask.CSA.centerRailWidth ? ask.CSA.centerRailWidth : 0,
+rightRailHeight: ask.CSA.rightRailHeight ? ask.CSA.rightRailHeight : 0,
+rightRailWidth: ask.CSA.rightRailWidth ? ask.CSA.rightRailWidth : 0,
+gslExtensions : ask.CSA.gslExtensions ? ask.CSA.gslExtensions : ""
+}
+};
+payload.pl_time = ask.CSA.responseTime ? ask.CSA.responseTime : 0;
+payload.pl_tnum = ask.CSA.numTopAds ? ask.CSA.numTopAds : 0;
+payload.pl_bnum = ask.CSA.numBottomAds ? ask.CSA.numBottomAds : 0;
+payload.pl_rnum = parseInt(payload.pl_tnum) + parseInt(payload.pl_bnum);
+try{
+mixinNavigationTimingInfo(externalData);
+payload.pl_edata = JSON.stringify(externalData);
+}catch(e){
+}
+}
+function mixinNavigationTimingInfo(eData) {
+if (typeof window.performance === 'undefined') {
+return;
+}
+var navInfo = eData["navInfo"] = {},
+csaInfo = eData.csaInfo,
+timing = window.performance.timing,
+navigation = window.performance.navigation,
+navStart = timing.navigationStart;
+navInfo.redirectCount = navigation.redirectCount;
+navInfo.navType = navigation.type;
+csaInfo.csaStartTime = (ask.CSA.startTime.getTime() - navStart);
+for (var k in timing) {
+if (timing.hasOwnProperty(k)) {
+navInfo[k] = Math.max((timing[k] - navStart), 0);
+}
+}
+}
+if (typeof ask !== 'undefined' && typeof ask.CSA !== 'undefined' && typeof ask.CSA.addCSALoadCallback === "function") {
+ask.CSA.addCSALoadCallback(function(){
+var payload = _timedOut ? { pl_supplement: true } : _fullPayload;
+var bookmark = false;
+if(typeof ask.CSA.calculateAdContentMetrics === "function") {
+ask.CSA.calculateAdContentMetrics(bookmark);
+}
+mixinCSAAdData(payload);
+logBackfillEvent(payload);
+}, function(){
+_timedOut = true;
+logBackfillEvent(_fullPayload);
+}, _dynamicLoggingTimeout);
+} else {
+logBackfillEvent(_fullPayload);
+}
+function logBackfillEvent(payload) {
+payload['anxi'] = JSUtil.defaultVal(_AnemoneParams2.eventId, '');
+_Anemone.logEvent('BackFill', payload);
+}
+})();
+</script>
+<script type="text/javascript" src="http://www.google-analytics.com/ga.js"></script>
+<span style="display:none">
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-5081537-3']);
+_gaq.push(['_setCustomVar', 1, 'LD', '0', 3]);
+_gaq.push(['_trackPageview']);
+_gaq.push(['_trackPageLoadTime']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</span>
+<script type="text/javascript" src="http://b.scorecardresearch.com/beacon.js"></script>
+<span style="display:none">
+<script type="text/javascript">
+function addEvent(obj, evType, fn){
+if (obj.addEventListener){
+obj.addEventListener(evType, fn, false);
+return true;
+} else if (obj.attachEvent){
+var r = obj.attachEvent("on"+evType, fn);
+return r;
+} else {
+return false;
+}
+}
+function comScore(){
+var host = (("https:" == document.location.protocol) ? "https://sb" : "http://b");
+var headTag = document.getElementsByTagName("head")[0];
+var scanalytics = document.createElement("script");
+scanalytics.setAttribute("type", "text/javascript");
+scanalytics.setAttribute("src", host + ".scorecardresearch.com/beacon.js");
+scanalytics.onload = scanalytics.onreadystatechange = function(){
+try {
+COMSCORE.beacon({
+c1:2,
+c2:6034776,
+c3:"",
+c4:"",
+c5:"",
+c6:"",
+c15:""
+});
+} catch(err) {
+}
+};
+headTag.appendChild(scanalytics);
+}
+addEvent(window, 'load', comScore);
+</script>
+<noscript> <img src="http://b.scorecardresearch.com/p?c1=2&c2=6034776&c3=&c4=&c5=&c6=&c15=&cj=1" /> </noscript>
+</span>
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 1003219837;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1003219837/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<script class="kxct" data-id="Ittk1TvC" data-timing="async" data-version="1.9" type="text/javascript">
+window.Krux || ((Krux = function () {
+Krux.q.push(arguments)
+}).q = []);
+(function () {
+var k = document.createElement('script');
+k.type = 'text/javascript';
+k.async = true;
+var m, src = (m = location.href.match(/\bkxsrc=([^&]+)/)) && decodeURIComponent(m[1]);
+k.src = /^https?:\/\/([^\/]+\.)?krxd\.net(:\d{1,5})?\//i.test(src) ? src : src === "disable" ? "" :
+(location.protocol === "https:" ? "https:" : "http:") + "//cdn.krxd.net/controltag?confid=Ittk1TvC";
+var s = document.getElementsByTagName('script')[0];
+s.parentNode.insertBefore(k, s);
+}());
+</script>
+<script type="text/javascript">
+var ask = ask || {},
+sp = sp || {};
+sp.site = 'US';
+sp.gls_top = parseInt('$gslTop');
+sp.gls_bottom = parseInt('$gslBottom');
+sp.ad_count = (window['google_ads']) ? window['google_ads'].length : (sp.gls_top + sp.gls_bottom);
+ask.adsPixelTimeout = '2000';
+function initPixel(cb, cbTimeout) {
+if (typeof ask !== 'undefined' && typeof ask.CSA !== 'undefined' && typeof ask.CSA.addCSALoadCallback === "function") {
+ask.CSA.addCSALoadCallback(function() {
+cb(true);
+}, function(){
+cbTimeout();
+}, ask.adsPixelTimeout);
+} else {
+cb(false);
+}
+}
+$j(document).ready(function(){
+if (typeof ask !== 'undefined' && typeof ask.CSA !== 'undefined' && typeof ask.CSA.domReady == "function") {
+ask.CSA.domReady();
+}
+});
+</script>
+</body>
+</html>

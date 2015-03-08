@@ -1,0 +1,504 @@
+undefined<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Collection (abstract data type) - Wikipedia, the free encyclopedia</title>
+<meta name="generator" content="MediaWiki 1.25wmf19" />
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/Collection_(abstract_data_type)" />
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit" />
+<link rel="edit" title="Edit this page" href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit" />
+<link rel="apple-touch-icon" href="//bits.wikimedia.org/apple-touch/wikipedia.png" />
+<link rel="shortcut icon" href="//bits.wikimedia.org/favicon/wikipedia.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="/wiki/Collection_(abstract_data_type)" />
+<link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="/w/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="canonical" href="http://en.wikipedia.org/wiki/Collection_(abstract_data_type)" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=ext.gadget.DRN-wizard%2CReferenceTooltips%2Ccharinsert%2Cfeatured-articles-links%2CrefToolbar%2Cswitcher%2Cteahouse%7Cext.uls.nojs%7Cext.visualEditor.viewPageTarget.noscript%7Cext.wikihiero%2CwikimediaBadges%7Cmediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.interface%7Cmediawiki.ui.button%7Cskins.vector.styles%7Cwikibase.client.init&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: enwiki:resourceloader:filter:minify-css:7:3904d24a08aa08f6a68dc338f9be277e */</style>
+<script src="//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Collection_(abstract_data_type)","wgTitle":"Collection (abstract data type)","wgCurRevisionId":647999918,"wgRevisionId":647999918,"wgArticleId":12119816,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Articles needing additional references from October 2014","All articles needing additional references","Abstract data types","Data structures"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Collection_(abstract_data_type)","wgRelevantArticleId":12119816,"wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr"},"wikilove-recipient":"","wikilove-anon":0,"wgPoweredByHHVM":true,"wgULSAcceptLanguageList":["en-us","en"],"wgULSCurrentAutonym":"English","wgFlaggedRevsParams":{"tags":{"status":{"levels":1,"quality":2,"pristine":3}}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgWikibaseItemId":"Q17008256"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});},{},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});},{},{},{});
+/* cache key: enwiki:resourceloader:filter:minify-js:7:94007ea073e20ad4a3cdce36b2f2e369 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.centralauth.centralautologin","mmv.head","ext.imageMetrics.head","ext.visualEditor.viewPageTarget.init","ext.uls.init","ext.uls.interface","ext.centralNotice.bannerController","skins.vector.js"]);
+}</script>
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/static-1.25wmf19/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Collection_abstract_data_type skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+							<div id="siteNotice"><!-- CentralNotice --></div>
+						<div class="mw-indicators">
+</div>
+			<h1 id="firstHeading" class="firstHeading" lang="en">Collection (abstract data type)</h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Wikipedia, the free encyclopedia</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="metadata plainlinks ambox ambox-content ambox-Refimprove" role="presentation">
+<tr>
+<td class="mbox-image">
+<div style="width:52px"><a href="/wiki/File:Question_book-new.svg" class="image"><img alt="" src="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/50px-Question_book-new.svg.png" width="50" height="39" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/75px-Question_book-new.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/100px-Question_book-new.svg.png 2x" data-file-width="262" data-file-height="204" /></a></div>
+</td>
+<td class="mbox-text"><span class="mbox-text-span">This article <b>needs additional citations for <a href="/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">verification</a></b>. <span class="hide-when-compact">Please help <a class="external text" href="//en.wikipedia.org/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit">improve this article</a> by <a href="/wiki/Help:Introduction_to_referencing/1" title="Help:Introduction to referencing/1">adding citations to reliable sources</a>. Unsourced material may be challenged and removed.</span> <small><i>(October 2014)</i></small></span></td>
+</tr>
+</table>
+<p>In <a href="/wiki/Computer_science" title="Computer science">computer science</a>, a <b>collection</b> or <b>container</b> is a grouping of some variable number of data items (possibly zero) that have some shared significance to the problem being solved and need to be operated upon together in some controlled fashion. Generally, the data items will be of the same type or, in languages supporting inheritance, derived from some common ancestor type. A collection is a concept applicable to <a href="/wiki/Abstract_data_type" title="Abstract data type">abstract data types</a>, and does not prescribe a specific implementation as a concrete <a href="/wiki/Data_structure" title="Data structure">data structure</a>, though often there is a conventional choice; see <a href="/wiki/Container_(type_theory)" title="Container (type theory)">container (type theory)</a> for <a href="/wiki/Type_theory" title="Type theory">type theory</a> discussion.</p>
+<p>Some different kinds of collections are <a href="/wiki/List_(abstract_data_type)" title="List (abstract data type)">lists</a>, <a href="/wiki/Set_(computer_science)" title="Set (computer science)" class="mw-redirect">sets</a>, <a href="/wiki/Multiset" title="Multiset">bags</a> (or multisets), <a href="/wiki/Tree_(data_structure)" title="Tree (data structure)">trees</a> and <a href="/wiki/Graph_(data_structure)" title="Graph (data structure)" class="mw-redirect">graphs</a>. An <a href="/wiki/Enumerated_type" title="Enumerated type">enumerated type</a> may be either a list or a set.</p>
+<p>A fixed-size table (or array) is usually not considered a collection because it holds a fixed number of items, although tables/arrays commonly play a role in the implementation of collections. Variable-sized arrays are generally considered collections, and fixed-size arrays may likewise considered a collection, albeit with limitations.</p>
+<p></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Linear_collections"><span class="tocnumber">1</span> <span class="toctext">Linear collections</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Lists"><span class="tocnumber">1.1</span> <span class="toctext">Lists</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Priority_queues"><span class="tocnumber">1.2</span> <span class="toctext">Priority queues</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="#Associative_collections"><span class="tocnumber">2</span> <span class="toctext">Associative collections</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Sets"><span class="tocnumber">2.1</span> <span class="toctext">Sets</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Multisets"><span class="tocnumber">2.2</span> <span class="toctext">Multisets</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Associative_arrays"><span class="tocnumber">2.3</span> <span class="toctext">Associative arrays</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Graphs"><span class="tocnumber">3</span> <span class="toctext">Graphs</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#Trees"><span class="tocnumber">3.1</span> <span class="toctext">Trees</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Abstract_concept_vs._implementation"><span class="tocnumber">4</span> <span class="toctext">Abstract concept vs. implementation</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="#Implementations"><span class="tocnumber">5</span> <span class="toctext">Implementations</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</div>
+<p></p>
+<h2><span class="mw-headline" id="Linear_collections">Linear collections</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit&amp;section=1" title="Edit section: Linear collections">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="hatnote boilerplate seealso">See also: <a href="/wiki/Linear_data_structure" title="Linear data structure" class="mw-redirect">Linear data structure</a></div>
+<p>Many collections behave as if they are storing data in a line, ordered in some way, with access to one or both ends. The actual data structure implementing such a collection need not be linear – for example, a priority queue is often implemented as a heap, which is a kind of tree. Important such collections include:</p>
+<ul>
+<li><a href="/wiki/List_(abstract_data_type)" title="List (abstract data type)">List</a></li>
+<li><a href="/wiki/Array_data_type" title="Array data type">Array</a></li>
+<li><a href="/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">Stack</a> (FILO, LIFO)</li>
+<li><a href="/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">Queue</a> (FIFO, LILO)</li>
+<li><a href="/wiki/Priority_queue" title="Priority queue">Priority queue</a> (often implemented as a <a href="/wiki/Heap_(data_structure)" title="Heap (data structure)">heap</a>)</li>
+<li><a href="/wiki/Double-ended_queue" title="Double-ended queue">Double-ended queue</a> (deque)</li>
+<li><a href="/wiki/Double-ended_priority_queue" title="Double-ended priority queue">Double-ended priority queue</a> (DEPQ)</li>
+</ul>
+<h3><span class="mw-headline" id="Lists">Lists</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit&amp;section=2" title="Edit section: Lists">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In a <b>list</b>, the order of data items is significant. Duplicate data items are permitted. Examples of operations on lists are searching for an item in the list and determining its location (if it is present), removing an item from the list, adding an item at a specific location, etc. If the principal operations on the list are to be the addition of items at one end and the removal of items at the other, it will generally be called a <a href="/wiki/Queue_(data_structure)" title="Queue (data structure)" class="mw-redirect">queue</a> or <a href="/wiki/FIFO_(computing_and_electronics)" title="FIFO (computing and electronics)">FIFO</a>. If the principal operations are the addition and removal of items at just one end, it will be called a <a href="/wiki/Stack_(data_structure)" title="Stack (data structure)" class="mw-redirect">stack</a> or <a href="/wiki/LIFO_(computing)" title="LIFO (computing)" class="mw-redirect">LIFO</a>. In both cases, items are maintained within the collection in the same order (unless they are removed and re-inserted somewhere else) and so these are special cases of the list collection. Other specialized operations on lists include sorting, where, again, the order of items is of great importance.</p>
+<h3><span class="mw-headline" id="Priority_queues">Priority queues</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit&amp;section=3" title="Edit section: Priority queues">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Also called heaps, keep track of the 'minimum' or 'maximum' element in the collection, according to some ordering criterion. The ordering of other elements does not matter. One may think of a priority queue as a list that always keeps the minimum or maximum at the head, while the remaining elements are kept in a bag.</p>
+<h2><span class="mw-headline" id="Associative_collections">Associative collections</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit&amp;section=4" title="Edit section: Associative collections">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Other collections can instead be interpreted as sort of function: given an input "key", the collection yields an output value. Important examples are sets, multisets, and associative arrays. A set can be interpreted as a specialized multiset, which in turn is a specialized map, in each case by limiting the possible values – considering a set as represented by its <a href="/wiki/Indicator_function" title="Indicator function">indicator function</a>.</p>
+<h3><span class="mw-headline" id="Sets">Sets</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit&amp;section=5" title="Edit section: Sets">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>In a <a href="/wiki/Set_(computer_science)" title="Set (computer science)" class="mw-redirect">set</a>, the order of data items is of no consequence, but duplicate items are not permitted. Examples of operations on sets are the addition and removal of items and searching for an item in the set. Some languages support sets directly. In others, sets can be implemented by a <a href="/wiki/Hash_table" title="Hash table">hash table</a> with dummy values; only the keys are used in representing the set.</p>
+<h3><span class="mw-headline" id="Multisets">Multisets</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit&amp;section=6" title="Edit section: Multisets">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="hatnote relarticle mainarticle">Main article: <a href="/wiki/Multiset_(abstract_data_type)" title="Multiset (abstract data type)" class="mw-redirect">Multiset (abstract data type)</a></div>
+<p>A "bag" or <a href="/wiki/Multiset_(abstract_data_type)" title="Multiset (abstract data type)" class="mw-redirect">multiset</a>, is like a set – the order of data items is of no consequence. But in this case, duplicate items are permitted. Examples of operations on bags are the addition and removal of items and determining how many of a particular item are present in the bag. Bags can be transformed into lists by the action of sorting.</p>
+<h3><span class="mw-headline" id="Associative_arrays">Associative arrays</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit&amp;section=7" title="Edit section: Associative arrays">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="hatnote relarticle mainarticle">Main article: <a href="/wiki/Associative_array" title="Associative array">Associative array</a></div>
+<p>An <a href="/wiki/Associative_array" title="Associative array">associative array</a> ("map", "dictionary", "lookup table") acts like a dictionary, providing a "value" (like a definition) in response to a lookup on a "key" (like a word). The "value" might be a reference to a compound data structure. A <a href="/wiki/Hash_table" title="Hash table">hash table</a> is usually an efficient implementation, and thus this data type is often known as a "hash".</p>
+<h2><span class="mw-headline" id="Graphs">Graphs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit&amp;section=8" title="Edit section: Graphs">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="hatnote relarticle mainarticle">Main article: <a href="/wiki/Graph_(abstract_data_type)" title="Graph (abstract data type)">Graph</a></div>
+<p>In a <b>graph</b>, data items have associations with one or more other data items in the collection and are somewhat like trees without the concept of a root or the parent-child relationship so that all data items are peers. Examples of operations on graphs are traversals and searches which explore the associations of data items looking for some specific property. Graphs are frequently used to model real-world situations and to solve related problems. An example is the <a href="/wiki/Spanning_tree_protocol" title="Spanning tree protocol" class="mw-redirect">Spanning tree protocol</a>, which creates a graph (or mesh) representation of a data network and figures out which associations between switching nodes need to be broken to turn it into a tree and thus prevent data going around in loops.</p>
+<h3><span class="mw-headline" id="Trees">Trees</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit&amp;section=9" title="Edit section: Trees">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<div class="hatnote relarticle mainarticle">Main article: <a href="/wiki/Tree_(data_structure)" title="Tree (data structure)">Tree</a></div>
+<p>A special kind of graph is a tree. In a <b>tree</b>, a 'root' data item has associated with it some number of data items which in turn have associated with them some number of other items in what is frequently viewed as parent-child relationships. Every item (other than the root) has a single parent (the root has no parent) and some number of children, possibly zero. Examples of operations on trees are the addition of data items so as to maintain a specific property of the tree to perform sorting, etc. and traversals to visit data items in a specific sequence.</p>
+<p>Tree collections can be used to naturally store hierarchical data, which is presented in a tree-like manner, such as menu systems and files in directories on a data storage system.</p>
+<p>Specialized trees are used in various algorithms. For example, the <a href="/wiki/Heap_sort" title="Heap sort" class="mw-redirect">heap sort</a> uses a kind of tree called a <a href="/wiki/Heap_(data_structure)" title="Heap (data structure)">heap</a>.</p>
+<h2><span class="mw-headline" id="Abstract_concept_vs._implementation">Abstract concept vs. implementation</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit&amp;section=10" title="Edit section: Abstract concept vs. implementation">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>As described here, a collection and the various kinds of collections are abstract concepts. There exists in the literature considerable confusion between the abstract concepts of computer science and their specific implementations in various languages or kinds of languages. Assertions that collections, lists, sets, trees, etc. are data structures, abstract data types or classes must be read with this in mind. Collections are first and foremost abstractions that are useful in formulating solutions to computing problems. Viewed in this light, they retain important links to underlying mathematical concepts which can be lost when the focus is on the implementation.</p>
+<p>For example, a priority queue is often implemented as a heap, while an associative array is often implemented as a hash table, so these abstract types are often referred to by this preferred implementation, as a "heap" or a "hash", though this is not strictly correct.</p>
+<h2><span class="mw-headline" id="Implementations">Implementations</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit&amp;section=11" title="Edit section: Implementations">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Some collections may be <a href="/wiki/Primitive_data_type" title="Primitive data type">primitive data types</a> in a language, such as lists, while more complex collections are implemented as <a href="/wiki/Composite_data_type" title="Composite data type">composite data types</a> in libraries, sometimes in the <a href="/wiki/Standard_library" title="Standard library">standard library</a>. Examples include:</p>
+<ul>
+<li>C++: known as <a href="/wiki/Container_(abstract_data_type)" title="Container (abstract data type)">Container</a> (see article for details), implemented in <a href="/wiki/C%2B%2B_Standard_Library" title="C++ Standard Library">C++ Standard Library</a> and earlier <a href="/wiki/Standard_Template_Library" title="Standard Template Library">Standard Template Library</a></li>
+<li>Java: implemented in the <a href="/wiki/Java_collections_framework" title="Java collections framework">Java collections framework</a></li>
+<li>Python: some built-in, others implemented in the <a rel="nofollow" class="external text" href="https://docs.python.org/3/library/collections.html">collections</a> library</li>
+</ul>
+<h2><span class="mw-headline" id="External_links">External links</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit&amp;section=12" title="Edit section: External links">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul>
+<li><a rel="nofollow" class="external text" href="http://commons.apache.org/collections/">Apache Commons Collections</a></li>
+<li><a rel="nofollow" class="external text" href="http://sibirjak.com/osflash/projects/as3commons-collections/">AS3Commons Collections Framework</a> ActionScript3 implementation of the most common collections.</li>
+<li><a rel="nofollow" class="external text" href="http://www.collectionspy.com">CollectionSpy</a> — A profiler for Java's Collections Framework.</li>
+<li><a rel="nofollow" class="external text" href="http://code.google.com/p/guava-libraries/">Guava</a></li>
+<li><a rel="nofollow" class="external text" href="http://jezuk.co.uk/cgi-bin/view/mango">Mango Java library</a></li>
+</ul>
+<table class="navbox" style="border-spacing:0">
+<tr>
+<td style="padding:2px">
+<table class="nowraplinks hlist collapsible autocollapse navbox-inner" style="border-spacing:0;background:transparent;color:inherit">
+<tr>
+<th scope="col" class="navbox-title" colspan="2">
+<div class="plainlinks hlist navbar mini">
+<ul>
+<li class="nv-view"><a href="/wiki/Template:Data_structures" title="Template:Data structures"><span title="View this template" style=";;background:none transparent;border:none;">v</span></a></li>
+<li class="nv-talk"><a href="/wiki/Template_talk:Data_structures" title="Template talk:Data structures"><span title="Discuss this template" style=";;background:none transparent;border:none;">t</span></a></li>
+<li class="nv-edit"><a class="external text" href="//en.wikipedia.org/w/index.php?title=Template:Data_structures&amp;action=edit"><span title="Edit this template" style=";;background:none transparent;border:none;">e</span></a></li>
+</ul>
+</div>
+<div style="font-size:110%"><a href="/wiki/Data_structure" title="Data structure">Data structures</a></div>
+</th>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group">Types</th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><strong class="selflink">Collection</strong></li>
+<li><a href="/wiki/Container_(abstract_data_type)" title="Container (abstract data type)">Container</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Abstract_data_type" title="Abstract data type">Abstract</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Associative_array" title="Associative array">Associative array</a></li>
+<li><a href="/wiki/Double-ended_priority_queue" title="Double-ended priority queue">Double-ended priority queue</a></li>
+<li><a href="/wiki/Double-ended_queue" title="Double-ended queue">Double-ended queue</a></li>
+<li><a href="/wiki/List_(abstract_data_type)" title="List (abstract data type)">List</a></li>
+<li><a href="/wiki/Associative_array" title="Associative array">Map</a></li>
+<li><a href="/wiki/Multimap" title="Multimap">Multimap</a></li>
+<li><a href="/wiki/Priority_queue" title="Priority queue">Priority queue</a></li>
+<li><a href="/wiki/Queue_(abstract_data_type)" title="Queue (abstract data type)">Queue</a></li>
+<li><a href="/wiki/Set_(abstract_data_type)" title="Set (abstract data type)">Set</a>
+<ul>
+<li><a href="/wiki/Set_(abstract_data_type)#Multiset" title="Set (abstract data type)">multiset</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Disjoint-set_data_structure" title="Disjoint-set data structure">Disjoint Sets</a></li>
+<li><a href="/wiki/Stack_(abstract_data_type)" title="Stack (abstract data type)">Stack</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Array_data_structure" title="Array data structure">Arrays</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Bit_array" title="Bit array">Bit array</a></li>
+<li><a href="/wiki/Circular_buffer" title="Circular buffer">Circular buffer</a></li>
+<li><a href="/wiki/Dynamic_array" title="Dynamic array">Dynamic array</a></li>
+<li><a href="/wiki/Hash_table" title="Hash table">Hash table</a></li>
+<li><a href="/wiki/Hashed_array_tree" title="Hashed array tree">Hashed array tree</a></li>
+<li><a href="/wiki/Sparse_array" title="Sparse array">Sparse array</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Linked_data_structure" title="Linked data structure">Linked</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Association_list" title="Association list">Association list</a></li>
+<li><a href="/wiki/Linked_list" title="Linked list">Linked list</a></li>
+<li><a href="/wiki/Skip_list" title="Skip list">Skip list</a></li>
+<li><a href="/wiki/Unrolled_linked_list" title="Unrolled linked list">Unrolled linked list</a></li>
+<li><a href="/wiki/XOR_linked_list" title="XOR linked list">XOR linked list</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Tree_(data_structure)" title="Tree (data structure)">Trees</a></th>
+<td class="navbox-list navbox-odd" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/B-tree" title="B-tree">B-tree</a></li>
+<li><a href="/wiki/Binary_search_tree" title="Binary search tree">Binary search tree</a>
+<ul>
+<li><a href="/wiki/AA_tree" title="AA tree">AA</a></li>
+<li><a href="/wiki/AVL_tree" title="AVL tree">AVL</a></li>
+<li><a href="/wiki/Red%E2%80%93black_tree" title="Red–black tree">red-black</a></li>
+<li><a href="/wiki/Self-balancing_binary_search_tree" title="Self-balancing binary search tree">self-balancing</a></li>
+<li><a href="/wiki/Splay_tree" title="Splay tree">splay</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Heap_(data_structure)" title="Heap (data structure)">Heap</a>
+<ul>
+<li><a href="/wiki/Binary_heap" title="Binary heap">binary</a></li>
+<li><a href="/wiki/Binomial_heap" title="Binomial heap">binomial</a></li>
+<li><a href="/wiki/Fibonacci_heap" title="Fibonacci heap">Fibonacci</a></li>
+</ul>
+</li>
+<li><a href="/wiki/R-tree" title="R-tree">R-tree</a>
+<ul>
+<li><a href="/wiki/R*_tree" title="R* tree">R*</a></li>
+<li><a href="/wiki/R%2B_tree" title="R+ tree">R+</a></li>
+<li><a href="/wiki/Hilbert_R-tree" title="Hilbert R-tree">Hilbert</a></li>
+</ul>
+</li>
+<li><a href="/wiki/Trie" title="Trie">Trie</a>
+<ul>
+<li><a href="/wiki/Hash_tree_(persistent_data_structure)" title="Hash tree (persistent data structure)">Hash tree</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<th scope="row" class="navbox-group"><a href="/wiki/Graph_(abstract_data_type)" title="Graph (abstract data type)">Graphs</a></th>
+<td class="navbox-list navbox-even" style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px">
+<div style="padding:0em 0.25em">
+<ul>
+<li><a href="/wiki/Binary_decision_diagram" title="Binary decision diagram">Binary decision diagram</a></li>
+<li><a href="/wiki/Directed_acyclic_graph" title="Directed acyclic graph">Directed acyclic graph</a></li>
+<li><a href="/wiki/Directed_acyclic_word_graph" title="Directed acyclic word graph" class="mw-redirect">Directed acyclic word graph</a></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr style="height:2px">
+<td colspan="2"></td>
+</tr>
+<tr>
+<td class="navbox-abovebelow" colspan="2">
+<div>
+<ul>
+<li><a href="/wiki/List_of_data_structures" title="List of data structures">List of data structures</a></li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+<!-- 
+NewPP limit report
+Parsed by mw1107
+CPU time usage: 0.184 seconds
+Real time usage: 0.225 seconds
+Preprocessor visited node count: 329/1000000
+Preprocessor generated node count: 0/1500000
+Post‐expand include size: 16629/2097152 bytes
+Template argument size: 12/2097152 bytes
+Highest expansion depth: 6/40
+Expensive parser function count: 1/500
+Lua time usage: 0.046/10.000 seconds
+Lua memory usage: 1.27 MB/50 MB
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  108.685      1 - -total
+ 56.65%   61.568      1 - Template:Refimprove
+ 35.44%   38.523      1 - Template:Ambox
+ 22.10%   24.015      1 - Template:Data_structures
+ 19.03%   20.687      1 - Template:Navbox
+ 11.47%   12.468      1 - Template:Also
+  8.89%    9.663      4 - Template:Main
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:12119816-0!*!0!!en!4!* and timestamp 20150220061913 and revision id 647999918
+ -->
+<noscript><img src="//en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="http://en.wikipedia.org/w/index.php?title=Collection_(abstract_data_type)&amp;oldid=647999918">http://en.wikipedia.org/w/index.php?title=Collection_(abstract_data_type)&amp;oldid=647999918</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/wiki/Help:Category" title="Help:Category">Categories</a>: <ul><li><a href="/wiki/Category:Abstract_data_types" title="Category:Abstract data types">Abstract data types</a></li><li><a href="/wiki/Category:Data_structures" title="Category:Data structures">Data structures</a></li></ul></div><div id="mw-hidden-catlinks" class="mw-hidden-catlinks mw-hidden-cats-hidden">Hidden categories: <ul><li><a href="/wiki/Category:Articles_needing_additional_references_from_October_2014" title="Category:Articles needing additional references from October 2014">Articles needing additional references from October 2014</a></li><li><a href="/wiki/Category:All_articles_needing_additional_references" title="Category:All articles needing additional references">All articles needing additional references</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-createaccount"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Collection+%28abstract+data+type%29&amp;type=signup" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a></li><li id="pt-login"><a href="/w/index.php?title=Special:UserLogin&amp;returnto=Collection+%28abstract+data+type%29" title="You&#039;re encouraged to log in; however, it&#039;s not mandatory. [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/Collection_(abstract_data_type)"  title="View the content page [c]" accesskey="c">Article</a></span></li>
+															<li  id="ca-talk"><span><a href="/wiki/Talk:Collection_(abstract_data_type)"  title="Discussion about the content page [t]" accesskey="t">Talk</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="/wiki/Collection_(abstract_data_type)" >Read</a></span></li>
+															<li id="ca-edit"><span><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=history"  title="Past versions of this page [h]" accesskey="h" rel="archives">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="/w/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Wikipedia [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if one exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a class="mw-wiki-logo" href="/wiki/Main_Page"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation' aria-labelledby='p-navigation-label'>
+			<h3 id='p-navigation-label'>Navigation</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-mainpage-description"><a href="/wiki/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+													<li id="n-contents"><a href="/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li>
+													<li id="n-featuredcontent"><a href="/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li>
+													<li id="n-currentevents"><a href="/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+													<li id="n-randompage"><a href="/wiki/Special:Random" title="Load a random article [x]" accesskey="x">Random article</a></li>
+													<li id="n-sitesupport"><a href="https://donate.wikimedia.org/wiki/Special:FundraiserRedirector?utm_source=donate&amp;utm_medium=sidebar&amp;utm_campaign=C13_en.wikipedia.org&amp;uselang=en" title="Support us">Donate to Wikipedia</a></li>
+													<li id="n-shoplink"><a href="//shop.wikimedia.org" title="Visit the Wikimedia Shop">Wikimedia Shop</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-interaction' aria-labelledby='p-interaction-label'>
+			<h3 id='p-interaction-label'>Interaction</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-help"><a href="/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+													<li id="n-aboutsite"><a href="/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li>
+													<li id="n-portal"><a href="/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+													<li id="n-recentchanges"><a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+													<li id="n-contactpage"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact page</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="/wiki/Special:WhatLinksHere/Collection_(abstract_data_type)" title="List of all English Wikipedia pages containing links to this page [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="/wiki/Special:RecentChangesLinked/Collection_(abstract_data_type)" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-upload"><a href="/wiki/Wikipedia:File_Upload_Wizard" title="Upload files [u]" accesskey="u">Upload file</a></li>
+													<li id="t-specialpages"><a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-permalink"><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;oldid=647999918" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;action=info" title="More information about this page">Page information</a></li>
+													<li id="t-wikibase"><a href="//www.wikidata.org/wiki/Q17008256" title="Link to connected data repository item [g]" accesskey="g">Wikidata item</a></li>
+						<li id="t-cite"><a href="/w/index.php?title=Special:CiteThisPage&amp;page=Collection_%28abstract_data_type%29&amp;id=647999918" title="Information on how to cite this page">Cite this page</a></li>					</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-coll-print_export' aria-labelledby='p-coll-print_export-label'>
+			<h3 id='p-coll-print_export-label'>Print/export</h3>
+
+			<div class="body">
+									<ul>
+													<li id="coll-create_a_book"><a href="/w/index.php?title=Special:Book&amp;bookcmd=book_creator&amp;referer=Collection+%28abstract+data+type%29">Create a book</a></li>
+													<li id="coll-download-as-rdf2latex"><a href="/w/index.php?title=Special:Book&amp;bookcmd=render_article&amp;arttitle=Collection+%28abstract+data+type%29&amp;oldid=647999918&amp;writer=rdf2latex">Download as PDF</a></li>
+													<li id="t-print"><a href="/w/index.php?title=Collection_(abstract_data_type)&amp;printable=yes" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-lang' aria-labelledby='p-lang-label'>
+			<h3 id='p-lang-label'>Languages</h3>
+
+			<div class="body">
+									<ul>
+													<li class="interlanguage-link interwiki-cs"><a href="//cs.wikipedia.org/wiki/Kolekce_(abstraktn%C3%AD_datov%C3%BD_typ)" title="Kolekce (abstraktní datový typ) – Czech" lang="cs" hreflang="cs">Čeština</a></li>
+													<li class="uls-p-lang-dummy"><a href="#"></a></li>
+											</ul>
+				<div class='after-portlet after-portlet-lang'><span class="wb-langlinks-edit wb-langlinks-link"><a action="edit" href="//www.wikidata.org/wiki/Q17008256#sitelinks-wikipedia" text="Edit links" title="Edit interlanguage links" class="wbc-editpage">Edit links</a></span></div>			</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 20 February 2015, at 06:19.</li>
+											<li id="footer-info-copyright">Text is available under the <a rel="license" href="//en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="//creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.  By using this site, you agree to the <a href="//wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> and <a href="//wikimediafoundation.org/wiki/Privacy_policy">Privacy Policy</a>. Wikipedia® is a registered trademark of the <a href="//www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="//wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+											<li id="footer-places-contact"><a href="//en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact Wikipedia</a></li>
+											<li id="footer-places-developers"><a href="https://www.mediawiki.org/wiki/Special:MyLanguage/How_to_contribute">Developers</a></li>
+											<li id="footer-places-mobileview"><a href="//en.m.wikipedia.org/w/index.php?title=Collection_(abstract_data_type)&amp;mobileaction=toggle_view_mobile" class="noprint stopMobileRedirectToggle">Mobile view</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="//wikimediafoundation.org/"><img src="//bits.wikimedia.org/images/wikimedia-button.png" srcset="//bits.wikimedia.org/images/wikimedia-button-1.5x.png 1.5x, //bits.wikimedia.org/images/wikimedia-button-2x.png 2x" width="88" height="31" alt="Wikimedia Foundation"/></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="//www.mediawiki.org/"><img src="//bits.wikimedia.org/static-1.25wmf19/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="//bits.wikimedia.org/static-1.25wmf19/resources/assets/poweredby_mediawiki_132x47.png 1.5x, //bits.wikimedia.org/static-1.25wmf19/resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"ext.globalCssJs.site":"ready","ext.globalCssJs.user":"ready","site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.gadget.teahouse","ext.gadget.ReferenceTooltips","ext.gadget.DRN-wizard","ext.gadget.charinsert","ext.gadget.refToolbar","ext.gadget.switcher","ext.gadget.featured-articles-links","mmv.bootstrap.autostart","ext.imageMetrics.loader","ext.eventLogging.subscriber","ext.wikimediaEvents.statsd","ext.navigationTiming","schema.UniversalLanguageSelector","ext.uls.eventlogger","ext.uls.interlanguage"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"//bits.wikimedia.org/en.wikipedia.org/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":81,"wgHostname":"mw1255"});
+}</script>
+	</body>
+</html>

@@ -1,0 +1,1393 @@
+undefined<!DOCTYPE html>
+<head>
+	<meta http-equiv="content-Type" content="text/html; charset=UTF-8" />
+	<title>A Faster Fourier Transform - MIT Technology Review</title>
+	<meta http-equiv="content-language" content="en-us">
+	<meta content="Technology, Review, MIT, magazine, nanotechnology, nanotech, biotechnology, biotech, information technology, infotech, business, business technology, biz tech" name="keywords" />
+	<meta content="A mathematical upgrade promises a speedier digital world." name="description" />
+	<meta content="Mark Anderson" name="author" />
+	<meta content="A Faster Fourier Transform - MIT Technology Review" name="title" />
+	<meta content="" name="pages" />
+	<meta content="" name="collection" />
+
+	<meta content="55" name="server" />
+
+	<meta content="Cambridge, MA" name="geo.placename" />
+
+
+
+	<meta property="og:image" content="http://www.technologyreview.com/sites/default/files/legacy/0512-tr10-fourier_x116.jpg" />
+	<meta property="og:site_name" content="MIT Technology Review" />
+	<meta property="og:type" content="article" />
+	<meta property="og:url" content="http://www2.technologyreview.com/article/427676/a-faster-fourier-transform/" />
+	<meta property="og:author" content="Mark Anderson" />
+	<meta property="og:title" content="A Faster Fourier Transform - MIT Technology Review" />
+	<meta property="og:description" content="A mathematical upgrade promises a speedier digital world." />
+	<meta property="fb:page_id" content="17043549797" />
+
+	<link rel="image_src" href="http://www.technologyreview.com/sites/default/files/legacy/0512-tr10-fourier_x116.jpg" />
+	<link rel="canonical" href="http://www2.technologyreview.com/article/427676/a-faster-fourier-transform/" />
+
+	<link rel="shortcut icon" href="http://www.technologyreview.com/favicon.ico" />
+	<link rel="icon" href="http://www.technologyreview.com/favicon.ico" />
+
+
+
+		<meta content='width=device-width' name='viewport'>
+
+		<link rel="stylesheet" href="/global/css/fonts.css" type="text/css"/>
+		<link rel="stylesheet" href="/global/css/global.css" type="text/css"/>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.6/prefixfree.min.js"></script>
+		<script src="/global/js/jquery.simplemodal.js"></script>
+
+		<!--[if IE]>
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+
+		<script src="/global/js/global.js" type="text/javascript"></script>
+
+		<link rel="stylesheet" href="/global/css/legacy-fix.css" type="text/css"/>
+
+		<!--[if IE 8]>
+			<link rel="stylesheet" href="/global/css/ie8-global.css" type="text/css"/>
+			<link rel="stylesheet" href="/global/css/ie8-legacy-fix.css" type="text/css"/>
+			<link rel="stylesheet" href="/css/ie8-new-temp.css" type="text/css"/>
+			<link rel="stylesheet" href="/css/ie8-style.css" type="text/css"/>
+		<![endif]-->
+
+
+	<link rel="stylesheet" media="only screen and (device-width: 768px)" href="/css/ipad.css" type="text/css" />
+
+
+	<link href="/css/style.css?634866006840468750" rel="stylesheet" type="text/css" />
+	
+	<link href="/css/new-temp.css?634866006859218750" rel="stylesheet" type="text/css" />
+
+	<link href="/css/hhmi.css?634424373357972523" rel="stylesheet" type="text/css" />
+	<link href="/ontopic/themeasuredlife/style.css?634465940535671095" rel="stylesheet" type="text/css" />
+	<link href="/ontopic/arabspring/style.css?634732023956349915" rel="stylesheet" type="text/css" />
+	<link href="/css/livefyre.css?634710342365229400" rel="stylesheet" type="text/css" />
+
+
+<!--[if IE]><link rel="stylesheet" href="/css/ie.css?634744178310000000" type="text/css" media="all" /><![endif]-->
+<!--[if lt IE 8]><link rel="stylesheet" href="/css/ie7.css?634739878600000000" type="text/css" media="all" /><![endif]-->
+<!-- JQuery Library -->
+<script type="text/javascript" src="/scripts/scripts.js?634866344215625000"></script>
+<script type="text/javascript" src="/scripts/jsScroller.js?634176559459234440"></script>
+<script type="text/javascript" src="/scripts/jsScrollbar3.js?634176560155340124"></script>
+<script type="text/javascript" src="/scripts/jquery.hoverIntent.minified.js?634444492612492661"></script>
+<script type="text/javascript" src="/global/js/jquery.sticky.js?634895206150000000"></script>
+<script type="text/javascript">
+var scroller  = null;
+var scrollbar = null;
+window.onload = function () {
+	if (document.getElementById("Scroller-3")) {
+  scroller  = new jsScroller(document.getElementById("Scroller-3"), 330, 230);
+  scrollbar = new jsScrollbar (document.getElementById("Scrollbar-Container"), scroller, false);
+  	}
+}
+</script>
+<!--[if IE]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script type="text/javascript" src="/scripts/MobileCompatibilityScript.js?634093656220000000"></script>
+
+<script type="text/javascript" src="http://admin.brightcove.com/js/BrightcoveExperiences.js"></script>
+<script type="text/javascript" src="http://admin.brightcove.com/js/APIModules_all.js"></script>
+
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var randartnum = Math.random()*10000000000000000;
+//--><!]]>
+</script>
+<!-- Google Analytics -->
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(
+		['_setAccount', 'UA-7747898-5'],
+		['_setDomainName', 'technologyreview.com'],
+		['_trackPageview'],
+
+		['rollup._setAccount', 'UA-7747898-17'],
+		['rollup._trackPageview', '/tr/www2' + window.location.pathname + window.location.search]
+	);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+<!-- google analytics universal analytics -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-7747898-26', 'technologyreview.com');
+    ga('require', 'displayfeatures');
+    ga('send', 'pageview');
+</script>
+
+
+	<script type="text/javascript" src="http://www.googletagservices.com/tag/js/gpt.js"></script>
+	<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+	googletag.defineSlot("/3293/technologyreview/www/head/post-nav/landscape", [[728, 90], [970, 90], [970, 66], [1020, 90]], "dfp-ad-tr_www_head_post_nav_landscape")
+	  .addService(googletag.pubads());
+	//--><!]]>
+	</script>
+	<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+	googletag.defineSlot("/3293/technologyreview/www/footer/post-body/landscape", [[728, 90], [970, 90], [970, 66], [1020, 90]], "dfp-ad-tr_www_footer_post_body_landscape")
+	  .addService(googletag.pubads());
+	//--><!]]>
+	</script>
+	<script type="text/javascript">
+	<!--//--><![CDATA[//><!--
+	googletag.cmd.push(function() {
+	  googletag.pubads().enableAsyncRendering();
+	  googletag.pubads().enableSingleRequest();
+	  googletag.pubads().collapseEmptyDivs();
+		
+			googletag.pubads().setTargeting("section", "lists");
+		
+	});
+	googletag.enableServices();
+	//--><!]]>
+	</script>
+
+
+<script type="text/javascript">
+  var _aaq = _aaq || [];
+  var evergageAccount = 'technologyreview';
+  var dataset = 'tr_www';
+  _aaq.push(['setEvergageAccount', evergageAccount], ['setDataset', dataset], ['setUseSiteConfig', true]);
+
+  (function(){
+    var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript'; g.defer = true; g.async = true;
+        g.src = document.location.protocol + '//cdn.evergage.com/beacon/'
+                + evergageAccount + '/' + dataset + '/scripts/evergage.min.js';
+        s.parentNode.insertBefore(g, s);
+  })();
+</script>
+
+	
+</head>
+
+<body id="section-lists"  class="article-pg magarticle-pg">
+
+
+
+<!-- search ignore begin -->
+
+
+
+
+    <header id="tr-global-header">
+      <div class="wrapper">
+        <nav id="tr-global-nav">
+          <ul>
+            <li class="global"><a href="http://www.technologyreview.com/editions" class="global menu">Global Edition</a></li>
+            <li ><a href="http://www.technologyreview.com/insider/" >Insider</a></li>
+            <li ><a href="http://www.technologyreview.com/magazine/" >Magazine</a></li>
+            <li ><a href="http://www.technologyreview.com/businessreports/" >Business Reports</a></li>
+            <li class="active"><a href="http://www.technologyreview.com/lists/" class="active">Lists</a></li>
+            <li ><a href="http://www.technologyreview.com/events/" >Events</a></li>
+            <li id="menu_standard_more_button">
+              <a href="#" class="menu candrop"><span>More</span></a>
+
+              <div id="menu_standard_more">
+                <ul>
+                  <li><a href="http://www.technologyreview.com/about/">About</a></li>
+                  <li><a href="http://newsletters.technologyreview.com">Newsletters</a></li>
+                  <li><a href="http://www.technologyreview.com/support/">Support</a></li>
+                  <li><a href="http://www.technologyreview.com/contact/">Contact Us</a></li>
+                  <li><a href="http://www.emtechmit.com">Emtech MIT</a></li>
+                  <li><a href="http://www.mitef.org">MIT Enterprise Forum</a></li>
+                </ul>
+              </div><!-- / menu_sticky_sections -->
+            </li>
+          </ul>
+          <ul class="connect" id="menu_standard_connect_button" >
+            <li><a href="http://www.technologyreview.com/connect/" class="menu">Connect</a></li><!--
+                add back: class=candrop and <span />
+                <div id="menu_standard_connect"></div>--><!-- /menu_standard_connect -->
+          </ul>
+        </nav>
+
+        <section id="tr-global-editions">
+          <header>
+            <h2>Select your localized edition:</h2>
+            <!-- <h2><strong>Welcome to MIT Technology Review</strong></h2>
+            <p class="half-margin">We have detected that your browser's default language does not match the language of the site you are trying to visit.<br />
+              <a href="#">Continuar con el MIT Technology Review en español &raquo;</a>
+            </p> -->
+            <a class="closer" href="#">Close <span>&times;</span></a>
+          </header>
+          <aside>
+            <ul class="languages news">
+              <li class="en" data-lang="en"><a href="http://www.technologyreview.com">English</a></li>
+              <li class="es" data-lang="es"><a href="http://es.technologyreview.com">Espa&ntilde;ol</a></li>
+              <li class="de" data-lang="de"><a href="http://de.technologyreview.com">Deutsch</a></li>
+              <li class="it" data-lang="it"><a href="http://it.technologyreview.com">Italiano</a></li>
+              <li class="pt" data-lang="pt"><a href="http://pt.technologyreview.com">Portugu&ecirc;s</a></li>
+              <li class="zh" data-lang="zh"><a href="http://cn.technologyreview.com">&#x4E2D;&#x570B;&#x7684;</a></li>
+            </ul>
+
+            <form>
+              <h3>Filter by:</h3>
+              <ul>
+                <li>
+                  <label>
+                    <input type="radio" name="filter" checked="checked" value="news" /> News and Analysis
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="filter" value="magazine" /> Magazine
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="filter" value="list" /> List: Innovators Under 35
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="radio" name="filter" value="events" /> Conferences and Events
+                  </label>
+                </li>
+              </ul>
+            </form>
+          </aside>
+
+          <div class="filters news">
+            <div class="editions">
+              <ul>
+                <li class="ar" data-edition="ar" data-lang="es"><a href="http://es.technologyreview.com">Argentina</a></li>
+                <li class="br" data-edition="br" data-lang="pt"><a href="http://pt.technologyreview.com">Brasil</a></li>
+                <li class="co" data-edition="co" data-lang="es"><a href="http://es.technologyreview.com">Colombia</a></li>
+                <li class="de" data-edition="de" data-lang="de"><a href="http://de.technologyreview.com">Deutschland</a></li>
+              </ul>
+              <ul>
+                <li class="it" data-edition="it" data-lang="it"><a href="http://it.technologyreview.com">Italia</a></li>
+                <li class="mx" data-edition="mx" data-lang="es"><a href="http://es.technologyreview.com">México</a></li>
+                <li class="pt" data-edition="pt" data-lang="pt"><a href="http://pt.technologyreview.com">Portugal</a></li>
+                <li class="es" data-edition="es" data-lang="es"><a href="http://es.technologyreview.com">Espa&ntilde;a</a></li>
+              </ul>
+              <ul>
+                <li class="us" data-edition="us" data-lang="en"><a href="http://www.technologyreview.com">United States</a></li>
+                <li class="uy" data-edition="uy" data-lang="es"><a href="http://es.technologyreview.com">Uruguay</a></li>
+                <li class="cn" data-edition="cn" data-lang="zh"><a href="http://cn.technologyreview.com">&#x4E2D;&#x56FD;&#x5927;&#x9646;</a></li>
+                <!--<li class="pa" data-edition="pa" data-lang="en"><a href="#">Pan Arab</a></li>-->
+              </ul>
+            </div>
+          </div>
+
+          <div class="more">
+            <h3>More Ways to Connect</h3>
+            <p><a href="http://www.mitef.org/">Discover one of our 28 local entrepreneurial communities &raquo;</a></p>
+            <p class="no-margin"><a href="http://www.technologyreview.com/connect/">Be the first to know</a> as we launch in new countries and markets around the globe.</p>
+            <p class="mini no-margin">Interested in <a href="http://www.technologyreview.com/contact/submit/?type=internationalpartnerships">bringing MIT Technology Review to your local market?</a></p>
+          </div>
+        </section>
+
+        <section id="tr-global-search">
+          <form action="http://www.technologyreview.com/search/" method="get" accept-charset="UTF-8"><div><div class="container-inline">
+            <div class="form-item form-type-textfield form-item-search-block-form">
+              <label class="element-invisible" for="edit-search-block-form--2">
+                Search
+              </label>
+              <input title="Enter the terms you wish to search for." onblur="if (this.value == &#039;&#039;) {this.value = &#039;Search&#039;;}" onfocus="this.value = &#039;&#039;;" onclick="this.value = &#039;&#039;;" type="text" id="edit-search-block-form--2" name="keys" value="Search" size="30" maxlength="128" class="form-text" />
+            </div>
+            <div class="form-actions form-wrapper" id="edit-actions">
+              <input type="submit" id="edit-submit" name="op" value="Search" class="form-submit" />
+            </div>
+            </div>
+            </div>
+          </form>
+        </section>
+
+        <section id="tr-global-reads">
+          <a class="login" href="http://www.technologyreview.com/my/">Login / Join</a>
+        </section>
+
+        <nav id="tr-global-reads-collapsed">
+          <ul class="reads">
+            <li><a href="http://www.technologyreview.com/stream/">New</a></li>
+            <li><a href="http://www.technologyreview.com/popular/">Popular</a></li>
+            <li><a href="http://www.technologyreview.com/my/">Login / Join</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="backing">
+      </div>
+    </header>
+
+
+    <section id="tr-masthead">
+      <div class="wrapper">
+        <h2 id="logotype"><a href="http://www.technologyreview.com/"><span>MIT Technology Review</span><img src="http://www.technologyreview.com/sites/all/themes/mittr/global/i/logo-mittr-black.png" alt="MIT Technology Review - logo" /></a></h2>
+
+        <nav id="tr-main-nav">
+        	<div id="menu_nav_home_button" class="menuisoff">
+        		<a href="http://www.technologyreview.com/" class="candrop small">
+					<span>Home</span>
+					<strong>News &amp; Analysis</strong>
+					<em>▾</em>
+        		</a>
+
+        		<div id="menu_nav_home"></div><!-- /menu_nav_home -->
+        	</div><!-- /#menu_nav_home_button -->
+
+	        <div id="section_home"><a href="http://www.technologyreview.com/lists/">Lists</a></div>
+
+<ul class="static-nav">
+  <li><a href="http://www.technologyreview.com/lists/smartest-companies/">Smartest Companies</a></li>
+  <li><a href="http://www.technologyreview.com/lists/innovators-under-35/">Innovators Under 35</a></li>
+  <li><a href="http://www.technologyreview.com/lists/breakthrough-technologies/">Breakthrough Technologies</a></li>
+</ul>
+
+<ul class="action-nav">
+  <li><a href="http://www.technologyreview.com/lists/nominations/">Nominations &raquo;</a></li>
+</ul>
+
+
+
+        </nav><!-- /#tr-main-nav -->
+        <div style="clear: both;">&nbsp;</div>
+      </div>
+    </section>
+
+    <header id="tr-global-header-sticky">
+      <div class="wrapper">
+        <nav>
+          <ul>
+
+            <!-- home menu -->
+            <li id="menu_sticky_home_button">
+              <a href="http://www.technologyreview.com/" class="home "><span>Home</span></a>
+
+              <div id="menu_sticky_home">
+                <div class="wrapper">
+                  <div class="column menu">
+                    <ul>
+                      <li><a href="http://www.technologyreview.com/" class="on cta-block">Home</a></li>
+                      <li><a href="http://www.technologyreview.com/biomedicine">Biomedicine</a></li>
+                      <li><a href="http://www.technologyreview.com/business/">Business</a></li>
+                      <li><a href="http://www.technologyreview.com/communications/">Communications</a></li>
+                      <li><a href="http://www.technologyreview.com/computing/">Computing</a></li>
+                      <li><a href="http://www.technologyreview.com/energy/">Energy</a></li>
+                      <li><a href="http://www.technologyreview.com/web/">Web</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="name">
+                    <p><a href="/">Top Stories</a></p>
+                  </div>
+
+                  <div class="columns">
+                    <div class="column large-thumb">
+      <article>
+      <a href="http://www.technologyreview.com/featuredstory/535661/engineering-the-perfect-baby/"><img src="http://www.technologyreview.com/sites/default/files/styles/menu_homepage_top_stories_large_thumb/public/images/genome_editingx392.jpg?itok=H5GPTu4S" alt="" /></a>
+        <h2>Featured Story</h2>
+    <a href="http://www.technologyreview.com/featuredstory/535661/engineering-the-perfect-baby/"><h1>Improving Humanity’s Genes</h1></a>
+      <h3>Antonio Regalado</h3>
+    <p class="comment-count livefyre-commentcount" data-lf-site-id="296821" data-lf-article-id="nid_535661" data-lf-min-comments="10">23</p></article>
+  </div><!-- /.column /.large-thumb -->
+
+<div class="column no-thumbs">
+      <ul>
+              <li>
+          <article>
+  <a href="http://www.technologyreview.com/news/535681/first-groupon-founder-now-tour-guide/"><h1>Q&amp;A with Groupon’s Founder on His New Startup</h1></a>
+      <h3>Rachel Metz</h3>
+  </article>
+        </li>
+              <li>
+          <article>
+  <a href="http://www.technologyreview.com/news/535591/the-online-language-barrier/"><h1>Internet’s Language Gap</h1></a>
+      <h3>Mike Orcutt</h3>
+  </article>
+        </li>
+              <li>
+          <article>
+  <a href="http://www.technologyreview.com/news/535496/peer-to-peer-wireless-is-increasing-competition-worldwide/"><h1>Peer-to-Peer Wireless Boosts Competition</h1></a>
+      <h3>Lucas Laursen</h3>
+  </article>
+        </li>
+              <li>
+          <a href="/" class="cta">See More Top Stories</a>
+    </ul>
+  </div><!-- /.column /.no-thumbs -->
+
+                  </div><!-- /columns -->
+                </div><!-- /wrapper -->
+              </div><!-- /menu_sticky_home -->
+            </li><!-- home menu -->
+
+            <!-- "menu" menu -->
+            <li id="menu_sticky_sections_button">
+              <a href="http://www.technologyreview.com/" class="sections candrop"><span>Menu</span></a>
+
+              <div id="menu_sticky_sections">
+                <div class="panel-list">
+                  <ul>
+                    <li class="news">
+                      <a href="http://www.technologyreview.com/" >News &amp; Analysis</a>
+                    </li>
+                    <li class="magazine">
+                      <a href="http://www.technologyreview.com/magazine/" >Magazine</a>
+                    </li>
+                    <li class="lists">
+                      <a href="http://www.technologyreview.com/lists/" class="active">Lists</a>
+                    </li>
+                    <li class="events">
+                      <a href="http://www.technologyreview.com/events/" >Events</a>
+                    </li>
+                    <li class="about">
+                      <a href="http://www.technologyreview.com/about/" >About</a>
+                    </li>
+                    <li class="more">
+                      <a href="#">More</a>
+                    </li>
+                  </ul>
+                </div><!-- /panel-list -->
+
+                <div class="panel-holder">
+                  <div class="panel-contents news ">
+					
+
+<ul class="static-nav">
+  <li><a href="http://www.technologyreview.com/features/">Features</a></li>
+  <li><a href="http://www.technologyreview.com/views/">Views</a></li>
+  <li><a href="http://www.technologyreview.com/multimedia/">Multimedia</a></li>
+  <li><a href="http://www.technologyreview.com/discussions/">Discussions</a></li>
+  <li><a href="http://www.technologyreview.com/topics/">Topics</a></li>
+</ul>
+
+<div class="view view-popular-bar view-id-popular_bar view-display-id-nav view-dom-id-e669fed8a62aa71ee22312f9c8885bf1">
+        
+  
+  
+          <div class="view-content">
+          <ul class="popular-topics off">
+  <li><a href="/stream/?sort=popular">Popular</a>:</li>
+            <li><a href="http://www.technologyreview.com/lists/technologies/2015/">10 Breakthrough Technologies 2015</a></li>
+    </ul><!-- /.popular-topics -->
+        </div>
+      
+  
+  
+  
+  
+  
+</div>
+
+
+                  </div>
+
+                  <div class="panel-contents magazine ">
+					
+
+  <ul class="static-nav">
+    <li><a href="http://www.technologyreview.com/magazine/">Current Issue</a></li>
+    <li><a href="http://www.technologyreview.com/magazine/archive/">Past Issues</a></li>
+    <li><a href="http://www.technologyreview.com/magazine/mitnews/">MIT News Magazine</a></li>
+    <li><a href="http://www.technologyreview.com/magazine/businessreports/">Business Reports</a></li>
+    <li><a href="http://www.technologyreview.com/magazine/specialpublications/">Special Publications</a></li>
+    <li><a href="http://www.technologyreview.com/magazine/editions/">International Editions</a></li>
+  </ul>
+
+  <ul class="action-nav">
+    <li><a href="http://www.technologyreview.com/subscribe">Subscriptions &raquo;</a></li>
+  </ul>
+
+
+                  </div>
+
+                  <div class="panel-contents lists on">
+					
+
+<ul class="static-nav">
+  <li><a href="http://www.technologyreview.com/lists/smartest-companies/">Smartest Companies</a></li>
+  <li><a href="http://www.technologyreview.com/lists/innovators-under-35/">Innovators Under 35</a></li>
+  <li><a href="http://www.technologyreview.com/lists/breakthrough-technologies/">Breakthrough Technologies</a></li>
+</ul>
+
+<ul class="action-nav">
+  <li><a href="http://www.technologyreview.com/lists/nominations/">Nominations &raquo;</a></li>
+</ul>
+
+
+                  </div>
+
+                  <div class="panel-contents events ">
+					
+
+  <ul class="static-nav">
+    <li><a href="http://www.technologyreview.com/events/#events-upcoming">Upcoming Events</a></li>
+    <li><a href="http://www.technologyreview.com/events/#partner-events">Partner Events</a></li>
+    <li><a href="http://www.emtechmit.com">Emtech MIT</a></li>
+    <li><a href="http://www.mitef.org">MIT Enterprise Forum</a></li>
+  </ul>
+
+
+                  </div>
+
+                  <div class="panel-contents about ">
+					
+
+  <ul class="static-nav">
+    <li><a href="http://www.technologyreview.com/about/team">Our Team</a></li>
+    <li><a href="http://www.technologyreview.com/careers/">Join Us</a></li>
+    <li><a href="http://www.technologyreview.com/pressroom/">Press Room</a></li>
+    <li><a href="http://www.technologyreview.com/awards/">Awards</a></li>
+    <li><a href="http://www.technologyreview.com/media/">Advertise</a></li>
+    <li><a href="http://www.technologyreview.com/about/permissions">Permissions</a></li>
+    <!--<li><a href="http://www.technologyreview.com/about/international-partners">International</a></li>-->
+    <li><a href="http://www.technologyreview.com/contact/">Contact Us</a></li>
+  </ul>
+
+  <ul class="action-nav">
+    <li><a href="http://www.technologyreview.com/support">Customer Support &raquo;</a></li>
+  </ul>
+
+
+                  </div>
+
+                  <div class="panel-contents more ">
+                    <ul class="static-nav">
+                      <li><a href="http://www.technologyreview.com/support/">Support</a></li>
+                      <li><a href="http://www.technologyreview.com/contact/">Contact Us</a></li>
+                      <li><a href="http://www.emtechmit.com">Emtech MIT</a></li>
+                      <li><a href="http://www.mitef.org">MIT Enterprise Forum</a></li>
+                    </ul>
+                  </div>
+                </div><!-- /panel-holder -->
+              </div><!-- / menu_sticky_sections -->
+            </li><!-- "menu" menu -->
+
+            <!-- connect menu -->
+            <li id="menu_sticky_connect_button">
+              <a href="http://www.technologyreview.com/connect/" class="connect"><span>Connect</span></a>
+              <div id="menu_sticky_connect"><!-- connect dropdown options --></div><!-- / menu_sticky_connect -->
+            </li><!-- /connect menu -->
+          </ul>
+          <ul class="the-feed-header">
+	        <li class="active"><a href="http://www.technologyreview.com/stream/">The Latest</a></li>
+            <li><a href="http://www.technologyreview.com/popular/">Popular</a></li>
+            <li><a href="/my/">Most Shared</a></li>
+            <li class="my-profile"><a class="login" href="/my/">My Profile</a></li>
+          </ul>
+         </nav>
+      </div><!-- /.wrapper -->
+      <div class="backing"></div>
+    </header><!-- /#tr-global-header-sticky -->
+
+
+	<section class="ad-bar gray">
+		<div class="wrapper">
+			<div id="dfp-ad-tr_www_head_post_nav_landscape-wrapper" class="dfp-tag-wrapper"><div  id="dfp-ad-tr_www_head_post_nav_landscape" class="dfp-tag-wrapper">
+			  <script type="text/javascript">
+			    googletag.cmd.push(function() {
+			      googletag.display("dfp-ad-tr_www_head_post_nav_landscape");
+			    });
+			  </script>
+			</div>
+		</div>
+	</section>
+
+
+
+<div class="container">
+
+
+	<div class="contentwrap">
+		<div class="mcontent">
+
+<!-- search ignore end -->
+
+
+
+
+
+
+<div class="maincontent">
+
+
+
+
+
+<div class="trlistsheader ">
+	
+		<h2 class="left"><a href="/tr10/"><img src="http://www.technologyreview.com/global/i/logo-tr10.png" /></a></h2>
+		<h6 class="right year"><a href="/tr10/?year=2012">2012</a></h6>
+	
+</div><!-- /trlistsheader -->
+
+
+<div class="article magfeatured">
+	<div class="articletop">
+
+
+
+	
+
+<h1>A Faster Fourier Transform</h1>
+<p class="intro">A mathematical upgrade promises a speedier digital world.</p>
+
+	
+<p class="comment-count"><a href="#comments">16 comments</a></p>
+	
+<div class="story-meta"><!-- author/date -->
+	
+	<p class="author">
+	Mark Anderson
+	
+	</p>
+	<p class="story-date">May/June 2012</p>
+</div><!-- / author/date -->
+
+	
+	</div><!-- /.articletop -->
+
+<div class="mainBody">
+
+<div id="slide1" class="slideshowItem first">
+	<img src="http://www.technologyreview.com/sites/default/files/legacy/0512-tr10-fourier_x616.jpg" width="616" height="410" alt="" />
+</div>
+					
+	<div class="slideshowItemText first">
+						
+		<p>Piotr Indyk, Dina Katabi, Eric Price, and Haitham Hassanieh (left to right) have created a faster way to break down complex signals into combinations of simple waves for processing. Credit: Webb Chappell</p>
+						
+	</div>
+						
+		<div class="articlesidebar">
+			<p>WHO<br />
+<strong>MIT</strong><br />Cambridge, Massachusetts </p>
+<p>TECHNOLOGY<br />
+A new algorithm for processing streams of data will lead to better multimedia devices. </p>
+<p>OTHER NOTABLE INNOVATORS</p>
+<p><strong>Richard Baraniuk</strong><br />Rice University, Houston, Texas </p>
+<p><strong>Anna Gilbert and Martin Strauss</strong><br />University of Michigan </p>
+<p><strong>Joel A. Tropp</strong><br />Caltech, Pasadena, California </p>
+<p><strong>Mark Iwen</strong><br />Duke University, Durham, North Carolina</p>
+		</div>
+						<p><span class="firstchar">I</span>n January, four MIT researchers showed off a replacement for one of the most important algorithms in computer science. Dina Katabi, Haitham Hassanieh, Piotr Indyk, and Eric Price have created a faster way to perform the Fourier transform, a mathematical technique for processing streams of data that underlies the operation of things such as digital medical imaging, Wi-Fi routers, and 4G cellular networks. </p>
+			<p>The principle of the Fourier transform, which dates back to the 19th century, is that any signal, such as a sound recording, can be represented as the sum of a collection of sine and cosine waves with different frequencies and amplitudes. This collection of waves can then be manipulated with relative ease&mdash;for example, allowing a recording to be compressed or noise to be suppressed. In the mid-1960s, a computer-friendly algorithm called the fast Fourier transform (FFT) was developed. Anyone who's marveled at the tiny size of an MP3 file compared with the same recording in an uncompressed form has seen the power of the FFT at work. </p>
+			<p>With the new algorithm, called the sparse Fourier transform (SFT), streams of data can be processed 10 to 100 times faster than was possible with the FFT. The speedup can occur because the information we care about most has a great deal of structure: music is not random noise. These meaningful signals typically have only a fraction of the possible values that a signal could take; the technical term for this is that the information is "sparse." Because the SFT algorithm isn't intended to work with all possible streams of data, it can take certain shortcuts not otherwise available. In theory, an algorithm that can handle only sparse signals is much more limited than the FFT. But "sparsity is everywhere," points out coinventor Katabi, a professor of electrical engineering and computer science. "It's in nature; it's in video signals; it's in audio signals." </p>
+			<p>A faster transform means that less computer power is required to process a given amount of information&mdash;a boon to energy-conscious mobile multimedia devices such as smart phones. Or with the same amount of power, engineers can contemplate doing things that the computing demands of the original FFT made impractical. For example, Internet backbones and routers today can actually read or process only a tiny trickle of the river of bits they pass between them. The SFT could allow researchers to study the flow of this traffic in much greater detail as bits shoot by billions of times a second. </p>
+
+			
+</div>
+
+	
+
+</div>
+<div class="clear"></div>
+
+
+
+<div class="trlistsstoryfooter">
+	
+	<a class="prev arrow" href="/article/427674/3-d-transistors/">
+		<span>Previous:</span>
+		<h4>3-D Transistors</h4>
+		<p>Intel creates faster and more energy-efficient processors.</p>
+	</a><!-- /prev -->
+	
+	<a class="next arrow" href="/article/427677/nanopore-sequencing/">
+		<span>Next:</span>
+		<h4>Nanopore Sequencing</h4>
+		<p>Simple and direct analysis of DNA will make genetic testing routine in more situations.</p>
+	</a><!-- /next -->
+	
+	<p style="clear: both;"><a href="/tr10/?year=2012">See all 2012 emerging technologies &raquo;</a></p>
+	
+</div><!-- /trlistsstoryfooter -->
+
+
+<div class="hr double"></div>
+
+
+
+<div class="clear"></div>
+
+
+
+<div class="clear"></div>
+
+
+
+</div>
+
+<div class="sidecontent">
+
+
+
+
+
+
+
+
+<div class="smod">
+	<div class="ad">
+		<div class="adheader"><img src="/images/ad_legend_h.gif" width="79" height="17" alt="Advertisement" /></div>
+	
+			<script type="text/javascript">
+			<!--//--><![CDATA[//><!--
+			var browser_type=navigator.appName
+									var browser_version=parseInt(navigator.appVersion)
+									document.write('<SCR' + 'IPT LANGUAGE="JavaScript" SRC="http://ad.doubleclick.net/adj/mk3.technologyreview.com/mediumrectangle;!category=exc;channel=;section=;at=mediumrectangle;page=home;s=mediumrectangle;dcopt=ist;tile=3;ord=' + randartnum + '?"><\/SCR' + 'IPT>')
+			//--><!]]>
+			</script><noscript>
+									<a href="http://ad.doubleclick.net/jump/mk3.technologyreview.com/mediumrectangle;!category=exc;channel=;section=;at=mediumrectangle;page=home;s=mediumrectangle;tile=3;ord=?" target="_blank">
+										<img src="http://ad.doubleclick.net/ad/mk3.technologyreview.com/mediumrectangle;!category=exc;channel=;section=;at=mediumrectangle;page=home;s=mediumrectangle;tile=3;ord=?" border="0" alt="click here..." />									</a>
+			</noscript>
+	
+	</div>
+	<div class="clear"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="maincontent">
+	
+
+<div class="clear"></div>
+<div id="comments"></div>
+
+<div id="comments-iOS" style="display: none;">
+	16 Comments about this story. <a href="#">See what's being discussed &raquo;</a>
+	
+</div>
+<div id="livefyre"></div>
+
+<script type="text/javascript">
+	var isMobileSafari = ((navigator.userAgent.match(/(iPod|iPhone|iPad)/) != null) && (navigator.userAgent.match(/AppleWebKit/) != null)) ? true : false;
+
+	if(isMobileSafari) {
+		$("#comments-iOS a").click(function(event) { event.preventDefault(); loadLivefyre(); $("#comments-iOS").hide(); });
+		$("#comments-iOS").show();
+	}
+</script>
+
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+
+function loadLivefyre() {
+	var libraries = [
+		'/scripts/jquery.ba-postmessage.js?634514494968611019',
+		'/scripts/janrain.js?634629981540051793',
+		'/scripts/login.js?634704432528649126',
+		'http://zor.livefyre.com/wjs/v1.0/javascripts/livefyre_init.js',
+		'/scripts/livefyre.js?634710340835476000',
+		'/scripts/jquery.form-2.87.js?634571449944753754'
+	];
+
+	var count = 0;
+	$.each(libraries, function(index, library) {
+		$.getScript(library, function() {
+			count++;
+			if(count == libraries.length) {
+				loadLivefyreComments();
+			}
+		});
+	});
+
+	return true;
+}
+
+function loadLivefyreComments() {
+	var trLivefyre = new TrLivefyre({
+		"ajaxServer": {
+			"hostname": "www2.technologyreview.com",
+			"ssl": true
+		},
+		"environment": {
+			"magPrintSubscribeUrl": "https://subscribe.technologyreview.com/mit/",
+			"mytrBaseUri": "http://www2.technologyreview.com",
+			"mytrLoginBaseUri": "https://www2.technologyreview.com"
+		},
+		"conversation": {
+			domain: "technologyreview.fyre.co",
+			site_id: 296821,
+			article_id: "article_40245",
+			conv_meta: {
+				article_url: "http://www.technologyreview.com/article/427676/a-faster-fourier-transform/",
+				title: "A Faster Fourier Transform", 
+				sig: "07589d1561106296fe2fb18c7578946d"
+			}
+		},
+		"login":
+		
+		null
+		
+	});
+}
+
+if(!isMobileSafari) {
+	$(document).ready(function() { loadLivefyre(); });
+}
+
+//--><!]]>
+</script>
+
+<div id="powered_by_livefyre" class="hidden"><a href="http://livefyre.com" target="_blank">
+	<img src="http://zor.fyre.co/wjs/v1.0/css/images/livefyre-logo.png" width="81" height="27" alt="powered by Livefyre" /></a></div>
+
+
+<noscript>
+<div class="divider"></div>
+
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>1044 Days Ago</li>
+				<li>04/28/2012</li>
+			</ul>
+			<p class="commentbody">If I had to lay a bet as to which of these 10 "technologies" will have the most effect over the next 5 years I would put my money on this one.  We are talking about sending more information with less bandwidth, and many other algorithms being speeded up by this new short cut. We are living in the age of the algorithm.  This is a big deal.</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>1043 Days Ago</li>
+				<li>04/29/2012</li>
+			</ul>
+			<p class="commentbody">@ptmmac Ditto.  This has immense potential, over the next 5 _and_ 50 years.</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+</div>
+
+</div>
+
+<div class="divider"></div>
+	
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>1042 Days Ago</li>
+				<li>04/30/2012</li>
+			</ul>
+			<p class="commentbody">The SFT could allow the massive number of criminals in the government to study the flow of this traffic in much greater detail to extract your account details, financial information, all the better to spy on you with.<br /> <br />The evil ones will put this to use as soon as they can.</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>1034 Days Ago</li>
+				<li>05/08/2012</li>
+			</ul>
+			<p class="commentbody">@GuyFalkes The SFT would only be used for Audio and Video signals, no risk for data here.</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+</div>
+
+</div>
+
+<div class="divider"></div>
+	
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>1035 Days Ago</li>
+				<li>05/07/2012</li>
+			</ul>
+			<p class="commentbody">This article overstates some things. 1) mobile devices are rarely compressing... mostly decompressing (which is much easier in most cases), and 2) once you've compressed audio using something like AAC, random noise IS actually substituted for parts of the original sound.<br /> <br />Don't get me wrong, this is a good break through, but it's use is being overstated.</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>992 Days Ago</li>
+				<li>06/19/2012</li>
+			</ul>
+			<p class="commentbody">@tdistler Things are changing ...mobile devices *are* encoding content a lot more than ever before. And it's not just VOIP and Skype ...wifi Display is becoming de-facto. Content creation has been democratized, and the apps by their dozens, will surely follow.<br /> <br />That said, how efficient will this algorithm be for these modern apps (apps that are not necessarily dealing with professionally created content) is something to be still seen...</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+</div>
+
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>972 Days Ago</li>
+				<li>07/09/2012</li>
+			</ul>
+			<p class="commentbody">@tdistler It seems to me sound is compressed, so is picture and video.  Also radio signals.  Things like touch screen, gps, motion sensor, usb probably are using.  Maybe text edge smoothing/3d might also use it.</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+</div>
+
+</div>
+
+<div class="divider"></div>
+	
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>1034 Days Ago</li>
+				<li>05/08/2012</li>
+			</ul>
+			<p class="commentbody">Only having a BS degree and being taught to use fourier series for solving heat transfer equations (quicker)- I'd wonder the 'pure' mathematical uses for something like this. I know that far enough along in math (bessel functions etc.) it becomes a guess at the form of the solution (2 pages to solve or ten pages depending on the guess).<br />I'd also wonder the possible vibration theory applications- most notably persuading (for lack of a better word) resonance in systems (I like thermoacoustic devices-rijke and sondhauss, etc.).</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+</div>
+
+<div class="divider"></div>
+	
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>1021 Days Ago</li>
+				<li>05/21/2012</li>
+			</ul>
+			<p class="commentbody">My first job  was doing FFT in hardware so we could more quickly massage and sharpen the images we were getting back from sonar signals (cold war era).  I'm not sure the overall data stream was "sparse" enough to use these new algorithms but it would have at least let us pick out some of the known signatures we were trying to get rid of like whales and well known ship signatures.  <br />But we would still have used the traditional FFTs because we were always worried about those "unknowns" that those dirty commies might have surprised us with  :-)    Of course, it sure wouldn't have hurt to have this new SFT in our kitbag because we were trying everything to tease out signals (FFT, Laplacian, etc).<br /> <br />It will be interesting to see where this goes.</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+</div>
+
+<div class="divider"></div>
+	
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>972 Days Ago</li>
+				<li>07/09/2012</li>
+			</ul>
+			<p class="commentbody">This is awesome discovery worthy of novel prize if it can even replace 10% of fft.   I can you imagine saving 90% of enegy/time/money.  Things like dna can be studied cheaper.  This might speed up smarter than human computer from 50 years to 25. :)</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+</div>
+
+<div class="divider"></div>
+	
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>971 Days Ago</li>
+				<li>07/10/2012</li>
+			</ul>
+			<p class="commentbody">One of the cofounders of the company Leap Motion came up with a set of algorithms, which were magnitudes faster than anything equivalent, for extracting distance and direction information from superpositioned diffraction data received from a CCD chip -- supposedly using an evolved form of FFT processing -- Several Years Ago. Sounds like he may have reached what appears to be the same or similar result a bit sooner than these four did. I guess that "when it's time, it happens."</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+</div>
+
+<div class="divider"></div>
+	
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>929 Days Ago</li>
+				<li>08/21/2012</li>
+			</ul>
+			<p class="commentbody">seems big deal</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+</div>
+
+<div class="divider"></div>
+	
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>780 Days Ago</li>
+				<li>01/17/2013</li>
+			</ul>
+			<p class="commentbody">Profound implications for MRI imaging where the FFT is the bedrock of providing spatial information prior to storing the signal in the imaging matrix. No FFT no MRI.</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+</div>
+
+<div class="divider"></div>
+	
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>680 Days Ago</li>
+				<li>04/27/2013</li>
+			</ul>
+			<p class="commentbody">Can someone show some real examples (details with the kind of image or music, the image size or the music sample and the processor or GPU that was used), so REAL benchmarks?  And do you use compression in this technique? If so, I don't think it would be great for image deconvolution (since you will lose even more data in the image).</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+</div>
+
+<div class="divider"></div>
+	
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>680 Days Ago</li>
+				<li>04/27/2013</li>
+			</ul>
+			<p class="commentbody">Can someone show some real examples (details with the kind of image or music, the image size or the music sample and the processor or GPU that was used), so REAL benchmarks?  And do you usecompression in this technique? If so, I don't think it would be great for image deconvolution (since you will lose even more data in the image).</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+<div class="blogcomments">
+	<div class="section">
+		<div class="user">
+	
+			<img src="/images/profile.jpg" width="45" height="45" alt="" />
+	
+		</div><!-- /user -->
+		<div class="comment">
+			<ul class="info">
+				<li>675 Days Ago</li>
+				<li>05/02/2013</li>
+			</ul>
+			<p class="commentbody">@deconv  The reconstruction of a single slice from a brain MRI using a 2D 380X256x 16 bit pixel matrix compiled and spatially reconstructed by co locating a single signal point resolved from the chaotic MRI signal by phase, frequency and xy axis slice selection via fourier transform.   This reply format will not allow image attachement...send me your E mail and I will send you a DICOM  facsimile of a conventional brain MRI.  send contact info to ted@medwise.net.  We use a Siemens multichannel array processor to do the FFT and subsequent signal data deposition into an MRI "k" space array from which the gray scale image is subsequently reconstructed.   Great overview of the process and role of FFT is:<br />Horowitz:  MRI Physics for Radiologists  Springer - Verlag</p>
+		</div>
+	</div>
+	<div class="clear"></div>
+
+</div>
+
+</div>
+
+</noscript>
+
+
+
+
+</div>
+
+
+
+<img src="/api/stories/hit/427676/pixel.gif" width="1" height="1" alt="" style="margin: 0; float: none;" />
+	
+
+
+<img src="http://pixel.mathtag.com/event/img?mt_id=132108&amp;mt_adid=104331&amp;v1=&amp;v2=&amp;v3=&amp;s1=&amp;s2=&amp;s3=" width="1" height="1" alt="" />
+
+<!-- search ignore begin -->
+
+		</div><!-- /.mcontent -->
+	</div><!-- /.contentwrap -->
+
+	<div style="clear: both;"></div>
+
+</div><!-- /.container -->
+
+
+	<section class="ad-bar white">
+		<div class="wrapper">
+			<div id="dfp-ad-tr_www_footer_post_body_landscape-wrapper" class="dfp-tag-wrapper"><div  id="dfp-ad-tr_www_footer_post_body_landscape" class="dfp-tag-wrapper">
+			  <script type="text/javascript">
+			    googletag.cmd.push(function() {
+			      googletag.display("dfp-ad-tr_www_footer_post_body_landscape");
+			    });
+			  </script>
+			</div>
+		</div>
+	</section>
+
+
+    <footer id="tr-global-footer">
+      <nav>
+        <div class="wrapper">
+        
+
+<div id="menu_footer_selector">
+    <a href="/lists/">Lists</a>
+</div>
+<ul>
+    <li><a href="http://www.technologyreview.com/lists/" class="active">All Lists</a></li>
+    <li><a href="http://www.technologyreview.com/lists/innovators-under-35/">Innovators</a></li>
+    <li><a href="http://www.technologyreview.com/lists/disruptive-companies/">Companies</a></li>
+    <li><a href="http://www.technologyreview.com/lists/breakthrough-technologies/">Technologies</a></li>
+    <li><a href="http://www.technologyreview.com/lists/breakthrough-technologies/">TR10</a></li>
+    <li><a href="http://www.technologyreview.com/lists/innovators-under-35/">TR35</a></li>
+    <li><a href="http://www.technologyreview.com/lists/disruptive-companies/">TR50</a></li>
+    <li><a href="http://www.technologyreview.com/lists/innovators-under-35/">TR100</a></li>
+    <li><a href="http://www.technologyreview.com/lists/nominations/">Nominations</a></li>
+</ul>
+
+
+
+          <a id="btt" href="#tr-global-nav">Back to Top</a>
+        </div>
+      </nav>
+
+      <div class="wrapper">
+        <p class="mission">The mission of MIT Technology Review is to equip its audiences with the intelligence to understand a world shaped by technology.</p>
+
+        <ul class="boxes">
+          <a href="http://www.technologyreview.com/editions/" class="go-editions-selector"><li>
+            <h3>Editions</h3>
+            <p>Find your preferred version. Choose from six languages and in 13 regions worldwide.</p>
+          </li></a>
+          <a href="http://www.technologyreview.com/magazine/archives/"><li>
+            <h3>Archives</h3>
+            <p>Explore 114 years of innovation from the most respected technology publication.</p>
+          </li></a>
+          <a href="http://www.technologyreview.com/lists/"><li>
+            <h3>Lists</h3>
+            <p>Discover the most important people, companies and technologies shaping our future.</p>
+          </li></a>
+          <a href="http://www.technologyreview.com/events/"><li>
+            <h3>Events</h3>
+            <p>Attend one of our over 400 thought-provoking live events worldwide.</p>
+          </li></a>
+          <a href="http://www.technologyreview.com/subscribe/" class="last"><li>
+            <h3>Subscribers</h3>
+            <p>Have <em>MIT Technology Review</em> delivered to your doorstep, desktop, or tablet? <!--<strong>Subscribe &raquo;</strong>--></p>
+          </li></a>
+        </ul>
+
+        <div class="hr"></div>
+
+        <section class="footer-lists">
+          <ul class="footer-list first">
+            <li class="header"><h3>More</h3></li>
+            <li><a href="http://newsletters.technologyreview.com" target="_blank">Newsletters</a></li>
+            <li><a href="http://www.mitef.org" target="_blank">MIT Enterprise Forum</a></li>
+            <li><a href="http://www.technologyreview.com/magazine/mitnews">MIT News Magazine</a></li>
+            <li><a href="http://www.emtechmit.com" target="_blank">EmTech</a></li>
+          </ul>
+
+          <ul class="footer-list">
+            <li class="header"><h3><a href="http://www.technologyreview.com/about/">Company</a></h3></li>
+            <li><a href="http://www.technologyreview.com/about/">About Us</a></li>
+            <li><a href="http://www.technologyreview.com/careers/">Work for Us</a></li>
+            <li><a href="http://www.technologyreview.com/media/">Advertise with Us</a></li>
+            <li><a href="http://www.technologyreview.com/about/permissions/">Reprints and Permissions</a></li>
+          </ul>
+
+          <ul class="footer-list">
+            <li class="header"><h3><a href="http://www.technologyreview.com/my/">Your Account</a></h3></li>
+            <li><a href="http://www.technologyreview.com/join/">Join</li>
+            <li><a href="http://www.technologyreview.com/my/">View Profile</a></li>
+            <li><a href="http://www.technologyreview.com/my/">Manage Account</a></li>
+            <li><a href="http://www.technologyreview.com/support/">Manage Subscription</a></li>
+          </ul>
+
+          <ul class="footer-list">
+            <li class="header"><h3><a href="http://www.technologyreview.com/support/">Customer Support</a></h3></li>
+            <li><a href="http://www.technologyreview.com/support/">Help / Support</a></li>
+            <li><a href="http://www.technologyreview.com/contact/">Contact us</a></li>
+            <li><a href="http://www.technologyreview.com/contact/submit/">Feedback</a></li>
+            <li><a href="http://www.technologyreview.com/sitemap/">Sitemap</a></li>
+          </ul>
+
+          <aside>
+            <h3><a href="http://www.technologyreview.com/connect/">Connect</a></h3>
+            <ul class="social-icons">
+              <li><a target="_blank" href="http://twitter.com/techreview" id="social-twitter">Twitter</a></li>
+              <li><a target="_blank" href="https://www.linkedin.com/company/mit-technology-review" id="social-linkedin">LinkedIn</a></li>
+              <li><a target="_blank" href="http://www.youtube.com/user/technologyreview" id="social-youtube">YouTube</a></li>
+              <li><a target="_blank" href="https://google.com/+technologyreview/" id="social-google" rel="publisher">Google+</a></li>
+              <li><a target="_blank" href="http://www.stumbleupon.com/channel/TechReview" id="social-stumbleupon">StumbleUpon</a></li>
+              <li><a target="_blank" href="https://www.facebook.com/technologyreview" id="social-facebook">Facebook</a></li>
+              <li><a target="_blank" href="http://www.technologyreview.com/connect/#rss" id="social-rss">RSS</a></li>
+              <li><a target="_blank" href="http://www.technologyreview.com/connect/#mobile" id="social-mobile">Mobile</a></li>
+            </ul>
+          </aside>
+        </section>
+
+        <a href="http://www.technologyreview.com/"><h2>MIT Technology Review</h2></a>
+
+        <ul id="terms-privacy">
+          <li><a href="http://www.technologyreview.com/about/ethics-statement/">Ethics Statement</a></li>
+          <li><a href="http://www.technologyreview.com/about/terms-of-service/">Terms of Service</a></li>
+          <li><a href="http://www.technologyreview.com/about/privacy/">Privacy</a></li>
+          <li><a href="http://www.technologyreview.com/about/commenting-guidelines/">Commenting Guidelines</a></li>
+        </ul>
+
+        <ul id="copy-version">
+          <li><a href="http://www.technologyreview.com/about/terms-of-service/">&copy; 2013</a></li>
+          <li><a href="http://techre.vu/WqDgGM" target="_blank">v1.13.02.21</a></li>
+        </ul>
+      </div>
+    </footer>
+
+<!-- addthis -->
+  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4df12eda07a410ab&async=1"></script>
+
+<!-- crazyegg -->
+  <script type="text/javascript">
+  setTimeout(function(){var a=document.createElement("script");
+  var b=document.getElementsByTagName("script")[0];
+  a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0011/9154.js?"+Math.floor(new Date().getTime()/3600000);
+  a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script>
+
+<!-- START Parse.ly Include: Standard -->
+  <div id="parsely-root" style="display: none">
+    <div id="parsely-cfg" data-parsely-site="technologyreview.com"></div>
+  </div>
+  <script>
+  (function(s, p, d) {
+    var h=d.location.protocol, i=p+"-"+s,
+        e=d.getElementById(i), r=d.getElementById(p+"-root"),
+        u=h==="https:"?"d1z2jf7jlzjs58.cloudfront.net"
+        :"static."+p+".com";
+    if (e) return;
+    e = d.createElement(s); e.id = i; e.async = true;
+    e.src = h+"//"+u+"/p.js"; r.appendChild(e);
+  })("script", "parsely", document);
+  </script>
+<!-- END Parse.ly Include -->
+
+
+
+
+
+<!-- Begin comScore Tag -->
+<script>
+  var _comscore = _comscore || [];
+  _comscore.push({ c1: "2", c2: "16198136" });
+  (function() {
+    var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+    s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+    el.parentNode.insertBefore(s, el);
+  })();
+</script>
+<noscript>
+  <img src="http://b.scorecardresearch.com/p?c1=2&c2=16198136&cv=2.0&cj=1" />
+</noscript>
+<!-- End comScore Tag -->
+
+<!-- search ignore end -->
+
+</body>
+</html>

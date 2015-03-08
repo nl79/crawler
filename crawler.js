@@ -23,10 +23,13 @@ function spawn (config) {
         this.crawled = 0;
         
         //visited - a hash table storing the visited links hashed as sha1. 
-        this.visited = new Array(); 
+        this.visited = new Array();
         
         //limit the amount of links to visit. 
         this.limit = 0; 
+        
+        //cached - number of pages alread saved.
+        this.cached = 0; 
         
         //limit the amount of pages to cache
         this.cacheLimit = 0;
@@ -127,7 +130,7 @@ function spawn (config) {
             
             //var http = require('http');
                     
-            if (this.queue.length > 0 && this.crawled <= this.cacheLimit) {
+            if (this.queue.length > 0 && this.cached <= this.cacheLimit) {
                 
                 this.url = this.queue.shift();
              
@@ -411,6 +414,9 @@ function spawn (config) {
                         console.log(err);
                     } else {
                         console.log("The file was saved!");
+                        
+                        //increment the cached count
+                        self.cached += 1; 
                         
                         //emit a saved event.
                         self.emit('next')

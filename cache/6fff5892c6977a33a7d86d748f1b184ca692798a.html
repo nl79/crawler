@@ -1,0 +1,1387 @@
+undefined<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>MIT 6.046J / 18.410J Introduction to Algorithms - Fall 2005 - VideoLectures - VideoLectures.NET</title>
+    <!-- <base href="http://videolectures.net/"> !-->
+    <script type="text/javascript">var viipg={cfg:{slug:'mit6046jf05_introduction_algorithms',type:'Lecture',obj_id:5693,chrome_colors:["FFFFFF","F21F1F"],livepipe:'//videolectures.net',site_slug:'vln',media_url:'http://static.videolectures.net/r.1418842707/',sentry:'//161ef9a5c3a14af1848399909b890522@sentry.viidea.com/6'},ga:function(){var r=function(fn){r._todo.push(Array.prototype.slice.apply(arguments));};r._todo=[];return r;}()};</script>
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    
+  <!-- overide the css here when inheriting base.html -->
+  <link rel="stylesheet" href="/site/generate/chrome/styles_compat.less" type="text/css" media="screen" />
+  <link rel="stylesheet" href="http://static.videolectures.net/r.1418842707//custom/vln.css" type="text/css">
+
+    <style type="text/css"> a[lang="en"] img.lang-flag, span.language[lang="en"]{display:none;}</style>
+    
+    
+    
+
+    
+    
+      <!--[if lt IE 9]>
+        <link rel="subresource" href="https://cdn.jsdelivr.net/html5shiv/3.7.0/html5shiv.js" />
+      <![endif]-->
+      <link rel="subresource" href="https://cdn.jsdelivr.net/jquery/1.8.3/jquery-1.8.3.min.js" />
+      <link rel="subresource" href="http://static.videolectures.net/r.1418842707//common/js/raven.min.js" />
+      <link rel="subresource" href="http://static.videolectures.net/r.1418842707/static/vl/js/viipg.js" />
+      <link rel="subresource" href="https://cdn.jsdelivr.net/json2/0.1/json2.min.js" />
+      <link rel="subresource" href="http://static.videolectures.net/r.1418842707/static/vl/js/bootstrap-dropdown.js" />
+      <link rel="subresource" href="http://static.videolectures.net/r.1418842707/static/js/socket.io.js" />
+
+      
+  <link rel="subresource" href="http://static.videolectures.net/r.1418842707/static/vl/js/classic.js" />
+
+
+      
+<script type="text/javascript">(function(w,d){w.console||(w.console={log:function(){}});var osc='onreadystatechange',Wait=function(name){var cbs=[],W=function(cb){cbs.push(cb);},release=function(){w.viipg[name]=function(cb){cb();};};W.emit=function(){for(var i=0;i<cbs.length;i+=1){cbs[i]();}
+release();};W.jq=function(){var el=name=='load'?w:d;for(var i=0;i<cbs.length;i+=1){w.jQuery(el)[name](cbs[i]);}
+w.viipg[name]=function(cb){w.jQuery(el)[name](cb);};w.viipg[name](release);};return W;},_addScript=function(src,sync,cb){var script,el;if('async'in d.scripts[0]){script=d.createElement('script');if(sync)script.async=false;if(cb)script.onload=cb;script.src=src;(d.head||d.getElementsByTagName('head')[0]).appendChild(script);}else if(d.scripts[0].readyState){script=d.createElement('script');_scripts.push([script,cb]);script[osc]=_stateChange;script.src=src;}else{if(w.jQuery){w.jQuery.getScript(src,cb);}else{d.write('<s'+'cript src="'+src+'" type="text/javascript" defer></s'+'cript>');if(cb)setTimeout(cb,0);}}},_scripts=[],_stateChange=function(){var s,c;while(_scripts[0]&&_scripts[0][0].readyState=='loaded'){c=null;s=_scripts.shift();if(s.length>1)c=s[1];s=s[0];s[osc]=null;d.scripts[0].parentNode.insertBefore(s,d.scripts[0]);if(c)c();}},_done=function(){w.viipg.ready.jq();w.viipg.load.jq();};w.viipg||(w.viipg={});w.viipg.load=Wait('load');w.viipg.ready=Wait('ready');w.viipg.asap=Wait('asap');w.viipg.lazy=Wait('lazy');w.viipg.addScript=function(src1,src2,cb){var args=Array.prototype.slice.call(arguments),cb=typeof args[args.length-1]=='function'?args.pop():null,i,script;for(i=0;i<args.length;i+=1){_addScript(args[i],args.length>1,i===args.length-1?cb:null);}};var tags=d.getElementsByTagName('link'),links=[];for(var i=0,length=tags.length;i<length;i++){if(tags[i].rel==='subresource'&&tags[i].href)links.push(tags[i]);}
+if(links.length>0){for(var i=0;i<links.length;i+=1)_addScript(links[i].href,true,i==links.length-1?_done:null);}else{setTimeout(_done,0);}}(window,document));</script>
+
+
+      
+      
+    
+
+    
+    
+  <link rel="shortcut icon" HREF="http://static.videolectures.net/r.1418842707//custom/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" href="http://static.videolectures.net/r.1418842707//custom/vln-touch-icon-precomposed.png">
+
+    
+<meta name="title" content="MIT 6.046J / 18.410J Introduction to Algorithms - Fall 2005" />
+<meta name="description" content="This course teaches techniques for the design and analysis of efficient algorithms, emphasizing methods useful in practice. Topics covered include: sorting; search trees, heaps, and hashing; divide-and-conquer; dynamic programming; amortized analysis; graph algorithms; shortest paths; network flow; computational geometry; number-theoretic algorithms; polynomial and matrix calculations; caching; and parallel computing. This course was also taught as part of the Singapore-MIT Alliance (SMA) programme as course number SMA 5503 (Analysis and Design of Algorithms). Course Homepage 6.046J / 18.410J Introduction to Algorithms (SMA 5503) Fall 2005 Course features at MIT OpenCourseWare page: Syllabus Calendar Readings Assignments Exams Download Course Materials  Complete MIT OCW video collection at MIT OpenCourseWare - VideoLectures.NET" />
+
+
+  <link rel="image_src" href="http://hydro.ijs.si/v00c/53/kovwujuxas3xcufydo6htkixqbgjvhf7.jpg" />
+  <meta property="og:image" content="http://hydro.ijs.si/v00c/53/kovwujuxas3xcufydo6htkixqbgjvhf7.jpg" /> 
+
+
+
+    
+        
+    
+</head>
+
+<body id='browse_page'  >
+
+  <div class="body-wrap">
+
+  
+  <div id="page_header_bg" class="pg_block">
+  <div id="header">
+    <div id='branding'>
+      
+    <a href="/"><div id='site_logo'></div></a>
+    <div id="wsa_logo"></div>
+    <div id="unesco_logo"></div>
+
+    </div>      
+    <div id='user-tools'>
+      
+      <span id="jq_userctl">
+          
+        <span class='login-logout'>
+        <a href="/site/accounts/login/?next=/mit6046jf05_introduction_algorithms/" rel='nofollow'>Log in</a>  |
+        <a href="/site/accounts/register/" rel='nofollow'>Register</a> |
+        </span>
+        
+        
+          <a href="/" rel='nofollow' id="lang_sel" title='Choose your language'>
+          
+            <img src='http://static.videolectures.net/r.1418842707//flags/us.gif' alt='English language'><img src='http://static.videolectures.net/r.1418842707//flags/uk.gif' border='0' alt=''>
+          
+          </a>
+          &nbsp;
+        
+      </span>
+      
+  
+  <div id="signInRegister">
+  
+    <div id="register"><a href="/site/accounts/register/" rel='nofollow'>New User<br>Register</a></div>
+    <div id="signIn"><a href="/site/accounts/login/?next=/mit6046jf05_introduction_algorithms/" rel='nofollow'>Sign in</a></div>
+  
+  </div>
+
+      
+    </div>
+    <div style='clear:both;'></div>
+  </div>
+  </div>
+  
+  
+  <div id='top_menu_box' class='pg_block'>
+  <div id='top_menu'>
+    <form method='get' action="/site/search/">
+      <input class="search" name="q" type="text" value="" size='40'><input class="button" type="submit" value='Search'>
+    </form>
+    
+      
+    
+    <ul>
+      
+  <li id='tm_home' class='tm_leftmost'><a href="/">Home</a></li>
+  <li id='tm_browse'><a href="/Top/" class="dd_href">Browse Lectures</a></li>
+  <li id='tm_authors'><a href="/site/list/authors/">People</a></li>
+  <li id='tm_conferences'><a href="/conferences/">Conferences</a></li>
+  <li id='tm_academia'><a href="/academia/">Academic Organisations</a></li>
+  <li id='tm_eu_supported'><a href="/eu_supported/">EU Supported</a></li>
+  <li id='tm_blog'><a href="http://blog.videolectures.net/">Blog</a></li>
+  <li id='tm_about'><a href="/site/about/">About Us</a></li>
+
+    </ul>
+    <div style='clear:both;'></div>
+  </div>
+  </div>
+  
+  
+  
+    <div style='clear:both;'></div>
+    
+  <div class='drilldown_hmenu_bg pg_block span12'>
+  <div class='drilldown_hmenu'>
+  <div class='drilldown dd_bg' style='margin-right:0px;'>
+    <div class='drilldown_loc'>
+    
+      
+      <span class='drilldown_hmenu_label'> Event: </span>
+      
+      
+        
+         
+          <a href='/academia/'>Academic Organisations</a>
+        
+      
+        &raquo;
+         
+          <a href='/ocwc/'>OpenCourseWare Consortium</a>
+        
+      
+        &raquo;
+         
+          <a href='/mit_ocw/'>MIT OpenCourseWare</a>
+        
+      
+        &raquo;
+        
+          
+            <span id='dd_loc_last'>
+            <a href='#' class='dd_if_browsing' onClick='javascript:jump_to_overview();'>MIT 6.046J / 18.410J Introduction to Algorithms - Fall 2005</a>
+            <span class='dd_if_browsing'>MIT 6.046J / 18.410J Introduction to Algorithms - Fall 2005</span>
+            </span>
+            
+        
+        
+      <br>
+      
+      <div id='drilldown_cat_path'>
+      
+      </div>
+    
+    </div>
+    <div style='clear:both;'></div>
+  </div>
+  </div>
+  </div>
+
+    
+    	
+  
+  
+
+
+  
+  <div id="maincontainer" class="pg_block">
+    
+
+<div class='drilldown_opts drilldown dd_bg span2'>
+<form id='browse_form' name='browse' action='/site/browse/' method='get'>
+
+<h4>View order</h4>
+<span class='dd_ordering'>
+
+  <input type='radio' name='o' value='' class='dd_ctl' id='dd_overview' checked>
+  <label title="event page"><b>Overview</b></label><br>
+  <input type='radio' name='o' value='hot' class='dd_ctl'>
+  <label title="Show recently popular content">Hot</label><br>
+
+  <input type='radio' name='o' value='top' class='dd_ctl'>
+  <label title="Show lectures with most visits per day">Popular</label><br>
+  <input type='radio' name='o' value='add' class='dd_ctl'>
+  <label title="Show latest additions">Just published</label><br>
+  <input type='radio' name='o' value='rec' class='dd_ctl'>
+  <label title="Show recently recorded lectures">Recent</label><br>
+  <input type='radio' name='o' value='vot' class='dd_ctl'>
+  <label title="Show content that users liked best">Top Voted</label><br>
+</span>
+
+<div class='dd_if_browsing '>
+
+
+
+
+<div id='taxonomy_form' style='display:none;'>
+  <h4>Topic taxonomy</h4>
+  <input type='checkbox' name='c' value='s' class='dd_ctl'>
+  <label title="Focus only on ''. Ignore subtopics.">No subtopics</label>&nbsp;<span id='c_s' class='dd_cnt'></span><br>
+  <input type='checkbox' name='c' value='f' class='dd_ctl'>
+  <label title="Let the system suggest more lectures for this category">Feeling lucky</label>&nbsp;<span id='c_f' class='dd_cnt'></span><br>
+</div>
+
+
+
+
+<h4>Type of content</h4>
+<input type='checkbox' name='t' value='evt' class='dd_ctl'><label title="Courses, conferences, workshops, etc.">Event</label>&nbsp;<span id='t_evt' class='dd_cnt'></span><br>
+<input type='checkbox' name='t' value='vl' class='dd_ctl'><label title="Common lectures">Lecture</label>&nbsp;<span id='t_vl' class='dd_cnt'></span><br>
+<input type='checkbox' name='t' value='vtt' class='dd_ctl'><label title="Tutorials and longer lectures">Tutorial</label>&nbsp;<span id='t_vtt' class='dd_cnt'></span><br>
+<input type='checkbox' name='t' value='vkn' class='dd_ctl'><label title="Special, awarded lectures and keynote speeches">Keynote</label>&nbsp;<span id='t_vkn' class='dd_cnt'></span><br>
+<input type='checkbox' name='t' value='viv' class='dd_ctl'><label title="Interviews">Interview</label>&nbsp;<span id='t_viv' class='dd_cnt'></span><br>
+<input type='checkbox' name='t' value='__' class='dd_ctl'><label title="Other sorts of content">Other...</label>&nbsp;<span id='t___' class='dd_cnt'></span><br>
+
+
+<h4>Language</h4>
+<input type='checkbox' name='l' value='en' class='dd_ctl'><label>English</label>&nbsp;<span id='l_en' class='dd_cnt'></span><br>
+<input type='checkbox' name='l' value='sl' class='dd_ctl'><label>Slovenian</label>&nbsp;<span id='l_sl' class='dd_cnt'></span><br>
+<input type='checkbox' name='l' value='fr' class='dd_ctl'><label>French</label>&nbsp;<span id='l_fr' class='dd_cnt'></span><br>
+<input type='checkbox' name='l' value='de' class='dd_ctl'><label>German</label>&nbsp;<span id='l_de' class='dd_cnt'></span><br>
+<input type='checkbox' name='l' value='nl' class='dd_ctl'><label>Dutch</label>&nbsp;<span id='l_nl' class='dd_cnt'></span><br>
+<input type='checkbox' name='l' value='hr' class='dd_ctl'><label>Croatian</label>&nbsp;<span id='l_hr' class='dd_cnt'></span><br>
+<input type='checkbox' name='l' value='__' class='dd_ctl'><label title="All other languages">Other...</label>&nbsp;<span id='l___' class='dd_cnt'></span><br>
+
+
+<h4>Year</h4>
+<table width='100%' align='right'>
+<tr>
+<td align='right' width='60%'>From:</td>
+<td><select name='y1'>
+<option value='any' class='dd_ctl' selected='selected'>(any)</option>
+<option value='1999' class='dd_ctl'>1999</option>
+<option value='2000' class='dd_ctl'>2000</option>
+<option value='2001' class='dd_ctl'>2001</option>
+<option value='2002' class='dd_ctl'>2002</option>
+<option value='2003' class='dd_ctl'>2003</option>
+<option value='2004' class='dd_ctl'>2004</option>
+<option value='2005' class='dd_ctl'>2005</option>
+<option value='2006' class='dd_ctl'>2006</option>
+<option value='2007' class='dd_ctl'>2007</option>
+<option value='2008' class='dd_ctl'>2008</option>
+<option value='2009' class='dd_ctl'>2009</option>
+<option value='2010' class='dd_ctl'>2010</option>
+<option value='2011' class='dd_ctl'>2011</option>
+<option value='2012' class='dd_ctl'>2012</option>
+<option value='2013' class='dd_ctl'>2013</option>
+<option value='2014' class='dd_ctl'>2014</option>
+</select></td>
+</tr>
+<tr>
+<td align='right'>To:</td>
+<td><select name='y2'>
+<option value='any'  class='dd_ctl' selected='selected'>(any)</option>
+<option value='1999' class='dd_ctl'>1999</option>
+<option value='2000' class='dd_ctl'>2000</option>
+<option value='2001' class='dd_ctl'>2001</option>
+<option value='2002' class='dd_ctl'>2002</option>
+<option value='2003' class='dd_ctl'>2003</option>
+<option value='2004' class='dd_ctl'>2004</option>
+<option value='2005' class='dd_ctl'>2005</option>
+<option value='2006' class='dd_ctl'>2006</option>
+<option value='2007' class='dd_ctl'>2007</option>
+<option value='2008' class='dd_ctl'>2008</option>
+<option value='2009' class='dd_ctl'>2009</option>
+<option value='2010' class='dd_ctl'>2010</option>
+<option value='2011' class='dd_ctl'>2011</option>
+<option value='2012' class='dd_ctl'>2012</option>
+<option value='2013' class='dd_ctl'>2013</option>
+<option value='2014' class='dd_ctl'>2014</option>
+</select></td>
+</tr>
+</table>
+<p>&nbsp;
+<hr style='height:1px; border:0; background:#888;'>
+<p>...Search a Keyword
+<br><div style='height:3px;'>&nbsp;</div>
+<input type='text' name='q' style='width:113px;'>
+<div style='height:5px;'>&nbsp;</div>
+
+</div> 
+
+</form><input type='hidden' name='csrfmiddlewaretoken' value='G7TS846lhcrYHJTfluGqHWAK4x24hw9P' />
+
+</div>
+
+
+<div class='dd_form_aux'>
+  <div id='dd_project_logo'>
+  
+  
+	
+	<a href='/mit_ocw/'><img src='http://hydro.ijs.si/v00a/97/s4n4t6n6ephhe7qoipr2nliz6ruuw23c.png'></a>
+	
+  
+  
+
+  </div>
+</div>
+
+
+
+<div id='dd_form_sections'></div>
+
+
+
+<script type="text/javascript">viipg.asap(function(){var dd_hash=null;var dd_query=null;var dd_cntqry=null;var dd_xhr_data=null;var dd_xhr_cnt=null;$('.dd_ctl').click(update_browse);$('.dd_href').click(dd_decorate_href);$('.drilldown_loc a').click(dd_decorate_href);var hash=dd_filter_hash(window.location.hash);var lecid=5693;if(lecid&&hash||!lecid){dd_set_hash(hash);load_browse_form(hash);}
+function jump_to_overview(){$('#dd_overview').attr("checked","checked");update_browse();return false;}
+function dd_filter_hash(hash){if(!hash)return''
+if(hash[0]=='#')hash=hash.substr(1,hash.length);var pair,pairs=hash.split("&");var result=[]
+for(pair in pairs){if(pairs[pair].split("=").length!=2)continue;if(/[^a-zA-Z]/.test(pairs[pair][0][0]))continue;result.push(pairs[pair])}
+return result?result.join('&'):'';}
+function dd_filter_query(query,keys,invert){if(!query||!query.length)return'';if(keys)keys=keys.split(',');else keys=['o','p'];var sel=[],pairs=query.split("&");for(s in pairs){s=pairs[s];var found=false;key=s.split('=')[0];for(var j=0;j<keys.length;j++)found|=(key==keys[j]);if(found==!!invert)sel.push(s);}
+return sel.join('&');}
+function dd_decorate_href(){var query=''+this
+query=query.split('#',2);if(query.length<2){var hash=dd_filter_query(dd_hash,'p');window.location=query[0]+'#'+hash}else{var loc=query[0];query=query[1];var hash=dd_filter_query(dd_hash,'p,cid');if(hash)query=hash+(query?'&'+query:'');var sloc=''+window.location;if(loc&&sloc.substr(0,loc.length)!=loc){window.location=loc+'#'+query;}
+dd_set_hash(query);}
+return false;}
+viipg._dd_decorate_href=dd_decorate_href;function isDigit(c){return((c>="0")&&(c<="9"))}
+function skipInitialAmp(s){return(s.indexOf('&')===0)?s.slice(1):s;}
+function load_browse_form(query){var f=$('#browse_form');var result={};var has_ordering=false;if(query){var pairs=query.split("&");var pair,key,val,vals;for(pair in pairs){pair=pairs[pair].split("=");key=pair[0];val=pair[1];result[key]=val;if(key=='t'||key=='l'||key=='o'||key=='s'){vals=val.split(',');for(var j=0;j<vals.length;j++)$('#browse_form [name='+key+']').filter('[value='+vals[j]+']').each(function(n){this.checked=true;});has_ordering|=(key=='o');}else if(key=='q'){$('#browse_form [name='+key+']').val(decodeURIComponent(val));}else if(key[0]=='y'){$('#browse_form [name='+key+']').filter('[value='+val+']').each(function(n){this.checked=this.selected=true;});}else{$('#browse_form [name='+key+'] > [value='+val+']').each(function(n){this.checked=true;});}}}
+if(has_ordering){$('.dd_if_browsing').addClass('browsing');}else{$('.dd_if_browsing').removeClass('browsing');}};function join_cb_vals(name,xor_mode){var items=$('#browse_form [name='+name+']');if(xor_mode&&items.not(':checked').length==0)return'';var a=new Array();items.filter(':checked').each(function(i){val=$(this).val();if(val)a[a.length]=val;});if(a.length==0)return'';return name+'='+a.join(',');}
+function form2filter(){f=$('#browse_form');var sel=new Array()
+var order=join_cb_vals('o');if(order)sel[sel.length]=order;var scope=join_cb_vals('s');if(scope)sel[sel.length]=scope;var types=join_cb_vals('t',true);if(types)sel[sel.length]=types;var langs=join_cb_vals('l',true);if(langs)sel[sel.length]=langs;var cats=join_cb_vals('c');if(cats)sel[sel.length]=cats;var y1=$('#browse_form [name=y1] > :selected').val();if(isDigit(y1[0]))sel[sel.length]='y1='+y1;var y2=$('#browse_form [name=y2] > :selected').val();if(isDigit(y2[0]))sel[sel.length]='y2='+y2;var search=$('#browse_form [name=q]').val();if(search)sel[sel.length]='q='+encodeURIComponent(search);if(order!=''){$('.dd_if_browsing').addClass('browsing');}else{$('.dd_if_browsing').removeClass('browsing');}
+return sel.join('&')}
+function update_browse(){dd_set_hash(form2filter());return true;}
+$('#browse_form').submit(function(){update_browse();return false;});function dd_set_hash(query){if(query==dd_hash)return;dd_hash=dd_filter_query(dd_hash,'cid',true);if(dd_hash&&!dd_filter_query(query,'cid',true))query+='&'+dd_hash;dd_hash=query;if(window.location.hash.substring(1)!=dd_hash)window.location='#'+dd_hash;query+='&id=5693';query=skipInitialAmp(query);if(query!=dd_query){dd_query=query;cntqry=dd_filter_query(query);if(cntqry!=dd_cntqry){dd_cntqry=cntqry;if(dd_xhr_cnt)dd_xhr_cnt.abort();dd_xhr_cnt=$.ajax({url:'/site/ajax/drilldown/counts/?'+dd_cntqry,dataType:'html',cache:true,success:function(msg){$('#drilldown_counts').html(msg);},complete:function(){dd_xhr_cnt=null;}});}
+if(dd_xhr_data)dd_xhr_data.abort();$('#drilldown_list').html('');width=5;dd_xhr_data=$.ajax({url:'/site/ajax/drilldown/?'+dd_query+'&w='+width,cache:true,dataType:'html',success:function(msg){$('#drilldown_list').html(msg);$('#drilldown_custom_rss').attr('href','/site/feeds/custom/?'+dd_query);},complete:function(){dd_xhr_data=null;}});}}
+viipg.go_to_page=function(num){var hash=dd_filter_query(dd_hash,'p');if(num>1){if(hash)hash+='&p='+num;else hash='p='+num;}
+dd_set_hash(hash);}});</script>
+
+
+
+
+
+    
+
+
+
+    <script type="text/javascript">viipg.ready(function(){ $('#tm_browse').addClass('current'); ;});</script>
+    
+   
+    
+      
+      <div id="content" class="drilldown_content">
+        
+
+      
+<div id='drilldown_counts' class='dd_if_browsing '></div>
+<div id='drilldown_list' class='span10'>
+  
+    
+
+<div id='drilldown_counts'></div>
+<div id="innerbox"><div id="drilldown_list" >
+  
+  
+  
+    <div class='evt_banner'>
+      <img src='http://hydro.ijs.si/v00a/3b/hmoxagistkjfkmjc3cox2mnspz6t6lza.jpg' alt='event header image'>
+      
+    </div>
+    <script type="text/javascript">
+      viipg.asap( function(){ $('.drilldown_opts').addClass('aside_event'); });
+    </script>
+  
+  
+
+  
+  
+    <span id='vl_desc'>
+    
+
+    <h2>MIT 6.046J / 18.410J Introduction to Algorithms - Fall 2005</h2>
+    <div class='lec_data'>
+    
+        <span>recorded by: </span><a href='//'>Massachusetts Institute of Technology, MIT</a>
+      <br>
+    
+
+    
+    
+      <span>released under terms of: </span>
+       <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/" target="_blank">Creative Commons Attribution Non-Commercial Share Alike (CC-BY-NC-SA)</a>
+      <br />
+    
+
+    </div>
+
+    
+    
+      
+      <span id="lec_desc_edit" style='line-height:140%;'>
+        <p><p>This course teaches techniques for the design and analysis of efficient algorithms, emphasizing methods useful in practice. Topics covered include: sorting; search trees, heaps, and hashing; divide-and-conquer; dynamic programming; amortized analysis; graph algorithms; shortest paths; network flow; computational geometry; number-theoretic algorithms; polynomial and matrix calculations; caching; and parallel computing.</p>
+<p>This course was also taught as part of the <a href="http://web.mit.edu/sma">Singapore-MIT Alliance (SMA)</a> programme as course number SMA 5503 (Analysis and Design of Algorithms).</p>
+<p><strong>Course Homepage</strong> <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/">6.046J / 18.410J Introduction to Algorithms (SMA 5503) Fall 2005</a></p>
+<p><strong>Course features at MIT OpenCourseWare page</strong>:</p>
+<ul><li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/syllabus">Syllabus</a>
+</li><li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/calendar">Calendar</a>
+</li><li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/readings">Readings</a>
+</li><li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/assignments">Assignments</a>
+</li><li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/exams">Exams</a>
+</li><li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/download-course-materials">Download Course Materials</a>
+</li></ul>
+<p><strong>Complete MIT OCW video collection at <a href="http://videolectures.net/mit_ocw/">MIT OpenCourseWare - VideoLectures.NET</a></strong></p>
+</p>
+      </span>
+    
+
+    
+    
+    
+
+
+  <fieldset id='categories'>
+  <legend>
+    Categories
+    
+  </legend>
+  <ul>
+  
+    <li>
+    <span clase='cat_path'><a href='/Top/'>Top</a>
+     &raquo; 
+    <a href='/Top/Computer_Science/'>Computer&nbsp;Science</a></span></li>
+  
+    <li>
+    <span clase='cat_path'><a href='/Top/'>Top</a>
+     &raquo; 
+    <a href='/Top/Computers/'>Computers</a>
+     &raquo; 
+    <a href='/Top/Computers/Programming/'>Programming</a></span></li>
+  
+    <li>
+    <span clase='cat_path'><a href='/Top/'>Top</a>
+     &raquo; 
+    <a href='/Top/Computer_Science/'>Computer&nbsp;Science</a>
+     &raquo; 
+    <a href='/Top/Computer_Science/Algorithms_and_Data_Structures/'>Algorithms&nbsp;and&nbsp;Data&nbsp;Structures</a></span></li>
+  
+  </ul>
+  </fieldset>
+
+
+
+    
+    </span>
+  
+  
+ 
+
+  
+
+
+ 
+  
+  
+  
+
+  
+    
+       
+        
+
+<table border="0" cellspacing='0px' cellpadding='2px' width="100%"><tr><td width='20%'></td><td width='20%'></td><td width='20%'></td><td width='20%'><td width='20%'></td></tr><tr valign="top"><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_leiserson_lec01/' target='_top' id='lec=5780' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/99/tel5cczr2zpwgbwvaaeuyvtw3kf3ubip.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          24432&nbsp;views,&nbsp;1:20:32
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 1: Administrivia, Introduction, Analysis of Algorithms, Insertion Sort, Mergesort</span><span class='thumb_short' title='Lecture 1: Administrivia, Introduction, Analysis of Algorithms, Insertion Sort, Mergesort'>Lecture 1: Administrivia, Introduction, Analysis of Algorithms, Insertion Sort, Mergesort</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Charles E. Leiserson
+      </span><span class='thumb_ext'>
+        Charles E. Leiserson
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>18&nbsp;comments&nbsp;</i><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_demaine_lec02/' target='_top' id='lec=5781' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/ef/54ew3bpob2aegedkaywe4sp5cvunarjv.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r0.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          32940&nbsp;views,&nbsp;1:10:28
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 2: Asymptotic Notation, Recurrences, Substitution, Master Method</span><span class='thumb_short' title='Lecture 2: Asymptotic Notation, Recurrences, Substitution, Master Method'>Lecture 2: Asymptotic Notation, Recurrences, Substitution, Master Method</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Erik Demaine
+      </span><span class='thumb_ext'>
+        Erik Demaine
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>11&nbsp;comments&nbsp;</i><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_demaine_lec03/' target='_top' id='lec=5782' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/b2/wkmri2fusuyem37bvfgn2hf5rjasqcv7.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          11911&nbsp;views,&nbsp;1:08:32
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 3: Divide-and-Conquer: Strassen, Fibonacci, Polynomial Multiplication </span><span class='thumb_short' title='Lecture 3: Divide-and-Conquer: Strassen, Fibonacci, Polynomial Multiplication '>Lecture 3: Divide-and-Conquer: Strassen, Fibonacci, Polynomial Multiplication</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Erik Demaine
+      </span><span class='thumb_ext'>
+        Erik Demaine
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>4&nbsp;comments&nbsp;</i><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_leiserson_lec04/' target='_top' id='lec=5783' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/38/hcnnd7kxm4yck5u6ewpth7pp7joz7xec.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r0.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          14422&nbsp;views,&nbsp;1:20:30
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 4: Quicksort, Randomized Algorithms </span><span class='thumb_short' title='Lecture 4: Quicksort, Randomized Algorithms '>Lecture 4: Quicksort, Randomized Algorithms</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Charles E. Leiserson
+      </span><span class='thumb_ext'>
+        Charles E. Leiserson
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>8&nbsp;comments&nbsp;</i><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_demaine_lec05/' target='_top' id='lec=5784' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/e0/4b6rhoa3q3f3lhp6mgzc47h2x2bjtmze.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r1.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          8149&nbsp;views,&nbsp;1:16:46
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 5: Linear-time Sorting: Lower Bounds, Counting Sort, Radix Sort </span><span class='thumb_short' title='Lecture 5: Linear-time Sorting: Lower Bounds, Counting Sort, Radix Sort '>Lecture 5: Linear-time Sorting: Lower Bounds, Counting Sort, Radix Sort</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Erik Demaine
+      </span><span class='thumb_ext'>
+        Erik Demaine
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>1&nbsp;comment&nbsp;</i><div style='clear:both'></div></div></td></tr><tr valign="top"><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_demaine_lec06/' target='_top' id='lec=5785' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/88/rctjodbb3trvkmvg75uutstohfhtyo6b.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r0.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          6706&nbsp;views,&nbsp;1:08:48
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 6: Order Statistics, Median </span><span class='thumb_short' title='Lecture 6: Order Statistics, Median '>Lecture 6: Order Statistics, Median</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Charles E. Leiserson
+      </span><span class='thumb_ext'>
+        Charles E. Leiserson
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>1&nbsp;comment&nbsp;</i><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_leiserson_lec07/' target='_top' id='lec=5786' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/22/elqnm55sscap6wusfj6tulvr3it3rxpx.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          9066&nbsp;views,&nbsp;1:17:35
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 7: Hashing, Hash Functions</span><span class='thumb_short' title='Lecture 7: Hashing, Hash Functions'>Lecture 7: Hashing, Hash Functions</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Charles E. Leiserson
+      </span><span class='thumb_ext'>
+        Charles E. Leiserson
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>3&nbsp;comments&nbsp;</i><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_leiserson_lec08/' target='_top' id='lec=5787' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/6d/nx3qgmdc3kx47hme7iqgohdd5dfhqmcz.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          8384&nbsp;views,&nbsp;1:19:46
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 8: Universal Hashing, Perfect Hashing </span><span class='thumb_short' title='Lecture 8: Universal Hashing, Perfect Hashing '>Lecture 8: Universal Hashing, Perfect Hashing</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Charles E. Leiserson
+      </span><span class='thumb_ext'>
+        Charles E. Leiserson
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>5&nbsp;comments&nbsp;</i><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_demaine_lec09/' target='_top' id='lec=5788' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/a9/vgspsqxm3mmyhiwzc5syzr56nsc6nuc5.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r0.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r0.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          4023&nbsp;views,&nbsp;1:21:21
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 9: Relation of BSTs to Quicksort, Analysis of Random BST </span><span class='thumb_short' title='Lecture 9: Relation of BSTs to Quicksort, Analysis of Random BST '>Lecture 9: Relation of BSTs to Quicksort, Analysis of Random ...</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Erik Demaine
+      </span><span class='thumb_ext'>
+        Erik Demaine
+      </span></div><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_demaine_lec10/' target='_top' id='lec=5789' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/1a/djtz5epcdwcpu3m47sdvzfygi6sxczrh.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          41338&nbsp;views,&nbsp;1:23:48
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 10: Red-black Trees, Rotations, Insertions, Deletions </span><span class='thumb_short' title='Lecture 10: Red-black Trees, Rotations, Insertions, Deletions '>Lecture 10: Red-black Trees, Rotations, Insertions, Deletions</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Erik Demaine
+      </span><span class='thumb_ext'>
+        Erik Demaine
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>18&nbsp;comments&nbsp;</i><div style='clear:both'></div></div></td></tr><tr valign="top"><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_leiserson_lec11/' target='_top' id='lec=5790' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/76/ozvay5jgcsxjgs47pf56jfv7tzyf6stc.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          7532&nbsp;views,&nbsp;1:23:44
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 11: Augmenting Data Structures, Dynamic Order Statistics, Interval Trees </span><span class='thumb_short' title='Lecture 11: Augmenting Data Structures, Dynamic Order Statistics, Interval Trees '>Lecture 11: Augmenting Data Structures, Dynamic Order Statistics, Interval Trees</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Charles E. Leiserson
+      </span><span class='thumb_ext'>
+        Charles E. Leiserson
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>2&nbsp;comments&nbsp;</i><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_demaine_lec12/' target='_top' id='lec=5791' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/df/35ibruhde4xk2did7s632apzg6juh2yj.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          7435&nbsp;views,&nbsp;1:25:31
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 12: Skip Lists</span><span class='thumb_short' title='Lecture 12: Skip Lists'>Lecture 12: Skip Lists</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Erik Demaine
+      </span><span class='thumb_ext'>
+        Erik Demaine
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>10&nbsp;comments&nbsp;</i><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_leiserson_lec13/' target='_top' id='lec=5792' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/5c/lqx564unpl34ftipjtomf4236tlh3dhn.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          5603&nbsp;views,&nbsp;1:19:05
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 13: Amortized Algorithms, Table Doubling, Potential Method</span><span class='thumb_short' title='Lecture 13: Amortized Algorithms, Table Doubling, Potential Method'>Lecture 13: Amortized Algorithms, Table Doubling, Potential Method</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Charles E. Leiserson
+      </span><span class='thumb_ext'>
+        Charles E. Leiserson
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>3&nbsp;comments&nbsp;</i><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_leiserson_lec14/' target='_top' id='lec=5793' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/9a/tk5o6cfojrlgjezdiq25hgfbjz7w3ao4.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          2199&nbsp;views,&nbsp;1:14:27
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 14: Competitive Analysis: Self-organizing</span><span class='thumb_short' title='Lecture 14: Competitive Analysis: Self-organizing'>Lecture 14: Competitive Analysis: Self-organizing</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Charles E. Leiserson
+      </span><span class='thumb_ext'>
+        Charles E. Leiserson
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>1&nbsp;comment&nbsp;</i><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_leiserson_lec15/' target='_top' id='lec=5794' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/8c/rtmf4v3662y6jxuetxc2pxh3mzcfqeew.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          18916&nbsp;views,&nbsp;1:10:56
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 15: Dynamic Programming, Longest Common Subsequence</span><span class='thumb_short' title='Lecture 15: Dynamic Programming, Longest Common Subsequence'>Lecture 15: Dynamic Programming, Longest Common Subsequence</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Charles E. Leiserson
+      </span><span class='thumb_ext'>
+        Charles E. Leiserson
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>10&nbsp;comments&nbsp;</i><div style='clear:both'></div></div></td></tr><tr valign="top"><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_leiserson_lec16/' target='_top' id='lec=5795' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/2b/fm473pytn77othbq2kefqqvapebslq3l.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          14523&nbsp;views,&nbsp;1:24:06
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 16: Greedy Algorithms, Minimum Spanning Trees </span><span class='thumb_short' title='Lecture 16: Greedy Algorithms, Minimum Spanning Trees '>Lecture 16: Greedy Algorithms, Minimum Spanning Trees</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Charles E. Leiserson
+      </span><span class='thumb_ext'>
+        Charles E. Leiserson
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>6&nbsp;comments&nbsp;</i><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_demaine_lec17/' target='_top' id='lec=5796' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/57/k6fvhjcg5yz6rzelaslgwbfjbotdf7hy.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          19242&nbsp;views,&nbsp;1:24:33
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 17: Shortest Paths I: Properties, Dijkstra&#39;s Algorithm, Breadth-first Search</span><span class='thumb_short' title='Lecture 17: Shortest Paths I: Properties, Dijkstra&#39;s Algorithm, Breadth-first Search'>Lecture 17: Shortest Paths I: Properties, Dijkstra&#39;s Algorithm, Breadth-first Search</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Erik Demaine
+      </span><span class='thumb_ext'>
+        Erik Demaine
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>5&nbsp;comments&nbsp;</i><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_demaine_lec18/' target='_top' id='lec=5797' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/52/kis2foxaaabnlzs5ewuml3qeqnmjqmak.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          22830&nbsp;views,&nbsp;1:17:13
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 18: Shortest Paths II: Bellman-Ford, Linear Programming, Difference Constraints </span><span class='thumb_short' title='Lecture 18: Shortest Paths II: Bellman-Ford, Linear Programming, Difference Constraints '>Lecture 18: Shortest Paths II: Bellman-Ford, Linear Programming, Difference Constraints</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Erik Demaine
+      </span><span class='thumb_ext'>
+        Erik Demaine
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>8&nbsp;comments&nbsp;</i><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_demaine_lec19/' target='_top' id='lec=5798' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/d4/2ss2waeo6inlcwnkmlzxc7imbgkqjuwp.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        [syn]&nbsp;
+        
+          7382&nbsp;views,&nbsp;1:14:55
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 19: Shortest Paths III: All-pairs Shortest Paths, Matrix Multiplication, Floyd-Warshall, Johnson</span><span class='thumb_short' title='Lecture 19: Shortest Paths III: All-pairs Shortest Paths, Matrix Multiplication, Floyd-Warshall, Johnson'>Lecture 19: Shortest Paths III: All-pairs Shortest Paths, Matrix Multiplication, ...</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Erik Demaine
+      </span><span class='thumb_ext'>
+        Erik Demaine
+      </span></div><i class='thumb_ext'><img src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt='comments'>1&nbsp;comment&nbsp;</i><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_leiserson_lec22/' target='_top' id='lec=5799' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/fa/7jmdqdipi5tbj7eloaotcksi7rhh7jck.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        
+        
+          2515&nbsp;views,&nbsp;1:15:07
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 22: Advanced Topics</span><span class='thumb_short' title='Lecture 22: Advanced Topics'>Lecture 22: Advanced Topics</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Charles E. Leiserson
+      </span><span class='thumb_ext'>
+        Charles E. Leiserson
+      </span></div><div style='clear:both'></div></div></td></tr><tr valign="top"><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_leiserson_lec23/' target='_top' id='lec=5800' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/75/owwnxw3y7eza3h7xbd7n7g74iv3zmcbh.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        
+        
+          908&nbsp;views,&nbsp;1:16:47
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 23: Advanced Topics (cont.)</span><span class='thumb_short' title='Lecture 23: Advanced Topics (cont.)'>Lecture 23: Advanced Topics (cont.)</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Charles E. Leiserson
+      </span><span class='thumb_ext'>
+        Charles E. Leiserson
+      </span></div><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_demaine_lec24/' target='_top' id='lec=5801' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/71/ogqgfrl5a3c6wsegr6s55npgksl6wlzo.jpg') center;"><img src='http://static.videolectures.net/r.1418842707//stars/r0.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><img src='http://static.videolectures.net/r.1418842707//stars/r2.gif' alt='votes'><u>
+        
+        
+        
+          1174&nbsp;views,&nbsp;1:24:46
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 24: Advanced Topics (cont.)</span><span class='thumb_short' title='Lecture 24: Advanced Topics (cont.)'>Lecture 24: Advanced Topics (cont.)</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Erik Demaine
+      </span><span class='thumb_ext'>
+        Erik Demaine
+      </span></div><div style='clear:both'></div></div></td><td valign="top" align='center'><div class='lec_thumb'><a href='/mit6046jf05_demaine_lec25/' target='_top' id='lec=5802' lang='en'><div><div class='lec_thumb_img' style="background:url('http://hydro.ijs.si/v003/1f/d4ch7wpfdsiaonbpbvcqndmo7wcnpj7o.jpg') center;"><u>
+        
+        
+        
+          988&nbsp;views,&nbsp;1:25:20
+        &nbsp;
+      </u><b></b></div></div><span class='thumb_title'><img src="http://static.videolectures.net/r.1418842707/flags/uk.gif" alt="flag" class='lang-flag'><span class='thumb_ext'>Lecture 25: Advanced Topics (cont.),  Discussion of Follow-on Classes</span><span class='thumb_short' title='Lecture 25: Advanced Topics (cont.),  Discussion of Follow-on Classes'>Lecture 25: Advanced Topics (cont.), Discussion of Follow-on Classes</span></span></a><div style='clear:both;'></div><div class="author"><span class='thumb_short'>
+        Erik Demaine
+      </span><span class='thumb_ext'>
+        Erik Demaine
+      </span></div><div style='clear:both'></div></div></td></tr></table>
+      
+    
+  
+
+  
+  <div class='lec_lbox' id='comments'>
+    
+
+
+
+
+  
+  <!--
+    <b>Added on </b> 
+    <a href="/mit6046jf05_introduction_algorithms/#comments"> Comment</a>
+  -->  
+  
+  
+  <div class='mod_body'>
+      <h1>Reviews and comments:</h1>
+      
+
+<div class="comment_list">
+
+    <div class="comment" class="comment_odd" id="c1473">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c1473" href="#c1473"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>1</a></span>
+          <b>amith</b>, June 9, 2009 at 11:45 a.m.:
+        </div>
+        <p>thannxx lot for dis amazing stuff I was in dark when I was attending to my lectures <br />thanx to this now i can understand my lectures easilyyy </p>
+
+<p>thnx againnn</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c1542">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c1542" href="#c1542"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>2</a></span>
+          <b>ConfusedStudent</b>, June 19, 2009 at 6:58 p.m.:
+        </div>
+        <p>Thank you so much for posting these lectures. My lecturer is the most neurotic person alive and lectures *ARE NOT* his gift. He changes examples 3, 4 and 5 times in the middle of a problem and does not explain things too well. And erases before you have any chance to read, comprehend and much less copy it down for later study.</p>
+
+<p>-Confused Student</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c1545">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c1545" href="#c1545"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>3</a></span>
+          <b>Er. Saurabh Bisht</b>, June 19, 2009 at 11:24 p.m.:
+        </div>
+        <p>nice lecture but i guess time is off the essence<br />slide are best examples for it<br />anyways cant these lectured be compressed for easy download<br />I have low speed broadband connection and after 10 to 15% of<br />download it pops off.<br />g8 going mit </p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c1637">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c1637" href="#c1637"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>4</a></span>
+          <b>Aveek Dasmalakar</b>, July 11, 2009 at 11:59 a.m.:
+        </div>
+        <p>Excellent lectures on algorithms.Thank you MIT for making available for all.great job</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c1656">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c1656" href="#c1656"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>5</a></span>
+          <b>akila</b>, July 15, 2009 at 9:17 p.m.:
+        </div>
+        <p>I can understand all lectures wiith in very short time period, thanx very very much. </p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c1678">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c1678" href="#c1678"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>6</a></span>
+          <b>Omid</b>, July 22, 2009 at 10:30 p.m.:
+        </div>
+        <p>Only thing i can say is: thanks a lot.</p>
+
+<p>Plz continue this way. <br />God With you</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c1800">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c1800" href="#c1800"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>7</a></span>
+          <b>srinee1122@hotmail.com</b>, August 19, 2009 at 9:16 p.m.:
+        </div>
+        <p>hearty thanks and congradulation! do more! i was not able to get thru MIT bt, these lectures made me satisfied!! thanks!! go MIT GOooooooooooooooooooooooo!! great STUFF!!! </p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c2108">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c2108" href="#c2108"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>8</a></span>
+          <b>Kok-Meng Lam</b>, November 6, 2009 at 7:04 a.m.:
+        </div>
+        <p>I&#39;m looking for network flows (max-min cut problems), do you know if there is a video lecture on this topic?</p>
+
+<p>Thank you.</p>
+
+<p>Lam</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c2255">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c2255" href="#c2255"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>9</a></span>
+          <b>Jure</b>, December 13, 2009 at 12:24 p.m.:
+        </div>
+        <p>Thank you Mr. professor! I live in Slovenia and because of this lectures I have at least a small taste of your University and a chance to learn from the best.<br />I would really like for you to introduce distance learning  through conferences etc. with a real chance of getting a degree. Payed of course. This way we (people from outside the US and not in their 20&#39;s) would have a chance for a real leanings. Well, I know this is just wishful thinking, but maybe sometime in the future...</p>
+
+<p>In any case I like your lectures and am very thankful for you making it available to all of us.<br />Thank you!<br />Jure S.</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c2594">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c2594" href="#c2594"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>10</a></span>
+          <b>Supriya Dsouza</b>, March 15, 2010 at 10:22 a.m.:
+        </div>
+        <p>Thank you for the video lectures.<br />It really helped me understand the course and get a taste of MIT. <br />Would any updates be made for 2010?</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c2597">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c2597" href="#c2597"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>11</a></span>
+          <b>Patrick</b>, March 16, 2010 at 3:14 a.m.:
+        </div>
+        <p>Thanks very much...<br />I am a student from China,<br />I love computer science,<br />and algorithm is very importan.<br />Thanks so much to bring us the video.<br /></p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c2602">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c2602" href="#c2602"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>12</a></span>
+          <b>arup rakshit</b>, March 18, 2010 at 9:19 a.m.:
+        </div>
+        <p>this is the best lectures yet now for me. but where the lecture 21 and lecture 22.i have not found.can you send me the address of that missing two!</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c2737">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c2737" href="#c2737"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>13</a></span>
+          <b>sadegh</b>, May 10, 2010 at 8:13 p.m.:
+        </div>
+        <p>thanks its very very good. i can improve my ability by this website. <br />thanks very much !</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c2798">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c2798" href="#c2798"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>14</a></span>
+          <b>CyKy</b>, June 2, 2010 at 8:51 p.m.:
+        </div>
+        <p>Thanks for all the resources and all the lectures<br />I`m a student from Romania and for the last 2 months i have discovered OCW and i can`t get enough of it<br />Mit is the best for providing the world with all this knowledge!</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c3149">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c3149" href="#c3149"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>15</a></span>
+          <b>koppt</b>, August 23, 2010 at 10:57 a.m.:
+        </div>
+        <p>Thanks for the OCW,the lectures of mit are so good ,i hopt that more and more courses will come out.Thanks a lot.</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c3210">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c3210" href="#c3210"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>16</a></span>
+          <b>Rajiv</b>, September 11, 2010 at 8:01 a.m.:
+        </div>
+        <p>Great lectures on some of the complicated topics. Hope to see more lectures on more courses and hope that many more universities will emulate MIT&#39;s principle of sharing the knowledge with the world.</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c3232">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c3232" href="#c3232"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>17</a></span>
+          <b>Yash</b>, September 17, 2010 at 4:31 p.m.:
+        </div>
+        <p>Hey Thankyou !!</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c3234">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c3234" href="#c3234"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>18</a></span>
+          <b>Konstantin</b>, September 18, 2010 at 3:45 p.m.:
+        </div>
+        <p>Thanks a lot! Really useful and interesting stuff!</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c3355">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c3355" href="#c3355"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>19</a></span>
+          <b>JohnG</b>, October 28, 2010 at 4:37 a.m.:
+        </div>
+        <p>Thank you for sharing!</p>
+
+<p>I am a CS student from Greece and those two teachers are great, both motivating, funny and DEEPLY knowledgeable.I recommend to to see the 6.042 lectures/resitacions/assigments/exams with solutions this teacher was a contributor to the lectures and the lectures are just Great ---&gt;<br />( <a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-spring-2005/lecture-notes/" rel="nofollow">http://ocw.mit.edu/courses/electrical...</a>)</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c3364">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c3364" href="#c3364"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>20</a></span>
+          <b>hongyu</b>, November 2, 2010 at 3:02 a.m.:
+        </div>
+        <p>Perfect! I love it very much.</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c3511">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c3511" href="#c3511"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>21</a></span>
+          <b>Vikas</b>, December 27, 2010 at 9:43 a.m.:
+        </div>
+        <p>This is just amazing.. Thnx MIT for making this happen.. </p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c3542">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c3542" href="#c3542"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>22</a></span>
+          <b>jugnu</b>, January 5, 2011 at 4:18 p.m.:
+        </div>
+        <p>best stuff. lecture 20 and 21 are missing. please include them also.</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c3658">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c3658" href="#c3658"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>23</a></span>
+          <b>Srikkanth</b>, February 1, 2011 at 2:15 a.m.:
+        </div>
+        <p>Very Very informative. Three cheers to MIT&#39;s opencourseware initiative.</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c3728">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c3728" href="#c3728"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>24</a></span>
+          <b>nasser</b>, February 14, 2011 at 4:54 a.m.:
+        </div>
+        <p>that sounds great!<br />this way is best way to learn science in same level.<br />all of the student in the world have access to internet.<br />please continue this way for all course in computer science .<br />tank&#39;s and good luck.<br />nasser from iran</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c4550">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c4550" href="#c4550"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>25</a></span>
+          <b>Vikas Kaushik</b>, May 17, 2011 at 11:43 p.m.:
+        </div>
+        <p>I am glad to see this quality stuff...First , when I found this...was like finding some treasure....</p>
+
+<p>Real thanks....from one more student...thnx....</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c4680">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c4680" href="#c4680"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>26</a></span>
+          <b>Szy</b>, May 24, 2011 at 1:04 p.m.:
+        </div>
+        <p>Thanks a lot for these amazing lectures. It is a real pleasure to watch them. I think I have finally understood universal hashing thanks to your wonderful videos.</p>
+
+<p>Greetings from Poland!</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c4904">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c4904" href="#c4904"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>27</a></span>
+          <b>subbarao</b>, June 10, 2011 at 7:32 a.m.:
+        </div>
+        <p>Thanks for ur quality of teaching<br />I really enjoyed all of your lectures<br />If possible arrange all computer science lecture<br />thank you soo much<br /></p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c4929">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c4929" href="#c4929"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>28</a></span>
+          <b>Saul Tenzer</b>, June 12, 2011 at 9:07 p.m.:
+        </div>
+        <p>Thank you from a South African student at the University of Johannesburg in South Africa: These are a great supplement to an already amazing course.</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c5029">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c5029" href="#c5029"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>29</a></span>
+          <b>Jarvis</b>, June 22, 2011 at 5:05 a.m.:
+        </div>
+        <p>Thanks for your course!I really appreaciate</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c7620">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c7620" href="#c7620"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>30</a></span>
+          <b>Anatoly</b>, November 6, 2011 at 9:37 p.m.:
+        </div>
+        <p>Amazing lectures! Thank you very much!</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c7927">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c7927" href="#c7927"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>31</a></span>
+          <b>AMYNA</b>, November 14, 2011 at 4:58 p.m.:
+        </div>
+        <p>MANY Thanks TO ALL, I wach one video and I m very satisfied... I&#39;ll come back to see all of them<br /></p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c8528">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c8528" href="#c8528"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>32</a></span>
+          <b>matt</b>, December 5, 2011 at 11:46 p.m.:
+        </div>
+        <p>What a phenomenal resource. Such a clear and careful presentation of probably the most notoriously difficult course in computer science. If you get stuck on something you can just rewind or go back to the slide if you forget a definition. Really unbelievable. </p>
+
+<p>This in my opinion shows, more than anything else they have done, MIT&#39;s absolute commitment to education and knowledge.</p>
+
+<p>thank you. Beautiful material.  </p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c8699">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c8699" href="#c8699"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>33</a></span>
+          <b>Tahsin Hassan Rahit</b>, December 13, 2011 at 11:20 a.m.:
+        </div>
+        <p>Great help. Thank you very much. I want you to continue it. It will be a great help for those who are trying to learn things personally.</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c9607">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c9607" href="#c9607"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>34</a></span>
+          <b>Konstanz Student</b>, February 26, 2012 at 6:20 p.m.:
+        </div>
+        <p>I had to prepare to exam.<br />It was level: ASIAN.</p>
+
+<p>SO I WATCHED THE MIT VIDEOS.</p>
+
+<p>Now I feel like I am not going back to plantations to pick rice! I will be engineer and will be earning all the $$$ in european world, not farming gold in World of Warcarft!</p>
+
+<p>Thanks MIT, now my father is not hitting me with a wooden stick!</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c10296">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c10296" href="#c10296"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>35</a></span>
+          <b>Alex</b>, April 13, 2012 at 4:33 a.m.:
+        </div>
+        <p>thank you for the lectures, they are very helpful<br />as I understand the heapsort algorithm is not explained here?</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c10410">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c10410" href="#c10410"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>36</a></span>
+          <b>Behrouz</b>, April 26, 2012 at 2:42 p.m.:
+        </div>
+        <p>Where are the 20 and 21 lectures ?</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c12414">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c12414" href="#c12414"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>37</a></span>
+          <b>Tun Min</b>, January 27, 2013 at 6:48 p.m.:
+        </div>
+        <p>Why lectures 20 and 21 have no?<br /></p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c12550">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c12550" href="#c12550"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>38</a></span>
+          <b>axl</b>, April 1, 2013 at 6:04 a.m.:
+        </div>
+        <p>how can i download these video lectures<br /></p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c12641">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c12641" href="#c12641"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>39</a></span>
+          <b>Omveer</b>, April 22, 2013 at 1:23 p.m.:
+        </div>
+        <p>This is really a gr8 lecture. Thanks a lot.</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c12687">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c12687" href="#c12687"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>40</a></span>
+          <b>Atiq</b>, May 30, 2013 at 4:46 p.m.:
+        </div>
+        <p>Sir Leiserson and Eric, a great source to learn the Algorithms, I haven&#39;t even thought to take my area of interest as Algorithms but your books and lectures made everything easy for me, luckily found you and enjoying the Algorithms....</p>
+
+<p>A heartfelt thanks, May God bless you all.<br />A computer engineering student from India.....Thanking you.</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c12887">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c12887" href="#c12887"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>41</a></span>
+          <b>Harish</b>, August 8, 2013 at 2:23 p.m.:
+        </div>
+        <p>Thank you MIT for these amazing lectures. Thank you professors for such clear explanations. Please make lectures 20 and 21 available</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_even" id="c13029">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c13029" href="#c13029"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>42</a></span>
+          <b>Prateek</b>, October 11, 2013 at 8:07 p.m.:
+        </div>
+        <p>Thanks a lot for this knowledgeable lectures.<br />I didn&#39;t get a single chance to loose my interest.<br />Thanks thanks a lot...</p>
+    </div>
+    <hr />
+
+    <div class="comment" class="comment_odd" id="c13396">
+        <div class='comment_header'>
+          <span class="comnum"><a id="c13396" href="#c13396"><img border='0' src="http://static.videolectures.net/r.1418842707//icons/comment.png" alt="Comment"/>43</a></span>
+          <b>frank</b>, March 19, 2014 at 8:23 a.m.:
+        </div>
+        <p>thanks alot. just that in Bambili, where i am internet connection are too slow.<br />Please, i really need a complete video tutorial on algorithm </p>
+    </div>
+    
+
+</div>
+
+  </div>
+  
+  <div class='mod_body'>
+    <h1>Write your own review or comment:</h1>
+    
+      
+  
+  <form action="/site/comments/post/" method="post" class='comment_form'><input type='hidden' name='csrfmiddlewaretoken' value='G7TS846lhcrYHJTfluGqHWAK4x24hw9P' />
+    
+      
+    
+
+    <table>
+    
+      
+        <input id="id_content_type" name="content_type" type="hidden" value="vl.lecture" />
+      
+    
+      
+        <input id="id_object_pk" name="object_pk" type="hidden" value="5693" />
+      
+    
+      
+        <input id="id_timestamp" name="timestamp" type="hidden" value="1425844955" />
+      
+    
+      
+        <input id="id_security_hash" name="security_hash" type="hidden" value="02f0c12abfa9b062548519b2dbfc7cf77ec56772" />
+      
+    
+      
+      
+        <tr >
+        <th ><label for="id_name">Name:</label></th>
+        
+          <td width='100%'>
+        
+        <input id="id_name" maxlength="50" name="name" type="text" />
+        
+        </td></tr>
+      
+      
+    
+      
+      
+        <tr >
+        <th ><label for="id_email">Email address:</label></th>
+        
+          <td width='100%'>
+        
+        <input id="id_email" name="email" type="email" />
+        
+        </td></tr>
+      
+      
+    
+      
+      
+        <tr >
+        <th ><label for="id_url">URL:</label></th>
+        
+          <td width='100%'>
+        
+        <input id="id_url" name="url" type="url" />
+        
+        </td></tr>
+      
+      
+    
+      
+      
+        <tr >
+        <th ><label for="id_comment">Comment:</label></th>
+        
+          </tr><td colspan='2'>
+        
+        <textarea cols="40" id="id_comment" name="comment" rows="10">
+</textarea>
+        
+        </td></tr>
+      
+      
+    
+      
+      
+        <tr style='display:none;'><td>make sure you have javascript enabled or clear this field:</td><td><input name="honeypot" id="honeypot" value="/site/comments/post/"></td><tr>
+      
+      
+    
+    </table>
+    <script type="text/javascript" defer="DEFER">viipg.ready(function() {$('#hon'+'eypot').val('');});</script>
+
+    <p class="submit">
+    
+    <input type="submit" name="preview" class="submit-preview" value="Preview" />
+    </p>
+  </form>
+
+  </div>
+
+  </div>
+  
+ 
+
+
+</div></div>
+
+
+  
+</div>
+<div class='height5'></div>
+
+      <div style='clear:both;'></div>
+      </div>
+    
+    
+  </div> 
+
+
+  
+  
+  <div id="footer">
+  <noscript type='text/template' class='lazyload'>
+    <div id='ftr' class='pg_block'>
+    
+      
+        
+          <div class="footer_wiki"><div class='wrapped_block'><h2>JOIN US IN EXPERIMENT</h2>
+<p><a href="http://videolectures.net/site/news/translecturesevaluations/">Join us in an Experiment on evaluationg automatic transcriptions and translations on this site</a></p>
+</div><div class='wrapped_block'><h2>COLT 2014</h2>
+<p><a href="http://videolectures.net/colt2014_jordan_bigdata/">On the Computational and Statistical Interface and "BIG DATA"</a></p>
+</div><div class='wrapped_block'><h2>BMVC 2013</h2>
+<p><a href="http://videolectures.net/bmvc2013_bristol/">The British Machine Vision Conference is one of the major international conferences on computer vision and related areas.</a></p>
+</div><div class='wrapped_block'><h2>INFO</h2>
+<p>E-mail:<br />
+<a href="mailto:info@videolectures.net">info@videolectures.net</a></p>
+<p>Phone:<br />
++386 1 477 31 48</p>
+<table><tr><td><a href="http://www.facebook.com/pages/Ljubljana-Slovenia/VideoLecturesNET/181913865931?v=info#!/pages/Ljubljana-Slovenia/VideoLecturesNET/181913865931?v=wall/"><img src="/site/media/custom/facebook.png" title="Facebook" alt="Facebook" /></a></td><td><a href="http://twitter.com/videolectures/"><img src="/site/media/custom/twitter.png" title="Twitter" alt="Twitter" /></a></td><td><a href="http://blog.videolectures.net/"><img src="/site/media/custom/blog.png" title="Blog" alt="Blog" /></a></td><td><a href="/site/rss/"><img src="/site/media/custom/rss.png" title="RSS Feed" alt="RSS Feed" /></a></td><td><a href="http://www.linkedin.com/groups/VideoLectures-4139916"><img src="/site/media/custom/linkedin.png" title="LinkedIn" alt="LinkedIn" /></a></td><td><a href="https://plus.google.com/105894483657660300259"><img src="/site/media/custom/google-plus.png" title="Google+" alt="Google+" /></a></td></tr>
+</table>
+</div></div>
+        
+      
+    
+    <div style='float:right; margin-top:25px; margin-bottom:10px;'>
+      <a href='http://www.k4all.org/' style='display:block; float:right; margin-left:10px;'><img src="http://static.videolectures.net/r.1418842707//custom/logoK4A.png"/></a>
+      <a href='http://www.ijs.si/' style='display:block; float:right; margin-left:10px'><img src="http://static.videolectures.net/r.1418842707//custom/IJS_logo.png" style='margin-left:-6px;'/></a>
+      <a href='http://ailab.ijs.si/' style='display:block; float:right; margin-left:10px;'><img src="http://static.videolectures.net/r.1418842707//custom/AiLabIcon.png"/></a>
+      <a class='powered_by' href='https://www.viidea.com/'>Powered by</a>
+      <br style='clear:right;' />
+    </div>
+    <div id="cc">
+      <a href="http://creativecommons.org/licenses/by-nc-nd/3.0/">
+        <img src="http://static.videolectures.net/r.1418842707//custom/cc.png" width="88" height="31" hspace="5" vspace="5" align="absmiddle" />
+      </a>
+      Copyright &copy; 2014 VideoLectures.Net<br>
+      Unless otherwise noted, all content is released under the<br>
+      Creative Commons Attribution-Noncommercial-No Derivative Works 3.0
+    </div>
+    </div>
+  </noscript>
+  </div>
+  
+
+
+  
+
+  
+
+
+
+<script>
+viipg.lazy( function() {
+
+  $('noscript.lazyload').each( function() {
+    //$(this).replaceWith($(this).text());
+    $(this).replaceWith( this.textContent || this.innerHTML );
+  });
+
+
+
+
+  $.ajax({
+      url: "http://log2.quintelligence.com/qlog.js", type: 'get', dataType: 'script', cache: true,
+      success: function() { setTimeout(function() {quintTracker(3);},100); }
+  });
+  
+
+
+<!-- LiveNetLife BEGIN -->
+  (function() {var lnl = document.createElement('script');lnl.type = 'text/javascript';lnl.async = true;lnl.src = 'http://bin.livenetlife.com/?CodeId=6c8847e6-d31f-6914-78b2-605053acbf82';lnl.id='LiveNetLife';var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(lnl, s);})();
+
+
+
+ 
+
+});
+</script>
+
+
+  
+
+  
+    
+<script type="text/javascript">viipg.load(function(){viipg.addScript('http://static.videolectures.net/r.1418842707/static/vl/js/ga.js',function(){var log_url='/lecture/academia/ocwc/mit_ocw/mit6046jf05_introduction_algorithms/',track_user='anon';ga_cfg={channels:{viidea:null,site:'ga:UA-353712-6'},dimensions:{1:track_user},variables:{User:[1,track_user,1]},sid:'b8b0e316e1b80e144961545ea44fade889f64f3a'};var prj_tracker={"mit_ocw":"UA-353712-10","mit_world":"UA-353712-11","yale_oyc":"UA-353712-15","cern":"UA-353712-16","pascal":"UA-353712-17","k4a":"UA-353712-19","planetdata":"UA-353712-20"}["mit_ocw"];if(prj_tracker){ga_cfg.channels.project='ga:'+prj_tracker;viipg.ga('project.send','pageview',log_url);}
+viipg.ga.initialize(ga_cfg);viipg.ga('site.send','pageview',log_url);});});</script>
+  
+
+  
+      
+  
+
+   </div>
+
+</body>
+
+</html>

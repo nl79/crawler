@@ -1,0 +1,1206 @@
+undefined<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>Sieve Of Eratosthenes Algorithm</title>
+<link type="text/css" href="/scriptol.css" rel="stylesheet">
+<link rel="stylesheet" href="http://www.scriptol.com/css/styles/vs.css">
+<script src="http://www.scriptol.fr/css/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+<div id="saat">
+<script type="text/javascript">
+window.google_analytics_uacct = "UA-6574971-2";
+</script>
+</div>
+ 
+<div id="logo"> 
+<a href="http://www.scriptol.com/"><div id="logoimage"> </div></a>
+<div id="searchbox"><button class="graybutton" onclick=
+"location.href='http://www.scriptol.com/dictionary.php'">Dictionary</button></div>
+<div id="topmenu">
+<div id="toplist">
+<span class="tentry"><a href="http://www.scriptol.com/ajax/" target="_top">Ajax</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/cms/" target="_top">CMS</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/design/" target="_top">Design</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/how-to/" target="_top">How to</a></span>  
+<span class="tentry"><a href="http://www.scriptol.com/html5/" target="_top">HTML 5</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/javascript/" target="_top">JavaScript</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/mobile/" target="_top">Mobiles</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/programming/" target="_top">Programming</a></span>  
+<span class="tentry"><a href="http://www.scriptol.com/rss/" target="_top">RSS</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/sql/" target="_top">SQL</a></span> 	  
+<span class="tentry"><a href="http://www.scriptol.com/scripts/" target="_top">Scripts</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/software/" target="_top">Software</a></span> 
+<span class="tentry"><a href="http://www.scriptol.com/getting-started/" target="_top">Webmaster</a></span>
+</div>
+</div>
+
+</div><div id="menupanel">
+
+<div class="menu">     
+<div class="menutitle">ALGORITHMS</div>
+<div class="menulist">
+<a href="http://www.scriptol.com/programming/list-algorithms.php" target="_top">List of algorithms</a><br>
+<a href="http://www.scriptol.com/programming/graphic-algorithms.php" target="_top">Amazing algorithms</a> 
+</div>
+</div>
+
+<div class="menu">     
+ <div class="menutitle">LANGUAGES</div>
+ <div class="menulist"> 
+<a href="http://www.scriptol.com/programming/list-programming-languages.php" target="_top">List of all languages</a><br>
+<a href="http://www.scriptol.com/programming/history.php" target="_top">History of languages</a><br>
+<a href="http://www.scriptol.com/programming/sieve.php" target="_top">Sieve in all languages</a><br>
+<a href="http://www.scriptol.com/programming/quotes.php" target="_top">Quotes</a></div>
+</div>
+
+
+<div class="menu">     
+<div class="menutitle">TOOLS</div>
+<div class="menulist"> 
+<p>
+<a href="http://www.scriptol.com/programming/ide.php" target="_top">List of IDEs</a><br>
+<a href="http://www.scriptol.com/programming/gui.php" target="_top">List of GUIs</a>
+</p>
+</div>
+</div>
+
+</div>
+<div id="content">
+    <h1>Sieve Of Eratosthenes Algorithm</h1>
+    <p align="center"><strong>Implemented in any programming language</strong></p>
+    <p> The sieve of Eratosthenes is a simple algorithm created by an ancient Greek mathematician, for finding all prime numbers up to a specified 
+      integer. The algorithm is often used to compare the syntax of programming 
+      languages and the speed of compilers, or interpreters. </p>
+<div class="pub">
+<script type="text/javascript"><!--
+google_ad_client = "pub-2681794164750401";
+google_ad_slot = "0934517442";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>  
+<p>The algorithm:</p>
+    <pre>Build a list of all the integers greater than one and less than or equal to n. 
+Strike out the multiples of all primes less than or equal to the square root of n, 
+then the numbers that are left are the primes. </pre>
+    <p>In pseudo code (actually Scriptol code):</p>
+    <pre><code>constant int n=50
+array a = {0}
+for int i in 1..n let a[i] = 1
+
+int m = int(sqrt(n))
+ 
+for int i in 2..m 
+   if a[i]
+      for int j in 2.. n step 2 
+         a[i * j] = false
+      /for  
+   /if
+/for</code></pre>
+    <p>Displaying the prime numbers:</p>
+    <pre><code>for int x in 0 .. n
+   if a[x] print x
+/for</code></pre>
+    <p>If you want to use the algorithm for benchmarking and comparing some programming 
+      languages, implement the code above. The algorithms below all compute prime 
+      numbers, but not all of them really implement exaltly the Eratosthenes' algorithm. </p>
+<br>	  
+    <hr>
+    <a href="#ada">Ada</a> &nbsp;
+<a href="#awk">Awk</a> &nbsp; <a href="#basic"> Basic </a>&nbsp; <a href="#bash">Bash</a> &nbsp;<a href="#c">C</a>&nbsp; <a href="#cpp">C++</a> &nbsp;<a href="#csharp">C#</a> &nbsp;<a href="#ocaml">Caml</a> <a href="#euphoria">Euphoria</a>&nbsp; <a href="#fsharp">F#</a> &nbsp;<a href="#forth">Forth</a> &nbsp;<a href="#fortran">Fortran</a>&nbsp; <a href="#haskell">Haskell</a>&nbsp;&nbsp;<a href="#java">Java</a> &nbsp;<a href="#javascript">JavaScript</a> &nbsp;<a href="#julia">Julia</a> &nbsp;<a href="#lisp">Lisp</a> &nbsp; <a href="#lua">Lua</a> &nbsp;<a href="#oberon">Oberon</a> &nbsp;<a href="#ocaml">OCaml</a> &nbsp;<a href="#oz">Oz</a> &nbsp;<a href="#pascal">Pascal</a>&nbsp;&nbsp;<a href="#perl">Perl</a>&nbsp; <a href="#php">PHP</a>&nbsp;&nbsp;<a href="#prolog">Prolog</a> &nbsp;<a href="#python">Python</a> &nbsp;<a href="#rebol">Rebol</a> &nbsp;<a href="#rexx">Rexx</a>&nbsp; <a href="#ruby">Ruby</a> &nbsp;<a href="#scala">Scala</a> &nbsp;<a href="#scheme">Scheme</a>&nbsp; <a href="#scriptol">Scriptol</a> &nbsp;<a href="#smalltalk">Smalltalk</a> &nbsp;<a href="#tcl">Tcl</a>
+<hr>
+<br>
+<h2><a name="ada"></a>Ada</h2>
+<pre>procedure Eratosthenes(Result : out Integer) is
+   size : constant := 8190;
+   k, prime : Natural;
+   count : Integer;
+
+   type Ftype is array (0 .. Size) of Boolean;
+   Flags : Ftype;
+
+begin
+   for Iter in 1 .. 10 loop
+      count := 0;
+
+      for i in 0 .. size loop
+         Flags (i) := True;
+      end loop;
+
+      for i in 0 .. size loop
+         if Flags (i) then
+            prime := i + i + 3;
+            k := i + prime;
+            while k &lt;= size loop
+               Flags (k) := False;
+               k := k + prime;
+            end loop;
+            count := count + 1;
+         end if;
+      end loop;
+   end loop;
+
+   Result := count;
+end Eratosthenes;<br>
+</pre>
+<!--
+  <h2><a name="asp"></a>Asp </h2>
+  <pre>function fibo(byval i) 
+    if (i = 0 or i = 1) then 
+        fibo = i 
+    else 
+        fibo = fibo(i - 1) + fibo(i - 2) 
+    end If 
+end function 
+
+
+&lt;% for num = 1 to n 
+= fibo(num)
+%&gt;
+  <br></pre>
+-->
+<h2><a name="awk"></a>Awk </h2>
+<pre>
+BEGIN {
+
+    top = 50;
+    n = (ARGV[1] < 1) ? 1 : ARGV[1];
+    while (n--) 
+    {
+       for(i=2; i <= top; flags[i++]=1);
+        for (i=2; i <= top; i++) 
+        {
+           if (flags[i]) 
+           {
+              for (k = i + i; k <= top; k += i) 
+              {
+                 flags[k] = 0;
+              }
+            }
+        }
+    }
+    exit;
+}</pre>
+
+<h2><a name="basic"></a>Basic </h2>
+<p>QuickBasic, reference manual for Apple Macintosh, by Microsoft.</p>
+<pre>
+defint a-z
+size=50
+dim flags(50)
+for i=2 to size
+  flags(i)=-1
+next
+for i=2 to sqr(size)
+  if flags(i) then
+    for k=i*i to size step i
+      flags(k)=0
+    next
+  end if
+next
+
+for i=0 to size
+  if flags(i) then print i;
+next
+print
+</pre>
+<p>Older Basic:</p>
+<pre>
+1010 REM Quite BASIC Math Project
+2000 CLS
+2030 LET L = 50
+2050 ARRAY N
+2070 FOR I = 1 TO L 
+2080 LET N[I] = I
+2090 NEXT I
+2110 LET P = 2
+2120 PRINT P
+2140 FOR I = P TO L STEP P
+2150 LET N[I] = 0
+2160 NEXT I
+2180 LET P = P + 1
+2190 IF P = L THEN END
+2200 IF N[P] <> 0 THEN GOTO 2120 ELSE GOTO 2180
+</pre>
+<h2><a name="bash"></a>Bash </h2>
+<pre>#!/bin/bash
+# Sieve of Eratosthenes from the bash scripting guide 
+
+UPPER_LIMIT=$1                  
+let SPLIT=UPPER_LIMIT/2         
+
+Primes=( '' $(seq $UPPER_LIMIT) )
+
+i=1
+until (( ( i += 1 ) > SPLIT ))  
+do
+  if [[ -n $Primes[i] ]]
+  then
+    t=$i
+    until (( ( t += i ) > UPPER_LIMIT ))
+    do
+      Primes[t]=
+    done
+  fi  
+done  
+echo ${Primes[*]}
+
+exit 0 </pre>
+<h2><a name="c"></a>C </h2>
+<pre>/* Sieve Of Erathosthenes by Denis Sureau */
+
+#include &lt;stdlib.h&gt; <stdlib.h>
+#include &lt;stdio.h&gt;<stdio.h>
+
+void eratosthenes(int top)
+{
+  int all[10000];
+  int idx = 0;
+  int prime = 3;
+  int x, j;
+		
+  printf("1 ");
+	
+  while(prime <= top)
+  {
+    for(x = 0; x < top; x++)
+    {
+      if(all[x] == prime) goto skip; 
+    }
+
+    printf("%d ", prime);
+    j = prime;
+    while(j <= (top / prime))
+    {
+      all[idx++] = prime * j;
+      j += 1;
+    }
+
+skip:	
+    prime+=2;
+  }
+  puts("");
+  return;
+}
+
+int main(int argc, char **argv)
+{
+  if(argc == 2) eratosthenes(atoi(argv[1]));
+  else eratosthenes(50);
+  return 0;
+}
+</pre>
+<p>Another version with no goto submitted by an user: </p>
+<pre>#include &lt;stdio.h&gt;<br>#include &lt;stdlib.h&gt;
+<br>/* Sieve by Baavgai */<br>void sieve(int size) {<br>       int i,j;<br>       char *sieve = calloc(size, 1);<br>       for (i=2; i*i &lt;= size; i++) {<br>               if (!sieve[i]) {<br>                       for(j = i+i; j &lt; size; j+=i) { sieve[j] = 1; }<br>               }<br>       }<br>       for (i=2; i&lt;size; i++) {<br>               if (!sieve[i]) { printf(&quot;%d &quot;, i); }<br>       }<br>       printf(&quot;\n&quot;);<br>       free(sieve);<br>}<br>int main() {<br>       sieve(100);<br>       return 0;<br>} </pre>
+<p><a href="sources/sieve2.c" target="_top">Source</a>.</p>
+
+<h2><a name="cpp"></a>C++ </h2>
+<pre>/* Sieve Of Erathosthenes by Denis Sureau */
+#include &lt;stdlib.h&gt; <stdlib.h>
+#include &lt;stdio.h&gt;
+#include &lt;iostream&gt;<stdio.h>
+#include &lt;vector&gt;<stdio.h><stdio.h>
+
+void eratosthenes(int top)
+{
+  vector&lt;int&gt; all(top);
+  int idx = 0;
+	
+  std::cout &lt;&lt; "1 ";
+	
+  int prime = 3;
+	
+  while(prime <= top)
+  {
+    for(int x = 0; x < top; x++)
+    {
+      if(all[x] == prime) goto skip; 
+    }
+
+    std::cout &lt;&lt; prime &lt;&lt; &quot; &quot;;
+    int j = prime;
+    while(j <= (top / prime))
+    {
+      all[idx++] = prime * j;
+      j += 1;
+    }
+
+skip:	
+    prime+=2;
+  }
+  std::cout &lt;&lt; std::endl;
+  return;
+}
+
+int main(int argc, char **argv)
+{
+  if(argc == 2) eratosthenes(atoi(argv[1]));
+  else eratosthenes(50);
+  return 0;
+}
+</pre>
+<h2><a name="csharp"></a>C# (C Sharp)</h2>
+<pre>using System;
+
+class App 
+{
+    public static int Main(String[] args) 
+    {        
+        int num;
+        bool[] flags = new bool[51];
+        long i, k;
+        int count = 0;
+        
+        num = System.Convert.ToInt32(args[0]);
+        if(num < 1) num = 1;
+        
+        while(num-- > 0) 
+        {
+            count = 0;
+            for(i = 2; i <= 50; i++) 
+            {
+                flags[i] = true;
+            }
+            for(i = 2; i <= 50; i++) 
+            {
+                if(flags[i]) 
+                {
+                    for(k = i + i; k <= 50; k += i) 
+                    {
+                        flags[k] = false;
+                    }
+                    count++;
+                }
+            }
+        }
+        
+        Console.WriteLine("Count: " + count.ToString());
+        return(0);
+    }
+}
+  </pre>
+<!--
+  <h2><a name="eiffel"></a>Eiffel</h2>
+  <pre>class FIBONACCI 
+feature 
+fib (k: INTEGER): INTEGER is
+-- Fibonnaci numbers 
+  require 
+  pre_fib: k >= 0 do 
+  if k = 0 then
+    Result := 0 
+  else
+    if k = 1 then
+      Result := 1 
+    else 
+      Result := fib (k-2) + fib (k-1) end 
+end; 
+-- fib  
+  </pre>
+-->
+<h2><a name="euphoria"></a>Euphoria </h2>
+<pre>-- Sieve Of Erathosthenes by Derek Parnell
+-- Language: Euphoria v3.1.1 (www.rapideuphoria.com)
+include get.e
+procedure eratosthenes(integer target)
+
+ sequence sieve
+ integer next_prime
+ integer limit
+
+ sieve = repeat(0, target)
+ limit = floor(power(target, 0.5))
+ sieve[1] = 1
+ next_prime = 2
+ while next_prime <= target and next_prime != 0 do
+   if next_prime <= limit then
+     for i = next_prime + next_prime to target by next_prime do
+         sieve[i] = 1
+       end for
+   end if
+   printf(1, "%d ", next_prime)
+   next_prime = find_from(0, sieve, next_prime+1)
+ end while
+
+ return
+end procedure
+
+procedure main(sequence argv)
+ integer n
+
+ n = 50
+ if length(argv) >= 3 then
+   argv = value(argv[3])
+   n = argv[2]
+ end if
+
+ eratosthenes(n)
+end procedure
+
+main( command_line() ) </pre>
+<a href="http://www.scriptol.com/programming/sources/sieve-eratosthenes.txt" target="_top">Source code</a>
+<h2><a name="fsharp"></a>F# (F Sharp)</h2>
+<pre>let is_prime n =
+  let max = int_of_float (Math.Sqrt( float_of_int n ))
+  not ({ 2 .. max } |> Seq.filter ( fun d -> n%d = 0) |> Seq.nonempty)
+let primes = [0 .. top] |> List.filter is_prime
+  </pre>
+<h2><a name="forth"></a>Forth</h2>
+<pre>7919 2/ constant maxp
+: primes ( -- n )
+  here maxp 1 FILL
+  1 ( count, including 2 )
+  maxp 0 DO
+    I here + C@ IF
+      I 2* 3 + ( dup .) DUP  I + ( prime current )
+      begin  DUP maxp U<
+      while  0 over here + C!
+             over +
+      repeat
+      2drop 1+
+    then
+  loop ;
+
+primes . \ 1000 </pre>
+<h2><a name="fortran"></a>Fortran</h2>
+<pre>
+*       Sieve of Eratosthenes by Chuck Bouldin
+        top = 50
+
+        logical*2 flags(top)
+        integer*2 i,j,k,count,iter,prime
+        n = long(362)                   
+        do 92 iter = 1,10
+           count=0
+           i=0
+           do 10 i = 1,top
+10            flags(i) = .true.
+           do 91 i = 1,top
+              if (.not. flags(i)) go to 91
+              prime = i + i + 3
+              count = count + 1
+              k = i + prime
+              if (k .gt. top) go to 91
+              do 60 j = k, top, prime
+60               flags(j) = .false.
+91          continue
+92      continue
+        write (9,*) count," primes in ",(long(362)-n)/60.0," seconds "
+        pause
+        end
+  </pre>
+<h2><a name="haskell"></a>Haskell</h2>
+<pre>primes = sieve [ 2.. ]
+  where
+  sieve (p:x) = p : sieve [ n | n <- x, n `mod` p > 0 ]  </pre>
+<h2><a name="java"></a>Java</h2>
+<pre>public class Eratosthenes 
+{
+    public static void main(String[] args) 
+    { 
+        int N = Integer.parseInt(args[0]);
+
+        boolean[] isPrime = new boolean[N + 1];
+        for (int i = 2; i <= N; i++)
+            isPrime[i] = true;
+
+        for (int i = 2; i*i <= N; i++) 
+        {
+            if (isPrime[i]) 
+            {
+                for (int j = i; i*j <= N; j++)
+                    isPrime[i*j] = false;
+            }
+        }
+
+        int primes = 0;
+        for (int i = 2; i <= N; i++)
+        {
+           if (isPrime[i])
+              System.out.println(" " + i);
+        }
+    }
+}
+</pre>
+<h2><a name="javascript"></a>JavaScript</h2>
+<pre>
+&lt;script language=&quot;JavaScript&quot;&gt;
+
+/* Sieve Of Erathosthenes by Denis Sureau */
+ 
+function Eratosthenes(element, top)
+{
+  var all = new Uint8Array(new ArrayBuffer(top));
+  var idx = 0;
+  var prime = 3;
+  var x, j;
+
+  element.innerHTML = "1 ";
+	
+  while(prime <= top)
+  {
+    var flag = true;
+    for(x = 0; x < top; x++)
+    {
+        if(all[x] == prime) 
+        {
+            flag = false;
+            break;
+        }	
+    }
+    if(flag)
+    {
+        element.innerHTML += prime + " ";
+        j = prime;
+        while(j <= (top / prime))
+        {
+            all[idx++] = prime * j;
+            j += 1;
+        }
+    }
+    prime += 2;
+  }
+  element.innerHTML += "&lt;br&gt;";
+  return;
+}
+&lt;/script&gt;
+
+&lt;div id="primediv" onclick="Eratosthenes(this, 50);"&gt;
+   Click to start... 
+&lt;/div&gt</pre>
+<p> <a href="http://www.scriptol.com/programming/sources/sieve-javascript.html" target="_top">Source code</a> </p>
+
+<h2 id="julia">Julia</h2>
+<pre>
+# Sieve of Erasthotenes in Julia
+# By Denis Sureau 14/2/2014
+  
+function eratosthenes(size)
+    all=ones(Int32, size)   
+ 
+    println(1)
+    println(2)
+    idx = 1
+    prime = 3 
+    while prime <= size
+       if !in(prime, all)
+            println(prime)
+            idx += 1
+            j = prime
+            while (j <= (size / prime)) 
+                all = [all, prime * j]
+                j += 1
+            end
+        end        
+        prime += 2
+    end                            
+    println
+end    
+
+eratosthenes(50)
+</pre>
+<a href="sources/sieve.jl" target="_top">Source</a>
+<h2><a name="lisp"></a>Lisp </h2>
+<pre> (define divides (m n) (= (mod n m) 0))
+ (define seq (m n) 
+    (if (> m n) `() 
+       (cons m (seq (+ 1 m) n))))
+ (define remove-multiples (n L)
+    (if (null? L) `()
+        (if (divides (n (car l))
+             (remove-multiples n (cdr L))
+                 (cons (car L) 
+                     (remove-multiples n (cdr L))))))
+</pre>
+<h2><a name="lua"></a>Lua </h2>
+<pre>-- By Darren Kirby
+
+x = arg[1]
+y = math.floor(math.sqrt(x))
+primes = {}
+set = {}
+for i=2,x do
+    table.insert(set, i)
+end
+
+function isFactor(index, value)
+    if math.mod(value, checkint) == 0 then 
+        table.remove(set, index)
+    end
+end
+
+while set[1] <= y do
+    table.insert(primes, set[1])
+    checkint = set[1]
+    table.remove(set, 1)
+    for i,v in ipairs(set) do isFactor(i,v) end
+end 
+
+for key, value in primes do
+    io.write(value .. " ")
+end
+
+for key, value in set do
+    io.write(value .. " ")
+end
+print()  </pre>
+<br>
+<h2><a name="oberon"></a>Oberon </h2>
+<pre>MODULE Eratosthenes; 
+(*  Active Oberon Demo *)
+
+
+IMPORT Streams;
+
+CONST
+	N = 50;
+	Terminate = -1;
+	
+VAR log: Streams.Stream;
+
+TYPE
+	Sieve = POINTER TO SieveDesc;
+	SieveDesc = RECORD (OBJECT)
+	
+		VAR prime, n: INTEGER; available: BOOLEAN; next: Sieve;
+	
+		PROCEDURE Set (i: INTEGER);
+		BEGIN {EXCLUSIVE}
+			PASSIVATE (~available); n := i; available := TRUE
+		END Set;
+		
+		PROCEDURE Change;
+		BEGIN {EXCLUSIVE} available := FALSE
+		END Change;
+	
+		PROCEDURE & Init;
+		BEGIN prime := 0; available := FALSE; next := NIL
+		END Init;
+		
+	BEGIN {PARALLEL(2)}
+		LOOP
+			PASSIVATE (available);
+			IF n = Terminate THEN
+				IF next # NIL THEN next.Set (n) END;
+				EXIT
+			ELSE
+				IF prime = 0 THEN 
+					log.Int(n); log.Ln;
+					prime := n; NEW (next)
+				ELSIF (n MOD prime) # 0 THEN next.Set (n)
+				END;
+				Change
+			END
+		END
+	END SieveDesc;
+	
+	Gen = POINTER TO GenDesc;
+	GenDesc = RECORD
+		VAR s: Sieve; i: INTEGER;
+		
+	BEGIN {PARALLEL(2)}
+		NEW (s);
+		FOR i := 2 TO N-1 DO s.Set (i) END;
+		s.Set (Terminate)
+	END GenDesc;
+	
+	PROCEDURE Start*;
+	VAR g: Gen;
+	BEGIN
+		NEW(log, "Eratosthenes", 70);
+		NEW (g)
+	END Start;
+
+END Eratosthenes.
+
+Eratosthenes.Start			
+  </pre>
+<h2><a name="ocaml"></a>Ocaml </h2>
+<pre>(* (c) 2003 David Van Horn - Licensed under the Academic Free License version 2.0 *)
+
+open List
+
+type integer = Int of int
+let number_two = Int(2)
+let number_zero = Int(0)
+let is_less_than_two (Int n) = n < 2
+let incr (Int n) = Int(n + 1)
+let decr (Int n) = Int(n - 1)
+let is_number_zero (Int n) = n = 0
+
+let iota n =
+  let rec loop curr counter =
+    if is_less_than_two counter then []
+    else curr::(loop (incr curr) (decr counter))
+  in
+  loop number_two n
+
+let sieve lst =
+  let rec choose_pivot = function
+  | [] -> []
+  | car::cdr when is_number_zero car ->  
+      car::(choose_pivot cdr)
+  | car::cdr -> 
+      car::(choose_pivot (do_sieve car (decr car) cdr))
+
+  and do_sieve step current lst =
+    match lst with 
+    | [] -> []
+    | car::cdr ->
+	if is_number_zero current 
+	then number_zero::(do_sieve step (decr step) cdr)
+	else car::(do_sieve step (decr current) cdr)
+  in
+  choose_pivot lst
+
+let is_prime n =
+  match rev (sieve (iota n)) with
+    x::_ -> not (is_number_zero x)
+  </pre>
+<h2><a name="oz"></a>Oz</h2>
+<pre>functor
+import System Application
+
+define Args N Flags Start Stop in
+
+    [Args] = {Application.getArgs plain}
+    N = {String.toInt Args}
+
+    Start = 2
+    Top = 50
+
+    Flags = {BitArray.new Start Stop}
+    for I in Start..Top do {BitArray.set Flags I} end
+
+    for I in 1..N do
+           for J in Start..Top do
+            if {BitArray.test Flags J} then
+                for K in J+J..Top;J do {BitArray.clear Flags K} end 
+            end
+        end
+    end
+
+   {System.showInfo "Count: "#{BitArray.card Flags}}
+
+   {Application.exit 0}
+end<br>
+  </pre>
+<h2><a name="pascal"></a>Pascal</h2>
+<pre>program Eratosthenes;
+
+const N=1000;
+
+var a:ARRAY[1..N] of boolean;
+    i,j,m:word;
+
+begin
+ for i:=1 TO N do a[i]:=TRUE;
+ m:=trunc(sqrt(N));
+ for i:=2 to m do
+   if a[i] then for j:=2 to N DIV i do a[i*j]:=FALSE;
+ for i:=1 to N do if a[i] then write(i:4);
+end.
+</pre>
+<h2><a name="perl"></a>Perl</h2>
+<pre>Contributed by users:
+
+
+#!/usr/bin/perl
+
+use strict;
+use integer;
+
+my $count = 0;
+my $top = 50;
+my @flags = (0 .. $top);
+
+for my $i (2 .. int(sqrt($top)) + 1)
+{
+       next unless defined $flags[$i];
+       for (my $k=$i+$i; $k <= $top; $k+=$i)
+       {
+           undef $flags[$k];
+       }
+}
+
+print "Here is the list of primes from 1 to $top:\n";
+for my $j ( 1 .. $top)
+{
+       print ("$j ") && $count++ if defined
+$flags[$j];
+}
+print "\n";
+print "Number of primes found: $count\n";</pre>
+<a href="http://www.scriptol.com/programming/sources/sieve-perl.txt" target="_top">Source code</a>
+<h2><a name="php"></a>PHP </h2>
+<pre>
+&lt;?php
+
+/* Sieve Of Erathosthenes by Denis Sureau */
+
+function eratosthenes($n)
+{
+   $all=array();
+   $prime=1;
+   echo 1," ",2;
+   $i=3;
+   while($i<=$n)
+   {
+        if(!in_array($i,$all))
+         {
+            echo " ",$i;
+            $prime+=1;
+            $j=$i;
+            while($j<=($n/$i))
+            {
+               array_push($all,$i*$j);
+               $j+=1;
+            }
+         }
+        $i+=2;
+   }
+   echo "\n";
+   return;
+}
+
+eratosthenes(50);
+?></pre>
+<p><a href="http://www.scriptol.com/programming/sources/sieve-php.txt" target="_top">Source code</a> </p>
+<h2><a name="prolog"></a>Prolog</h2>
+<pre>
+% Sieve of Eratosthene 
+% Le Huitouze and Ridoux translated by DGS
+
+$ erathostenes :- freeze(L,prime(L)),		
+	list_of_ints(2,L).		
+
+$ prime([X|L]) :-
+	write(X), nl, 
+	freeze(L,sieve(X,L,Canal)),	
+  	freeze(Canal,prime(Canal)).	
+
+$ sieve(X,[Nb|L],Canal) :-
+	mod(Nb,X,0), !,			
+	freeze(L,sieve(X,L,Canal)).	
+					
+$ sieve(X,[Nb|L],[Nb|Canal2]) :-	
+	freeze(L,sieve(X,L,Canal2)).	
+
+$ list_of_ints(X,[X|L]) :- 
+	plus(X,1,X1),
+	list_of_ints(X1,L)..
+  </pre>
+<h2><a name="python"></a>Python 3 </h2>
+<pre>def eratosthenes(n):<br>    all = []         <br>    prime = 1  <br>    print(&quot;1, 2,&quot;)<br>    i = 3 <br>    while (i &lt;= n):<br>        if  i not in all:<br>            print(i, &quot;,&quot;)<br>            prime += 1<br>            j = i<br>            while (j &lt;= (n / i)): <br>                all.append(i * j)<br>                j += 1<br>        i += 2                        <br>    print(&quot;\n&quot;)
+<br>eratosthenes(100)</pre>
+<p><a href="http://www.scriptol.com/programming/sources/sieve.py" target="_top">Source code</a></p>
+<p>Contribution by a user, more conformant to the Sieve of Erastosthenes algorithm: </p>
+<pre># Sieve by Baavgai
+  
+def eratosthenes(n):<br>       sieve = [ True for i in range(n+1) ]<br>       def markOff(pv):<br>               for i in range(pv+pv, n+1, pv):<br>                       sieve[i] = False<br>       markOff(2)<br>       for i in range(3, n+1):<br>               if sieve[i]:<br>                       markOff(i)<br>       return [ i for i in range(1, n+1) if sieve[i] ]
+<br>print(eratosthenes(100))</pre>
+<p><a href="sources/sieve2.py" target="_top">Source code</a><br>
+</p>
+<h2><a name="rebol"></a>Rebol </h2>
+<pre>
+ctr: to-integer to-string system/script/args
+ctr: either ctr &lt; 1 [ 1 ] [ ctr ]
+top: 50
+
+while [ ctr &gt; 0 ] 
+[
+    flags: copy []
+    for i 0 top 1 
+    [
+        insert tail flags 1
+    ]
+    flags: head flags
+
+    for i 2 top 1 
+    [
+        p: pick flags i
+        if p = 1 
+        [
+            k: i + i            
+            while [ k &lt;= top ] 
+            [
+                change at flags k 0
+                k: k + i
+            ]
+        ]
+    ]
+    ctr: ctr - 1
+]
+</pre>
+<h2><a name="rexx"></a>Rexx </h2>
+<pre>
+limit = 50
+isPrime. = 1
+do n=2 to limit
+   if isPrime.n then
+   call anotherPrime n
+end
+exit 0
+
+anotherPrime 
+  arg prime    
+  say right( prime, length( limit ) )
+  do multiple=prime by prime to limit
+     isPrime.multiple = 0            
+  end
+return
+
+</pre>
+<h2><a name="ruby"></a>Ruby </h2>
+<pre># sieve of Eratosthenes from the ruby distro
+top = Integer(ARGV.shift || 100)
+sieve = []
+for i in 2 .. top
+  sieve[i] = i
+end
+
+for i in 2 .. Math.sqrt(top)
+  next unless sieve[i]
+  (i*i).step(top, i) do |j|
+    sieve[j] = nil
+  end
+end
+puts sieve.compact.join " "</pre>
+<h2><a name="scala"></a>Scala </h2>
+<pre>
+object Sieve 
+ {
+  def ints(n: Int): Stream[Int] =
+    Stream.cons(n, ints(n+1))
+
+  def primes(nums: Stream[Int]): Stream[Int] =
+    Stream.cons(nums.head, primes ((nums tail) filter (x => x % nums.head != 0)) )
+
+  def main(args: Array[String]): Unit = 
+  {
+    val n = Integer.parseInt(args(0))
+    System.out.println(primes(ints(2)) take n toList)
+  }
+ }  </pre>
+<h2><a name="scheme"></a>Scheme</h2>
+<pre>(define (sieve-of-eratosthenes n)
+  (let ((table (make-bit-string (- n 2) #t)))
+    (define (prime? k) (bit-string-ref table (- k 2)))
+    (define (not-prime! k) (bit-string-clear! table (- k 2)))
+    (loop ((for k (in-range (from 2) (up-to n))))
+      (if (prime? k)
+          (loop ((for i (in-range (from (* 2 k)) (up-to n) (by k))))
+            (not-prime! i))))
+    (collect-list (for k (in-range (from 2) (up-to n)))
+        (if (prime? k))
+      k))) 
+</pre>
+<h2> <a name="scriptol"></a>Scriptol </h2>
+<pre>// Sieve of Eratosthenes
+// by Scriptol
+
+
+constant int n=50
+array a = {0}
+for int i in 1..n let a[i] = 1
+
+int m = int(sqrt(n))
+ 
+for int i in 2..m 
+   if a[i]
+      for int j in 2.. n step 2 
+         a[i * j] = false
+      /for  
+   /if
+/for
+
+
+for int i in 1..n
+    if a[i] print i
+/for</pre>
+<p><a href="http://www.scriptol.com/programming/sources/sieve.sol" target="_top">Source code</a> </p>
+<h2><a name="smalltalk"></a>Smalltalk </h2>
+<pre>
+" Sieve of Erastosthenes in Smalltalk by Rob Hoelz
+
+Object subclass: #Sieve
+    instanceVariableNames: 'primes'
+    classVariableNames: ''
+    poolDictionaries: ''
+    category: nil.
+
+!Sieve class methodsFor: 'instance creation'!
+
+new: limit
+    |r|
+
+    r := super new.
+    r init: limit.
+    ^r
+! !
+
+!Sieve methodsFor: 'instance initialization'!
+init: limit
+    primes := Array new: limit.
+    primes at: 1 put: 0.
+    2 to: limit do: [:x| primes at: x put: 1]
+! !
+
+!Sieve methodsFor: 'prime generation'!
+generate
+    |currPrime|
+
+    currPrime := 2.
+    [((currPrime * currPrime) <= (primes size))]
+        whileTrue: [self removeMultiples: currPrime. currPrime := self nextPrime: currPrime]
+! !
+
+!Sieve methodsFor: 'printing'!
+printPrimes
+    |index|
+
+    index := 1.
+    primes do: [:x| (x = 1) ifTrue:
+            [Transcript show:(index displayString).Transcript show: ' ']. index := index + 1].
+    Transcript cr
+! !
+
+!Sieve methodsFor: 'private'!
+removeMultiples: currPrime
+    |index|
+
+    index := currPrime * 2.
+    [(index <= (primes size))] whileTrue: [primes at: index put: 0. index := index + currPrime]
+!
+nextPrime: currPrime
+    |index|
+
+    index := currPrime + 1.
+    [(index <= (primes size))] whileTrue: [(1 = (primes at: index)) ifTrue: [^index]. index := index + 1].
+    ^(primes size)
+! !
+
+|argv limit s|
+argv := Smalltalk arguments.
+limit := (argv at: 1) asInteger.
+s := Sieve new: limit.
+s generate.
+s printPrimes.
+</pre>
+<br>
+<h2><a name="tcl"></a>Tcl </h2>
+<pre>
+# By Sam Shen
+set n 50
+narray create sieve $n
+sieve status
+sieve map {
+    if ![] 
+    {
+        inc = @0 + 2;
+        for (i = @0 + inc; i < @#0; i += inc) 
+        {
+            [i] = 1;
+        }
+    }
+}
+sieve map 
+{
+    if ![] 
+    {
+        printf("%4d ", @0 + 2);
+    }
+    post { printf("\n"); }
+}
+
+</pre>
+<p> See also:</p>
+<ul class="la">
+  <li><a href="http://www.scriptol.com/programming/hello-world.php" target="_top">Hello 
+    world programs in any programming languages</a></li>
+  <li><a href="http://www.scriptol.com/programming/history.php" target="_top">History and evolution or computer 
+    languages</a> </li>
+</ul>
+<div class="legal">
+<em>Licence: (c) 2007-2013 Scriptol.com. Use 
+  printed copies of this page freely on paper, do not duplicate it on the Web, add a link instead.<br> 
+  Programs on this page are public domain, or written by myself or contributed by users.</em></div>
+
+
+<fieldset>
+<legend>Algorithms</legend>
+  <a href="algorithm-definition.php" target="_top">Definition of algorithm</a> -    <a href="algorithms-classification.php" target="_top">Classification</a> - <a href="algorithm-history.php" target="_top">History of algorithmics</a> -  <a href="list-algorithms.php" target="_top">List of algorithms</a> - <a href="sieve.php">Sieve of Eratosthenes</a> - <a href="fibonacci.php">Fibonacci numbers</a> 
+ </fieldset>
+
+<div class="container">
+<table class="social">
+<tr>
+ <td>
+<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+ </td>
+ <td>
+<g:plusone count="false"></g:plusone>
+<script type="text/javascript">
+  (function() {
+	var po = document.createElement('script'); po.type = 'text/javascript'; 
+	po.async = true;
+	po.src = 'https://apis.google.com/js/plusone.js';
+	var s = document.getElementsByTagName('script')[0]; 
+	s.parentNode.insertBefore(po, s);
+  })();
+</script>
+ </td>
+
+ <td>
+<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.scriptol.com%2Fprogramming%2Fsieve.php&amp;send=false&amp;layout=button_count&amp;width=54&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true"></iframe>
+ </td>
+ 
+<td>
+<script src="http://platform.linkedin.com/in.js" type="text/javascript"></script>
+<script type="IN/Share"></script>
+</td> 
+ 
+</tr>
+</table>
+</div>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+var disqus_shortname = 'scriptol';
+(function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+
+<div id="footer"> &copy; 2007-2013  <a href="http://www.scriptol.com/programming/" target="_top" >Scriptol.com</a></div>
+    
+</div>
+
+<div id="sea">
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-6574971-2");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</div>
+<script type="text/javascript" src="http://apis.google.com/js/plusone.js"></script>
+</body>
+</html>
+
